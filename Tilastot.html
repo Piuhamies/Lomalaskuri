@@ -17,18 +17,35 @@
         <title>Milloin koulu loppuu?</title>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 				<script>
-		console.log(Cookies.get('dark'));
-		$(document).ready(function () { 
+				$( ".cookie" ).ready(function() {
+				if(Cookies.get('NotEverAgain') == 'true') {
+			$(".cookie").remove()
+			console.log('supposedly did ths');
+		}
+		});
+		function button() {
+			$(".cookie").fadeOut()
+			if(document.getElementById("NotEverAgain").checked == true) {
+				Cookies.set('NotEverAgain', 'true');
+			}
+				
+		}
 		if(Cookies.get('dark') == 'true') {
 					$("<link/>", {
 			rel: "stylesheet",
 			type: "text/css",
 			href: "dark.css"
 			}).appendTo("head");
+		$( "#dynaaminenNappi" ).ready(function() {
 			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
 			
 		}
-		})
+		else {
+		$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
+		}
 		function darkFunction() {
 		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
 			$("<link/>", {
@@ -62,6 +79,7 @@
 <!-- <a href="Kuvat.html">Kuvat</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
 
 </div>
 <div id="tilastot">
@@ -75,8 +93,28 @@
 <h2> Onko koulussa hometta?</h2>
 <p class="positiveResult"> On</p>
 </div>
+ <div class="cookie">
+
+      <p> Tämä nettisivu käyttää evästeitä</p>
+		<button onclick="button()">Ok</button>
+		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain">Muista valintani</input>
+
+  </div>
 </body>
 	<style>
+.cookie {
+	transition: 0.5s;
+	animation: fadein 0.5s;
+	color:white;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	position: sticky;
+	bottom: 30px;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 @media (max-width:960px) {  
                   .ajat {
   font-size:9vw;

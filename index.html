@@ -17,18 +17,39 @@
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
 		<script>
-		console.log(Cookies.get('dark'));
-		$(document).ready(function () { 
+		function button() {
+			$(".cookie").fadeOut()
+			if(document.getElementById("NotEverAgain").checked == true) {
+				Cookies.set('NotEverAgain', 'true');
+				console.log(Cookies.get('NotEverAgain'));
+			}
+			else {
+				Cookies.set('NotEverAgain', 'false');
+			}
+				
+		}
+		$( ".cookie" ).ready(function() {
+				if(Cookies.get('NotEverAgain') == 'true') {
+			$(".cookie").remove()
+			console.log('supposedly did ths');
+		}
+		});
 		if(Cookies.get('dark') == 'true') {
 					$("<link/>", {
 			rel: "stylesheet",
 			type: "text/css",
 			href: "dark.css"
 			}).appendTo("head");
+		$( "#dynaaminenNappi" ).ready(function() {
 			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
 			
 		}
-		})
+		else {
+		$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
+		}
 		function darkFunction() {
 		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
 			$("<link/>", {
@@ -145,7 +166,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 <!-- <a href="Kuvat.html">Kuvat</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
-<a id="dynaaminenNappi" onclick="darkFunction()">Vaihda yötilaan</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
 </div>
 <div id="show">
 <p>näytä:</p>
@@ -156,8 +177,6 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 	<input type="checkbox" id="milliseconds">millisekuntit</input>
 </div>
 </div>
-
-  <footer class="footer"></footer>
 <h2 class="alaotsikot"> Aikaa kesälomaan:</h2>
     <div class="ajat">
 <p id="days0"></p>
@@ -202,10 +221,30 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 <p id="seconds3"></p>
 <p class="noShake" id="milliseconds3"></p>
 </div>
+ <div class="cookie">
+
+      <p> Tämä nettisivu käyttää evästeitä</p>
+		<button onclick="button()">Ok</button>
+		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain">Muista valintani</input>
+
+  </div>
 
 
 </body>
 	<style>
+.cookie {
+	transition: 0.5s;
+	animation: fadein 0.5s;
+	color:white;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	position: sticky;
+	bottom: 30px;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
 @media (max-width:960px) {  
                   .ajat {

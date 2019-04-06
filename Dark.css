@@ -1,6 +1,12 @@
 	 html {
 	background:url("darkmono.JPG") no-repeat center center fixed !important;
 	  }
+	  h1  {
+		  color: white !important;
+	  }
+	   h2  {
+		  color: white !important;
+	  }
 	 #show {
 		 color: white;
 	 }

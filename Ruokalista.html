@@ -51,6 +51,54 @@
 <!-- <a href="Kuvat.html">Kuvat</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<script>
+				$( ".cookie" ).ready(function() {
+				if(Cookies.get('NotEverAgain') == 'true') {
+			$(".cookie").remove()
+			console.log('supposedly did ths');
+		}
+		});
+		function button() {
+			$(".cookie").fadeOut()
+			if(document.getElementById("NotEverAgain").checked == true) {
+				Cookies.set('NotEverAgain', 'true');
+			}
+				
+		}
+		if(Cookies.get('dark') == 'true') {
+					$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+		$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
+			
+		}
+		else {
+		$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
+		}
+		function darkFunction() {
+		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
+			$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			Cookies.set('dark', 'true');
+		}
+		else {
+			$('link[href="dark.css"]').remove();
+			$("#dynaaminenNappi").html("Vaihda yötilaan");
+			Cookies.set('dark', 'false');
+		}
+}
+		</script>
 </div>
 <div id="pdf"></div>
 <iframe src="http://ruokalistat.espoocatering.fi/#/2856c0d5-d3f7-e511-bc65-60eb696ec4bb">
@@ -58,8 +106,28 @@
 <div class="kysely">
 
 </div>
+ <div class="cookie">
+
+      <p> Tämä nettisivu käyttää evästeitä</p>
+		<button onclick="button()">Ok</button>
+		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain">Muista valintani</input>
+
+  </div>
 </body>
 	<style>
+.cookie {
+	transition: 0.5s;
+	animation: fadein 0.5s;
+	color:white;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	position: sticky;
+	bottom: 30px;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 #ruoka {
 	margin-top: 0;
 	margin-bottom: 0;

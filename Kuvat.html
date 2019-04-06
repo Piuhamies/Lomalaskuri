@@ -11,13 +11,22 @@
         <meta name="description" content="Official Lomalaskuri">
         <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<script>
-			$( ".cookie" ).ready(function() {
+			function closeFunc() {
+				$(".modal").hide();
+			}
+			function image(click_id) {
+				$(".modal").show();
+				$(".modal-content img").attr('src', $('#' + click_id).attr('src')) ;
+			}			
+		</script>
+		<script>
+				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
 			$(".cookie").remove()
 			console.log('supposedly did ths');
@@ -70,35 +79,34 @@
   });
 </script>
     </head>
-	<script>
-	var image = document.getElementsByClassName("pictures");
-
-	image.style.cursor = 'pointer';
-	image.onclick = function() {
-		console.log('hi');
-		
-};
-	</script>
 	
     <body>
 	<h1 id="logo">Nöykkiön lomalaskuri</h1>
 <div id="menu">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
-<a href="Ruokalista.html">Ruokalista</a>
-<a href="Kuvat.html">Kuvat</a>
+<!-- <a href="Ruokalista.html">Ruokalista</a> -->
+<a href="Kuvat.html">Galleria</a>
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 </div>
-<div class="grid-container">
-  <div class="item1"><img class="pictures" id="picture4"src="kuvat/IMG_20190322_123304.jpg"/>
+
+	<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span onclick="closeFunc()" class="close">&times;</span>
+    <img id="image" src=""/>
+  </div>
+
 </div>
-  <div class="item2"><img class="pictures" id="picture1"src="kuvat/DSC_0042.JPG"/></div>
-  <div class="item3"><img class="pictures" id="picture2"src="kuvat/DSC_0045.JPG"/></div>  
-  <div class="item4"><img class="pictures" id="picture3"src="kuvat/DSC_0050.JPG"/></div>
-  <div class="item5"><img class="pictures" id="picture5"src="kuvat/IMG_20190322_123354.jpg"/></div>
-  <div class="item6"><img class="pictures" id="picture6"src="kuvat/IMG_20190322_123413.jpg"/></div>
+<div class="grid-container">
+  <div class="item1"><img onclick="image(this.id)" class="pictures" id="picture1" src="kuvat/IMG_20190322_123304.jpg"/></div>
+  <div class="item2"><img onclick="image(this.id)" class="pictures" id="picture2" src="kuvat/DSC_0042.JPG"/></div>
+  <div class="item3"><img onclick="image(this.id)" class="pictures" id="picture3" src="kuvat/DSC_0045.JPG"/></div>  
+  <div class="bottom"><img onclick="image(this.id)" class="pictures" id="picture4" src="kuvat/DSC_0050.JPG"/></div>
+  <div class="bottom"><img onclick="image(this.id)" class="pictures" id="picture5" src="kuvat/IMG_20190322_123354.jpg"/></div>
+  <div class="bottom1"><img onclick="image(this.id)" class="pictures" id="picture6"src="kuvat/IMG_20190322_123413.jpg"/></div>
 </div>
  <div class="cookie">
 
@@ -110,6 +118,70 @@
 </body>
 
 	<style>
+	#image {
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    overflow: auto;
+	}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100vw; 
+  height: 100vh; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.close {
+	background-color: white;
+	float: right;
+	margin-right: 0;
+	font-size: 2em;
+}
+.close:hover {
+	cursor: pointer;
+	background-color: #d8d8d8;
+	color: red;
+}
+.modal-content {
+  margin: auto;
+  width: 80%;
+}
+	.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.item1 {
+  grid-row: 1 / span 3;
+}
+#picture1 {
+    max-width: 100%;
+    height: auto;
+}
+.pictures:hover {
+	filter: blur(2px);
+}
+.pictures {
+    max-width: 100%;
+    height: auto;;
+}
+.bottom {
+  grid-row: 2;
+}
+.bottom1 {
+  grid-row: 3;
+}
 .cookie {
 	transition: 0.5s;
 	animation: fadein 0.5s;

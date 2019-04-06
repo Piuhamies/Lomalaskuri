@@ -1,0 +1,18 @@
+	 html {
+	background:url("darkmono.JPG") no-repeat center center fixed !important;
+	  }
+	 #show {
+		 color: white;
+	 }
+	 #logo, #salainen {
+		 color: white !important;
+	 }
+	 #menu {
+		  background-color: #272727 !important;
+		 border-color: black !important;
+	 }
+	 #menu > a {
+		 background-color: #272727 !important;
+		    color: white !important;
+			border-color: black !important;
+	 }

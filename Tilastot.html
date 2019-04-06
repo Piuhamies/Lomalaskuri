@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fi">
+    
+
+    <head>
+<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <meta charset="UTF-8">
+        <meta name="description" content="Official Lomalaskuri">
+        <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <title>Milloin koulu loppuu?</title>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<script>
+		console.log(Cookies.get('dark'));
+		$(document).ready(function () { 
+		if(Cookies.get('dark') == 'true') {
+					$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			
+		}
+		})
+		function darkFunction() {
+		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
+			$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			Cookies.set('dark', 'true');
+		}
+		else {
+			$('link[href="dark.css"]').remove();
+			$("#dynaaminenNappi").html("Vaihda yötilaan");
+			Cookies.set('dark', 'false');
+		}
+}
+		</script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4198588744637446",
+    enable_page_level_ads: true
+  });
+</script>
+    </head>
+    <body>
+	<h1 id="logo">Espoon lomalaskuri</h1>
+<div id="menu">
+<a href="index.html">Laskuri</a>
+<a href="Kysely.html">Kysely</a>
+<!--<a href="Ruokalista.html">Ruokalista</a> -->
+<!-- <a href="Kuvat.html">Kuvat</a> -->
+<a href="Tilastot.html">Tilastot</a>
+<a href="kommentit.html">Palaute</a>
+
+</div>
+<div id="tilastot">
+<h1>Nöykkiön koulun tilastoja</h1>
+<h2> Onko nöykkiön koulu korjattu?</h2>
+<p class="result"> EI</p>
+<h2> Onko kahvikone saapunut? </h2>
+<p class="result"> EI</p>
+<h2> Onko auditorio valmistunut</h2>
+<p class="positiveResult"> On</p>
+<h2> Onko koulussa hometta?</h2>
+<p class="positiveResult"> On</p>
+</div>
+</body>
+	<style>
+@media (max-width:960px) {  
+                  .ajat {
+  font-size:9vw;
+  font-family: "Oswald";
+  display: flex;
+  justify-content: center;
+  }
+  .noShake {
+  width:3em;
+}
+.ajat > p {
+margin:2%;
+}
+  #logo{font-family:"Margarine";
+display: flex;
+margin: 0;
+justify-content: center;
+font-size:10vw;
+  }
+  #menu {
+    border-top-style: solid;
+    border-width: 5px;
+    display: flex;
+    margin: 0;
+  justify-content: center;
+  align-content: center;
+    flex-direction: column;
+  }
+  #menu > a {
+    
+  background-color: #c0cee5;
+  border-bottom-style: solid;
+  border-width: 5px;
+    display: flex;
+    justify-content: center;
+   text-decoration: none;
+   color: black;
+  margin:0;
+  font-size: 20px;
+  font-family: oswald;
+}
+}
+#tilastot {
+	text-align: center;
+	display: flex;
+	align-content: center;
+	justify-content: center; 
+	flex-direction: column;
+	font-family: oswald;
+	}
+.result {
+	font-size: 3em;
+	color: red;
+}
+.positiveResult {
+	font-size: 3em;
+	color: green;
+}
+html{ background:url("monoliittizoom.jpg") no-repeat center center fixed;
+	  }
+#salainen {
+color: black;
+text-decoration: none; 
+cursor: text;
+}
+
+.alaotsikot {
+	font-family: oswald;
+        display: flex;
+        justify-content: center;
+        font-size:4vw;
+        margin-top: 0;
+}
+#menu > a:hover{
+color: blue;
+}
+@media (min-width:960px) { 
+  #logo{font-family:"Margarine";
+display: flex;
+margin-top: 0;
+justify-content: center;
+font-size:8vw;
+}
+#menu {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+#menu > a {
+   text-decoration: none;
+   color: black;
+  margin-left:1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-family: oswald;
+}
+#logo{font-family:"Margarine";
+display: flex;
+margin-top: 0;
+margin-bottom: 0;
+justify-content: center;
+font-size:8vw;
+}
+
+
+                .ajat {
+  font-size:6em;
+  font-family: "Oswald";
+  display: flex;
+  justify-content: center;
+  }
+  .noShake {
+  width:3em;
+}
+.ajat > p {
+margin:2%;
+}
+}
+	
+   
+	</style>
+</html>

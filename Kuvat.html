@@ -20,6 +20,7 @@
 		$("#loading").show();
 		$(document).ready( function() {
 		    $("#loading").remove();
+			$(".pictures").show();
 			$(".grid-container").css("display", "grid");
 			console.log("images have lodaded");
 		});
@@ -179,6 +180,7 @@
 	filter: blur(2px);
 }
 .pictures {
+    display: none;
     max-width: 100%;
     height: auto;;
 }

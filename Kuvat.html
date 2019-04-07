@@ -28,7 +28,8 @@
 		<script>
 				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
-			$(".cookie").remove();
+			$(".cookie").remove()
+			console.log('supposedly did ths');
 		}
 		});
 		function button() {
@@ -162,7 +163,7 @@
 }
 
 .item1 {
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
 }
 #picture1 {
     max-width: 100%;

@@ -1,0 +1,240 @@
+	
+	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
+	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+	
+#image {
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    overflow: auto;
+	}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100vw; 
+  height: 100vh; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.close {
+	background-color: white;
+	float: right;
+	margin-right: 0;
+	font-size: 2em;
+}
+.close:hover {
+	cursor: pointer;
+	background-color: #d8d8d8;
+	color: red;
+}
+.modal-content {
+  margin: auto;
+  width: 80%;
+}
+	.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.item1 {
+  grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
+}
+#picture1 {
+    max-width: 100%;
+    height: auto;
+}
+.pictures:hover {
+	filter: blur(2px);
+}
+.pictures {
+    max-width: 100%;
+    height: auto;;
+}
+.bottom {
+  grid-row: 2;
+}
+.bottom1 {
+  grid-row: 3;
+}
+.cookie {
+	transition: 0.5s;
+	animation: fadein 0.5s;
+	color:white;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	position: sticky;
+	bottom: 30px;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media (max-width:960px) {  
+                  .ajat {
+  font-size:9vw;
+  font-family: "Oswald";
+  display: flex;
+  justify-content: center;
+  }
+  
+  .noShake {
+  width:3em;
+}
+
+.ajat > p {
+margin:2%;
+}
+  #logo{font-family:"Margarine";
+display: flex;
+color: white; /*Tästä voit vaihtaa logon väriä puhelimella */
+margin: 0;
+justify-content: center;
+font-size:10vw;
+  }
+  
+  #menu {
+    border-top-style: solid;
+    border-width: 5px;
+	border-color: #000000 ; /* Tästä voit vaihtaa yläreunan väriä puhelimella, MUISTA vaihtaa myös alemmasta reunaväristä */
+    display: flex;
+    margin: 0;
+  justify-content: center;
+  align-content: center;
+    flex-direction: column;
+  }
+  
+  #menu > a {
+    
+  background-color: #c0cee5; /* tästä voit vaihtaa menun väriä, puhelimella */
+  border-bottom-style: solid;
+  border-width: 5px;
+  border-color: #000000; /* Tästä reunojen väriä puhelimella, MUISTA vaihtaa tämä myös ylemmästä reunaväristä */
+    display: flex;
+    justify-content: center;
+   text-decoration: none;
+   color: black; /* Tästä menun tekstien värejä, puhelimella */
+  margin:0;
+  font-size: 20px;
+  font-family: oswald;
+}
+}
+#tilastot {
+	text-align: center;
+	display: flex;
+	align-content: center;
+	justify-content: center; 
+	flex-direction: column;
+	font-family: oswald;
+	}
+.result {
+	font-size: 3em;
+	color: red; /* Tilastojen negatiivisen vastauksen väri */
+}
+.positiveResult {
+	font-size: 3em;
+	color: green; /* Positiivisen vastauksen väri */
+}
+.kysely {
+	display: flex;
+	justify-content: center;
+}
+#cookie {
+	position: sticky;
+	bottom:0;
+}
+#show {
+	text-align: center;
+	font-family: oswald;
+}
+#checkboxes {
+	display: flex;
+	justify-content: center;
+	align-content: space-between;
+	flex-wrap: wrap;
+}
+.alaotsikot {
+  color: white;
+  text-shadow: black 3px 3px 2px;
+}
+
+.ajat > p {
+  text-shadow: black 3px 3px 2px;
+  color: white
+}
+.ajat {
+  background-color: rgba(0,0,0, 0.3);
+}
+html{ 
+	background:url("paiva.jpg") no-repeat center center fixed;
+	  }
+	  
+.alaotsikot {
+	font-family: oswald;
+        display: flex;
+        justify-content: center;
+        font-size:4vw;
+        margin-top: 0;
+}
+#menu > a:hover{
+color: blue;
+}
+@media (min-width:960px) { 
+  #logo{font-family:"Margarine";
+display: flex;
+margin-top: 0;
+justify-content: center;
+font-size:8vw;
+}
+#menu {
+  display: flex;
+  justify-content: center;
+  background-color: white; /* Täältä voit vaihtaa menun taustaväriä tietokoneella */
+}
+#menu > a {
+   text-decoration: none;
+   color: black; /* Tästä voit vaihtaa menun tekstien väriä tietokoneella */
+  margin-left:1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-family: oswald;
+}
+#logo{font-family:"Margarine";
+display: flex;
+color:  #000000; /* Tästä voit vaihtaa logon väriä tietokoneella */
+margin-top: 0;
+margin-bottom: 0;
+justify-content: center;
+font-size:8vw;
+}
+
+  .ajat {
+  font-size:6em;
+  font-family: "Oswald";
+  display: flex;
+  justify-content: center;
+  }
+  .noShake {
+  width:3em;
+}
+.ajat > p {
+margin:2%;
+#dynaaminenNappi {
+	cursor: pointer;
+}
+}
+}
+	

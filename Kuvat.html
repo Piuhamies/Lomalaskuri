@@ -17,13 +17,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
 		<script>
-		$("#loading").show();
-		$(document).ready( function() {
-		    $("#loading").remove();
-			$(".pictures").show();
-			$(".grid-container").css("display", "grid");
-			console.log("images have lodaded");
-		});
 			function closeFunc() {
 				$(".modal").hide();
 			}
@@ -35,7 +28,7 @@
 		<script>
 				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
-			$(".cookie").remove()
+			$(".cookie").remove();
 		}
 		});
 		function button() {
@@ -106,7 +99,6 @@
   </div>
 
 </div>
-<img id="loading" src="loading.gif"/>
 <div class="grid-container">
   <div class="item1"><img onclick="image(this.id)" class="pictures" id="picture1" src="kuvat/IMG_20190322_123304.jpg"/></div>
   <div class="item2"><img onclick="image(this.id)" class="pictures" id="picture2" src="kuvat/DSC_0042.JPG"/></div>
@@ -164,7 +156,7 @@
   width: 80%;
 }
 	.grid-container {
-  display: none;
+  display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   background-color: rgba(0,0,0,0.5)
 }
@@ -180,7 +172,6 @@
 	filter: blur(2px);
 }
 .pictures {
-    display: none;
     max-width: 100%;
     height: auto;;
 }

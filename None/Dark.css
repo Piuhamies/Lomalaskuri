@@ -4,6 +4,9 @@
 	  h1  {
 		  color: white !important;
 	  }
+	  .modal-content > h1 {
+		 color: black !important;
+}
 	   h2  {
 		  color: white !important;
 	  }

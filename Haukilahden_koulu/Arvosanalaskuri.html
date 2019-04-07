@@ -1,0 +1,530 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+
+<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+		<script>
+		console.log(Cookies.get('dark'));
+		$(document).ready(function () { 
+		if(Cookies.get('dark') == 'true') {
+					$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			
+		}
+		})
+		function darkFunction() {
+		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
+			$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			Cookies.set('dark', 'true');
+		}
+		else {
+			$('link[href="dark.css"]').remove();
+			$("#dynaaminenNappi").html("Vaihda yötilaan");
+			Cookies.set('dark', 'false');
+		}
+}
+		</script>
+
+<title>Yleinen</title>
+
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">				 
+
+//globaali muuttuja, jonka avulla lisätään oppilastietotaulukko
+var onOppilasTietoja = false;		   
+
+function maxiOk(maxi)
+{ 
+    /* Ensin tarkistetaan, onko kenttään kirjoitettu kokonais- tai desimaalilukuja.
+    * Säännänmukainen lauseke /^\d+([\.\,]\d+)?$/ merkitsee, että merkkijonon
+    * täytyy alkaa numerolla ja siinä voi olla täsmälleen yksi desimaalierotin
+    * (joko pilkku tai piste), jota
+    * seuraa vähintään yksi numero.
+    */
+    if (!maxi.match(/^\d+([\.\,]\d+)?$/))
+    {
+        alert("Maksimikentän arvo puuttuu tai siinä on jokin virhe. Tarkista ja korjaa!");
+        document.forms[1].maxikentta.focus();//asettaa virhekentän aktiiviseksi
+        document.forms[1].maxikentta.select();//asettaa virhekentän tekstin valituksi
+                    return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function lapiOk(lapi)
+{ 
+    /* Ensin tarkistetaan, onko kenttään kirjoitettu kokonais- tai desimaalilukuja.
+    * Säännänmukainen lauseke /^\d+([\.\,]\d+)?$/ merkitsee, että merkkijonon
+    * täytyy alkaa numerolla ja siinä voi olla desimaalierotin (joko pilkku tai piste), jonka
+    * seuraa vähintään yksi numero.
+    */
+     if (!lapi.match(/^\d+([\.\,]\d+)?$/))
+     {
+        alert("Läpi-kentän arvo puuttuu tai siinä on jokin virhe. Tarkista ja korjaa!");
+        document.forms[1].lapikentta.focus();//asettaa virhekentän aktiiviseksi
+        document.forms[1].lapikentta.select();	//asettaa virhekentän tekstin valituksi
+        return false;
+     }
+     else
+     {
+        return true;
+
+     }
+}
+function pisteetOk(pisteet)
+{ 
+    /* Ensin tarkistetaan, onko kenttään kirjoitettu kokonais- tai desimaalilukuja.
+    * Säännänmukainen lauseke /^\d+([\.\,]\d+)?$/ merkitsee, että merkkijonon
+    * täytyy alkaa numerolla ja siinä voi olla desimaalierotin (joko pilkku tai piste), jonka
+    * seuraa vähintään yksi numero, ja merkkijonon täytyy myäs loppua numeroon
+    */
+    if (!pisteet.match(/^\d+([\.\,]\d+)?$/))
+    {
+        alert("Pisteet-kentän arvo puuttuu tai siinä on jokin virhe. Tarkista ja korjaa!");
+        document.forms[1].pisteetkentta.focus();//asettaa virhekentän aktiiviseksi
+        document.forms[1].pisteetkentta.select();//asettaa virhekentän tekstin valituksi
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function korvaaPilkkuPisteellä(mjono)
+{
+    var korjattu;
+    korjattu = mjono.replace(/\,/,".");
+    return korjattu;
+}
+function korvaaMerkki(mjono)	//miks herjaa, ettei mjono.replace ole funktio? (firebug)
+{
+    var korjattu;
+    korjattu = mjono.replace(/\./,",");
+    return korjattu;
+}
+function pyoristys(desimLkm, dluku)
+{
+    var kertoja, apuluku, tulos;
+    /*if (!desimLkm.match(/^\d+$/)) || !dluku.match(/^\d+(\.\d+)?$/))
+    MIKä VAIVAA??? EI SIKäLI TääLLä TARKISTUSTA TARVITTAISI, MUTTA YLEENSä KYLLä!
+    //if (!dluku.match(/^\d+([\.\,]\d+)?$/))
+    {
+    alert("Virhe pyäristettävässä luvussa!");
+                return -1;
+    }
+    else
+    {*/
+    kertoja = Math.pow(10,desimLkm);
+    apuluku = dluku*kertoja;
+    tulos = Math.round(apuluku)/kertoja;
+    return tulos;
+    //}
+}
+
+/* Tulostaa listan pisterajoista ja vastaavista arvosanoista */
+function tulostaArvosanat(maksimi, lapipros, saadutPisteet)
+{
+     var tiedot = "<div class='keskitys'><table "+
+        "align = 'center' summary='arvosanat' cellspacing ='0' class='arvosanataulukko'"+
+        "border='1'><tr><th>"+
+        "Pisteraja</th><th>Arvosana</th></tr>";
+     var pisteet = 0;
+     var pyorPisteet = 0; //pisteet pyäristettynä ja pilkku korvattu pisteellä
+     var arvosanaTarkka = 0;
+     var arvosana = 0;
+     var lapipisteet = lapipros/100*maksimi;
+     var arvosanaLoytyi = false; // Tämä viittaa saatuun arvosanaan.
+
+     var class_maare = "arvosanarivi";
+
+    //lasketaan ja tulostetaan pisterajat ylhäältä alaspäin:
+    for (i = 21; i > -4; i--)
+    {
+        pisteet = lapipisteet + (i)*((maksimi-lapipisteet)/22);
+        pyorPisteet = (pyoristys(2,pisteet));
+
+        //pyorPisteet = korvaaMerkki(pyorPisteet);
+        arvosanaTarkka = 4.75 + i*0.25;
+        arvosana = laskeArvosana(arvosanaTarkka);
+
+        // Varmistetaan, että nollallakin pisteellä saa nelosen:
+        if(arvosanaTarkka < 4.25){
+            pyorPisteet = 0;
+        }
+
+        if((saadutPisteet != "") && 
+            (saadutPisteet >= pyorPisteet) && (arvosanaLoytyi == false)){
+            arvosanaLoytyi = true;
+            saadutPisteet = "";     // jatkossa ei tulla tähän if-lauseeseen.
+        }
+        else{
+            arvosanaLoytyi = false;
+        }
+
+        // Kirjoitetaan tulos niin, että hylätyt tulevat hiukan eri tavalla.
+        class_maare = "arvosanarivi";
+        if(arvosanaLoytyi){
+            class_maare = "arvosanarivi_osuma";
+        }
+
+        if(arvosanaTarkka < 4.75)
+        {
+            tiedot+= "<tr class='"+class_maare+"'><td><span style='color:red;'>"+
+                 pyorPisteet+"</span></td><td>"+
+                 "<span style='color:red;'>"+
+                 arvosana+"</span></td></tr>";
+        }
+        else
+        {
+            tiedot+= "<tr class='"+class_maare+"'><td>"+
+            pyorPisteet+"</td><td>"+
+            arvosana+"</td></tr>";
+        }
+     }
+     tiedot += "</table></div>";
+
+     document.getElementById("pisterajat").innerHTML = tiedot;
+}
+function laskeArvosana(tarkkaArvosana)
+{
+    var arvosana = 0;
+    var lattia = Math.floor(tarkkaArvosana);
+    var desiosa = tarkkaArvosana - lattia;
+	 
+    if(desiosa < 0.25) { arvosana = lattia}
+    else if(desiosa < 0.50) { arvosana = lattia+"+";}
+    else if(desiosa < 0.75) { arvosana = lattia+"&frac12";}
+    else { arvosana = lattia+1+"-";}
+	 
+    //karsitaan vielä alle neloset ja yli kympit pois:
+    if(tarkkaArvosana >= 10.25) { arvosana = "10";}
+    if(tarkkaArvosana < 4) { arvosana = "4";}
+    //palautetaan arvosana
+    return arvosana;
+}
+//leikataan merkkijonon lopusta lkm:n verran merkkejä. Palauttaa lyhennetyn merkkijonon (alun)
+function leikataanLoppu(sana, lkm)
+{
+    var leikattu;
+    var vika = sana.length-lkm;
+    leikattu = sana.slice(0,vika);
+    return leikattu;
+}
+
+//pääohjelma:
+function tarkistaJaLaske()
+{
+    var maxi = document.forms[1].maxikentta.value;
+    var lapi = document.forms[1].lapikentta.value;
+    var pisteet = document.forms[1].pisteetkentta.value;
+    var arvosanaTarkka = 0;
+    var arvosana = "";
+    var desiosa = 0;	//arvosanatarkan desimaaliosa
+    var lattia = 0;
+    var testi = "kuorma-auto";
+
+    var pisteetKunnossa = false;
+
+    //Kutsutaan tarkistusfunktiot:
+    if (maxiOk(maxi) && lapiOk(lapi)) //pisteetOk(pisteet)
+    {
+        //korjataan pilkku pisteeksi:
+        maxi = korvaaPilkkuPisteellä(maxi);
+        lapi = korvaaPilkkuPisteellä(lapi);
+
+        if(pisteet != ""){
+            if (pisteetOk(pisteet))
+            {
+                pisteet = korvaaPilkkuPisteellä(pisteet);
+                pisteetKunnossa = true;
+            }
+        }
+
+        //tarkistetaan vielä lukujen järkevyys: 
+        if(lapi > 100){
+            alert("Virhe: läpipääsyprosentti ei ole järjevä! Korjaa luku.");
+            //miinusta luvun eteen ei hyväksytä muutenkaan
+            document.forms[1].lapikentta.focus();
+            //asettaa virhekentän aktiiviseksi
+            document.forms[1].lapikentta.select();
+             //asettaa virhekentän tekstin valituksi
+        }
+        
+        else if(pisteet > 1.1*maxi*1){ //kumma: maxi+5  tai maxi ei toimi, vaan
+        //tulkitsee ilm. merkkijonona! Kertominen toimii.
+           alert("Virhe: pistemäärässä jotakin outoa! Korjaa luku.");
+            document.forms[1].pisteetkentta.focus();//asettaa virhekentän aktiiviseksi
+            document.forms[1].pisteetkentta.select();//asettaa virhekentän tekstin valituksi
+        }
+        else
+        {
+            if (pisteet != "" && pisteetKunnossa)
+            {
+                pisteet = korvaaPilkkuPisteellä(pisteet);
+                // Lasketaan kymppiin oikeuttavat pisteet:
+                var lapipisteet = maxi*(lapi/100);
+                var kymppipisteet = lapipisteet+(maxi-lapipisteet)*21/22;
+
+                //lasketaan tarkka arvosana:
+                arvosanaTarkka =
+                    4.75+(pisteet-lapipisteet)/(((kymppipisteet-lapipisteet))/5.25);
+
+                //lasketaan arvosana:
+                arvosana = laskeArvosana(arvosanaTarkka);
+
+                //tulostetaan tulos:
+                document.getElementById("tulos").innerHTML = arvosana;
+               
+            }
+            else		 //muuten asetaan tulos tyhjäksi
+            {
+                document.getElementById("tulos").innerHTML = "";
+            }
+            tulostaArvosanat(maxi, lapi, pisteet);
+        }
+    }
+}
+
+
+function painikefokus(lapikentan_arvo){
+    if(lapikentan_arvo.length > 1){
+        document.forms[1].painike.focus();//asettaa painikkeen aktiiviseksi
+    }
+}
+
+</script>
+</head>
+
+<!--******************* POHJA ***********************************************-->
+
+<body id="alku">
+
+	<h1 id="logo">Haukilahden lomalaskuri</h1>
+<div id="menu">
+<a href="Nökalaskuri.html">Laskuri</a>
+<a href="Kysely.html">Kysely</a>
+<a href="Ruokalista.html">Ruokalista</a>
+<a href="Kuvat.html">Kuvat</a>
+<a>Onko nöykkiö korjattu</a>
+<a href="kommentit.html">Palaute</a>
+</div>
+
+<div id="pohja_kiintea_levea">
+<!--******************* OTSIKKOPALKKI ***************************************-->
+
+<div id="otsikkopalkki">
+<h2>Arvosanalaskuri (kouluarvosana 4-10)</h1>
+</div>
+<p id="teksti"> 
+            Arvosanalaskurilla voit varmistaa kokeesta saamasi pisteet.
+            Arvosanalaskuri laskee kokeen arvosanan ja tulostaa arvosanataulukon. 
+            Laskenta tehdään lineaarisesti, eli yhden numeron nousu 
+            vaatii aina saman pistemäärän lisäyksen riippumatta numerosta.
+            
+            Huomaa, että läpipääsyraja tulee ilmoittaa prosentteina, 
+            ja kymppiin ei tarvita maksimipisteitä, vaan kympin
+            saa sillä pistemäärällä, joka saadaan vähentämällä maksimipisteistä 
+            yhden arvosanavälin pistemäärä (nelonen on poikkeus: sen saa 
+            nollalla pisteellä.
+<p/>
+<!--******************* OIKEAPALKKI ****************************************-->
+
+<div id="palkki_oikea">
+<div class="keskitys" id="pisterajat"></div>
+</div>
+
+<!--******************* SISäLTä *********************************************-->
+
+<div id = "sisalto_fixed">
+<form action="">
+</form>
+<div id="selitys"></div>
+
+<form name="kysy" action="">
+<table class="omataulukko" border = "1" cellpadding="3" align="center">
+<thead>
+<tr>
+<th colspan="2" class="tulosruutu">Kokeen tiedot</th>
+</tr>
+</thead>
+
+<tbody class="">
+<tr>
+<td>Kokeen maksimipisteet*:</td>
+<td><input type="text" name="maxikentta" maxlength="6" size="4"/></td>
+</tr>
+
+<tr>
+<td>Läpipääsyraja prosentteina*:</td>
+<td><input type="text" name="lapikentta" maxlength="6" size="4"
+           onkeyup="painikefokus(this.value);"/></td>
+</tr>
+
+<tr>
+<td>Saatu pistemäärä:</td>
+<td><input type="text" name="pisteetkentta" maxlength="6" size="4"></td>
+</tr>
+
+<tr>
+<td><b>Tähdellä (*) merkityt pakollisia</b></td>
+<td><input type="button" name="painike" value="Laske"
+           onclick="tarkistaJaLaske()"/></td>
+</tr>
+
+<tr class="tulosruutu">
+<td>Arvosana:</td>
+<td id="tulos"></td>
+</tr>
+</tbody>
+</table>
+</form>
+
+</div> <!-- Sisällän loppu -->
+<p> Koodi sivulta <a href="http://opinnot.net/yleiset/arvosana.php">opinnot.net</a>, voit ottaa sähköpostiin severi.lybeck@eduespoo.fi yhteyttä jos haluat koodin poistettavan sivuiltamme.</p>
+</div> <!-- Pohjan loppu -->
+
+</body>
+<style>
+
+@media (max-width:960px) { 
+tbody, tr, td {
+  border: 1px groove;
+}
+.omataulukko {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.arvosanataulukko {
+ background-color:white;
+} 
+ #pohja_kiintea_levea {
+	  margin: auto;
+		width: 100%;
+		padding: 10px;
+}
+#pohja_kiintea_levea > p  {
+	text-align: center;
+	color: white;
+	background-color: rgba(0,0,0,0.5);
+}
+  #logo{font-family:"Margarine";
+display: flex;
+margin: 0;
+justify-content: center;
+font-size:10vw;
+  }
+  #menu {
+    border-top-style: solid;
+    border-width: 5px;
+    display: flex;
+    margin: 0;
+  justify-content: center;
+  align-content: center;
+    flex-direction: column;
+  }
+  #menu > a {
+    
+  background-color: #c0cee5;
+  border-bottom-style: solid;
+  border-width: 5px;
+    display: flex;
+    justify-content: center;
+   text-decoration: none;
+   color: black;
+  margin:0;
+  font-size: 20px;
+  font-family: oswald;
+}
+}
+html{ background:url("monoliittizoom.jpg") no-repeat center center fixed;
+}
+@media (min-width:960px) { 
+#pohja_kiintea_levea {
+	  margin: auto;
+		width: 50%;
+		padding: 10px;
+}
+#pohja_kiintea_levea > p  {
+	text-align: center;
+	color: white;
+	background-color: rgba(0,0,0,0.5);
+}
+#menu {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+#menu > a:hover{
+color: blue;
+}
+#menu > a {
+   text-decoration: none;
+   color: black;
+  margin-left:1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-family: oswald;
+}
+
+#logo{font-family:"Margarine";
+display: flex;
+margin-top: 0;
+margin-bottom: 0;
+justify-content: center;
+font-size:8vw;
+}
+
+#otsikkopalkki {
+    display: flex;
+    justify-content: center;
+    font-size:2vw;
+}
+
+
+#selitys {
+   background-color:white;
+}
+
+
+tbody, tr, td {
+  border: 1px groove;
+}
+.omataulukko {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.arvosanataulukko {
+ background-color:white;
+}
+}
+
+
+</style>
+
+</html>

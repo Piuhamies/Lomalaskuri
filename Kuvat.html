@@ -17,6 +17,10 @@
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
 		<script>
+		function SchoolChanger() {
+			window.location.replace("https://www.lomalaskuri.tk");
+			Cookies.set('site', '');
+		}
 			function closeFunc() {
 				$(".modal").hide();
 			}
@@ -28,8 +32,7 @@
 		<script>
 				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
-			$(".cookie").remove()
-			console.log('supposedly did ths');
+			$(".cookie").remove();
 		}
 		});
 		function button() {
@@ -90,6 +93,7 @@
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
 
 	<div id="myModal" class="modal">
@@ -163,7 +167,7 @@
 }
 
 .item1 {
-  grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
+  grid-row: 1 / span 3;
 }
 #picture1 {
     max-width: 100%;

@@ -1,0 +1,30 @@
+Mutta ennen kaikkea tätä noudata näitä ohjeita jotta pääset alkuun
+
+1. Aseta samaan kansioon tiedostot nimeltä paiva.jpg , jonka tulee olla auringonvalon aikaan otettu kuva koulustasi,
+sitten aseta samalla tavalla kuva nimeltä yo.jpg , jonka tulee olla yö aikaan otettu kuva koulustasi.
+
+2. Sitten korvaa Kuvat kansion kuvat väliltä 1-6.jpg , koulustasi olevilla kuvilla.
+
+3. Sitten voit alkaa seurata alapuolella olevia ohjeita muiden muutosten tekemisestä, pakollinen muutos on
+Tilastot sivu
+
+
+
+Sivun rakennus on helppoa, siinä on vain muutama asia jotka pitä osata.
+
+.html päättyvä tiedosto on yksittäinen sivu.
+
+.css päättyvä tiedosto on tyyli.
+
+Jos haluat lisätä esimerkiksi Tilastot sivulle tiedon koulustasi, menet Tilastot.html ja
+noudatat kyseisestä tidostosta löytyviä ohjeita. Alkuun saattaa tuntua tuskastuttavalta jos et löydä heti ohjeita
+mutta kelaamalla tarpeeksi ja katsomalla tarkasti löytyvät ohjeet helposti. Tälläisessä tiedostossa ohjeet
+on laitettu tälläisten <!-- --> merkkien väliin.
+
+Jos haluat esim muuttaa tekstin väriä, siirryt style.css tiedostoon ja noudatat sieltä löytyviä ohjeita.
+Tälläisessä tiedostossa ohjeet
+on laitettu tälläisten /* */ merkkien väliin.
+
+
+
+Muista, jos et löydä tai ymmärrä jotain asiaa ota yhteyttää minuun.

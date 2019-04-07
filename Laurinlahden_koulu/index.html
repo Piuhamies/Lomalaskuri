@@ -18,6 +18,10 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
         <title>Milloin koulu loppuu?</title>
 		<script>
+		$(document).ready( function() {
+			console.log(Cookies.set('site', 'Lauri'));
+			$(".modal").remove();
+		});
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');

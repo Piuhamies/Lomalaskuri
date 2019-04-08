@@ -18,6 +18,10 @@
         <title>Milloin koulu loppuu?</title>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<script>
+		function SchoolChanger() {
+			window.location.replace("https://www.lomalaskuri.tk");
+			Cookies.set('site', '');
+		}
 				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
 			$(".cookie").remove()
@@ -81,6 +85,7 @@
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<a onclick="SchoolChanger()"> Vaihda koulua</a>
 
 </div>
 <div class="kysely">

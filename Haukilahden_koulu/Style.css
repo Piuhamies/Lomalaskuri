@@ -1,6 +1,10 @@
-	
+﻿	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+p{
+background-color: rgba(0,0,0,0.4);
+color: white;
+}
 	
 #image {
 	position: fixed;

@@ -18,6 +18,10 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
         <title>Milloin koulu loppuu?</title>
 		<script>
+		$(document).ready( function() {
+			console.log(Cookies.set('site', 'Lauri'));
+			$(".modal").remove();
+		});
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
@@ -174,7 +178,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
 <!--<a href="Ruokalista.html">Ruokalista</a> -->
-<!-- <a href="Kuvat.html" >Galleria</a> -->
+<a href="Kuvat.html" >Galleria</a> 
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>

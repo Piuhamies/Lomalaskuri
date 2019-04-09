@@ -181,7 +181,8 @@ font-size:10vw;
   background-color: rgba(0,0,0, 0.3);
 }
 html{ 
-	background:url("paiva.jpg") no-repeat center center fixed;
+	background:url("paiva.jpg");
+	background-size: contain;
 	  }
 	  
 .alaotsikot {

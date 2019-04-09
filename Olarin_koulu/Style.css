@@ -1,14 +1,6 @@
 ﻿	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
-body {
-  width: 100%;
-  margin: 0;
-}
-html {
-  width: 100%;
-  margin: 0;
-}
 p{
 background-color: rgba(0,0,0,0.4);
 color: white;
@@ -94,7 +86,6 @@ color: white;
 }
 
 @media (max-width:960px) {  
-
                   .ajat {
   font-size:9vw;
   font-family: "Oswald";
@@ -109,45 +100,35 @@ color: white;
 .ajat > p {
 margin:2%;
 }
- #menu {
-       display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        width: 100%;
-        text-align: center;
-        background-color: white;
-        align-items: center;
-  }
-    #logo{font-family:"Margarine";
+  #logo{font-family:"Margarine";
 display: flex;
-margin:0;
-margin-left:auto;
-font-size:8vw;
+color: white; /*Tästä voit vaihtaa logon väriä puhelimella */
+margin: 0;
+justify-content: center;
+font-size:10vw;
   }
-  #menuBtn {
-    display: block;
-    height: 8vw;
-    margin-right: 2em;
-  }
-  #places {
+  
+  #menu {
     border-top-style: solid;
     border-width: 5px;
-    display: none;
+	border-color: #000000 ; /* Tästä voit vaihtaa yläreunan väriä puhelimella, MUISTA vaihtaa myös alemmasta reunaväristä */
+    display: flex;
     margin: 0;
   justify-content: center;
   align-content: center;
     flex-direction: column;
   }
-  #places > a {
+  
+  #menu > a {
     
-  background-color: #c0cee5;
+  background-color: #c0cee5; /* tästä voit vaihtaa menun väriä, puhelimella */
   border-bottom-style: solid;
   border-width: 5px;
+  border-color: #000000; /* Tästä reunojen väriä puhelimella, MUISTA vaihtaa tämä myös ylemmästä reunaväristä */
     display: flex;
     justify-content: center;
    text-decoration: none;
-   color: black;
+   color: black; /* Tästä menun tekstien värejä, puhelimella */
   margin:0;
   font-size: 20px;
   font-family: oswald;
@@ -200,7 +181,8 @@ font-size:8vw;
   background-color: rgba(0,0,0, 0.3);
 }
 html{ 
- background:url("paiva.jpg") no-repeat center center fixed;
+	background:url("paiva.jpg");
+	background-size: contain;
 	  }
 	  
 .alaotsikot {
@@ -214,17 +196,20 @@ html{
 color: blue;
 }
 @media (min-width:960px) { 
-#menuBtn {
-    display: none;
-  }
-#places {
+  #logo{font-family:"Margarine";
+display: flex;
+margin-top: 0;
+justify-content: center;
+font-size:8vw;
+}
+#menu {
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: white; /* Täältä voit vaihtaa menun taustaväriä tietokoneella */
 }
-#places > a {
+#menu > a {
    text-decoration: none;
-   color: black;
+   color: black; /* Tästä voit vaihtaa menun tekstien väriä tietokoneella */
   margin-left:1em;
   margin-right: 1em;
   margin-top: 0;
@@ -234,6 +219,7 @@ color: blue;
 }
 #logo{font-family:"Margarine";
 display: flex;
+color:  #000000; /* Tästä voit vaihtaa logon väriä tietokoneella */
 margin-top: 0;
 margin-bottom: 0;
 justify-content: center;
@@ -251,7 +237,6 @@ font-size:8vw;
 }
 .ajat > p {
 margin:2%;
-}
 #dynaaminenNappi {
 	cursor: pointer;
 }

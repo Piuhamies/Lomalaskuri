@@ -11,31 +11,29 @@
         <meta name="description" content="Official Lomalaskuri">
         <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137016636-1');
+</script>
+
         <title>Milloin koulu loppuu?</title>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script>
-		$(window).resize(function(){
-		if ($(window).width() > 960) {
-                	 $('#places').removeAttr('style'); //
-		}
-		})
-		function openMenu() {
-			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
-  }, 100, function() {
-  });
-  }
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
 		}
-				$( ".cookie" ).ready(function() {
+		$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
 			$(".cookie").remove()
 			console.log('supposedly did ths');
@@ -60,7 +58,7 @@
 			
 		}
 		else {
-		$( "#dynaaminenNappi" ).ready(function() {
+			$( "#dynaaminenNappi" ).ready(function() {
 			$("#dynaaminenNappi").html("Vaihda yötilaan");
 		});
 		}
@@ -88,16 +86,14 @@
   });
 </script>
     </head>
+
     <body>
+	<h1 id="logo">Haukilahden lomalaskuri</h1>
 <div id="menu">
-<img onclick="openMenu()" id="menuBtn" src="menu.png" />
-<h1 id="logo">Laurinlahden lomalaskuri</h1>
-</div>
-<div id="places">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
 <!--<a href="Ruokalista.html">Ruokalista</a> -->
-<!-- <a href="Kuvat.html" >Galleria</a> -->
+ <!-- <a href="Kuvat.html" >Galleria</a> --> 
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
@@ -105,7 +101,9 @@
 </div>
 
 <div class="kysely">
-<iframe id="kysely" src="https://docs.google.com/forms/d/e/1FAIpQLSfMnKPLMv3D3EEGEa0MCt1RnquzmeyAmc4K2fcDtyFFqL61xg/viewform?embedded=true" width="640" height="589" frameborder="0" marginheight="0" marginwidth="0">Ladataan...</iframe>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" width="640" height="452" frameborder="0" marginheight="0" marginwidth="0">Ladataan...</iframe>
+
 </div>
  <div class="cookie">
 

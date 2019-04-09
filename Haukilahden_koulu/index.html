@@ -28,6 +28,19 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
         <title>Milloin koulu loppuu?</title>
 		<script>
+		$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+		function openMenu() {
+			 $( "#places" ).animate({
+    opacity: 1,
+    left: "+=50",
+    height: "toggle"
+  }, 100, function() {
+  });
+  }
 		$(document).ready( function() {
 			console.log(Cookies.set('site', 'Hauki'));
 			$(".modal").remove();
@@ -178,12 +191,15 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 		</script>
     </head>
     <body>
-<h1 id="logo">Haukilahden lomalaskuri</h1>
 <div id="menu">
+<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<h1 id="logo">Haukilahden lomalaskuri</h1>
+</div>
+<div id="places">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
 <!--<a href="Ruokalista.html">Ruokalista</a> -->
- <!-- <a href="Kuvat.html" >Galleria</a> -->
+<!-- <a href="Kuvat.html" >Galleria</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>

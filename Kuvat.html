@@ -17,6 +17,19 @@
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
 		<script>
+		$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+		function openMenu() {
+			 $( "#places" ).animate({
+    opacity: 1,
+    left: "+=50",
+    height: "toggle"
+  }, 100, function() {
+  });
+  }
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
@@ -84,12 +97,15 @@
     </head>
 	
     <body>
-	<h1 id="logo">Espoon lomalaskuri</h1>
 <div id="menu">
+<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<h1 id="logo">Espoon l<a id= "salainen"href ="Salainen.html">o</a>malaskuri</h1>
+</div>
+<div id="places">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
-<!-- <a href="Ruokalista.html">Ruokalista</a> -->
-<a href="Kuvat.html">Galleria</a>
+<!--<a href="Ruokalista.html">Ruokalista</a> -->
+ <a href="Kuvat.html" >Galleria</a>
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
@@ -122,6 +138,14 @@
 </body>
 
 	<style>
+body {
+	margin:0;
+	width: 100%;
+}
+html {
+	margin: 0;
+	width: 100%;
+}
 	#image {
 	position: fixed;
     top: 0;
@@ -212,22 +236,37 @@
 .ajat > p {
 margin:2%;
 }
-  #logo{font-family:"Margarine";
-display: flex;
-margin: 0;
-justify-content: center;
-font-size:10vw;
-  }
   #menu {
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        align-items: center;
+  }
+    #logo{font-family:"Margarine";
+display: flex;
+margin:0;
+margin-left:auto;
+font-size:8vw;
+  }
+  #menuBtn {
+    display: block;
+    height: 8vw;
+    margin-right: 2em;
+  }
+  #places {
     border-top-style: solid;
     border-width: 5px;
-    display: flex;
+    display: none;
     margin: 0;
   justify-content: center;
   align-content: center;
     flex-direction: column;
   }
-  #menu > a {
+  #places > a {
     
   background-color: #c0cee5;
   border-bottom-style: solid;
@@ -260,18 +299,15 @@ cursor: text;
 color: blue;
 }
 @media (min-width:960px) { 
-  #logo{font-family:"Margarine";
-display: flex;
-margin-top: 0;
-justify-content: center;
-font-size:8vw;
-}
-#menu {
+#menuBtn {
+    display: none;
+  }
+#places {
   display: flex;
   justify-content: center;
   background-color: white;
 }
-#menu > a {
+#places > a {
    text-decoration: none;
    color: black;
   margin-left:1em;
@@ -288,6 +324,7 @@ margin-bottom: 0;
 justify-content: center;
 font-size:8vw;
 }
+
 
 
                 .ajat {

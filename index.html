@@ -27,6 +27,19 @@
 
         <title>Milloin koulu loppuu?</title>
 		<script>
+		$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+		function openMenu() {
+			 $( "#places" ).animate({
+    opacity: 1,
+    left: "+=50",
+    height: "toggle"
+  }, 100, function() {
+  });
+  }
 		if(Cookies.get('site') == 'none') {	
 			window.location.replace("None/index.html");
 		}
@@ -164,7 +177,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 
 
 		if (showS.checked == true && showMin.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("seconds" + a).style.display = "flex"; // aseta sekunti tekstin display flex tyyppiseksi
+			document.getElementById("seconds" + a).style.display = "flex"; // aseta sekunti tekstin display flex tyyppiseks
 			document.getElementById("seconds" + a ).innerHTML = seconds[a] + "s "; //kirjoitetaan sekunnit html koodiin
 		} 
 		else { //jos ei 
@@ -191,8 +204,11 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 		</script>
     </head>
     <body>
-<h1 id="logo">Espoon l<a id= "salainen"href ="Salainen.html">o</a>malaskuri</h1>
 <div id="menu">
+<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<h1 id="logo">Espoon l<a id= "salainen"href ="Salainen.html">o</a>malaskuri</h1>
+</div>
+<div id="places">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
 <!--<a href="Ruokalista.html">Ruokalista</a> -->
@@ -276,6 +292,14 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 
 </body>
 	<style>
+body {
+  width: 100%;
+  margin: 0;
+}
+html {
+  width: 100%;
+  margin: 0;
+}
 
 .modal {
   display: block; /* Hidden by default */
@@ -341,22 +365,37 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 .ajat > p {
 margin:2%;
 }
-  #logo{font-family:"Margarine";
-display: flex;
-margin: 0;
-justify-content: center;
-font-size:10vw;
-  }
   #menu {
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        align-items: center;
+  }
+    #logo{font-family:"Margarine";
+display: flex;
+margin:0;
+margin-left:auto;
+font-size:8vw;
+  }
+  #menuBtn {
+    display: block;
+    height: 8vw;
+    margin-right: 2em;
+  }
+  #places {
     border-top-style: solid;
     border-width: 5px;
-    display: flex;
+    display: none;
     margin: 0;
   justify-content: center;
   align-content: center;
     flex-direction: column;
   }
-  #menu > a {
+  #places > a {
     
   background-color: #c0cee5;
   border-bottom-style: solid;
@@ -415,18 +454,15 @@ cursor: text;
 color: blue;
 }
 @media (min-width:960px) { 
-  #logo{font-family:"Margarine";
-display: flex;
-margin-top: 0;
-justify-content: center;
-font-size:8vw;
-}
-#menu {
+#menuBtn {
+    display: none;
+  }
+#places {
   display: flex;
   justify-content: center;
   background-color: white;
 }
-#menu > a {
+#places > a {
    text-decoration: none;
    color: black;
   margin-left:1em;
@@ -455,14 +491,12 @@ font-size:8vw;
 }
 .ajat > p {
 margin:2%;
+  
+  
 #dynaaminenNappi {
 	cursor: pointer;
 }
 }
 }
-	
-
-	
-
 	</style>
 </html>

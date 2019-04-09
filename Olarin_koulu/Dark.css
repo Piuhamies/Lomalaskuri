@@ -13,17 +13,11 @@
 	 #logo, #salainen {
 		 color: white !important;
 	 }
-	#menuBtn {
-		filter: invert(100%);
-}
-	#menu {
-		background-color: #272727 !important;
-}
-	 #places {
+	 #menu {
 		  background-color: #272727 !important;
 		 border-color: black !important;
 	 }
-	 #places > a {
+	 #menu > a {
 		 background-color: #272727 !important;
 		    color: white !important;
 			border-color: black !important;

@@ -146,6 +146,7 @@ font-size:6vw;
 	width: 40vw;
     display: none;
     margin: 0;
+	height: 100%;
 	padding-top: 1em;
   justify-content: center;
   align-content: center;

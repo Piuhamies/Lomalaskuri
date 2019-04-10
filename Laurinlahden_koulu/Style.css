@@ -1,4 +1,4 @@
-﻿	
+	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
 body {
@@ -8,10 +8,6 @@ body {
 html {
   width: 100%;
   margin: 0;
-}
-p{
-background-color: rgba(0,0,0,0.4);
-color: white;
 }
 	
 #image {
@@ -72,6 +68,11 @@ color: white;
     max-width: 100%;
     height: auto;;
 }
+#salainen {
+	color: black;
+	text-decoration: none;
+	cursor: text;
+}
 .bottom {
   grid-row: 2;
 }
@@ -109,11 +110,21 @@ color: white;
 .ajat > p {
 margin:2%;
 }
+#menuContainer {
+	position: fixed;
+	width: 100% ;
+	z-index: 2;
+	top: 0;
+}
+#content {
+	margin-top: 12vw ; 
+}
  #menu {
        display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
+		height: 10vw;
         width: 100%;
         text-align: center;
         background-color: white;
@@ -123,7 +134,7 @@ margin:2%;
 display: flex;
 margin:0;
 margin-left:auto;
-font-size:8vw;
+font-size:6vw;
   }
   #menuBtn {
     display: block;
@@ -131,24 +142,26 @@ font-size:8vw;
     margin-right: 2em;
   }
   #places {
-    border-top-style: solid;
-    border-width: 5px;
+	background-color: #f6f6f6;
+	width: 40vw;
     display: none;
     margin: 0;
+	padding-top: 1em;
   justify-content: center;
   align-content: center;
     flex-direction: column;
   }
   #places > a {
-    
-  background-color: #c0cee5;
-  border-bottom-style: solid;
-  border-width: 5px;
+	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-color: #ddd;
+    background-color: #f6f6f6;
     display: flex;
     justify-content: center;
    text-decoration: none;
    color: black;
   margin:0;
+  margin-bottom: 1em;
   font-size: 20px;
   font-family: oswald;
 }
@@ -200,7 +213,7 @@ font-size:8vw;
   background-color: rgba(0,0,0, 0.3);
 }
 html{ 
- background:url("paiva.jpg") no-repeat center center fixed;
+	background:url("paiva.jpg") no-repeat center center fixed;
 	  }
 	  
 .alaotsikot {

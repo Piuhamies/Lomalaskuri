@@ -36,9 +36,7 @@
 		})
 		function openMenu() {
 			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
+    width: "toggle"
   }, 100, function() {
   });
   }
@@ -101,7 +99,7 @@
     </head>
 
     <body>
-	<h1 id="logo">Haukilahden lomalaskuri</h1>
+<div id="menuContainer">
 <div id="menu">
 <img onclick="openMenu()" id="menuBtn" src="menu.png" />
 <h1 id="logo">Haukilahden lomalaskuri</h1>
@@ -116,10 +114,13 @@
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
+</div>
+<div id="content">
 <div class="kysely">
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" width="640" height="452" frameborder="0" marginheight="0" marginwidth="0">Ladataan...</iframe>
 
+</div>
 </div>
  <div class="cookie">
 

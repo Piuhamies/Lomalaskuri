@@ -15,6 +15,7 @@
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <title>Milloin koulu loppuu?</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 				<script>
 		$(window).resize(function(){
@@ -24,9 +25,7 @@
 		})
 		function openMenu() {
 			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
+    width: "toggle"
   }, 100, function() {
   });
   }
@@ -88,6 +87,7 @@
 </script>
     </head>
     <body>
+<div id="menuContainer">
 <div id="menu">
 <img onclick="openMenu()" id="menuBtn" src="menu.png" />
 <h1 id="logo">Espoon l<a id= "salainen"href ="Salainen.html">o</a>malaskuri</h1>
@@ -102,7 +102,8 @@
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
-
+</div>
+<div id="content">
 <div id="tilastot">
 <h1>Nöykkiön koulun tilastoja</h1>
 <h2> Onko nöykkiön koulu korjattu?</h2>
@@ -114,6 +115,7 @@
 <h2> Onko koulussa hometta?</h2>
 <p class="positiveResult"> On</p>
 </div>
+</div>
  <div class="cookie">
 
       <p> Tämä nettisivu käyttää evästeitä</p>
@@ -122,161 +124,4 @@
 
   </div>
 </body>
-	<style>
-body {
-	margin:0;
-	width: 100%;
-}
-html {
-	margin: 0;
-	width: 100%;
-}
-.cookie {
-	transition: 0.5s;
-	animation: fadein 0.5s;
-	color:white;
-	text-align: center;
-	background-color: rgba(0,0,0,0.5);
-	position: sticky;
-	bottom: 30px;
-}
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-@media (max-width:960px) {  
-                  .ajat {
-  font-size:9vw;
-  font-family: "Oswald";
-  display: flex;
-  justify-content: center;
-  }
-  .noShake {
-  width:3em;
-}
-.ajat > p {
-margin:2%;
-}
-  #menu {
-       display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        width: 100%;
-        text-align: center;
-        background-color: white;
-        align-items: center;
-  }
-    #logo{font-family:"Margarine";
-display: flex;
-margin:0;
-margin-left:auto;
-font-size:8vw;
-  }
-  #menuBtn {
-    display: block;
-    height: 8vw;
-    margin-right: 2em;
-  }
-  #places {
-    border-top-style: solid;
-    border-width: 5px;
-    display: none;
-    margin: 0;
-  justify-content: center;
-  align-content: center;
-    flex-direction: column;
-  }
-  #places > a {
-    
-  background-color: #c0cee5;
-  border-bottom-style: solid;
-  border-width: 5px;
-    display: flex;
-    justify-content: center;
-   text-decoration: none;
-   color: black;
-  margin:0;
-  font-size: 20px;
-  font-family: oswald;
-}
-}
-#tilastot {
-	text-align: center;
-	display: flex;
-	align-content: center;
-	justify-content: center; 
-	flex-direction: column;
-	font-family: oswald;
-	}
-.result {
-	font-size: 3em;
-	color: red;
-}
-.positiveResult {
-	font-size: 3em;
-	color: green;
-}
-html{ background:url("monoliittizoom.jpg") no-repeat center center fixed;
-	  }
-#salainen {
-color: black;
-text-decoration: none; 
-cursor: text;
-}
-
-.alaotsikot {
-	font-family: oswald;
-        display: flex;
-        justify-content: center;
-        font-size:4vw;
-        margin-top: 0;
-}
-#menu > a:hover{
-color: blue;
-}
-@media (min-width:960px) { 
-#menuBtn {
-    display: none;
-  }
-#places {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-}
-#places > a {
-   text-decoration: none;
-   color: black;
-  margin-left:1em;
-  margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20px;
-  font-family: oswald;
-}
-#logo{font-family:"Margarine";
-display: flex;
-margin-top: 0;
-margin-bottom: 0;
-justify-content: center;
-font-size:8vw;
-}
-
-
-                .ajat {
-  font-size:6em;
-  font-family: "Oswald";
-  display: flex;
-  justify-content: center;
-  }
-  .noShake {
-  width:3em;
-}
-.ajat > p {
-margin:2%;
-}
-}
-	
-   
-	</style>
 </html>

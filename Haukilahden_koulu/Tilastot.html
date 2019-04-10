@@ -33,9 +33,7 @@
 		})
 		function openMenu() {
 			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
+    width: "toggle"
   }, 100, function() {
   });
   }
@@ -98,7 +96,7 @@
     </head>
     <body>
 	
-	
+<div id="menuContainer">
 <div id="menu">
 <img onclick="openMenu()" id="menuBtn" src="menu.png" />
 <h1 id="logo">Haukilahden lomalaskuri</h1>
@@ -112,6 +110,7 @@
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
+</div>
 </div>
 
 <!-- Tästä alkaa tilastot -->

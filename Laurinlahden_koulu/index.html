@@ -25,9 +25,7 @@
 		})
 		function openMenu() {
 			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
+    width: "toggle"
   }, 100, function() {
   });
   }
@@ -185,7 +183,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 	<form action="Salainen.html">
   <input type="image" src="dogg.gif" alt="Submit" width="48" height="48">
 </form>
-
+<div id="menuContainer">
 <div id="menu">
 <img onclick="openMenu()" id="menuBtn" src="menu.png" />
 <h1 id="logo">Laurinlahden lomalaskuri</h1>
@@ -200,7 +198,8 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
-
+</div>
+<div id="content">
 <div id="show">
 <p>näytä:</p>
 <div id="checkboxes">
@@ -253,6 +252,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox millisek
 <p id="minutes3"></p>
 <p id="seconds3"></p>
 <p class="noShake" id="milliseconds3"></p>
+</div>
 </div>
  <div class="cookie">
 

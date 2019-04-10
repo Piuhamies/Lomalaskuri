@@ -24,9 +24,7 @@
 		})
 		function openMenu() {
 			 $( "#places" ).animate({
-    opacity: 1,
-    left: "+=50",
-    height: "toggle"
+    width: "toggle"
   }, 100, function() {
   });
   }
@@ -85,7 +83,7 @@
     </head>
     <body>
 	
-	
+<div id="menuContainer">
 <div id="menu">
 <img onclick="openMenu()" id="menuBtn" src="menu.png" />
 <h1 id="logo">Laurinlahden lomalaskuri</h1>
@@ -100,8 +98,9 @@
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
+</div>
 
-
+<div id="main">
 <!-- Tästä alkaa tilastot -->
 <div id="tilastot">
 <h1>Laurinlahden koulun tilastoja</h1> <!-- Vaihda tähän koulusi nimi -->
@@ -109,10 +108,12 @@
 <p class="result"> EI</p> <!-- Vaihda <P> </p>, juttujen väliin vastaus,
 jos <p> sisällä on class="result" , se näytetään punaisena, kun jos taas class="positiveResult" 
 niin se näytetään vihreänä -->
-</div>
-<!-- Jos haluat lisää tilastoja kopio vaan otsikko ja teksti uudestaan ja lisää se tähän! -->
-<!-- Tänne loppuu tilastot -->
 
+<!-- Jos haluat lisää tilastoja kopio vaan otsikko ja teksti uudestaan ja lisää se tähän! -->
+
+<!-- Tänne loppuu tilastot -->
+</div>
+</div>
  <div class="cookie">
 
       <p> Tämä nettisivu käyttää evästeitä</p>

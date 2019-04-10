@@ -134,7 +134,7 @@ margin:2%;
 display: flex;
 margin:0;
 margin-left:auto;
-font-size:6vw;
+font-size:8vw;
   }
   #menuBtn {
     display: block;
@@ -213,8 +213,7 @@ font-size:6vw;
   background-color: rgba(0,0,0, 0.3);
 }
 html{ 
-	background:url("paiva.jpg");
-	background-repeat: contain;
+	background:url("monoliittizoom.jpg") no-repeat center center fixed;
 	  }
 	  
 .alaotsikot {

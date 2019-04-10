@@ -40,6 +40,7 @@
   }, 100, function() {
   });
   }
+  console.log(Cookies.get('site'));
 		if(Cookies.get('site') == 'none') {	
 			window.location.replace("None/index.html");
 		}
@@ -51,7 +52,6 @@
 		}
 		else if (Cookies.get('site') == 'Noka') {
 			$(document).ready( function() {
-				console.log(Cookies.get('site'));
 				$(".modal").remove();
 			});
 		}
@@ -62,6 +62,7 @@
 		function school() {
 			Cookies.set('site', 'Noka');
 			$(".modal").remove();
+			console.log("bug");
 		}
 		function button() {
 			$(".cookie").fadeOut()
@@ -233,7 +234,7 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
 </div>
-<div id="myModal" class="modal">
+<div id="SchoolModal" class="modal">
   <div class="modal-content">
     <h1> Valitse koulusi: </h1>
 	<a onclick="school()"> Nöykkiön koulu </a>

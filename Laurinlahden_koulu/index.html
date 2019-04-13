@@ -33,7 +33,6 @@
   }
 		$(document).ready( function() {
 			console.log(Cookies.set('site', 'Lauri'));
-			$(".modal").remove();
 		});
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
@@ -108,6 +107,7 @@
                          });
 			
 var weeks = [];
+var zeroDays = [];
 var days = [];
 var hours = [];
 var minutes = [];
@@ -123,6 +123,7 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 
   distance.forEach(function(item, index, array)	{ // matikkaa
    weeks.splice(index,0, Math.floor(distance[index] / (1000 * 60 * 60 * 24)/7));
+   zeroDays.splice(index,0, Math.floor(distance[index] / ((1000 * 60 * 60 * 24))));
    days.splice(index,0, Math.floor(distance[index] % ((1000 * 60 * 60 * 24)/7) /(1000 * 60 * 60 )  ));
    hours.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
    minutes.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60)) / (1000 * 60)));
@@ -138,8 +139,13 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 		
 		if (showD.checked == true) {
 		document.getElementById("days" + a).style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
-		document.getElementById("days" + a).innerHTML = days[a] + "d "; //kirjoitetaan tunnit html koodiin 
-		}
+			if(weeks[a] < 1) {
+			document.getElementById("days" + a).innerHTML = zeroDays[a] + "d "; //kirjoitetaan tunnit html koodiin 
+			}
+			else {
+			document.getElementById("days" + a).innerHTML = days[a] + "d "; //kirjoitetaan tunnit html koodiin 
+			}
+			}
 		else { //jos ei 
 			showD.checked = false;
 			document.getElementById("days" + a).style.display = "none"; // poista tunti teksti

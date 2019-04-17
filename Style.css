@@ -131,6 +131,9 @@ html {
 }
 
 @media (max-width:960px) {  
+#the-canvas {
+	width: 100vw;
+}
 
                   .ajat {
   font-size:9vw;

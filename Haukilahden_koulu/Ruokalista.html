@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="fi">
-    
-
-    <head>
-	
-<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <meta charset="UTF-8">
-        <meta name="description" content="Official Lomalaskuri">
-        <meta name="keywords" content="Nöykkiö,Nökä,Nökälaskuri,Nöykkiön koulu">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>Milloin koulu loppuu?</title>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>'
-		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<head>
 <script src="build/pdf.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDOliyApoaat4YK7vcmEYJu3fKmTWL2JIM",
-    authDomain: "testing-43872.firebaseapp.com",
-    databaseURL: "https://testing-43872.firebaseio.com",
-    projectId: "testing-43872",
-    storageBucket: "testing-43872.appspot.com",
-    messagingSenderId: "598200956771"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script>
+<script src="build/pdf.worker.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Official Lomalaskuri">
+    <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Milloin koulu loppuu?</title>
+	<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-137016636-1');
 </script>
-
-    </head>
-    <body onload="populateIframe">
-	<h1 id="logo">Espoon lomalaskuri</h1>
-<div id="menu">
-<a href="index.html">Laskuri</a>
-<a href="Kysely.html">Kysely</a>
-<!--<a href="Ruokalista.html">Ruokalista</a> -->
- <a href="Kuvat.html">Galleria</a> 
-<a href="Tilastot.html">Tilastot</a>
-<a href="kommentit.html">Palaute</a>
-<a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <script>
-				$( ".cookie" ).ready(function() {
+	$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+		function openMenu() {
+			 $( "#places" ).animate({
+    width: "toggle"
+  }, 100, function() {
+  });
+  }
+		function SchoolChanger() {
+			window.location.replace("https://www.lomalaskuri.tk");
+			Cookies.set('site', '');
+		}
+		$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
 			$(".cookie").remove()
 			console.log('supposedly did ths');
@@ -78,7 +65,7 @@
 			
 		}
 		else {
-		$( "#dynaaminenNappi" ).ready(function() {
+			$( "#dynaaminenNappi" ).ready(function() {
 			$("#dynaaminenNappi").html("Vaihda yötilaan");
 		});
 		}
@@ -98,112 +85,137 @@
 			Cookies.set('dark', 'false');
 		}
 }
-		</script>
-</div>
-<div id="pdf"></div>
-<iframe src="http://ruokalistat.espoocatering.fi/#/2856c0d5-d3f7-e511-bc65-60eb696ec4bb">
-<canvas id="the-canvas" style="border:1px  solid black"></canvas>
-<div class="kysely">
-
-</div>
- <div class="cookie">
-
-      <p> Tämä nettisivu käyttää evästeitä</p>
-		<button onclick="button()">Ok</button>
-		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain">Muista valintani</input>
-
-  </div>
-</body>
-	<style>
-.cookie {
-	transition: 0.5s;
-	animation: fadein 0.5s;
-	color:white;
-	text-align: center;
-	background-color: rgba(0,0,0,0.5);
-	position: sticky;
-	bottom: 30px;
-}
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-#ruoka {
-	margin-top: 0;
-	margin-bottom: 0;
-	height: 40em;
-	width: 40em;
-}
-#menu > a:hover{
-color: blue;
-}
-#menu {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  margin-bottom: 0;
-}
-#menu > a {
-   text-decoration: none;
-   color: black;
-  margin-left:1em;
-  margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20px;
-  font-family: oswald;
-}
-#logo{font-family:"Margarine";
-display: flex;
-margin-top: 0;
-margin-bottom: 0;
-justify-content: center;
-font-size:8vw;
-}
-html{ background:url("monoliittizoom.jpg") no-repeat center center fixed;
-	  }
-	  .kysely{
-	display: flex;
-	justify-content: center;
-	margin-top: 5%;
-}
-	
-   
-	</style>
+</script>
 <script>
-var jqxhr = $.ajax({
-    type: 'POST',       
-    url: "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf",
-    data: "menuId=ece6d22e-1735-e911-a2ca-60eb696ec4bb&restaurantId=2856c0d5-d3f7-e511-bc65-60eb696ec4bb&selectedLanguage=2&primaryLanguage=2&todaySelected=false&currentWeekSelected=true&nextWeekSelected=false&thirdWeekSelected=false",
-    dataType: "application/x-www-form-urlencoded",
-    global: false,
-    async:false,
-   success: function(data) {
-        return data;
-    }
-}).responseText; 
-console.log(jqxhr);
-var fileReader = new FileReader();
- fileReader.readAsDataURL(jqxhr);
+ corsRequest = function (uri, success) {
 
-  var loadingTask = pdfjsLib.getDocument({ data: window.btoa(jqxhr), });
-  loadingTask.promise.then(function(pdf) {
-    // Fetch the first page.
-    pdf.getPage(1).then(function(page) {
-      var scale = 1.5;
-      var viewport = page.getViewport({ scale: scale, });
-      // Prepare canvas using PDF page dimensions.
-      var canvas = document.getElementById('the-canvas');
-      var context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-      // Render PDF page into canvas context.
-      var renderContext = {
-        canvasContext: context,
-        viewport: viewport,
-      };
-      page.render(renderContext);
+        var ajaxParams = {
+            url: uri,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            dataType: "json",
+            headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "GET",
+                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+                        },
+            data: '',
+            success: success
+        };
+
+        return $.ajax(ajaxParams);
+    };
+	var restaurantFinalId = "";
+         function loadData() {
+            corsRequest("http://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
+                var intialData = data;
+				for(var i in intialData.Restaurants) {
+				if(intialData.Restaurants[i].RestaurantId == "2856c0d5-d3f7-e511-bc65-60eb696ec4bb" ) {
+					 restaurantFinalId = intialData.Restaurants[i].JMenus[intialData.Restaurants[i].JMenus.length -1].MenuId;
+				}
+				};
+                 console.log(restaurantFinalId);
+            }, function (error, a, b) {
+            });
+        };
+
+  $(".loader").show();
+
+
+
+
+
+
+    var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', requesturl);
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.responseType = "blob";
+	xhr.send(JSON.stringify({
+  "menuId": "fcf611d2-1735-e911-a2ca-60eb696ec4bb",
+  "restaurantId": "2856c0d5-d3f7-e511-bc65-60eb696ec4bb",
+  "selectedLanguage": "2",
+  "primaryLanguage": "2",
+  "todaySelected": "false",
+  "currentWeekSelected": "true",
+  "nextWeekSelected": "false",
+  "thirdWeekSelected": "false"
+}));
+    xhr.onload = function () {
+        if (this.status == 200) {
+            onloadDocumentFromContent(this.response);
+        } else {
+            navigator.notification.alert('Error while requesting pdf with id ' + getDocumentId());
+
+        }
+    };
+function onloadDocumentFromContent(data) {
+var blob = new Blob([data], {type: 'application/pdf'});
+var url = window.URL.createObjectURL(blob);
+// Asynchronous download of PDF
+var loadingTask = pdfjsLib.getDocument(url);
+loadingTask.promise.then(function(pdf) {
+  console.log('PDF loaded');
+  
+  // Fetch the first page
+  var pageNumber = 1;
+  pdf.getPage(pageNumber).then(function(page) {
+    console.log('Page loaded');
+    
+    var scale = 1.5;
+    var viewport = page.getViewport({scale: scale});
+
+    // Prepare canvas using PDF page dimensions
+    var canvas = document.getElementById('the-canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    // Render PDF page into canvas context
+    var renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+    renderTask.promise.then(function () {
+		$(".loader").hide();
+      console.log('Page rendered');
     });
   });
+}, function (reason) {
+  // PDF loading error
+  console.error(reason);
+});
+}
 </script>
+</head>
+
+<body>
+<div id="menuContainer">
+<div id="menu">
+<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<h1 id="logo">Haukilahden lomalaskuri</h1>
+</div>
+<div id="places">
+<a href="index.html">Laskuri</a>
+<a href="Kysely.html">Kysely</a>
+<a href="Ruokalista.html">Ruokalista</a> 
+ <!-- <a href="Kuvat.html" >Galleria</a> -->
+<a href="Tilastot.html">Tilastot</a>
+<a href="kommentit.html">Palaute</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<a onclick="SchoolChanger()"> Vaihda koulua</a>
+</div>
+</div>
+<div id="content">
+<div id="show">
+<h1>Ruokalistat</h1>
+<div class="loader">
+<img src="loading.gif"/>
+<p> loading</p>
+</div>
+<canvas id="the-canvas"></canvas>
+</div>
+</div>
+</body>
 </html>

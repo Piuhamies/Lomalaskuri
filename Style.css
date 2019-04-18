@@ -160,14 +160,16 @@ margin:2%;
 }
  #menu {
        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-		height: 10vw;
-        width: 100%;
-        text-align: center;
-        background-color: white;
-        align-items: center;
+	   border-bottom: solid 1px;
+	   border-color: #4389f9;
+       align-items: center;
+       justify-content: center;
+       flex-direction: row;
+	   height: 10vw;
+       width: 100%;
+       text-align: center;
+       background-color: white;
+       align-items: center;
   }
     #logo{font-family:"Margarine";
 display: flex;

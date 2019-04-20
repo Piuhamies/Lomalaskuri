@@ -153,16 +153,22 @@ html {
 }
 @keyframes shotsFired {
   0% {
+	 transform-origin: left;
     transform: translateY(0px) rotate(0deg);
     opacity: 1;
   }
+  50% {
+	  transform: translateX(0vw) rotate(100deg);
+  }
   100% {
-    transform: translateY(100vh) rotate(20deg);
+	  transform-origin: left;
+    transform: translateX(-1vw) rotate(120deg);
     opacity: 0; 
   }
 }
 .change #row2 {
-animation: shotsFired  0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) ; /*cool animation*/
+transform-origin: left;
+animation: shotsFired  0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) ; /*cool animation*/
 opacity: 0;
 }
 

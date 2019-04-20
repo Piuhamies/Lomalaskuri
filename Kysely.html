@@ -24,8 +24,10 @@
                 	 $('#places').removeAttr('style'); //
 		}
 		})
-		function openMenu() {
+function openMenu(x) {
+		x.classList.toggle("change");
 			 $( "#places" ).animate({
+    opacity: 1,
     width: "toggle"
   }, 100, function() {
   });
@@ -90,7 +92,11 @@
     <body>
 <div id="menuContainer">
 <div id="menu">
-<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<div id="menuBtn" onclick="openMenu(this)">
+<div class="rows" id="row1"></div>
+<div class="rows" id="row2"></div>
+<div class="rows" id="row3"></div>
+</div>
 <h1 id="logo">Espoon l<a id= "salainen"href ="Salainen.html">o</a>malaskuri</h1>
 </div>
 <div id="places">

@@ -1,6 +1,15 @@
 	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+.close {
+  color: black;
+  position: absolute;
+  top: 10px;
+  width: 1em;
+  left: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
 body {
   width: 100%;
   margin: 0;
@@ -131,11 +140,48 @@ html {
 }
 
 @media (max-width:960px) {  
+.change #row1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+@keyframes example {
+  from {
+  margin: 6px;}
+  to {
+  position: fixed;
+  bottom: 0; }
+}
+@keyframes shotsFired {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(20deg);
+    opacity: 0; 
+  }
+}
+.change #row2 {
+animation: shotsFired  0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) ; /*cool animation*/
+opacity: 0;
+}
+
+.change #row3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+#row1, #row2, #row3 {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px;
+  transition: all 0.3s 0.2s;
+  }
 #the-canvas {
 	width: 100vw;
 }
 
-                  .ajat {
+ .ajat {
   font-size:9vw;
   font-family: "Oswald";
   display: flex;
@@ -178,9 +224,8 @@ margin-left:auto;
 font-size:8vw;
   }
   #menuBtn {
-    display: block;
-    height: 8vw;
-    margin-right: 2em;
+  display: inline-block;
+  cursor: pointer;
   }
   #places {
 	background-color: #f6f6f6;
@@ -253,6 +298,9 @@ font-size:8vw;
 }
 .ajat {
   background-color: rgba(0,0,0, 0.3);
+}
+#theEnd .ajat {
+	  background-color: rgba(255,0,0, 0.3);
 }
 html{ 
 	background:url("monoliittizoom.jpg") no-repeat center center fixed;

@@ -109,32 +109,38 @@ function openMenu(x) {
     };
 	var restaurantFinalId = "";
          function loadData() {
-            corsRequest("http://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
+            corsRequest("https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
                 var intialData = data;
+				console.log(intialData);
+				var date = new Date();
+					var dates = [];
 				for(var i in intialData.Restaurants) {
 				if(intialData.Restaurants[i].RestaurantId == "2856c0d5-d3f7-e511-bc65-60eb696ec4bb" ) {
-					 restaurantFinalId = intialData.Restaurants[i].JMenus[intialData.Restaurants[i].JMenus.length -1].MenuId;
+					var restaurantNumber = i;
 				}
 				};
-                 console.log(restaurantFinalId);
-            }, function (error, a, b) {
+				for(var i in intialData.Restaurants[restaurantNumber].JMenus) {
+				console.log("hi");
+				dates.splice(i,0,restaurantFinalId = intialData.Restaurants[restaurantNumber].JMenus[i].Start);
+				if(Date.parse(dates[i]) > date) {
+					var dateNumber = i;
+					console.log(dateNumber);
+				 }
+            }
             });
         };
 
   $(".loader").show();
-
-
-
-
-
-
-    var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
+  loadData();
+  nextStep();
+  function nextStep() {
+      var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', requesturl);
 	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.responseType = "blob";
 	xhr.send(JSON.stringify({
-  "menuId": "fcf611d2-1735-e911-a2ca-60eb696ec4bb",
+  "menuId": "9ac2ea03-8a3a-e911-a2ca-60eb696ec4bb",
   "restaurantId": "2856c0d5-d3f7-e511-bc65-60eb696ec4bb",
   "selectedLanguage": "2",
   "primaryLanguage": "2",
@@ -151,6 +157,9 @@ function openMenu(x) {
 
         }
     };
+  }
+ 
+
 function onloadDocumentFromContent(data) {
 var blob = new Blob([data], {type: 'application/pdf'});
 var url = window.URL.createObjectURL(blob);

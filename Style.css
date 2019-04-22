@@ -127,11 +127,11 @@ html {
 .cookie {
 	transition: 0.5s;
 	animation: fadein 0.5s;
-	color:white;
 	text-align: center;
-	background-color: rgba(0,0,0,0.5);
-	position: sticky;
-	bottom: 30px;
+	background-color: rgba(255,255,255,0.6);
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
 }
 
 @keyframes fadein {
@@ -139,7 +139,15 @@ html {
     to   { opacity: 1; }
 }
 
-@media (max-width:960px) {  
+@media (max-width:960px) { 
+#anotherPage {
+	background-color: white;
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100%;
+	margin-top: 9vw;
+} 
 .change #row1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
   transform: rotate(-45deg) translate(-9px, 6px) ;
@@ -341,7 +349,8 @@ color: blue;
   font-size: 20px;
   font-family: oswald;
 }
-#logo{font-family:"Margarine";
+#logo{
+font-family:"Margarine";
 display: flex;
 margin-top: 0;
 margin-bottom: 0;

@@ -1,6 +1,15 @@
-	
+﻿	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+.close {
+  color: black;
+  position: absolute;
+  top: 10px;
+  width: 1em;
+  left: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
 body {
   width: 100%;
   margin: 0;
@@ -118,11 +127,11 @@ html {
 .cookie {
 	transition: 0.5s;
 	animation: fadein 0.5s;
-	color:white;
 	text-align: center;
-	background-color: rgba(0,0,0,0.5);
-	position: sticky;
-	bottom: 30px;
+	background-color: rgba(255,255,255,0.6);
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
 }
 
 @keyframes fadein {
@@ -130,9 +139,63 @@ html {
     to   { opacity: 1; }
 }
 
-@media (max-width:960px) {  
+@media (max-width:960px) { 
+#anotherPage {
+	background-color: white;
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100%;
+	margin-top: 9vw;
+} 
+.change #row1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+@keyframes example {
+  from {
+  margin: 6px;}
+  to {
+  position: fixed;
+  bottom: 0; }
+}
+@keyframes shotsFired {
+  0% {
+	 transform-origin: left;
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+	  transform: translateX(0vw) rotate(100deg);
+  }
+  100% {
+	  transform-origin: left;
+    transform: translateX(-1vw) rotate(120deg);
+    opacity: 0; 
+  }
+}
+.change #row2 {
+transform-origin: left;
+animation: shotsFired  0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) ; /*cool animation*/
+opacity: 0;
+}
 
-                  .ajat {
+.change #row3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+#row1, #row2, #row3 {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px;
+  transition: all 0.3s 0.2s;
+  }
+#the-canvas {
+	width: 100vw;
+}
+
+ .ajat {
   font-size:9vw;
   font-family: "Oswald";
   display: flex;
@@ -157,25 +220,26 @@ margin:2%;
 }
  #menu {
        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-		height: 10vw;
-        width: 100%;
-        text-align: center;
-        background-color: white;
-        align-items: center;
+	   border-bottom: solid 1px;
+	   border-color: #4389f9;
+       align-items: center;
+       justify-content: center;
+       flex-direction: row;
+	   height: 10vw;
+       width: 100%;
+       text-align: center;
+       background-color: white;
+       align-items: center;
   }
     #logo{font-family:"Margarine";
 display: flex;
 margin:0;
 margin-left:auto;
-font-size:6vw;
+font-size:8vw;
   }
   #menuBtn {
-    display: block;
-    height: 8vw;
-    margin-right: 2em;
+  display: inline-block;
+  cursor: pointer;
   }
   #places {
 	background-color: #f6f6f6;
@@ -249,6 +313,9 @@ font-size:6vw;
 .ajat {
   background-color: rgba(0,0,0, 0.3);
 }
+#theEnd .ajat {
+	  background-color: rgba(255,0,0, 0.3);
+}
 html{ 
 	background:url("paiva.jpg") no-repeat center center fixed;
 	  }
@@ -263,7 +330,10 @@ html{
 #menu > a:hover{
 color: blue;
 }
-@media (min-width:960px) { 
+@media (min-width:960px) {
+#anotherPage {
+	display: none;
+}	
 #menuBtn {
     display: none;
   }
@@ -282,7 +352,8 @@ color: blue;
   font-size: 20px;
   font-family: oswald;
 }
-#logo{font-family:"Margarine";
+#logo{
+font-family:"Margarine";
 display: flex;
 margin-top: 0;
 margin-bottom: 0;

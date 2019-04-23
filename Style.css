@@ -330,7 +330,10 @@ html{
 #menu > a:hover{
 color: blue;
 }
-@media (min-width:960px) { 
+@media (min-width:960px) {
+#anotherPage {
+	display: none;
+}	
 #menuBtn {
     display: none;
   }

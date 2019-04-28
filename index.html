@@ -178,9 +178,7 @@ var showH= document.getElementById("tunnit"); //määritellän Checkbox tunneill
 var showD =  document.getElementById("days"); //määritellän Checkbox päiville
 
   distance.forEach(function(item, index, array)	{ // matikkaa
-   weeks.splice(index,0, Math.floor(distance[index] / (1000 * 60 * 60 * 24)/7));
-   zeroDays.splice(index,0, Math.floor(distance[index] / ((1000 * 60 * 60 * 24))));
-   days.splice(index,0, Math.floor(distance[index] % ((1000 * 60 * 60 * 24)/7) /(1000 * 60 * 60 )  ));
+   days.splice(index,0, Math.floor(distance[index] / ((1000 * 60 * 60 * 24))  ));
    hours.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
    minutes.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60)) / (1000 * 60)));
    seconds.splice(index,0,Math.floor((distance[index] % (1000 * 60)) / 1000));
@@ -191,16 +189,12 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
     var units = ["days", "hours", "minutes", "seconds", "milliseconds" ];
 	
 	function schoolEnd(lomanloppuun) {
-		var EndWeeks = Math.floor(lomanloppuun / (1000 * 60 * 60 * 24)/7);
-		var EndZero = Math.floor(lomanloppuun / ((1000 * 60 * 60 * 24)));
-		var EndDays = Math.floor(lomanloppuun % ((1000 * 60 * 60 * 24)/7) /(1000 * 60 * 60 )  );
+		var EndDays = Math.floor(lomanloppuun / (1000 * 60 * 60 * 24)  );
 		var EndHours = Math.floor((lomanloppuun % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var EndMinutes = Math.floor((lomanloppuun % (1000 * 60 * 60)) / (1000 * 60));
 		var EndSeconds = Math.floor((lomanloppuun % (1000 * 60)) / 1000);
 		var EndMilli = Math.floor(lomanloppuun %  1000 );
 		
-		$("#theEnd").show();
-		document.getElementById("endW").innerHTML = EndWeeks + "wk"; 
 		
 		if (showD.checked == true) {
 		document.getElementById("endD").style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
@@ -262,7 +256,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 	}
   for (a= 0; a<5; a++) { // tehdään for looppi jokaista lomaa kohden
   
-		document.getElementById("weeks" + a).innerHTML =  weeks[a] + "wk"; 
 		
 		if (showD.checked == true) {
 		document.getElementById("days" + a).style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
@@ -387,6 +380,7 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 </div>
 <div id="content">
 <div id="show">
+<p style="color: red; font-size: 2em"> Johtuen koodivirheestä viikot eivät näy, ongelma on tiedossamme ja pyrimme korjaamaan sen mahdollisimman pian </p>
 <!-- <p onclick="newTimers()">Lisää laskureita</p> -->
 <p>Näytä:</p>
 <div id="checkboxes">
@@ -400,7 +394,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="theEnd">
 <h2 class="alaotsikot"> Aikaa koulun alkuun:</h2>
     <div class="ajat">
-<p id="endW"></p>
 <p id="endD"></p>
 <p id="endH"></p>
 <p id="endM"></p>
@@ -411,7 +404,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="summer">
 <h2 class="alaotsikot"> Aikaa kesälomaan:</h2>
     <div class="ajat">
-<p id="weeks0"></p>
 <p id="days0"></p>
 <p id="hours0"></p>
 <p id="minutes0"></p>
@@ -423,7 +415,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="easter">
 <h2 class="alaotsikot"> Aikaa Pääsiäislomaan:</h2>
 <div class="ajat">
-<p id="weeks4"></p>
 <p id="days4"></p>
 <p id="hours4"></p>
 <p id="minutes4"></p>
@@ -435,7 +426,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="september">
 <h2 class="alaotsikot"> Aikaa syyslomaan:</h2>
     <div class="ajat">
-<p id="weeks1"></p>
 <p id="days1"></p>
 <p id="hours1"></p>
 <p id="minutes1"></p>
@@ -447,7 +437,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="christmas">
 <h2 class="alaotsikot"> Aikaa joululomaan:</h2>
    <div class="ajat">
-<p id="weeks2"></p>
 <p id="days2"></p>
 <p id="hours2"></p>
 <p id="minutes2"></p>
@@ -459,7 +448,6 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <div id="ski">
 <h2 class="alaotsikot"> Aikaa hiihtolomaan:</h2>
   <div class="ajat">
-<p id="weeks3"></p>
 <p id="days3"></p>
 <p id="hours3"></p>
 <p id="minutes3"></p>

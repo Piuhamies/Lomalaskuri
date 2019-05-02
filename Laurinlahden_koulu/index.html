@@ -15,298 +15,35 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137016636-1');
+</script>
+
         <title>Milloin koulu loppuu?</title>
-		<script>
-		$(window).resize(function(){
-		if ($(window).width() > 960) {
-                	 $('#places').removeAttr('style'); //
-		}
-		})
-		function openMenu() {
-			 $( "#places" ).animate({
-    width: "toggle"
-  }, 100, function() {
-  });
-  }
-		$(document).ready( function() {
-			console.log(Cookies.set('site', 'Lauri'));
-		});
-		function SchoolChanger() {
-			window.location.replace("https://www.lomalaskuri.tk");
-			Cookies.set('site', '');
-		}
-		function button() {
-			$(".cookie").fadeOut()
-			if(document.getElementById("NotEverAgain").checked == true) {
-				Cookies.set('NotEverAgain', 'true');
-				console.log(Cookies.get('NotEverAgain'));
-			}
-			else {
-				Cookies.set('NotEverAgain', 'false');
-			}
-				
-		}
-		$( ".cookie" ).ready(function() {
-				if(Cookies.get('NotEverAgain') == 'true') {
-			$(".cookie").remove()
-			console.log('supposedly did ths');
-		}
-		});
-		
-		if(Cookies.get('dark') == 'true') {
-					$("<link/>", {
-			rel: "stylesheet",
-			type: "text/css",
-			href: "dark.css"
-			}).appendTo("head");
-		$( "#dynaaminenNappi" ).ready(function() {
-			$("#dynaaminenNappi").html("Vaihda päivätilaan");
-		});
-			
-		}
-		else {
-		$( "#dynaaminenNappi" ).ready(function() {
-			$("#dynaaminenNappi").html("Vaihda yötilaan");
-		});
-		}
-		function darkFunction() {
-		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
-			$("<link/>", {
-			rel: "stylesheet",
-			type: "text/css",
-			href: "dark.css"
-			}).appendTo("head");
-			$("#dynaaminenNappi").html("Vaihda päivätilaan");
-			Cookies.set('dark', 'true');
-		}
-		else {
-			$('link[href="dark.css"]').remove();
-			$("#dynaaminenNappi").html("Vaihda yötilaan");
-			Cookies.set('dark', 'false');
-		}
-}
-		</script>
-		
-		<script>
-		function newTimers() {
-			$("#content").hide();
-			$("#anotherPage").fadeIn();
-		}
-		$("#theEnd").hide();
-			var countDownDates = [];
-			 countDownDates.push( new Date("Jun 1, 2019 12:00:00")); //kesäloma!!
-                         countDownDates.push( new Date("Oct 14, 2019 00:00:00")); //syysloma
-						 
-                         countDownDates.push( new Date("Dec 21, 2019 00:00:00")); //joululoma
-						 
-                         countDownDates.push( new Date("Feb 17, 2020 00:00:00")); //hiihtoloma
-						 
-			 countDownDates.push( new Date("Apr 18 2019 16:00:00")); //pääsiäisloman alkuun
-			 var endDates = [];
-			 endDates.push( new Date("Aug 8, 2019 10:00:00")); //kesäloman loppuun
-			 endDates.push( new Date("Oct 18, 2019 00:00:00")); // syysloman loppuun 
-			 endDates.push( new Date("Jan 6, 2019 00:00:00")); //joululoman loppuun
-			 endDates.push( new Date("Feb 21, 2020 00:00:00")); //hiihtoloman loppuun
-			 endDates.push( new Date("Apr 23 2019 8:30:00")); //pääsiäisloman loppuun 
-
-			var interval = setInterval(function() {
-			var Idnames = ['#summer','#september', '#christmas', '#ski', '#easter'];
-			
-			var nyt = new Date(); // Luodaan uusi muuttuja jossa säilytetään nykyistä aikaa
-                         var distance = [];
-			countDownDates.forEach(function(item, index, array) {
-						if((countDownDates[index].getTime() - nyt.getTime()) < 0) {
-							if((endDates[index].getTime() - nyt.getTime()) > 0  ) {
-								$(Idnames[index]).hide();
-								$(document).ready(function() {
-								schoolEnd(endDates[index].getTime() - nyt.getTime());
-								});
-							}
-							else {
-							tempDate = countDownDates[index];
-							tempDate.setFullYear(nyt.getFullYear() +1);
-							$("#theEnd").hide();
-							distance.splice(index, 0, tempDate - nyt.getTime()); 
-							}
-						}
-						else {
-							distance.splice(index, 0, countDownDates[index].getTime() - nyt.getTime()); 
-						}						
-                         });
-var weeks = [];
-var zeroDays = [];
-var days = [];
-var hours = [];
-var minutes = [];
-var seconds = [];
-var milliseconds = [];
-var interval = 1;
-
-var showMs= document.getElementById("milliseconds"); //määritellään Checkbox millisekunneille
-var showS= document.getElementById("seconds"); //määritellän Checkbox sekunteille
-var showMin= document.getElementById("minuutit"); //määritellän Checkbox minuuteille
-var showH= document.getElementById("tunnit"); //määritellän Checkbox tunneille
-var showD =  document.getElementById("days"); //määritellän Checkbox päiville
-
-  distance.forEach(function(item, index, array)	{ // matikkaa
-   days.splice(index,0, Math.floor(distance[index] / (1000 * 60 * 60 * 24) ));
-   hours.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-   minutes.splice(index,0,Math.floor((distance[index] % (1000 * 60 * 60)) / (1000 * 60)));
-   seconds.splice(index,0,Math.floor((distance[index] % (1000 * 60)) / 1000));
-   milliseconds.splice(index,0,Math.floor(distance[index] %  1000 ));
-   });
-
-  // Display the result in the element with id="demo"
-    var units = ["days", "hours", "minutes", "seconds", "milliseconds" ];
-	
-	function schoolEnd(lomanloppuun) {
-		var EndDays = Math.floor(lomanloppuun / (1000 * 60 * 60 * 24) );
-		var EndHours = Math.floor((lomanloppuun % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var EndMinutes = Math.floor((lomanloppuun % (1000 * 60 * 60)) / (1000 * 60));
-		var EndSeconds = Math.floor((lomanloppuun % (1000 * 60)) / 1000);
-		var EndMilli = Math.floor(lomanloppuun %  1000 );
-		
-		$("#theEnd").show();
-		
-		if (showD.checked == true) {
-		document.getElementById("endD").style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
-			if(EndWeeks < 1) {
-			document.getElementById("endD").innerHTML = EndZero + "d "; //kirjoitetaan tunnit html koodiin 
-			}
-			else {
-			document.getElementById("endD").innerHTML = EndDays + "d "; //kirjoitetaan tunnit html koodiin 
-			}
-		}
-		else { //jos ei 
-			showD.checked = false;
-			document.getElementById("endD").style.display = "none"; // poista tunti teksti
-	}	
-		if (showH.checked == true && showD.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("endH").style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
-			document.getElementById("endH").innerHTML = EndHours + "h "; //kirjoitetaan tunnit html koodiin 
-		} 
-		else { //jos ei 
-			showH.checked = false;
-			document.getElementById("endH").style.display = "none"; // poista tunti teksti
-	}		
-
-
-		if (showMin.checked == true && showH.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("endM").style.display = "flex"; // aseta minuutti tekstin display flex tyyppiseksi
-			document.getElementById("endM").innerHTML = EndMinutes + "m "; //kirjoitetaan minuutit html koodiin //kirjoitetaan sekunnit html koodiin
-		} 
-		else { //jos ei 
-			document.getElementById("endM").style.display = "none"; // poista minuutti teksti
-			showMin.checked = false;
-	}
-
-
-		if (showS.checked == true && showMin.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("endS").style.display = "flex"; // aseta sekunti tekstin display flex tyyppiseks
-			document.getElementById("endS" ).innerHTML = EndSeconds + "s "; //kirjoitetaan sekunnit html koodiin
-		} 
-		else { //jos ei 
-			showS.checked = false;
-			document.getElementById("endS").style.display = "none"; // poista sekunti teksti
-	}
-
-
-
-		if (showMs.checked == true && showS.checked == true) { //Jos checkbox millisekunneille on valittu
-			interval = 1; //aseta loopin intervalliksi 1ms
-			$(".ajat").css("font-size" , "7vw");
-			document.getElementById("endMilli").style.display = "flex"; // aseta millisekunti tekstin display flex tyyppiseksi
-			document.getElementById("endMilli").innerHTML = EndMilli + "ms "; //kirjoitetaa millisekunnit html koodiin
-		} 
-		else { //jos ei 
-			showMs.checked = false;
-			$(".ajat").css("font-size" , "9vw");
-			interval = 1000; // aseta intervalliksi 1000
-			document.getElementById("endMilli").style.display = "none"; // poista millisekunti teksti
-	}
-		
-	}
-  for (a= 0; a<5; a++) { // tehdään for looppi jokaista lomaa kohden
-  
-		
-		if (showD.checked == true) {
-		document.getElementById("days" + a).style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
-			if(weeks[a] < 1) {
-			document.getElementById("days" + a).innerHTML = zeroDays[a] + "d "; //kirjoitetaan tunnit html koodiin 
-			}
-			else {
-			document.getElementById("days" + a).innerHTML = days[a] + "d "; //kirjoitetaan tunnit html koodiin 
-			}
-		}
-		else { //jos ei 
-			showD.checked = false;
-			document.getElementById("days" + a).style.display = "none"; // poista tunti teksti
-	}	
-		if (showH.checked == true && showD.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("hours" + a).style.display = "flex"; // aseta tunti tekstin display flex tyyppiseksi
-			document.getElementById("hours" + a).innerHTML = hours [a] + "h "; //kirjoitetaan tunnit html koodiin 
-		} 
-		else { //jos ei 
-			showH.checked = false;
-			document.getElementById("hours" + a).style.display = "none"; // poista tunti teksti
-	}		
-
-
-		if (showMin.checked == true && showH.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("minutes" + a).style.display = "flex"; // aseta minuutti tekstin display flex tyyppiseksi
-			document.getElementById("minutes" + a).innerHTML = minutes[a] + "m "; //kirjoitetaan minuutit html koodiin //kirjoitetaan sekunnit html koodiin
-		} 
-		else { //jos ei 
-			document.getElementById("minutes" + a).style.display = "none"; // poista minuutti teksti
-			showMin.checked = false;
-	}
-
-
-		if (showS.checked == true && showMin.checked == true) { //Jos checkbox sekunneille on valittu
-			document.getElementById("seconds" + a).style.display = "flex"; // aseta sekunti tekstin display flex tyyppiseks
-			document.getElementById("seconds" + a ).innerHTML = seconds[a] + "s "; //kirjoitetaan sekunnit html koodiin
-		} 
-		else { //jos ei 
-			showS.checked = false;
-			document.getElementById("seconds" + a).style.display = "none"; // poista sekunti teksti
-	}
-
-
-
-		if (showMs.checked == true && showS.checked == true) { //Jos checkbox millisekunneille on valittu
-			interval = 1; //aseta loopin intervalliksi 1ms
-			$(".ajat").css("font-size" , "7vw");
-			document.getElementById("milliseconds" + a).style.display = "flex"; // aseta millisekunti tekstin display flex tyyppiseksi
-			document.getElementById("milliseconds" +a).innerHTML = milliseconds[a] + "ms "; //kirjoitetaa millisekunnit html koodiin
-		} 
-		else { //jos ei 
-			showMs.checked = false;
-			$(".ajat").css("font-size" , "9vw");
-			interval = 1000; // aseta intervalliksi 1000
-			document.getElementById("milliseconds" + a).style.display = "none"; // poista millisekunti teksti
-	}
-		
-  };
-
-}, interval);
-		</script>
+		<script src="ui.js"></script>
+		<script src="timer.js"></script>
     </head>
     <body>
-	
-	<form action="Salainen.html">
-  <input type="image" src="dogg.gif" alt="Submit" width="48" height="48">
-</form>
-
 <div id="menuContainer">
 <div id="menu">
-<img onclick="openMenu()" id="menuBtn" src="menu.png" />
+<div id="menuBtn" onclick="openMenu(this)">
+<div class="rows" id="row1"></div>
+<div class="rows" id="row2"></div>
+<div class="rows" id="row3"></div>
+</div>
 <h1 id="logo">Laurinlahden lomalaskuri</h1>
 </div>
 <div id="places">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
-<a href="Ruokalista.html">Ruokalista</a> 
+<a href="Ruokalista.html">Ruokalista</a>
 <!-- <a href="Kuvat.html" >Galleria</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
@@ -344,20 +81,23 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 </div>
 <div id="content">
 <div id="show">
-<p style="color: red; font-size: 2em"> Johtuen koodivirheestä viikot eivät näy, ongelma on tiedossamme ja pyrimme korjaamaan sen mahdollisimman pian </p>
 <!-- <p onclick="newTimers()">Lisää laskureita</p> -->
 <p>Näytä:</p>
+<button onclick="pushElements()">Update page</button>
 <div id="checkboxes">
-	<input type="checkbox" id="days" checked>päivät</input>
-	<input type="checkbox" id="tunnit" checked>tunnit</input>
-	<input type="checkbox" id="minuutit" checked>minuutit</input>
-	<input type="checkbox" id="seconds" checked>sekuntit</input>
-	<input type="checkbox" id="milliseconds">millisekuntit</input>
+	<input type="checkbox" id="daysBtn" checked>päivät</input>
+	<input type="checkbox" id="hoursBtn" checked>tunnit</input>
+	<input type="checkbox" id="minutesBtn" checked>minuutit</input>
+	<input type="checkbox" id="secondsBtn" checked>sekuntit</input>
+	<input type="checkbox" id="millisecondsBtn" >millisekuntit</input>
 </div>
 </div>
+<div id="timerArea">
+
 <div id="theEnd">
 <h2 class="alaotsikot"> Aikaa koulun alkuun:</h2>
     <div class="ajat">
+<p id="endW"></p>
 <p id="endD"></p>
 <p id="endH"></p>
 <p id="endM"></p>
@@ -365,61 +105,9 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 <p class="noShake" id="endMilli"></p>
 </div>
 </div>
-<div id="summer">
-<h2 class="alaotsikot"> Aikaa kesälomaan:</h2>
-    <div class="ajat">
-<p id="days0"></p>
-<p id="hours0"></p>
-<p id="minutes0"></p>
-<p id="seconds0"></p>
-<p class="noShake" id="milliseconds0"></p>
-</div>
+
 </div>
 
-<div id="easter">
-<h2 class="alaotsikot"> Aikaa Pääsiäislomaan:</h2>
-<div class="ajat">
-<p id="days4"></p>
-<p id="hours4"></p>
-<p id="minutes4"></p>
-<p id="seconds4"></p>
-<p class="noShake" id="milliseconds4"></p>
-</div>
-</div>
-
-<div id="september">
-<h2 class="alaotsikot"> Aikaa syyslomaan:</h2>
-    <div class="ajat">
-<p id="days1"></p>
-<p id="hours1"></p>
-<p id="minutes1"></p>
-<p id="seconds1"></p>
-<p class="noShake" id="milliseconds1"></p>
-</div>
-</div>
-
-<div id="christmas">
-<h2 class="alaotsikot"> Aikaa joululomaan:</h2>
-   <div class="ajat">
-<p id="days2"></p>
-<p id="hours2"></p>
-<p id="minutes2"></p>
-<p id="seconds2"></p>
-<p class="noShake" id="milliseconds2"></p>
-</div>
-</div>
-
-<div id="ski">
-<h2 class="alaotsikot"> Aikaa hiihtolomaan:</h2>
-  <div class="ajat">
-<p id="weeks3"></p>
-<p id="days3"></p>
-<p id="hours3"></p>
-<p id="minutes3"></p>
-<p id="seconds3"></p>
-<p class="noShake" id="milliseconds3"></p>
-</div>
-</div>
 </div>
  <div class="cookie">
 
@@ -429,5 +117,7 @@ var showD =  document.getElementById("days"); //määritellän Checkbox päivill
 
   </div>
 
+
+</body>
 </body>
 </html>

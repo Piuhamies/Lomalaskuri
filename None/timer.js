@@ -80,10 +80,14 @@ setInterval(function() {
 					if ( i==0 ) {
 						object.innerHTML = distance[i] + timeNames[i].shortened;
 					}
-					else if ( i > 0 && document.getElementById(timeNames[i].nimi + "Btn").checked == true) {
+					else if ( i==1 && document.getElementById(timeNames[i].nimi + "Btn").checked == true) {
+						object.innerHTML = distance[i] + timeNames[i].shortened;
+					}
+					else if (i > 1 && document.getElementById(timeNames[i-1].nimi + "Btn").checked == true && document.getElementById(timeNames[i].nimi + "Btn").checked == true) {
 						object.innerHTML = distance[i] + timeNames[i].shortened;
 					}
 					else {
+						document.getElementById(timeNames[i].nimi + "Btn").checked = false;
 						object.innerHTML = "";
 					}
 				}

@@ -140,6 +140,13 @@ html {
 }
 
 @media (max-width:960px) { 
+
+/* temporary delete when fixed */
+.milliseconds {
+	font-size: 6em;
+}
+/* end of temporary area*/
+
 #anotherPage {
 	background-color: white;
 	display: none;

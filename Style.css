@@ -202,11 +202,6 @@ html {
 
 @media (max-width:960px) { 
 
-/* temporary delete when fixed */
-.milliseconds {
-	font-size: 0.5em;
-}
-/* end of temporary area*/
 
 #anotherPage {
 	background-color: white;
@@ -264,7 +259,7 @@ opacity: 0;
 }
 
  .ajat {
-  font-size:9vw;
+  font-size:7vw;
   font-family: "Oswald";
   display: flex;
   justify-content: center;

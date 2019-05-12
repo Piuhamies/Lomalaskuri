@@ -6,26 +6,32 @@
 <link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
         <meta charset="UTF-8">
         <meta name="description" content="Official Lomalaskuri">
         <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-137016636-1');
-</script>
         <title>Milloin koulu loppuu?</title>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
-				<script>
+		<script>
+		$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+function openMenu(x) {
+		x.classList.toggle("change");
+			 $( "#places" ).animate({
+    opacity: 1,
+    width: "toggle"
+  }, 100, function() {
+  });
+  }
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
@@ -84,40 +90,30 @@
 </script>
     </head>
     <body>
-	
-	
-	<h1 id="logo">Haukilahden lomalaskuri</h1>
+<div id="menuContainer">
 <div id="menu">
+<div id="menuBtn" onclick="openMenu(this)">
+<div class="rows" id="row1"></div>
+<div class="rows" id="row2"></div>
+<div class="rows" id="row3"></div>
+</div>
+<h1 id="logo">Vanttilan lomalaskuri</h1>
+</div>
+<div id="places">
 <a href="index.html">Laskuri</a>
-<a href="Kysely.html">Kysely</a>
-<!--<a href="Ruokalista.html">Ruokalista</a> -->
-<!-- <a href="Kuvat.html" >Galleria</a> -->
-<a href="Tilastot.html">Tilastot</a>
+<a href="Ruokalista.html">Ruokalista</a> 
+<a href="Pelit.html"> Pelit</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
-
 </div>
-
-<!-- Tästä alkaa tilastot -->
-<div id="tilastot">
-<h1>Haukilahden koulun tilastoja</h1> <!-- Vaihda tähän koulusi nimi -->
-<h2> Onko Haukilahden koulu korjattu?</h2> <!-- Vaihda <h2> </h2>, juttujen väliin tilaston otsikko -->
-<p class="result"> EI</p> <!-- Vaihda <P> </p>, juttujen väliin vastaus,
-jos <p> sisällä on class="result" , se näytetään punaisena, kun jos taas class="positiveResult" 
-niin se näytetään vihreänä -->
-<p>Haukilahden koulu on väliaikaistilassa.</p>
-
-<h2> Onko limukone korjattu? </h2> <!-- Otsikko seuraavaan aiheeseen -->
-<p class="result"> EI</p>
-<h2>Onko kolmannen kerroksen sohva vaihdettu?</h2>
-<p class="result"> Ei</p>
-<h2> Onko koulussa hometta?</h2>
-<p class="positiveResult"> Koulussa ei ole hometta, mutta liikunttiloissa on.</p>
 </div>
-<!-- Jos haluat lisää tilastoja kopio vaan otsikko ja teksti uudestaan ja lisää se tähän! -->
-<!-- Tänne loppuu tilastot -->
-
+<div id="content">
+<h1>Pelin tarjosi: pizzaworm.fi</h1>
+<div class="aspect-ratio">
+<iframe id="peli" src="../p5/empty-example/V2.html"> Loading...</iframe>
+</div>
+</div>
  <div class="cookie">
 
       <p> Tämä nettisivu käyttää evästeitä</p>
@@ -125,7 +121,5 @@ niin se näytetään vihreänä -->
 		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain">Muista valintani</input>
 
   </div>
-  
-  
 </body>
 </html>

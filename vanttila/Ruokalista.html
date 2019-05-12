@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<script src="../build/pdf.js"></script>
+<script src="../build/pdf.worker.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Official Lomalaskuri">
+    <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Milloin koulu loppuu?</title>
+	<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137016636-1');
+</script>
+<script>
+	$(window).resize(function(){
+		if ($(window).width() > 960) {
+                	 $('#places').removeAttr('style'); //
+		}
+		})
+function openMenu(x) {
+		x.classList.toggle("change");
+			 $( "#places" ).animate({
+    opacity: 1,
+    width: "toggle"
+  }, 100, function() {
+  });
+  }
+		function SchoolChanger() {
+			window.location.replace("https://www.lomalaskuri.tk");
+			Cookies.set('site', '');
+		}
+		$( ".cookie" ).ready(function() {
+				if(Cookies.get('NotEverAgain') == 'true') {
+			$(".cookie").remove()
+			console.log('supposedly did ths');
+		}
+		});
+		function button() {
+			$(".cookie").fadeOut()
+			if(document.getElementById("NotEverAgain").checked == true) {
+				Cookies.set('NotEverAgain', 'true');
+			}
+				
+		}
+		if(Cookies.get('dark') == 'true') {
+					$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+		$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+		});
+			
+		}
+		else {
+			$( "#dynaaminenNappi" ).ready(function() {
+			$("#dynaaminenNappi").html("Vaihda yötilaan");
+		});
+		}
+		function darkFunction() {
+		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
+			$("<link/>", {
+			rel: "stylesheet",
+			type: "text/css",
+			href: "dark.css"
+			}).appendTo("head");
+			$("#dynaaminenNappi").html("Vaihda päivätilaan");
+			Cookies.set('dark', 'true');
+		}
+		else {
+			$('link[href="dark.css"]').remove();
+			$("#dynaaminenNappi").html("Vaihda yötilaan");
+			Cookies.set('dark', 'false');
+		}
+}
+</script>
+<script>
+ corsRequest = function (uri, success) {
+
+        var ajaxParams = {
+            url: uri,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            dataType: "json",
+            headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "GET",
+                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+                        },
+            data: '',
+            success: success
+        };
+
+        return $.ajax(ajaxParams);
+    };
+	
+	//Wuuhuuu nyt tämä ruokalista toimii
+	var menuFinalId = "";
+         function loadData() {
+            corsRequest("https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
+                var intialData = data;
+				console.log(intialData);
+				var date = new Date();
+				var dates = [];
+				var endDates = [];
+				for(var i in intialData.Restaurants) {
+				if(intialData.Restaurants[i].RestaurantId == "2856c0d5-d3f7-e511-bc65-60eb696ec4bb" ) {
+					var restaurantNumber = i;
+				}
+				};
+				for(var i in intialData.Restaurants[restaurantNumber].JMenus) {
+				console.log("hi");
+				dates.splice(i,0,intialData.Restaurants[restaurantNumber].JMenus[i].Start);
+				endDates.splice(i, 0, intialData.Restaurants[restaurantNumber].JMenus[i].End);
+				console.log();
+				var parsedDate = Date.parse(date);
+				if(parsedDate > Date.parse(dates[i]) && parsedDate < Date.parse(endDates[i]) ) {
+					var dateNumber = i;
+					console.log(dateNumber);
+					menuFinalId = intialData.Restaurants[restaurantNumber].JMenus[dateNumber].MenuId;
+					nextStep();
+				 }
+            }
+            });
+        };
+
+  $(".loader").show();
+  loadData();
+  function nextStep() {
+      var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', requesturl);
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.responseType = "blob";
+	xhr.send(JSON.stringify({
+  "menuId": menuFinalId,
+  "restaurantId": "2856c0d5-d3f7-e511-bc65-60eb696ec4bb",
+  "selectedLanguage": "2",
+  "primaryLanguage": "2",
+  "todaySelected": "false",
+  "currentWeekSelected": "true",
+  "nextWeekSelected": "false",
+  "thirdWeekSelected": "false"
+}));
+    xhr.onload = function () {
+        if (this.status == 200) {
+            onloadDocumentFromContent(this.response);
+        } else {
+            navigator.notification.alert('Error while requesting pdf with id ' + getDocumentId());
+
+        }
+    };
+  }
+ 
+
+function onloadDocumentFromContent(data) {
+var blob = new Blob([data], {type: 'application/pdf'});
+var url = window.URL.createObjectURL(blob);
+// Asynchronous download of PDF
+var loadingTask = pdfjsLib.getDocument(url);
+loadingTask.promise.then(function(pdf) {
+  console.log('PDF loaded');
+  
+  // Fetch the first page
+  var pageNumber = 1;
+  pdf.getPage(pageNumber).then(function(page) {
+    console.log('Page loaded');
+    
+    var scale = 1.5;
+    var viewport = page.getViewport({scale: scale});
+
+    // Prepare canvas using PDF page dimensions
+    var canvas = document.getElementById('the-canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    // Render PDF page into canvas context
+    var renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+    renderTask.promise.then(function () {
+		$(".loader").hide();
+      console.log('Page rendered');
+    });
+  });
+}, function (reason) {
+  // PDF loading error
+  console.error(reason);
+});
+}
+</script>
+</head>
+
+<body>
+<div id="menuContainer">
+<div id="menu">
+<div id="menuBtn" onclick="openMenu(this)">
+<div class="rows" id="row1"></div>
+<div class="rows" id="row2"></div>
+<div class="rows" id="row3"></div>
+</div>
+<h1 id="logo">Vanttilan lomalaskuri</h1>
+</div>
+<div id="places">
+<a href="index.html">Laskuri</a>
+<a href="Ruokalista.html">Ruokalista</a> 
+<a href="Pelit.html">Pelit</a>
+<a href="kommentit.html">Palaute</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<a onclick="SchoolChanger()"> Vaihda koulua</a>
+</div>
+</div>
+<div id="content">
+<div id="show">
+<h1>Ruokalistat</h1>
+<div class="loader">
+<img src="loading.gif"/>
+<p> loading</p>
+</div>
+<canvas id="the-canvas"></canvas>
+</div>
+</div>
+</body>
+</html>

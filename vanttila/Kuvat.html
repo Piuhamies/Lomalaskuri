@@ -3,16 +3,16 @@
     
 
     <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
         <meta charset="UTF-8">
         <meta name="description" content="Official Lomalaskuri">
         <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -25,15 +25,23 @@
   gtag('config', 'UA-137016636-1');
 </script>
 
-        <title>Milloin koulu loppuu?</title>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <title>Milloin koulu loppuu?</title>
 		<script>
 		function SchoolChanger() {
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
 		}
-		$( ".cookie" ).ready(function() {
+			function closeFunc() {
+				$(".modal").hide();
+			}
+			function image(click_id) {
+				$(".modal").show();
+				$(".modal-content img").attr('src', $('#' + click_id).attr('src')) ;
+			}			
+		</script>
+		<script>
+				$( ".cookie" ).ready(function() {
 				if(Cookies.get('NotEverAgain') == 'true') {
 			$(".cookie").remove()
 			console.log('supposedly did ths');
@@ -58,7 +66,7 @@
 			
 		}
 		else {
-			$( "#dynaaminenNappi" ).ready(function() {
+		$( "#dynaaminenNappi" ).ready(function() {
 			$("#dynaaminenNappi").html("Vaihda yötilaan");
 		});
 		}
@@ -86,24 +94,35 @@
   });
 </script>
     </head>
-
+	
     <body>
-	<h1 id="logo">Haukilahden lomalaskuri</h1>
+	<h1 id="logo">Vanttilan lomalaskuri</h1>
 <div id="menu">
 <a href="index.html">Laskuri</a>
 <a href="Kysely.html">Kysely</a>
-<!--<a href="Ruokalista.html">Ruokalista</a> -->
- <!-- <a href="Kuvat.html" >Galleria</a> --> 
+<!-- <a href="Ruokalista.html">Ruokalista</a> -->
+<!-- <a href="Kuvat.html">Galleria</a> -->
 <a href="Tilastot.html">Tilastot</a>
 <a href="kommentit.html">Palaute</a>
 <a id="dynaaminenNappi" onclick="darkFunction()"></a>
 <a onclick="SchoolChanger()"> Vaihda koulua</a>
 </div>
 
-<div class="kysely">
+	<div id="myModal" class="modal">
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" width="640" height="452" frameborder="0" marginheight="0" marginwidth="0">Ladataan...</iframe>
+  <div class="modal-content">
+    <span onclick="closeFunc()" class="close">&times;</span>
+    <img id="image" src=""/>
+  </div>
 
+</div>
+<div class="grid-container">
+  <div class="item1"><img onclick="image(this.id)" class="pictures" id="picture1" src="kuvat/1.jpg"/></div>
+  <div class="item2"><img onclick="image(this.id)" class="pictures" id="picture2" src="kuvat/2.jpg"/></div>
+  <div class="item3"><img onclick="image(this.id)" class="pictures" id="picture3" src="kuvat/3.jpg"/></div>  
+  <div class="bottom"><img onclick="image(this.id)" class="pictures" id="picture4" src="kuvat/4.jpg"/></div>
+  <div class="bottom"><img onclick="image(this.id)" class="pictures" id="picture5" src="kuvat/5.jpg"/></div>
+  <div class="bottom1"><img onclick="image(this.id)" class="pictures" id="picture6"src="kuvat/6.jpg"/></div>
 </div>
  <div class="cookie">
 

@@ -69,10 +69,6 @@ function randomizeMatoLocation() {
   }
 }
 function setup() {
-  scoreElem = createDiv(score);
-  scoreElem.position(20, 0);
-  scoreElem.id = 'score';
-  scoreElem.style('color', 'black');
     var options = {
     preventDefault: true
   };
@@ -161,7 +157,6 @@ function draw() {
   if(gameStarted == false) {
 	background(51);
 	textSize(60);
-	scoreElem.style('visibility', 'hidden');
 	textAlign(CENTER);
 	noStroke();
 	if(msg == "Käynistä peli" ) {
@@ -197,8 +192,9 @@ function detectSnakeCollision() {
 	}
 }
 function updateScore() {
-	++score;
-	scoreElem.html(score);
+	textAlign(LEFT);
+	textSize(60);
+	text(score, 15, 55);
 }
 function getNewPizzaLocation() {
 	pizzaX = Math.floor(random(3, gridX-3))*skipX;
@@ -212,7 +208,7 @@ function detectPizzaCollision() {
 	var lastY = matoCoords[matoCoords.length -1 ][1]*skipX
 	if(lastX > pizzaX && lastY > pizzaY && lastX < pizzaX+(pizzaSize/2*skipX) && lastY < pizzaY+(pizzaSize/2*skipY)) {
 		getNewPizzaLocation();
-		updateScore();
+		++score;
 		for(var i =0; i< matoGrow; ++i) { //looppi joka arvoo randomilla wormin sijainnin
 			matoCoords.unshift([matoCoords[0][0] - 1 , matoCoords[0][1]]);
 		}
@@ -221,9 +217,7 @@ function detectPizzaCollision() {
 }
 function startGame() {
 	score = 0; //resetoidaan pisteet
-	scoreElem.html(0);
 	msg = "Error";
-	scoreElem.style('visibility', 'visible');
 	getNewPizzaLocation();
 	main =  setInterval(function() {
 		var last = matoCoords[matoCoords.length -1 ];
@@ -247,6 +241,7 @@ function startGame() {
 	matoCoords.shift();
 	imageMode(CORNER);
 	image(img, 0, 0, width, height);
+	updateScore();
 	drawPizza();
 			for(len = matoCoords.length, i=0; i<len; ++i) {
 					strokeWeight(10);

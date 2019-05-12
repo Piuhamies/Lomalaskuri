@@ -22,7 +22,7 @@ function setup() {
    ballX = random(0, 720);
    ballY = random(0, 720);
 }
-setInterval(function() {
+function draw() {
   background(R,G,B);
   enemy();
   
@@ -44,7 +44,7 @@ setInterval(function() {
     ballSpeedY = -ballSpeedY+(random(-2, 2)); // kimmota pallo
   }
   paddle();
-}, 10);
+}
 //oman pelaajan koodi
 function paddle() {
   //piirrä tulos ruudulle

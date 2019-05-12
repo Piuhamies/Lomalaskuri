@@ -15,11 +15,11 @@ var direction = 'right';
 
 var updateInterval = 100; //Kuinka usein mato liikkuu/piirretään millisekunneissa
 
-var aspectRatioX = 16;
-var aspectRatioY = 9;
+var aspectRatioX = 4;
+var aspectRatioY = 3
 
 var pizzaSize = 3; //Kuinka monen ruudun kokoinen yksi pizza on.
-var mapSize = 1; //Mapin koko
+var mapSize = 6; //Mapin koko
 var gridX = aspectRatioX*mapSize; //lasketaan mapin koko osioiksi x-akselilla
 var gridY = aspectRatioY*mapSize; //lasketaan mapin koko osioiksi y-akselilla
 
@@ -40,14 +40,14 @@ var pizza;
 
 function getSize() {
 	for(var i = windowWidth; i> 0; i = i -1 ) {
-		if( (Math.floor(i / 16) * 9)  <= windowHeight) {
+		if( (Math.floor(i / 4) * 3)  <= windowHeight) {
 			tempX = i;
 			break;
 		}
 	}
   	for(var i = windowWidth; i> 0; i = i -1 ) {
 		if( i <= tempX) {
-			tempY = Math.floor(i / 16) * 9;
+			tempY = Math.floor(i / 4) * 3;
 			break;
 		}
 	}

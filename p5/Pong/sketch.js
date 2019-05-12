@@ -10,6 +10,7 @@ var botY;
 var speedD = 0;
 var ballX = 0;
 var ballY = 0;
+var mappedRotation;
 function setup() {
   fullscreen();
   createCanvas(windowWidth, windowHeight);
@@ -47,10 +48,11 @@ function draw() {
 //oman pelaajan koodi
 function paddle() {
   //piirrä tulos ruudulle
+  mappedRotation = map(rotationX, 0, 180, 0, height);
   text(score, width/2, 120); // luo teksti
   
-  rect(width-100, rotationX-50, 50, 100);
-  if (ballX > width-100 && rotationX < width -80 && ballY > rotationX-100/2 && ballY < rotationX+100/2 ) {
+  rect(width-100, mappedRotation-50, 50, 100);
+  if (ballX > width-100 && mappedRotation < width -80 && ballY > mappedRotation-100/2 && ballY < mappedRotation+100/2 ) {
     score++;
     ballSpeedY = -ballSpeedY;
     ballSpeedX = -ballSpeedX;

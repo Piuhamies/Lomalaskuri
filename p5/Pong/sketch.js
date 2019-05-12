@@ -48,7 +48,7 @@ function draw() {
 //oman pelaajan koodi
 function paddle() {
   //piirrä tulos ruudulle
-  mappedRotation = map(rotationX, 0, 180, 0, height);
+  mappedRotation = map(rotationX, 0, 50, 0, height);
   text(score, width/2, 120); // luo teksti
   
   rect(width-100, mappedRotation-50, 50, 100);

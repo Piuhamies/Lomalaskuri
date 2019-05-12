@@ -11,10 +11,10 @@ var speedD = 0;
 var ballX = 0;
 var ballY = 0;
 var mappedRotation;
+var canvas;
 function setup() {
   fullscreen();
-  createCanvas(windowWidth, windowHeight);
-  frameRate(60);
+   canvas = createCanvas(windowWidth, windowHeight);
   // valitse taustalle random sävy
   R = random(0, 100); 
   G = random(0, 100);
@@ -22,7 +22,7 @@ function setup() {
    ballX = random(0, 720);
    ballY = random(0, 720);
 }
-function draw() {
+setInterval(function() {
   background(R,G,B);
   enemy();
   
@@ -35,27 +35,35 @@ function draw() {
     ballSpeedX = ballSpeedX +random(0,5); // vaihda pallon kulmaa X-akselissa
   }
   else if  (ballX < 0) { // jos pallo koskettaa vasenta reunaa
-    ballSpeedX = -ballSpeedX; //kimmota pallo
+    ballSpeedX = -ballSpeedX+(random(-2, 2)); //kimmota pallo
   }
   else if (ballY > height) { // jos pallo koskettaa alareunaa
-    ballSpeedY = -ballSpeedY; // kimmota pallo
+    ballSpeedY = -ballSpeedY+(random(-2, 2)); // kimmota pallo
   }
   else if (ballY < 0) { // jos pallo koskettaa yläreunaa 
-    ballSpeedY = -ballSpeedY; // kimmota pallo
+    ballSpeedY = -ballSpeedY+(random(-2, 2)); // kimmota pallo
   }
   paddle();
-}
+}, 10);
 //oman pelaajan koodi
 function paddle() {
   //piirrä tulos ruudulle
+  if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
   mappedRotation = map(rotationX, 0, 50, 0, height);
+  }
+  else if(deviceOrientation == LANDSCAPE && rotationX > 0) {
+	mappedRotation = map(rotationY, 0, 50, 0, height);
+  }
+  else {
+	  mappedRotation = mouseY;
+  }
   text(score, width/2, 120); // luo teksti
   
   rect(width-100, mappedRotation-50, 50, 100);
   if (ballX > width-100 && mappedRotation < width -80 && ballY > mappedRotation-100/2 && ballY < mappedRotation+100/2 ) {
     score++;
-    ballSpeedY = -ballSpeedY;
-    ballSpeedX = -ballSpeedX;
+    ballSpeedX = -ballSpeedX+(random(-2, 2));
+    ballSpeedY = -ballSpeedY+(random(-2, 2));
   }
   else if (ballX > width-80) {
     gameOver = true;
@@ -87,9 +95,9 @@ function enemy() {
       botY = botY +8;
     }
   }
-  if (ballX < 100 && ballX > 90 && ballY > botY-100/2 && ballY < botY+100/2) {
-    ballSpeedX = -ballSpeedX;
-    ballSpeedY = -ballSpeedY;
+  if (ballX <= 150 ) {
+    ballSpeedX = -ballSpeedX+(random(-2, 2));
+    ballSpeedY = -ballSpeedY+(random(-2, 2));
   }
 }
 function mousePressed() {

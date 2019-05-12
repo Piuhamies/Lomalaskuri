@@ -49,8 +49,8 @@ function paddle() {
   //piirrä tulos ruudulle
   text(score, width/2, 120); // luo teksti
   
-  rect(width-100, mouseY-50, 50, 100);
-  if (ballX > width-100 && ballX < width -80 && ballY > mouseY-100/2 && ballY < mouseY+100/2 ) {
+  rect(width-100, rotationY-50, 50, 100);
+  if (ballX > width-100 && rotationX < width -80 && ballY > rotationY-100/2 && ballY < rotationY+100/2 ) {
     score++;
     ballSpeedY = -ballSpeedY;
     ballSpeedX = -ballSpeedX;

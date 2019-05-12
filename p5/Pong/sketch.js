@@ -19,8 +19,8 @@ function setup() {
   R = random(0, 100); 
   G = random(0, 100);
   B = random(0, 100);
-   ballX = random(0, 720);
-   ballY = random(0, 720);
+   ballX = random(150, width-150);
+   ballY = random(150, height);
 }
 function draw() {
   background(R,G,B);
@@ -51,7 +51,7 @@ function paddle() {
   if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
   mappedRotation = map(rotationX, 0, 50, 0, height);
   }
-  else if(deviceOrientation == LANDSCAPE && rotationX > 0) {
+  else if(deviceOrientation == LANDSCAPE && rotationY > 0) {
 	mappedRotation = map(rotationY, 0, 50, 0, height);
   }
   else {

@@ -55,11 +55,9 @@ function paddle() {
   }
   else if(deviceOrientation == LANDSCAPE && rotationY > 0) {
 	mappedRotation = map(rotationY, 0 , 50, 0, height);
-	text("this way", 100, 100);
   }
    else if(deviceOrientation == LANDSCAPE && rotationY < 0) {
-	mappedRotation = map(rotationY, 50 , 0, 0, height);
-	text("another way", 100, 100);
+	mappedRotation = map(rotationY, -50 , 0, 0, height);
   }
   else {
 	  mappedRotation = mouseY;

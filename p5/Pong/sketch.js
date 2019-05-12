@@ -47,6 +47,8 @@ function draw() {
 }
 //oman pelaajan koodi
 function paddle() {
+	textSize(60);
+	text(rotationY, 100, 100);
   //piirrä tulos ruudulle
   if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
   mappedRotation = map(rotationX, 0, 50, 0, height);

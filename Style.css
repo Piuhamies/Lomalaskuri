@@ -1,6 +1,10 @@
 	
 	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+#peli {
+	width: 100vw;
+	height: 100vh;
+}
 .checkbox input[type="checkbox"] {
     opacity: 0;
 }

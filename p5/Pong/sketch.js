@@ -48,16 +48,18 @@ function draw() {
 //oman pelaajan koodi
 function paddle() {
 	textSize(60);
-	text(rotationY, 100, 100);
+	
   //piirrä tulos ruudulle
   if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
   mappedRotation = map(rotationX, 0, 50, 0, height);
   }
   else if(deviceOrientation == LANDSCAPE && rotationY > 0) {
 	mappedRotation = map(rotationY, 0 , 50, 0, height);
+	text("this way", 100, 100);
   }
    else if(deviceOrientation == LANDSCAPE && rotationY < 0) {
 	mappedRotation = map(rotationY, 50 , 0, 0, height);
+	text("another way", 100, 100);
   }
   else {
 	  mappedRotation = mouseY;
@@ -72,7 +74,7 @@ function paddle() {
   }
   else if (ballX > width-80) {
     gameOver = true;
-    noLoop(); // pysäytä koodin pääsilmukka
+    //noLoop(); // pysäytä koodin pääsilmukka
   }
 }
 //botti vastustajan koodi

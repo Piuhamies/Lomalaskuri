@@ -1,6 +1,23 @@
+	var enemyY = 40;
+ // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBHLb-r0rNYPNg6bL-bGeWjRCRowEJLQA4",
+    authDomain: "pong-222e9.firebaseapp.com",
+    databaseURL: "https://pong-222e9.firebaseio.com",
+    storageBucket: "pong-222e9.appspot.com"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const preObject = document.getElementById('object');
+  const dbRefObject = firebase.database().ref();
+  
+  dbRefObject.on('value', snap => {
+	  enemyY = snap.val().padelY;
+		console.log(enemyY);
+	});
 
-var ballSpeedX = 10;
-var ballSpeedY = 10;
+var ballSpeedX = 8;
+var ballSpeedY = 8;
 var score = 0;
 var R;
 var G;
@@ -12,17 +29,36 @@ var ballX = 0;
 var ballY = 0;
 var mappedRotation;
 var canvas;
+
+var tempY;
+var tempX;
+function getSize() {
+	for(var i = windowWidth; i> 0; i = i -1 ) {
+		if( (Math.floor(i / 4) * 3)  <= windowHeight) {
+			tempX = i;
+			break;
+		}
+	}
+  	for(var i = windowWidth; i> 0; i = i -1 ) {
+		if( i <= tempX) {
+			tempY = Math.floor(i / 4) * 3;
+			break;
+		}
+	}
+}
 function setup() {
   fullscreen();
-   canvas = createCanvas(windowWidth, windowHeight);
+  getSize()
+   canvas = createCanvas(tempX, tempY);
   // valitse taustalle random sävy
   R = random(0, 100); 
   G = random(0, 100);
   B = random(0, 100);
-   ballX = random(150, width-150);
-   ballY = random(150, height);
+   ballX = (width/2)-10;
+   ballY = (height/2)-10;
 }
 function draw() {
+  console.log(enemyY);
   background(R,G,B);
   enemy();
   
@@ -62,13 +98,15 @@ function paddle() {
   else {
 	  mappedRotation = mouseY;
   }
+  
   text(score, width/2, 120); // luo teksti
   
   rect(width-100, mappedRotation-50, 50, 100);
-  if (ballX > width-100 && mappedRotation < width -80 && ballY > mappedRotation-100/2 && ballY < mappedRotation+100/2 ) {
+  if (ballX > width-100 && ballY > mappedRotation-50 && ballY < mappedRotation+50) {
     score++;
-    ballSpeedX = -ballSpeedX+(random(-2, 2));
-    ballSpeedY = -ballSpeedY+(random(-2, 2));
+	console.log("colliding BallX: " + ballSpeedX + " ballY: " + ballSpeedY);
+    ballSpeedX = -ballSpeedX;
+    ballSpeedY = -ballSpeedY;
   }
   else if (ballX > width-80) {
     gameOver = true;
@@ -77,15 +115,13 @@ function paddle() {
 }
 //botti vastustajan koodi
 function enemy() {
-  rect(100, ballY-50, 50, 100);
+  rect(100,enemyY, 50, 100);
  if(botY != ballY && ballX < width/2) {
     if(botY > ballY) {
       var speed = 0;
       
-      speed = int(map(botY-ballY, 0, 400, 0, 20)* 10
-      );
+      speed = int(map(botY-ballY, 0, 400, 0, 20)* 10);
       speedD = int(map(ballY-botY, 0, 400, 0, 20)*10);
-      println(speed);
       botY = botY -speed;
     }
     else {
@@ -101,14 +137,14 @@ function enemy() {
     }
   }
   if (ballX <= 150 ) {
-    ballSpeedX = -ballSpeedX+(random(-2, 2));
-    ballSpeedY = -ballSpeedY+(random(-2, 2));
+    ballSpeedX = -ballSpeedX+ random(0,1);
+    ballSpeedY = -ballSpeedY+random(-1, 1);
   }
 }
 function mousePressed() {
   if (gameOver == true) {
-    ballX = random(0, 720);
-    ballY = random(0, 720);
+    ballX = (width/2)-10;
+    ballY = (height/2)-10;
     ballSpeedX = 10;
     ballSpeedY = 10;
     score = 0;

@@ -1,4 +1,4 @@
-	var myRole = 2;
+	var myRole = 1;
 	var enemyY = 40;
 	var oldBallX = 0;
 	var oldBallY = 0;

@@ -17,6 +17,7 @@ var timeNames = [{nimi: "weeks", shortened: "wk"},
  {nimi: "milliseconds", shortened: "ms"}
  ];
 var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muuttujassa, koska sitä käytetään monessa paikkaa
+var slider = 0;
 
  $(document).ready(function() {
 	pushElements();
@@ -60,6 +61,28 @@ content.appendChild(div);  // lisätään div objectit body osioon
                   
 });
 	}	
+function setSlider() {
+	var toggled = false;
+	var oldSlider = slider;
+	for(a= 1; a<timeNames.length; ++a) {
+		if(document.getElementById(timeNames[a].nimi + "Btn").checked == true) {
+			toggled = true;
+			slider =+ a; 
+		}
+	}
+	if(toggled == true) {
+		slider = 1;
+		for(a= 1; a<timeNames.length; ++a) {
+			if(document.getElementById(timeNames[a].nimi + "Btn").checked == true) {
+				document.getElementById(timeNames[a].nimi + "Btn").checked = false;
+				slider = a +1;
+			}
+		}
+		if(oldSlider == slider) {
+			slider = slider -1;
+		}
+	}
+}
 setInterval(function() {
 	
 	var nyt = new Date().getTime();
@@ -75,24 +98,54 @@ setInterval(function() {
 					Math.floor((start - nyt) % (1000*60) / 1000 ), //sekunnit
 					Math.floor((start- nyt) % 1000 ) // millisekunnit
 				]
+				setSlider();
 				for(len = timeNames.length, i=0; i<len; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 
 					var object = document.getElementById(timeNames[i].nimi + index) // hae objekti johon asetamme arvon
-					if ( i==0 ) {
-						object.innerHTML = distance[i] + timeNames[i].shortened;
+					document.getElementById(timeNames[0].nimi + index).innerHTML = distance[0] + timeNames[0].shortened; //asetamme viikot, koska niitä ei checkboxit piilota
+					for(a = 0; a<slider; a++) {
+						document.getElementById(timeNames[a].nimi + index).innerHTML = distance[a] + timeNames[a].shortened;
+						if(document.getElementById(timeNames[a].nimi + index).style.display == "none") {
+							document.getElementById(timeNames[a].nimi + index).style.display = "block";
+						}
 					}
-					else if ( i==1 && document.getElementById(timeNames[i].nimi + "Btn").checked == true) {
-						object.innerHTML = distance[i] + timeNames[i].shortened;
+					for(b= slider; b<timeNames.length; ++b) { //jos slider arvo ei yletä tähän kohtaan niin
+						document.getElementById(timeNames[b].nimi + "Btn").classList.remove("check");
+						document.getElementById(timeNames[b].nimi + index).style.display = "none";
 					}
-					else if (i > 1 && document.getElementById(timeNames[i-1].nimi + "Btn").checked == true && document.getElementById(timeNames[i].nimi + "Btn").checked == true) {
-						object.innerHTML = distance[i] + timeNames[i].shortened;
-					}
-					else {
-						document.getElementById(timeNames[i].nimi + "Btn").checked = false;
-						object.innerHTML = "";
-					}
+					for(a = 1; a<slider
+					; a++) {
+						document.getElementById(timeNames[a].nimi + "Btn").classList.add("check");
+				}
 				}
 			}
 			else if ((end- nyt) > 0 ) { //jos loma on nyt näytä koulun alku timeri
+				var distance = [
+					Math.floor((end - nyt) / (1000* 60 * 60* 24* 7)), //maaginen seiskalla jako(viikot)
+				    Math.floor((end - nyt) % (1000 * 60 *60*24 *7) / (1000* 60* 60 *24)), //päivät
+					Math.floor((end- nyt) % (1000 * 60*60 * 24) / (1000* 60*60)), // tunnit
+					Math.floor((end - nyt) % (1000* 60* 60) / (1000* 60)), //minuutit
+					Math.floor((end - nyt) % (1000*60) / 1000 ), //sekunnit
+					Math.floor((end- nyt) % 1000 ) // millisekunnit
+				]
+				setSlider();
+				for(len = timeNames.length, i=0; i<len; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 
+					var object = document.getElementById(timeNames[i].nimi + index) // hae objekti johon asetamme arvon
+					$("#timer" + index + " h2").text("Aikaa loman loppuun 😢:");
+					document.getElementById(timeNames[0].nimi + index).innerHTML = distance[0] + timeNames[0].shortened; //asetamme viikot, koska niitä ei checkboxit piilota
+					for(a = 0; a<slider; a++) {
+						document.getElementById(timeNames[a].nimi + index).innerHTML = distance[a] + timeNames[a].shortened;
+						if(document.getElementById(timeNames[a].nimi + index).style.display == "none") {
+							document.getElementById(timeNames[a].nimi + index).style.display = "block";
+						}
+					}
+					for(b= slider; b<timeNames.length; ++b) { //jos slider arvo ei yletä tähän kohtaan niin
+						document.getElementById(timeNames[b].nimi + "Btn").classList.remove("check");
+						document.getElementById(timeNames[b].nimi + index).style.display = "none";
+					}
+					for(a = 1; a<slider; a++) {
+						document.getElementById(timeNames[a].nimi + "Btn").classList.add("check");
+				}
+				}
 			}
 			else {
 				element.start.setFullYear(currentYear +1); 

@@ -41,7 +41,7 @@
     
     top: 3px;
 }
-.checkbox input[type="checkbox"]:checked + label::before {
+.checkbox input[type="checkbox"].check + label::before {
 	background-color: rgba(0,0,255,0.3);
 }
 
@@ -61,7 +61,7 @@
     content: none;
 }
 
-.checkbox input[type="checkbox"]:checked + label::after {
+.checkbox input[type="checkbox"].check+ label::after {
     content: "";
 }
 

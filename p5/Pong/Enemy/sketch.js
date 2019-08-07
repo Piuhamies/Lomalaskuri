@@ -4,8 +4,6 @@
 	var oldBallY = 0;
 	var newBallX = 0;
 	var newBallY = 0;
-	var scoreA = 0;
-	var scoreB = 0;
  // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBHLb-r0rNYPNg6bL-bGeWjRCRowEJLQA4",
@@ -18,15 +16,15 @@
   const preObject = document.getElementById('object');
   const dbRefObject = firebase.database().ref('Test');
   const db = firebase.database();
-    dbRefObject.on('value', snap => { //Kun database päivittyy
-	  newBallX = snap.val().BallX; //Tallenna uusi pallon X sijainti
-	  newBallY = snap.val().BallY; //Pallon Y sijainti
-	  scoreA = snap.val().ScoreA; //Pelaajan A score
-	  scoreB = snap.val().ScoreB; //Pelaajan B score
-	  newBallSpeedY = snap.val().ballSpeedY; //Pallon Y nopeus
-	  newBallSpeedX = snap.val().ballSpeedX; //Pallon X nopeus
+    dbRefObject.on('value', snap => {
+	  newBallX = snap.val().BallX;
+	  newBallSpeedX = snap.val().ballSpeedX;
 	});
-
+    dbRefObject.on('value', snap => {
+	  newBallY = snap.val().BallY;
+	  newBallSpeedY = snap.val().ballSpeedY;
+	});
+ 
   if(myRole == 2) {
   dbRefObject.on('value', snap => {
 	  enemyY = snap.val().AY;
@@ -39,12 +37,11 @@
 		console.log(enemyY);
 	});
   }
-  
   function updateBallCoords(ballnewX, ballnewY, ballXSpeed, ballYSpeed) {
 	  dbRefObject.child("BallX").set(ballnewX);
 	  dbRefObject.child("ballSpeedX").set(ballXSpeed);
 	  dbRefObject.child("BallY").set(ballnewY);
-	  dbRefObject.child("ballSpeedY").set(ballYSpeed);
+	  dbRefObject.child("ballYSpeed").set(ballYSpeed);
   }
   
   	function updateFirebaseCoords(newX) {
@@ -59,6 +56,7 @@
 
 var ballSpeedX = 8;
 var ballSpeedY = 8;
+var score = 0;
 var R;
 var G;
 var B;

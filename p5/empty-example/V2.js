@@ -34,6 +34,7 @@ var tempX;
 var tempY;
 
 var img;
+var play;
 var pizza;
 		
 
@@ -53,6 +54,7 @@ function getSize() {
 }
 function preload() {
 	img = loadImage("hdKakka.png");
+	play = loadImage("play.png");
 	pizza = loadImage("pizza.png");
 }
 
@@ -82,13 +84,12 @@ function setup() {
   calculateSkips();
 }
 
-
-//function mouseClicked() {
-//	if(gameStarted == false ) {
-//		startGame();
-//		gameStarted = true;
-//	}
-//}
+function mouseClicked() {
+	if(gameStarted == false ) {
+		startGame();
+		gameStarted = true;
+	}
+}
 
 function windowResized() {
 	getSize();
@@ -152,20 +153,6 @@ switch (keyCode) {
       break;
   }
 }
-function createImageButton(X, Y, Height, Width,Text,Img, Action) {
-		if(mouseX > (X-Width/2) && mouseY > (Y-Height/2) && mouseX < (X+Width/2) && mouseY < (Y+Height/2)) {
-			image(Img, X, Y, Width+10, Height+10);
-			if(mouseClicked() == true) {
-				Action;
-			}
-		}
-		else  {
-			image(Img, X, Y, Width, Height);
-		}
-		textSize(20);
-		textStyle(BOLD);
-		text(Text, X, (Y+Height/2)+20);
-}
 function draw() {
   if(gameStarted == false) {
 	background(51);
@@ -173,12 +160,7 @@ function draw() {
 	textAlign(CENTER);
 	noStroke();
 	if(msg == "Käynistä peli" ) {
-		text(msg, width/2, height/4);
-		textSize(25);
-		text('Vaikeustaso:',  width/2, height/3+20);
-		createImageButton(width/2, height/2,(height/100)*20, (height/100)*20, 'Perhepizza', pizza, 'bigPizza()');
-		createImageButton(width/2, height/2+(height/100)*22, (height/100)*15, (height/100)*15, 'Normaalipizza', pizza, 'mediumPizza()');
-		createImageButton(width/2, height/2+(height/100)*25+(height/100)*15, (height/10)*1,  (height/10)*1, 'Lastenpizza', pizza, 'smallPizza()');
+		text(msg, width/2, height/3);
 	}
 	else {
 		fill(255,0,0);
@@ -187,20 +169,10 @@ function draw() {
 		fill(0,0,0);
 		text("Sinulla oli " + score + " pistettä", width/2, height/3);
 	}
+	
 	imageMode(CENTER);
+	image(play, width/2, height/2, width/10, width/10);
   }
-}
-function bigPizza() {
-	pizzaSize = 5;
-	startGame();
-}
-function mediumPizza() {
-	pizzaSize = 3;
-	startGame()
-}
-function smallPizza() {
-	pizzaSize = 2;
-	startGame()
 }
 function detectBorderCollision() {
 	var last = matoCoords[matoCoords.length -1];

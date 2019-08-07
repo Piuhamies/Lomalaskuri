@@ -1,0 +1,28 @@
+ <html>
+ <head>
+ <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+ <script>
+	document.addEventListener("DOMContentLoaded", function(event) { 
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBHLb-r0rNYPNg6bL-bGeWjRCRowEJLQA4",
+    authDomain: "pong-222e9.firebaseapp.com",
+    databaseURL: "https://pong-222e9.firebaseio.com",
+    storageBucket: "pong-222e9.appspot.com"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const preObject = document.getElementById('object');
+  const dbRefObject = firebase.database().ref();
+  
+  dbRefObject.on('value', snap => {
+		preObject.innerText = JSON.stringify(snap.val(), null, 3);
+	});
+});
+</script>
+ </head>
+ <body>
+  <p id="object"></p>
+ </body>
+ </html>

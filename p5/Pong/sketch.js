@@ -1,9 +1,4 @@
-	var myRole = 2;
 	var enemyY = 40;
-	var oldBallX = 0;
-	var oldBallY = 0;
-	var newBallX = 0;
-	var newBallY = 0;
  // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBHLb-r0rNYPNg6bL-bGeWjRCRowEJLQA4",
@@ -14,45 +9,12 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const preObject = document.getElementById('object');
-  const dbRefObject = firebase.database().ref('Test');
-  const db = firebase.database();
-    dbRefObject.on('value', snap => {
-	  newBallX = snap.val().BallX;
-	  newBallSpeedX = snap.val().ballSpeedX;
-	});
-    dbRefObject.on('value', snap => {
-	  newBallY = snap.val().BallY;
-	  newBallSpeedY = snap.val().ballSpeedY;
-	});
- 
-  if(myRole == 2) {
-  dbRefObject.on('value', snap => {
-	  enemyY = snap.val().AY;
-		console.log(enemyY);
-	});
-  }
-  else {
-	dbRefObject.on('value', snap => {
-	  enemyY = snap.val().BY;
-		console.log(enemyY);
-	});
-  }
-  function updateBallCoords(ballnewX, ballnewY, ballXSpeed, ballYSpeed) {
-	  dbRefObject.child("BallX").set(ballnewX);
-	  dbRefObject.child("ballSpeedX").set(ballXSpeed);
-	  dbRefObject.child("BallY").set(ballnewY);
-	  dbRefObject.child("ballYSpeed").set(ballYSpeed);
-  }
+  const dbRefObject = firebase.database().ref();
   
-  	function updateFirebaseCoords(newX) {
-	if (myRole == 1) {
-		dbRefObject.child("AY").set(newX);
-	}
-	else {
-		dbRefObject.child("BY").set(newX);
-	}
-	}
-	
+  dbRefObject.on('value', snap => {
+	  enemyY = snap.val().padelY;
+		console.log(enemyY);
+	});
 
 var ballSpeedX = 8;
 var ballSpeedY = 8;
@@ -96,29 +58,6 @@ function setup() {
    ballY = (height/2)-10;
 }
 function draw() {
-	  if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
-  mappedRotation = map(rotationX, 0, 50, 0, height);
-  }
-  else if(deviceOrientation == LANDSCAPE && rotationY > 0) {
-	mappedRotation = map(rotationY, 10 , 50, 0, height);
-  }
-   else if(deviceOrientation == LANDSCAPE && rotationY < 0) {
-	mappedRotation = map(rotationY, -10 , -50, 0, height);
-  }
-  else {
-	  mappedRotation = mouseY;
-  }
-	if(newBallX != oldBallX) {
-		oldBallX = newBallX;
-		ballX = newBallX;
-		ballSpeedX = newBallSpeedX;
-		
-	}
-	if(newBallY != oldBallY) {
-		oldBallY = newBallY;
-		ballY = newBallY;
-		ballSpeedY = newBallSpeedY;
-	}
   console.log(enemyY);
   background(R,G,B);
   enemy();
@@ -145,20 +84,29 @@ function draw() {
 //oman pelaajan koodi
 function paddle() {
 	textSize(60);
-  text(score, width/2, 120); // luo teksti
-  if(myRole == 1 ) {
-  rect(width-100, mappedRotation-50, 50, 100);
+	
+  //piirrä tulos ruudulle
+  if(deviceOrientation == PORTRAIT && rotationX > 0 ) {
+  mappedRotation = map(rotationX, 0, 50, 0, height);
+  }
+  else if(deviceOrientation == LANDSCAPE && rotationY > 0) {
+	mappedRotation = map(rotationY, 10 , 50, 0, height);
+  }
+   else if(deviceOrientation == LANDSCAPE && rotationY < 0) {
+	mappedRotation = map(rotationY, -10 , -50, 0, height);
   }
   else {
-	rect(width-100, enemyY-50, 50, 100);
+	  mappedRotation = mouseY;
   }
-  updateFirebaseCoords(mappedRotation);
+  
+  text(score, width/2, 120); // luo teksti
+  
+  rect(width-100, mappedRotation-50, 50, 100);
   if (ballX > width-100 && ballY > mappedRotation-50 && ballY < mappedRotation+50) {
     score++;
 	console.log("colliding BallX: " + ballSpeedX + " ballY: " + ballSpeedY);
     ballSpeedX = -ballSpeedX;
     ballSpeedY = -ballSpeedY;
-	updateBallCoords(ballX, ballY, ballSpeedX, ballSpeedY);
   }
   else if (ballX > width-80) {
     gameOver = true;
@@ -167,20 +115,7 @@ function paddle() {
 }
 //botti vastustajan koodi
 function enemy() {
-  if(myRole == 2 ) {
-if (ballX < 150 && ballY > mappedRotation-50 && ballY < mappedRotation+50 ) {
-    ballSpeedX = -ballSpeedX+ random(0,1);
-    ballSpeedY = -ballSpeedY+random(-1, 1);
-  }
-  rect(100,mappedRotation-50, 50, 100);
-  }
-  else {
-	    if (ballX < 150 && ballY > enemyY-50 && ballY < enemyY+50 ) {
-    ballSpeedX = -ballSpeedX+ random(0,1);
-    ballSpeedY = -ballSpeedY+random(-1, 1);
-  }
-	rect(100,enemyY-50, 50, 100);
-  }
+  rect(100,enemyY, 50, 100);
  if(botY != ballY && ballX < width/2) {
     if(botY > ballY) {
       var speed = 0;
@@ -201,6 +136,10 @@ if (ballX < 150 && ballY > mappedRotation-50 && ballY < mappedRotation+50 ) {
       botY = botY +8;
     }
   }
+  if (ballX <= 150 ) {
+    ballSpeedX = -ballSpeedX+ random(0,1);
+    ballSpeedY = -ballSpeedY+random(-1, 1);
+  }
 }
 function mousePressed() {
   if (gameOver == true) {
@@ -212,7 +151,6 @@ function mousePressed() {
     R = 0;
     G = 0;
     B = 0;
-	updateBallCoords(width/2, height/2, ballSpeedX, ballSpeedY);
 gameOver = false;
 setup();
 loop();

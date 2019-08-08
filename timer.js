@@ -20,6 +20,7 @@ var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muut
 var slider = 0;
 
  $(document).ready(function() {
+	reArrangeTimers();
 	pushElements();
 	updateYear();
  });
@@ -29,6 +30,18 @@ function updateYear() {
 	timers.forEach(function(element, index) {
 		element.start.setFullYear(currentYear); 
 		element.end.setFullYear(currentYear); 
+	});
+}
+function reArrangeTimers() {
+	timers.forEach(function(element, index) {
+		var closest;
+		var currentTime = new Date().getTime();
+		for(var i = index; i<timers.length; ++i) {
+			if((timers[i].start- currentTime)<timers[closest].start) {
+				closest = i;
+			}
+		}
+		timers.splice(index, 0, closest.start);
 	});
 }
 function pushElements() {

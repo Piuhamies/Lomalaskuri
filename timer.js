@@ -20,9 +20,10 @@ var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muut
 var slider = 0;
 
  $(document).ready(function() {
-	reArrangeTimers();
-	pushElements();
 	updateYear();
+	reArrangeTimers();
+	console.log(timers);
+	pushElements();
  });
 	var objectIds = [];
 
@@ -34,14 +35,16 @@ function updateYear() {
 }
 function reArrangeTimers() {
 	timers.forEach(function(element, index) {
-		var closest;
+		var closest = 0;
 		var currentTime = new Date().getTime();
 		for(var i = index; i<timers.length; ++i) {
-			if((timers[i].start- currentTime)<timers[closest].start) {
+			if((timers[i].start-currentTime) < (timers[closest].start-currentTime)) {
 				closest = i;
 			}
 		}
-		timers.splice(index, 0, closest.start);
+		var old = timers[index];
+		timers.splice(index, 1, timers[closest]);
+		timers.splice(closest, 1, old);
 	});
 }
 function pushElements() {

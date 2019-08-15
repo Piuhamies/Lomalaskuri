@@ -17,13 +17,14 @@ var timeNames = [{nimi: "weeks", shortened: "wk"},
  {nimi: "milliseconds", shortened: "ms"}
  ];
 var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muuttujassa, koska sitä käytetään monessa paikkaa
-var slider = 0;
+var slider = 5;
+var interval = 100;
 
  $(document).ready(function() {
 	updateYear();
 	reArrangeTimers();
-	console.log(timers);
 	pushElements();
+	var mainInterval = setInterval(MainLoop, interval);
  });
 	var objectIds = [];
 
@@ -46,6 +47,8 @@ function reArrangeTimers() {
 		timers.splice(index, 1, timers[closest]);
 		timers.splice(closest, 1, old);
 	});
+	//timers.splice(0, 0, timers[timers.length-1]);
+	timers.unshift(timers.pop());
 }
 function pushElements() {
 	var content = document.getElementById("timerArea");
@@ -99,8 +102,7 @@ function setSlider() {
 		}
 	}
 }
-setInterval(function() {
-	
+function MainLoop() {
 	var nyt = new Date().getTime();
 	timers.forEach(function(element, index) {
 		var start = element.start.getTime();
@@ -115,6 +117,16 @@ setInterval(function() {
 					Math.floor((start- nyt) % 1000 ) // millisekunnit
 				]
 				setSlider();
+				if(slider >= 6) {
+					interval = 1;
+					clearInterval(mainInterval);
+					var mainInterval = setInterval(MainLoop, interval);
+				}
+				else if( interval == 1) {
+					interval = 100;
+					clearInterval(mainInterval);
+					var mainInterval = setInterval(MainLoop, interval);
+				}
 				for(len = timeNames.length, i=0; i<len; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 
 					var object = document.getElementById(timeNames[i].nimi + index) // hae objekti johon asetamme arvon
 					document.getElementById(timeNames[0].nimi + index).innerHTML = distance[0] + timeNames[0].shortened; //asetamme viikot, koska niitä ei checkboxit piilota
@@ -169,4 +181,4 @@ setInterval(function() {
 			}
 		
 	});
-}, 100);	
+}	

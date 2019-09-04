@@ -158,6 +158,7 @@ function MainLoop() {
 				setSlider();
 				for(len = timeNames.length, i=0; i<len; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 
 					var object = document.getElementById(timeNames[i].nimi + index) // hae objekti johon asetamme arvon
+					window.requestAnimationFrame(object);
 					$("#timer" + index + " h2").text("Aikaa loman loppuun 😢:");
 					document.getElementById(timeNames[0].nimi + index).innerHTML = distance[0] + timeNames[0].shortened; //asetamme viikot, koska niitä ei checkboxit piilota
 					for(a = 0; a<slider; a++) {

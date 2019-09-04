@@ -199,6 +199,9 @@ html {
 }
 
 @media (max-width:960px) { 
+.milliseconds {
+	width: 3em;
+}
 #anotherPage {
 	background-color: white;
 	display: none;
@@ -378,6 +381,7 @@ font-size:6vw;
 }
 html{ 
 	background:url("paivalauri.jpg") no-repeat center center fixed;
+	background-size: cover;
 	  }
 	  
 .alaotsikot {

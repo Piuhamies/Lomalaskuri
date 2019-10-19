@@ -35,20 +35,8 @@ function updateYear() {
 	});
 }
 function reArrangeTimers() {
-	timers.forEach(function(element, index) {
-		var closest = 0;
-		var currentTime = new Date().getTime();
-		for(var i = index; i<timers.length; ++i) {
-			if((timers[i].start-currentTime) < (timers[closest].start-currentTime)) {
-				closest = i;
-			}
-		}
-		var old = timers[index];
-		timers.splice(index, 1, timers[closest]);
-		timers.splice(closest, 1, old);
-	});
-	//timers.splice(0, 0, timers[timers.length-1]);
-	timers.unshift(timers.pop());
+    var nyt = new Date().getTime();
+timers.sort(function(a,b){return (nyt-a.start)-(nyt-b.start)});
 }
 function pushElements() {
 	var content = document.getElementById("timerArea");

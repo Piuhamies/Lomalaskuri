@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fi">
 <head>
 <script src="build/pdf.js"></script>
@@ -141,7 +141,7 @@ function openMenu(x) {
   $(".loader").show();
   loadData();
   function nextStep() {
-      var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
+      var requesturl = "https://cors-anywhere.herokuapp.com/https://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', requesturl);
 	xhr.setRequestHeader("Content-type", "application/json");

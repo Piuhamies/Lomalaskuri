@@ -1,16 +1,17 @@
-	
-	/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
+
+/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
 	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
 #peli {
-	border:0px;
-	display:block;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100vw;
-	height: calc(80vw - (80vw - 70vh));
-	top: 0px; 
+    border: 0;
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(80vw - (80vw - 70vh));
+    top: 0;
 }
+
 .checkbox input[type="checkbox"] {
     opacity: 0;
 }
@@ -18,31 +19,30 @@
 .checkbox label {
     position: relative;
     display: inline-block;
-    
     padding-left: 22px;
 }
 
-.checkbox label::before,
-.checkbox label::after {
-    position: absolute;
-    content: "";
-    
-    display: inline-block;
-}
+    .checkbox label::before,
+    .checkbox label::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+    }
 
-.checkbox label::before{
-    height: 16px;
-    width: 16px;
-	background-color: rgba(255,255,255,0.3);
-	transition: 0.2s ease-in-out;
-    
-    border: 1px solid;
-    left: 0px;
-    
-    top: 3px;
-}
+    .checkbox label::before {
+        height: 16px;
+        width: 16px;
+        background-color: rgb(255,255,255);
+        background-color: rgba(255,255,255,0.3);
+        transition: 0.2s ease-in-out;
+        border: 1px solid;
+        left: 0;
+        top: 3px;
+    }
+
 .checkbox input[type="checkbox"].check + label::before {
-	background-color: rgba(0,0,255,0.3);
+    background-color: rgb(0,0,255);
+    background-color: rgba(0,0,255,0.3);
 }
 
 .checkbox label::after {
@@ -50,9 +50,7 @@
     width: 9px;
     border-left: 2px solid;
     border-bottom: 2px solid;
-    
     transform: rotate(-45deg);
-    
     left: 4px;
     top: 7px;
 }
@@ -61,7 +59,7 @@
     content: none;
 }
 
-.checkbox input[type="checkbox"].check+ label::after {
+.checkbox input[type="checkbox"].check + label::after {
     content: "";
 }
 
@@ -73,25 +71,27 @@
 
 
 .close {
-  color: black;
-  position: absolute;
-  top: 10px;
-  width: 1em;
-  left: 25px;
-  font-size: 35px;
-  font-weight: bold;
+    color: black;
+    position: absolute;
+    top: 10px;
+    width: 1em;
+    left: 25px;
+    font-size: 35px;
+    font-weight: bold;
 }
+
 body {
-  width: 100%;
-  margin: 0;
+    width: 100%;
+    margin: 0;
 }
+
 html {
-  width: 100%;
-  margin: 0;
+    width: 100%;
+    margin: 0;
 }
-	
+
 #image {
-	position: fixed;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -100,358 +100,429 @@ html {
     max-height: 90%;
     margin: auto;
     overflow: auto;
-	}
+}
+
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100vw; 
-  height: 100vh; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
-} 
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
 #SchoolModal {
-  display: block; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  display: flex;
-  font-family: oswald;
-  text-align: center;
-  flex-direction: column;
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    font-family: oswald;
+    text-align: center;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
 }
-.modal-content > h1 {
-  color: black !important;
-}
-.modal-content > a {
-  text-decoration: none;
-  color: black;
-}
-.modal-content > a:hover {
-  cursor: pointer;
-  text-decoration: none;
-  color: lightblue;
-}
+
+    .modal-content > h1 {
+        color: black !important;
+    }
+
+    .modal-content > a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .modal-content > a:hover {
+            cursor: pointer;
+            text-decoration: none;
+            color: lightblue;
+        }
+
 .close {
-	background-color: white;
-	float: right;
-	margin-right: 0;
-	font-size: 2em;
+    background-color: white;
+    float: right;
+    margin-right: 0;
+    font-size: 2em;
 }
-.close:hover {
-	cursor: pointer;
-	background-color: #d8d8d8;
-	color: red;
-}
+
+    .close:hover {
+        cursor: pointer;
+        background-color: #d8d8d8;
+        color: red;
+    }
+
 .modal-content {
-  margin: auto;
-  width: 80%;
+    margin: auto;
+    width: 80%;
 }
-	.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  background-color: rgba(0,0,0,0.5)
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.5);
 }
 
 .item1 {
-  grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
+    grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
 }
+
 #picture1 {
     max-width: 100%;
     height: auto;
 }
+
 .pictures:hover {
-	filter: blur(2px);
+    filter: blur(2px);
 }
+
 .pictures {
     max-width: 100%;
-    height: auto;;
+    height: auto;
 }
+
 #salainen {
-	color: black;
-	text-decoration: none;
-	cursor: text;
+    color: black;
+    text-decoration: none;
+    cursor: text;
 }
+
 .bottom {
-  grid-row: 2;
+    grid-row: 2;
 }
+
 .bottom1 {
-  grid-row: 3;
+    grid-row: 3;
 }
+
 .cookie {
-	transition: 0.5s;
-	animation: fadein 0.5s;
-	text-align: center;
-	background-color: rgba(255,255,255,0.6);
-	width: 100%;
-	position: fixed;
-	bottom: 0px;
+    transition: 0.5s;
+    animation: fadein 0.5s;
+    text-align: center;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.6);
+    width: 100%;
+    position: sticky;
+    bottom: 0;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+    from {
+        opacity: 0;
+    }
 
-@media (max-width:960px) { 
-
-.milliseconds {
-	width: 3em;
-}
-#anotherPage {
-	background-color: white;
-	display: none;
-	position: fixed;
-	width: 100vw;
-	height: 100%;
-	margin-top: 9vw;
-} 
-.change #row1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
-  transform: rotate(-45deg) translate(-9px, 6px) ;
+    to {
+        opacity: 1;
+    }
 }
 @keyframes example {
-  from {
-  margin: 6px;}
-  to {
-  position: fixed;
-  bottom: 0; }
+    from {
+        margin: 6px;
+    }
+
+    to {
+        position: fixed;
+        bottom: 0;
+    }
 }
+
 @keyframes shotsFired {
-  0% {
-	 transform-origin: left;
-    transform: translateY(0px) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-	  transform: translateX(0vw) rotate(100deg);
-  }
-  100% {
-	  transform-origin: left;
-    transform: translateX(-1vw) rotate(120deg);
-    opacity: 0; 
-  }
-}
-.change #row2 {
-transform-origin: left;
-animation: shotsFired  0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) ; /*cool animation*/
-opacity: 0;
-}
+    0% {
+        transform-origin: left;
+        transform: translateY(0px) rotate(0deg);
+        opacity: 1;
+    }
 
-.change #row3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-  transform: rotate(45deg) translate(-8px, -8px) ;
-}
-#row1, #row2, #row3 {
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px;
-  transition: all 0.3s 0.2s;
-  }
-#the-canvas {
-	width: 100vw;
-}
+    50% {
+        transform: translateX(0vw) rotate(100deg);
+    }
 
- .ajat {
-  font-size:7vw;
-  font-family: "Oswald";
-  display: flex;
-  justify-content: center;
-  }
-  
-  .noShake {
-  width:3em;
+    100% {
+        transform-origin: left;
+        transform: translateX(-1vw) rotate(120deg);
+        opacity: 0;
+    }
 }
+@media (max-width:960px) {
 
-.ajat > p {
-margin:2%;
-}
-#menuContainer {
-	position: fixed;
-	width: 100% ;
-	z-index: 2;
-	top: 0;
-}
-#content {
-	margin-top: 12vw ; 
-}
- #menu {
-       display: flex;
-	   border-bottom: solid 1px;
-	   border-color: #4389f9;
-       align-items: center;
-       justify-content: center;
-       flex-direction: row;
-	   height: 10vw;
-       width: 100%;
-       text-align: center;
-       background-color: white;
-       align-items: center;
-  }
-    #logo{font-family:"Margarine";
-display: flex;
-margin:0;
-margin-left:auto;
-font-size:8vw;
-  }
-  #menuBtn {
-  display: inline-block;
-  cursor: pointer;
-  }
-  #places {
-	background-color: #f6f6f6;
-	width: 40vw;
-    display: none;
-    margin: 0;
-	height: 100vw;
-	padding-top: 0.5em;
-  justify-content: center;
-  align-content: center;
-    flex-direction: column;
-  }
-  #places > a {
-	border-bottom: solid;
-	border-bottom-width: 1px;
-	border-color: #ddd;
-    background-color: #f6f6f6;
-    display: flex;
-    justify-content: center;
-   text-decoration: none;
-   color: black;
-  margin:0;
-  margin-bottom: 0.5em;
-  font-size: 20px;
-  font-family: oswald;
-}
-}
-#tilastot {
-	text-align: center;
-	display: flex;
-	align-content: center;
-	justify-content: center; 
-	flex-direction: column;
-	font-family: oswald;
-	}
-.result {
-	font-size: 3em;
-	color: red; /* Tilastojen negatiivisen vastauksen väri */
-}
-.positiveResult {
-	font-size: 3em;
-	color: green; /* Positiivisen vastauksen väri */
-}
-.kysely {
-	display: flex;
-	justify-content: center;
-}
-#cookie {
-	position: sticky;
-	bottom:0;
-}
-#show {
-	text-align: center;
-	font-family: oswald;
-}
-#checkboxes {
-	display: flex;
-	justify-content: center;
-	align-content: space-between;
-	flex-wrap: wrap;
-}
-.alaotsikot {
-  color: white;
-  text-shadow: black 3px 3px 2px;
-}
+    .milliseconds {
+        width: 3em;
+    }
 
-.ajat > p {
-  text-shadow: black 3px 3px 2px;
-  color: white
-}
-.ajat {
-  background-color: rgba(0,0,0, 0.3);
-}
-#theEnd .ajat {
-	  background-color: rgba(255,0,0, 0.3);
-}
-html{ 
-	background:url("trianglify.svg") no-repeat center center fixed;
-	background-size: cover;
-	  }
-	  
-.alaotsikot {
-	font-family: oswald;
+    #anotherPage {
+        background-color: white;
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100%;
+        margin-top: 9vw;
+    }
+
+    .change #row1 {
+        -o-transform: rotate(-45deg) translate(-9px, 6px);
+        -ms-transform: rotate(-45deg) translate(-9px, 6px);
+        -moz-transform: rotate(-45deg) translate(-9px, 6px);
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+
+
+    .change #row2 {
+        transform-origin: left;
+        animation: shotsFired 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530); /*cool animation*/
+        opacity: 0;
+    }
+
+    .change #row3 {
+        -moz-transform: rotate(45deg) translate(-8px, -8px);
+        -ms-transform: rotate(45deg) translate(-8px, -8px);
+        -o-transform: rotate(45deg) translate(-8px, -8px);
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+
+    #row1, #row2, #row3 {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px;
+        transition: all 0.3s 0.2s;
+    }
+
+    #the-canvas {
+        width: 100vw;
+    }
+
+    .ajat {
+        font-size: 6vw;
+        font-family: "Roboto Mono";
+        letter-spacing: 0;
         display: flex;
         justify-content: center;
-        font-size:4vw;
-        margin-top: 0;
-}
-#menu > a:hover{
-color: blue;
-}
-@media (min-width:960px) {
-#anotherPage {
-	display: none;
-}	
-#menuBtn {
-    display: none;
-  }
-#places {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-}
-#places > a {
-   text-decoration: none;
-   color: black;
-  margin-left:1em;
-  margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20px;
-  font-family: oswald;
-}
-#logo{
-font-family:"Margarine";
-display: flex;
-margin-top: 0;
-margin-bottom: 0;
-justify-content: center;
-font-size:8vw;
+    }
+
+    .noShake {
+        width: 3em;
+    }
+
+    .ajat > p {
+        margin: 2%;
+    }
+
+    #menuContainer {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+        top: 0;
+    }
+
+    #content {
+        margin-top: 12vw;
+    }
+
+    #menu {
+        display: flex;
+        border-bottom: solid 1px;
+        border-color: #4389f9;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        height: 10vw;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+    }
+
+    #logo {
+        font-family: "Margarine";
+        display: flex;
+        margin: 0;
+        margin-left: auto;
+        font-size: 8vw;
+    }
+
+    #menuBtn {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    #places {
+        background-color: #f6f6f6;
+        width: 40vw;
+        display: none;
+        margin: 0;
+        height: 100vw;
+        padding-top: 0.5em;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+
+        #places > a {
+            border-bottom: solid;
+            border-bottom-width: 1px;
+            border-color: #ddd;
+            background-color: #f6f6f6;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            margin-bottom: 0.5em;
+            font-size: 20px;
+            font-family: oswald;
+        }
 }
 
-  .ajat {
-  font-size:6em;
-  font-family: "Oswald";
-  display: flex;
-  justify-content: center;
-  }
-  .noShake {
-  width:3em;
+#tilastot {
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: oswald;
 }
+
+.result {
+    font-size: 3em;
+    color: red; /* Tilastojen negatiivisen vastauksen väri */
+}
+
+.positiveResult {
+    font-size: 3em;
+    color: green; /* Positiivisen vastauksen väri */
+}
+
+.kysely {
+    display: flex;
+    justify-content: center;
+}
+
+#cookie {
+    position: sticky;
+    bottom: 0;
+}
+
+#show {
+    text-align: center;
+    font-family: oswald;
+}
+
+#checkboxes {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.alaotsikot {
+    color: white;
+    text-shadow: black 3px 3px 2px;
+}
+
 .ajat > p {
-margin:2%;
+    text-shadow: black 3px 3px 2px;
+    color: white
 }
-#dynaaminenNappi {
-	cursor: pointer;
+
+.ajat {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.3);
 }
+
+#theEnd .ajat {
+    background-color: rgb(255,0,0);
+    background-color: rgba(255,0,0, 0.3);
 }
+
+html {
+    background: url("trianglify.svg") no-repeat center center fixed;
+    background-size: cover;
 }
-	
+
+.alaotsikot {
+    font-family: oswald;
+    display: flex;
+    justify-content: center;
+    font-size: 4vw;
+    margin-top: 0;
+}
+
+#menu > a:hover {
+    color: blue;
+}
+
+@media (min-width:960px) {
+    .milliseconds {
+        width: 3em;
+    }
+
+    #anotherPage {
+        display: none;
+    }
+
+    #menuBtn {
+        display: none;
+    }
+
+    #places {
+        display: flex;
+        justify-content: center;
+        background-color: white;
+    }
+
+        #places > a {
+            text-decoration: none;
+            color: black;
+            margin: 0 1em 0 1em;
+            font-size: 20px;
+            font-family: oswald;
+        }
+
+    #logo {
+        font-family: "Margarine";
+        display: flex;
+        margin-top: 0;
+        margin-bottom: 0;
+        justify-content: center;
+        font-size: 8vw;
+    }
+
+    .ajat {
+        font-size: 5em;
+        font-family: "Roboto Mono", monospace;
+        letter-spacing: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .noShake {
+        width: 3em;
+    }
+
+    .ajat > p {
+        margin: 2%;
+    }
+
+    #dynaaminenNappi {
+        cursor: pointer;
+    }
+}

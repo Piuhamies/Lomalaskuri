@@ -111,7 +111,7 @@ function openMenu(x) {
 	//Wuuhuuu nyt tämä ruokalista toimii
 	var menuFinalId = "";
          function loadData() {
-            corsRequest("https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
+            corsRequest("https://cors-anywhere.herokuapp.com/https://ruokalistat.espoocatering.fi/AromiStorageEspoo/blob/main/AromiMenusJsonData", function (data) {
                 var intialData = data;
 				console.log(intialData);
 				var date = new Date();
@@ -141,7 +141,7 @@ function openMenu(x) {
   $(".loader").show();
   loadData();
   function nextStep() {
-      var requesturl = "https://cors-anywhere.herokuapp.com/http://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
+      var requesturl = "https://cors-anywhere.herokuapp.com/https://ruokalistat.espoocatering.fi/Home/MenuAsPdf" ;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', requesturl);
 	xhr.setRequestHeader("Content-type", "application/json");

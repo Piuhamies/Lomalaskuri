@@ -69,18 +69,24 @@ function nextStep() {
 function onloadDocumentFromContent(data) {
     var menuJson = JSON.parse(data);
     var nyt = new Date();
-    var curDay = nyt.getDay();
-    if(curDay >menuJson.Days[length]) {
-        curDay = menuJson.Days[length];
-    }
-console.log(menuJson);
-    var first = document.getElementById("firstFood");
-    var title = document.createElement("h1");
+    var curDate = nyt.getDate();
     var days = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai", "sunnuntai"];
-    var menuDate = new Date(Date.parse(menuJson.Days[curDay].Date));
-    title.textContent = days[curDay] +  "  " +menuDate.toLocaleDateString("fi-FI");
-    first.appendChild(title);
+    let foodStuff = document.createElement("div");
     menuJson.Days.forEach((element, index) => {
-        console.log(element);
+        var menuDate = new Date(element.Date);
+        var tempTitle = document.createElement("h1");
+        console.log(menuDate);
+        tempTitle.textContent = days[menuDate.getDay] +  "  " +menuDate.toLocaleDateString("fi-FI");
+        if(curDate == menuDate.getDate()) {
+            let firstElem = document.getElementById("firstFood");
+            let textElem = document.createElement("p");
+            textElem.textContent = `Päivän ruoka: ${element.Meals[0].Name} `;
+            firstElem.appendChild(textElem);
+        }
+        let firstElem = document.getElementById("firstFood");
+            let textElem = document.createElement("p");
+            textElem.textContent = `${element.Meals[nyt.getDay()].Name} `;
+            firstElem.appendChild(foodStuff);
     });
+    
 }

@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+    
+
+<head>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="description" content="Official Lomalaskuri">
+    <meta name="keywords" content="Nöykkiö, Lomalaskuri, lomalaskuri.tk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137016636-1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="App.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137016636-1');
+    </script>
+
+    <title>Milloin koulu loppuu?</title>
+    <script src="ui.js"></script>
+    <script src="timer.js"></script>
+</head>
+    <body>
+<div id="menuContainer">
+<div id="menu">
+<div id="menuBtn" onclick="openMenu(this)">
+<div class="rows" id="row1"></div>
+<div class="rows" id="row2"></div>
+<div class="rows" id="row3"></div>
+</div>
+<h1 id="logo">Espoon l<a id= "salainen" href ="Salainen.html">o</a>malaskuri</h1>
+</div>
+<div id="places">
+<a href="index.html">Laskuri</a>
+<a href="Kysely.html">Kysely</a>
+<a href="Ruokalista.html">Ruokalista</a>
+ <a href="Kuvat.html" >Galleria</a>
+<a href="Pelit.html">Pelit</a>
+<a href="Tilastot.html">Tilastot</a>
+<a href="kommentit.html">Palaute</a>
+<a id="dynaaminenNappi" onclick="darkFunction()"></a>
+<a onclick="SchoolChanger()"> Vaihda koulua</a>
+</div>
+</div>
+<div id="SchoolModal" class="modal">
+
+</div>
+<div id="anotherPage">
+	<div id="addedTimers">
+		<img onclick="addTimers()" src="add.png" />
+<h2 class="alaotsikot"> Aikaa kesälomaan:</h2>
+    <div class="ajat">
+<p id="bonusW"></p>
+<p id="bonusD"></p>
+<p id="bonusH"></p>
+<p id="bonusMin"></p>
+<p id="bonusS"></p>
+<p class="noShake" id="bonusMs"></p>
+</div>
+
+<div id="addedTimer2">
+<h2 class="alaotsikot"> Aikaa Pääsiäislomaan:</h2>
+<div class="ajat">
+<p id="bonusW1"></p>
+<p id="bonusD1"></p>
+<p id="bonusH1"></p>
+<p id="bonusMin1"></p>
+<p id="bonusS1"></p>
+<p class="noShake" id="bonusMs1"></p>
+</div>
+</div>
+	</div>
+	<div id="properties">
+	</div>
+</div>
+<div id="content">
+<div id="show">
+<!-- <p onclick="newTimers()">Lisää laskureita</p> -->
+<p>Näytä:</p>
+<div id="checkboxes">
+<div class="checkbox">
+	<input type="checkbox" id="daysBtn" checked />
+	<label for="daysBtn">Päivät</label>
+	</div>
+	<div class="checkbox">
+	<input type="checkbox" id="hoursBtn" checked />
+	<label for="hoursBtn">Tunnit</label>
+	</div>
+	<div class="checkbox">
+	<input type="checkbox" id="minutesBtn" checked />
+	<label for="minutesBtn">Minuutit</label>
+	</div>
+	<div class="checkbox">
+	<input type="checkbox" id="secondsBtn" checked />
+	<label for="secondsBtn">Sekunnit</label>
+	</div>
+	<div class="checkbox">
+	<input type="checkbox" id="millisecondsBtn" />
+	<label for="millisecondsBtn">Millisekunnit</label>
+	</div>
+</div>
+</div>
+<div id="timerArea">
+
+<div id="theEnd">
+<h2 class="alaotsikot"> Aikaa koulun alkuun:</h2>
+    <div class="ajat">
+<p id="endW"></p>
+<p id="endD"></p>
+<p id="endH"></p>
+<p id="endM"></p>
+<p id="endS"></p>
+<p class="noShake" id="endMilli"></p>
+</div>
+</div>
+
+</div>
+
+</div>
+ <div class="cookie">
+
+      <p> Tämä nettisivu käyttää evästeitä</p>
+		<button onclick="button()">Ok</button>
+		<input type= "checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan" id="NotEverAgain"/>Muista valintani
+
+  </div>
+
+
+</body>
+</html>

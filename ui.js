@@ -30,6 +30,7 @@
 			window.location.replace("https://www.lomalaskuri.tk");
 			Cookies.set('site', '');
 		}
+		document.getElementById("SameSchool").addEventListener("click", school);
 		function school() {
 			Cookies.set('site', 'Noka');
 			$(".modal").remove();

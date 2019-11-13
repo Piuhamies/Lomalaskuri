@@ -7,8 +7,8 @@
 #content {
     display: flex; 
     justify-content: center;
-    flex-wrap: wrap;
 }
+
 .quickBox {
     
     margin-top: 2em;
@@ -84,6 +84,13 @@
 .arrow.rotated > span {
     transform: rotate(180deg);
 }
+#FoodGlimpse {
+    margin: 0;
+    padding: 2em;
+    font-size: 1.5em;
+    font-family: Roboto;
+    text-align: center;
+}
 #peli {
     border: 0;
     display: block;
@@ -95,6 +102,12 @@
     top: 0;
 }
 
+#foodList {
+    width: 50vw;
+    background-color: white;
+    padding: 2em;
+    text-align: left;
+}
 .checkbox input[type="checkbox"] {
     opacity: 0;
 }
@@ -344,7 +357,9 @@ html {
     }
 }
 @media (max-width:960px) {
-
+    .quickContainer {
+        flex-wrap: wrap;
+    }
     .milliseconds {
         width: 3em;
     }
@@ -390,8 +405,9 @@ html {
         transition: all 0.3s 0.2s;
     }
 
-    #the-canvas {
-        width: 100vw;
+    #foodList {
+        width: 100%;
+        background-color: white;
     }
 
     .ajat {
@@ -554,6 +570,12 @@ html {
 }
 
 @media (min-width:960px) {
+    .quickContainer {
+        flex-wrap: nowrap;
+    }
+    .quickContainer > div {
+        height: 40em;
+    }
     .milliseconds {
         width: 3em;
     }

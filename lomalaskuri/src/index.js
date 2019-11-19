@@ -5,6 +5,8 @@ import  { SchoolSelectorModal } from './FrontPage.js';
 import  { Content } from './FrontPage.js';
 import * as serviceWorker from './serviceWorker';
 
+const allSites = [];
+
 ReactDOM.render(<SchoolSelectorModal />, document.getElementById('SchoolModal'));
 ReactDOM.render(<Content />, document.getElementById('content'));
 

@@ -449,9 +449,9 @@ html {
     background-color: rgba(0,0,0, 0.3);
 }
 
-#theEnd .ajat {
-    background-color: rgb(255,0,0);
-    background-color: rgba(255,0,0, 0.3);
+.theEnd > .ajat {
+    background-color: rgb(255,0,0) !important;
+    background-color: rgba(255,0,0, 0.3) !important;
 }
 
 html {

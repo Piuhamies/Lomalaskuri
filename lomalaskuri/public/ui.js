@@ -27,10 +27,6 @@ console.log(Cookies.get('site'));
 		window.location.replace("https://www.lomalaskuri.tk");
 		Cookies.set('site', '');
 	}
-	$("SchoolModal").ready(() => {	document.getElementById("SameSchool").addEventListener("click", school)});
-	function school() {
-		Cookies.set('site', 'Noka');
-	}
 	function button() {
 		$(".cookie").fadeOut()
 		if(document.getElementById("NotEverAgain").checked == true) {

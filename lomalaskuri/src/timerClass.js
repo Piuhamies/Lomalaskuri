@@ -6,12 +6,14 @@ export class TimerClass extends React.Component {
         this.state = { timerElems: "" };
     }
 
-
+    componentDidMount() {
+        const script = document.createElement("script");
+        script.src = "./timer.js";
+        document.head.appendChild(script);
+    }
     render() {
         function createTimerElems() {
-            // dynamic timer engine
-            // Lisätäksesi laskettavia kohteita lisää object timers muuttujaan ja käynistä funktio pushElements()
-
+                //luodaan elementit kaikille lomille
             var timers = [
                 { nimi: "Aikaa kesälomaan: ", start: new Date("Jun 1, 2019 12:00:00"), end: new Date("Aug 8, 2019 10:00:00") },
                 { nimi: "Aikaa Syyslomaan:", start: new Date("Oct 14, 2019 00:00:00"), end: new Date("Oct 18, 2019 00:00:00") },

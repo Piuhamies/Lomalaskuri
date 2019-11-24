@@ -1,3 +1,5 @@
+console.log("does this even run");
+
 // dynamic timer engine
 // Lisätäksesi laskettavia kohteita lisää object timers muuttujaan ja käynistä funktio pushElements()
 
@@ -20,7 +22,6 @@ var btnElems = [];
 var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muuttujassa, koska sitä käytetään monessa paikkaa
 var slider = 5;
 
-$(document).ready(function () {
     updateYear();
     reArrangeTimers();
     createReusableVars();
@@ -28,7 +29,7 @@ $(document).ready(function () {
     var buttons = document.getElementById("checkboxes");
     buttons.addEventListener("click", MainLoop);
     var objectIds = [];
-});
+
 function updateYear() {
     var nyt = new Date().getTime();
     timers.forEach(function (element, index) {

@@ -452,15 +452,6 @@ html {
         width: 3em;
     }
 
-    #anotherPage {
-        background-color: white;
-        display: none;
-        position: fixed;
-        width: 100vw;
-        height: 100%;
-        margin-top: 9vw;
-    }
-
     .change #row1 {
         -o-transform: rotate(-45deg) translate(-9px, 6px);
         -ms-transform: rotate(-45deg) translate(-9px, 6px);
@@ -666,7 +657,7 @@ html {
     }
 
     #places {
-        display: flex;
+        display: flex !important;
         justify-content: center;
         background-color: white;
     }

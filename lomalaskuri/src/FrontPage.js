@@ -69,7 +69,9 @@ export class FrontPage extends React.Component {
   componentDidMount() {
     console.log("this happened");
     let menuBtn = document.getElementById("menuBtn");
+    let placesElem = document.getElementById("places");
     menuBtn.addEventListener("click", animate);
+    placesElem.addEventListener("click", animate);
     const $ = window.$;
     function animate() {
       let x = document.getElementById("menuBtn");
@@ -111,7 +113,7 @@ export class FrontPage extends React.Component {
                     <DefaultMenu schools={this.props.schools} curSchool={this.getCurSchool} />
                   </Route>
                   <Route>
-                    <DefaultMenu updateDarkMode={this.darkMode} isDarkMode={this.state.darkMode} schools={this.props.schools} curSchool={this.getCurSchool} />
+                    <DefaultMenu  updateDarkMode={this.darkMode} isDarkMode={this.state.darkMode} schools={this.props.schools} curSchool={this.getCurSchool} />
                   </Route>
                 </Switch>
               </div>
@@ -121,34 +123,6 @@ export class FrontPage extends React.Component {
 
     {curSchoolCookie === null || curSchoolCookie === undefined ? <SchoolSelectorModal click={this.getCurSchool} schools={this.props.schools} /> : () => {return (<Redirect to={"/" + curSchoolCookie.href + "/" + curSchoolCookie.menuItems[0].nimi}></Redirect>) } } 
           </Route>
-        </div>
-        <div id="anotherPage">
-          <div id="addedTimers">
-            <img onclick="addTimers()" src="add.png" />
-            <h2 className="alaotsikot"> Aikaa kesälomaan:</h2>
-            <div className="ajat">
-              <p id="bonusW"></p>
-              <p id="bonusD"></p>
-              <p id="bonusH"></p>
-              <p id="bonusMin"></p>
-              <p id="bonusS"></p>
-              <p className="noShake" id="bonusMs"></p>
-            </div>
-
-            <div id="addedTimer2">
-              <h2 className="alaotsikot"> Aikaa Pääsiäislomaan:</h2>
-              <div className="ajat">
-                <p id="bonusW1"></p>
-                <p id="bonusD1"></p>
-                <p id="bonusH1"></p>
-                <p id="bonusMin1"></p>
-                <p id="bonusS1"></p>
-                <p className="noShake" id="bonusMs1"></p>
-              </div>
-            </div>
-          </div>
-          <div id="properties">
-          </div>
         </div>
         <div id="content">
           <Switch>

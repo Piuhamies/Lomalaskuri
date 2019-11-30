@@ -12,24 +12,6 @@
   });
   }
   console.log(Cookies.get('site'));
-		if(Cookies.get('site') == 'none') {	
-			window.location.replace("None/index.html");
-		}
-		else if (Cookies.get('site') == 'Lauri') {
-			window.location.replace("Laurinlahden_koulu/index.html");
-		}
-		else if (Cookies.get('site') == 'Hauki') {	
-			window.location.replace("Haukilahden_koulu/index.html");
-		}
-		else if (Cookies.get('site') == 'Noka') {
-			$(document).ready( function() {
-				$(".modal").remove();
-			});
-		}
-		function SchoolChanger() {
-			window.location.replace("https://www.lomalaskuri.tk");
-			Cookies.set('site', '');
-		}
 		document.getElementById("SameSchool").addEventListener("click", school);
 		function school() {
 			Cookies.set('site', 'Noka');
@@ -69,19 +51,3 @@
 			$("#dynaaminenNappi").html("Vaihda yötilaan");
 		});
 		}
-		function darkFunction() {
-		if(document.getElementById("dynaaminenNappi").textContent == "Vaihda yötilaan") {
-			$("<link/>", {
-			rel: "stylesheet",
-			type: "text/css",
-			href: "dark.css"
-			}).appendTo("head");
-			$("#dynaaminenNappi").html("Vaihda päivätilaan");
-			Cookies.set('dark', 'true');
-		}
-		else {
-			$('link[href="dark.css"]').remove();
-			$("#dynaaminenNappi").html("Vaihda yötilaan");
-			Cookies.set('dark', 'false');
-		}
-}

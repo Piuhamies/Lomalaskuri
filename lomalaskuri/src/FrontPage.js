@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import Cookie from 'js-cookie';
+import { DefaultMenu } from "./defaultMenu.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +11,8 @@ import {
   Link,
   withRouter
 } from "react-router-dom";
-
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory();
 
 
 
@@ -21,24 +23,18 @@ class SchoolSelectorModal extends React.Component {
     this.state = {
       selectedSchool: "", content: (
         <div className="modal-content">
-          <Router>
             <h1> Valitse koulusi: </h1>
-            {this.props.schools.map((x, index) => (<Link onClick={(e) => this.close(e.target)} key={"kouluValinta" + index} className="schoolSelection" to={x.href}>{x.schoolName}</Link>))}
-          </Router>
+            {this.props.schools.map((x, index) => (<Link onChange={() => console.log("change")} onClick={(e) => this.close(e.target)}  key={"kouluValinta" + index} className="schoolSelection" to={x.href + "/" + x.menuItems[0].nimi}>{x.schoolName}</Link>))}
         </div>
       )
     };
   }
   close(targetti) {
-    console.log(targetti);
-    this.setState({ content: <div>{this}</div> });
+    this.setState({ content: null });
 
   }
-  listSchools() {
-    this.props.schools.map((x) => (<Link></Link>))
-  }
   render() {
-    return this.props.visible ? null : this.state.content;
+    return this.state.content;
   }
 };
 
@@ -64,34 +60,42 @@ class PageNotFound extends React.Component {
       </div>);
   }
 }
-
 export class FrontPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {curSchool: null, darkMode: false};
+    this.darkMode = this.darkMode.bind(this);
+  }
   componentDidMount() {
+    console.log("this happened");
     let menuBtn = document.getElementById("menuBtn");
     menuBtn.addEventListener("click", animate);
-  const $ = window.$;
-  function animate() {
-    let x = document.getElementById("menuBtn");
-    x.classList.toggle("change");
-    
-    $( "#places" ).animate({
-      opacity: 1,
-      width: "toggle"
-      }, 100, function() {
+    const $ = window.$;
+    function animate() {
+      let x = document.getElementById("menuBtn");
+      x.classList.toggle("change");
+
+      $("#places").animate({
+        opacity: 1,
+        width: "toggle"
+      }, 100, function () {
       });
     }
   }
+  darkMode = (value) => {
+    this.setState({darkMode: value})
+  }
   routes() {
     let routeArray = [];
-    for(let i = 0; i<this.props.schools.length; i++) {
-      routeArray.push(this.props.schools[i].menuItems.map((x) =>  (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}>{x.class} </Route>)));
+    for (let i = 0; i < this.props.schools.length; i++) {
+    routeArray.push(this.props.schools[i].menuItems.map((x) => (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}>{x.class}</Route>)));
     }
-return routeArray;
+    return routeArray;
   }
   render() {
+    let curSchoolCookie = this.props.schools[this.props.schools.findIndex(i => i.href === Cookie.get('site'))] ;
     return (
-<Router>
-  {console.log(this.props.location.pathname.substring(0, this.props.location.pathname.indexOf("/")))}
+      <Router>
         <div id="menuContainer">
           <div id="menu">
             <div id="menuBtn" onClick={this.openMenu}>
@@ -101,21 +105,22 @@ return routeArray;
             </div>
             <h1 id="logo">Espoon l<a id="salainen" href="Salainen.html">o</a>malaskuri</h1>
           </div>
-          <div id="places">
-            <Link to={`/${this.props.selectedSchool}`}>Laskuri</Link>
-            <Link to="/Kysely">Kysely</Link>
-            <Link to="/Ruokalista">Ruokalista</Link>
-            <Link to="/Galleria">Galleria</Link>
-            <Link to="/Pelit">Pelit</Link>
-            <Link to="/Tilastot">Tilastot</Link>
-            <Link to="/Palaute">Palaute</Link>
-            <a id="dynaaminenNappi" onclick="darkFunction()"></a>
-            <a onclick="SchoolChanger()"> Vaihda koulua</a>
-          </div>
+              <div id="places">
+                <Switch>
+                  <Route exact path="/">
+                    <DefaultMenu schools={this.props.schools} curSchool={this.getCurSchool} />
+                  </Route>
+                  <Route>
+                    <DefaultMenu updateDarkMode={this.darkMode} isDarkMode={this.state.darkMode} schools={this.props.schools} curSchool={this.getCurSchool} />
+                  </Route>
+                </Switch>
+              </div>
         </div>
         <div id="SchoolModal" className="modal">
-          {this.props.selectedSchool=== "" ? <SchoolSelectorModal selected={this.props.location.pathname.substring(0, this.props.location.pathname.indexOf("/"))} schools={this.props.schools} visible={!this.props.selectedSchool && !Cookie.get('site')} /> : null}
-        
+          <Route exact path="/">
+
+    {curSchoolCookie === null || curSchoolCookie === undefined ? <SchoolSelectorModal click={this.getCurSchool} schools={this.props.schools} /> : () => {return (<Redirect to={"/" + curSchoolCookie.href + "/" + curSchoolCookie.menuItems[0].nimi}></Redirect>) } } 
+          </Route>
         </div>
         <div id="anotherPage">
           <div id="addedTimers">
@@ -145,24 +150,30 @@ return routeArray;
           <div id="properties">
           </div>
         </div>
-                              <div id="content">
-                              <Switch>
-                                {this.routes()}
-                                </Switch>
-                              </div>
-                              <div className="cookie">
+        <div id="content">
+          <Switch>
+            <Route exact path="/">
+              {this.props.schools[0].menuItems[0].class}
+            </Route>
+            {this.routes()}
+            <Route>
+              <PageNotFound />
+            </Route>
+          </Switch>
+        </div>
+        <div className="cookie">
 
-                                <p> Tämä nettisivu käyttää evästeitä</p>
-                                <button onclick="button()">Ok</button>
-                                <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
-                                  id="NotEverAgain" />Muista valintani
-                    
+          <p> Tämä nettisivu käyttää evästeitä</p>
+          <button onclick="button()">Ok</button>
+          <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
+            id="NotEverAgain" />Muista valintani
+
     </div>
 
-</Router>
+      </Router>
 
-                          );
-                        }
-                          }
-                          
-                          
+    );
+  }
+}
+
+

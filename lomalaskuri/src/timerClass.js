@@ -82,7 +82,7 @@ var timeNames = [{ nimi: "weeks", shortened: "wk" },
 ];
 var btnElems = [];
 var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muuttujassa, koska sitä käytetään monessa paikkaa
-var slider = 5;
+var slider = 6;
 
     updateYear();
     reArrangeTimers();
@@ -220,7 +220,6 @@ function MainLoop() {
         }
     });
     if(this.TimerActive) {
-        console.log("active");
     if (slider < 6 && slider > 3) {
         setTimeout(MainLoop, 500);
     }

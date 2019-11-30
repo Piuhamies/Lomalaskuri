@@ -1,35 +1,117 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import  { SchoolSelectorModal } from './FrontPage.js';
-import  { Content } from './FrontPage.js';
-import  { FrontPage } from './FrontPage.js';
+import { SchoolSelectorModal } from './FrontPage.js';
+import { Content } from './FrontPage.js';
+import { FrontPage } from './FrontPage.js';
 import { Placeholder } from './Pages.js';
+import { RuokalistaSivu } from './RuokalistaSivu.js';
+import { Kysely } from './Kysely.js';
+import { Galleria } from './Galleria.js';
+import { Pelit } from './Pelit.js'; 
+import { Tilastot } from './Tilastot.js';
 import * as serviceWorker from './serviceWorker';
 import Cookie from 'js-cookie';
 import { TimerClass } from './timerClass.js';
-import { MenuContent } from './MenuContent.js';
+import { MenuContent } from './MenuContent.js';
 
 let allSchools = [
-    {schoolName:"Nöykkiön koulu", href:"NoykkiönKoulu",  menuItems: [{nimi: "Laskuri", class: <TimerClass />}, {nimi:"Kysely", class: <Placeholder />}, {nimi:"Ruokalista", 'class': <Placeholder />}, { nimi: "Galleria", 'class': <Placeholder />}, {nimi: "Pelit", 'class': <Placeholder />}, {nimi: "Tilastot", 'class': <Placeholder />}, {nimi: "Palaute", 'class': <Placeholder />}]},
-    {schoolName:"Haukilahden koulu", href:"HaukilahdenKoulu",  menuItems: [{nimi: "Laskuri", class: <TimerClass />}, {nimi:"Kysely", class: <Placeholder />}, {nimi:"Ruokalista", 'class': <Placeholder />}, { nimi: "Galleria", 'class': <Placeholder />}, {nimi: "Pelit", 'class': <Placeholder />}, {nimi: "Tilastot", 'class': <Placeholder />}, {nimi: "Palaute", 'class': <Placeholder />}]}, 
-    {schoolName:"Laurinlahden koulu", href:"LaurinlahdenKoulu",  menuItems: [{nimi: "Laskuri", class: <TimerClass />}, {nimi:"Kysely", class: <Placeholder />}, {nimi:"Ruokalista", 'class': <Placeholder />}, { nimi: "Galleria", 'class': <Placeholder />}, {nimi: "Pelit", 'class': <Placeholder />}, {nimi: "Tilastot", 'class': <Placeholder />}, {nimi: "Palaute", 'class': <Placeholder />}]},
-    {schoolName:"Vanttilan koulu", href:"VanttilanKoulu", menuItems: [{nimi: "Laskuri", class: <TimerClass />}, {nimi:"Kysely", class: <Placeholder />}, {nimi:"Ruokalista", 'class': <Placeholder />}, { nimi: "Galleria", 'class': <Placeholder />}, {nimi: "Pelit", 'class': <Placeholder />}, {nimi: "Tilastot", 'class': <Placeholder />}, {nimi: "Palaute", 'class': <Placeholder />}]}, 
-    {schoolName:"Ei mikään yllä mainittu", href:"None", menuItems: [{name: "Laskuri", 'class': <TimerClass />}, {name: "Ruokalista", 'class': <Placeholder />}, {name: "Pelit", 'class': <Placeholder />},  {name: "Palaute", 'class': <Placeholder />}]}
-  ];
-    
+  {
+    schoolName: "Nöykkiön koulu",
+    href: "NoykkionKoulu",
+    menuItems: [
+      { nimi: "Laskuri", 'class': <TimerClass /> },
+      { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfMnKPLMv3D3EEGEa0MCt1RnquzmeyAmc4K2fcDtyFFqL61xg/viewform?embedded=true"/> },
+      { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
+      { nimi: "Galleria", 'class': <Galleria /> },
+      { nimi: "Pelit", 'class': <Pelit /> },
+      { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"]}} /> },
+      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> }],
+    theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+    { nimi: "--places-color", light: "white", dark: "#272727" },
+    { nimi: "--border-color", light: "#ddd", dark: "black" },
+    { nimi: "--text-color", light: "black", dark: "white" },
+    { nimi: "--invert-amount", light: "0%", dark: "100%" },
+    { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+    { nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" }]
+  },
+  {
+    schoolName: "Haukilahden koulu",
+    href: "HaukilahdenKoulu",
+    menuItems: [{ nimi: "Laskuri", 'class': <TimerClass /> },
+    { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSf4Y9MgvLoyW2A3guq9NMkIUlxRz-u41gzbB74dt3N-MWZfUQ/viewform?embedded=true" /> },
+    { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
+    { nimi: "Pelit", 'class': <Pelit />  },
+    { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:[ "Onko koulussa hometta?"], negative:["Onko Haukilahden koulu korjattu", "Onko limukone korjattu?", "Onko kolmannen kerroksen sohva vaihdettu"] }} /> },
+    { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" /> }], 
+    theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+    { nimi: "--places-color", light: "white", dark: "#272727" },
+    { nimi: "--border-color", light: "#ddd", dark: "black" },
+    { nimi: "--text-color", light: "black", dark: "white" },
+    { nimi: "--invert-amount", light: "0%", dark: "100%" },
+    { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+    { nimi: "--background-image", light: "var(--hauki-light-bg-img)", dark: "var(--hauki-dark-bg-img)" }]
+  },
+  {
+    schoolName: "Laurinlahden koulu",
+    href: "LaurinlahdenKoulu",
+    menuItems: [{ nimi: "Laskuri", 'class': <TimerClass /> },
+    { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
+    { nimi: "Pelit", 'class': <Pelit />  },
+    { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:[], negative:["Keksinkö mitään tilastoja"] }} /> },
+    { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> }],
+    theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+    { nimi: "--places-color", light: "white", dark: "#272727" },
+    { nimi: "--border-color", light: "#ddd", dark: "black" },
+    { nimi: "--text-color", light: "black", dark: "white" },
+    { nimi: "--invert-amount", light: "0%", dark: "100%" },
+    { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+    { nimi: "--background-image", light: "var(--lauri-light-bg-img)", dark: "var(--lauri-dark-bg-img)" }]
+  },
+  
+  {
+    schoolName: "Vanttilan koulu",
+    href: "VanttilanKoulu",
+    menuItems: [{ nimi: "Laskuri", 'class': <TimerClass /> },
+    { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
+    { nimi: "Pelit", 'class':  <Pelit /> },
+    { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/>  }],
+    theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+    { nimi: "--places-color", light: "white", dark: "#272727" },
+    { nimi: "--border-color", light: "#ddd", dark: "black" },
+    { nimi: "--text-color", light: "black", dark: "white" },
+    { nimi: "--invert-amount", light: "0%", dark: "100%" },
+    { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+    { nimi: "--background-image", light: "var(--vantti-light-bg-img)", dark: "var(--vantti-dark-bg-img)" }]
+  },
+  {
+    schoolName: "Ei mikään yllä mainittu",
+    href: "None",
+    menuItems: [{ nimi: "Laskuri", 'class': <TimerClass /> },
+    { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
+    { nimi: "Pelit", 'class': <Pelit /> },
+    { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/>  }],
+    theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+    { nimi: "--places-color", light: "white", dark: "#272727" },
+    { nimi: "--border-color", light: "#ddd", dark: "black" },
+    { nimi: "--text-color", light: "black", dark: "white" },
+    { nimi: "--invert-amount", light: "0%", dark: "100%" },
+    { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+    { nimi: "--background-image", light: "var(--none-light-bg-img)", dark: "var(--none-dark-bg-img)" }]
+  }
+];
+
 const allSites = [];
-if(Cookie.get('site') == 'none') {	
+if (Cookie.get('site') == 'none') {
 }
 else if (Cookie.get('site') == 'Lauri') {
 }
-else if (Cookie.get('site') == 'Hauki') {	
+else if (Cookie.get('site') == 'Hauki') {
 }
 else if (Cookie.get('site') == 'Noka') {
 }
 //ReactDOM.render(<SchoolSelectorModal selected={selectedSchool} schools={allSchools} visible={!selectedSchool && !Cookie.get('site')} />, document.getElementById('SchoolModal'));
 var schoolDataElem = document.querySelectorAll(".selectedSchoolData")[0];
-selectedSchool = schoolDataElem != null ?  schoolDataElem.hasAttribute("data"): null ? schoolDataElem.getAttribute("data") : selectedSchool;
 
 //ReactDOM.render(<MenuContent selectedSchool={selectedSchoolNumber} schools={allSchools} />, document.getElementById('places'));
 //ReactDOM.render(<Content />, document.getElementById('content'));

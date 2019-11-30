@@ -1,6 +1,168 @@
+:root {
+    --seperator-color: #4389f9;
+    --menu-color: transparent ;
+    --mobile-menu-color: white;
+    --places-color: white;
+    --border-color: #ddd;
+    --text-color: black;
+    --invert-amount: 0%;
+    --noka-light-bg-img: url("trianglify.svg");
+    --noka-dark-bg-img: url("Dark.svg");
+    --vantti-light-bg-img: url("trianglify.svg");
+    --vantti-dark-bg-img: url("vanttiyo.png");
+    --lauri-light-bg-img: url("paivalauri-min.jpg");
+    --lauri-dark-bg-img: url("lauriyo.jpg");
+    --hauki-light-bg-img: url("haukipaiva.jpg");
+    --hauki-dark-bg-img: url("haukiyo.jpg");
+    --none-light-bg-img: url("nonepaiva.png");
+    --none-dark-bg-img: url("noneyo.jpg");
+    --background-image: url("trianglify.svg");
+}
+:root {
+    --Quick-bg: rgba(255,255,255,0.6);
+}
+#show {
+    width: 100%;
+}
+#foodListPos {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#foodList {
+    color: black !important;
+}
+#foodList >h1 {
+    color: black !important;
+}
+.quickBox {
+    
+    margin-top: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 90vw;
 
-/* Tästä alkaa tyyliosio, täältä voit vaihtaa sivuston värejä ja ulkonäköä.
-	Olen  kommentoinut tänne muutaman kohdan jota voi vaihtaa kouluusi sopivaksi.*/
+}
+.quickBorderBox {
+    border-left: solid 0.2em var(--Quick-bg);
+    border-right: solid 0.2em var(--Quick-bg);
+    border-bottom: solid 1em var(--Quick-bg);
+}
+.quickWhite {
+    background-color: var(--Quick-bg);
+}
+.quickTitle {
+    margin: 0;
+    width: 100%;
+    padding-top: 1em;
+    background-color: var(--Quick-bg);
+    border-radius: 25px 25px 0 0 ;
+    display: flex;
+    justify-content: center;
+}
+.quickTitle * {
+    margin: 0;
+}
+.quickTitle > .alaotsikot {
+    margin: 0;
+}
+.quickContent {
+    display: inline-block;
+    width: 100%;
+    display: none;
+}
+.quickSpacer {
+    height: 2em;
+    width: 100%;
+    margin: 0;
+    background-color: var(--Quick-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 2px rgba(0,0,0,0.5);
+}
+.quickSpacer > p {
+    margin: 1em 0em 0em 0em;
+}
+.quickArrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: var(--Quick-bg);
+    border-radius: 0 0 25px 25px;
+    width: 2em;
+    margin: 0;
+    width: 100%;
+}
+.arrow > span {
+    transition: 0.2s ease-in-out;
+    transform: rotate(0deg);
+    pointer-events: none;
+    padding: 0.2em;
+
+}
+.arrow.rotated > span {
+    transform: rotate(180deg);
+}
+#FoodGlimpse {
+    margin: 0;
+    padding: 2em;
+    font-size: 1.5em;
+    font-family: Roboto;
+    text-align: center;
+}
+#peli {
+    border: 0;
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(80vw - (80vw - 70vh));
+    top: 0;
+}
+
+#foodList {
+    width: 50vw;
+    background-color: white;
+    padding: 2em;
+    text-align: left;
+    display: none;
+}
+h1, h2, #show, #logo, #salainen {
+    color: var(--text-color);
+}
+#menuBtn {
+    filter: invert(var(--invert-amount));
+}
+@media(max-width: 960px) {
+    #menu {
+        background-color: var(--mobile-menu-color) ;
+        transition: background-color, 2s;
+    }
+}
+@media(min-width: 960px) {
+    #menu {
+        background-color: var(--menu-color) ;
+    }
+}
+#places {
+    background-color: var(--places-color) !important;
+   border-color: var(--border-color) !important;
+}
+#places > a {
+    background-color: var(--menu-color) !important;
+       color:  var(--text-color) !important;
+       border-color: var(--border-color) !important;
+}
+
 #peli {
     border: 0;
     display: block;
@@ -72,13 +234,22 @@
 
 .close {
     color: black;
-    position: absolute;
+    background-color: white;
+    position: fixed;
     top: 10px;
     width: 1em;
-    left: 25px;
-    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    right: 25px;
+    font-size: 2em;
     font-weight: bold;
 }
+
+    .close:hover {
+        cursor: pointer;
+        background-color: #d8d8d8;
+        color: red;
+    }
 
 body {
     width: 100%;
@@ -156,18 +327,7 @@ html {
             color: lightblue;
         }
 
-.close {
-    background-color: white;
-    float: right;
-    margin-right: 0;
-    font-size: 2em;
-}
 
-    .close:hover {
-        cursor: pointer;
-        background-color: #d8d8d8;
-        color: red;
-    }
 
 .modal-content {
     margin: auto;
@@ -184,23 +344,48 @@ html {
 .item1 {
     grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
 }
-
+.modal.image {
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        width: 100vw;
+        background-color: rgba(0,0,0,0.8);
+}
+.modal-content.image {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    font-family: oswald;
+    text-align: center;
+    background-color: transparent ;
+    flex-direction: column;
+    margin: 15% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+}
+.modal-content.image > img {
+    border: solid 2px var(--seperator-color);
+}
 #picture1 {
-    max-width: 100%;
+    max-width: 98%;
     height: auto;
 }
 
 .pictures:hover {
-    filter: blur(2px);
+    margin: 0;
+    border: solid 5px var(--seperator-color);
+    filter: grayscale(50%) blur(0.5px);
 }
 
 .pictures {
-    max-width: 100%;
+    max-width: 98%;
     height: auto;
+    padding-right: 2px;
+    border: solid 5px transparent;
 }
 
 #salainen {
-    color: black;
     text-decoration: none;
     cursor: text;
 }
@@ -342,14 +527,13 @@ html {
     #menu {
         display: flex;
         border-bottom: solid 1px;
-        border-color: #4389f9;
+        border-color: var(--seperator-color);
         align-items: center;
         justify-content: center;
         flex-direction: row;
         height: 10vw;
         width: 100%;
         text-align: center;
-        background-color: white;
     }
 
     #logo {
@@ -366,7 +550,6 @@ html {
     }
 
     #places {
-        background-color: #f6f6f6;
         width: 40vw;
         display: none;
         margin: 0;
@@ -380,12 +563,9 @@ html {
         #places > a {
             border-bottom: solid;
             border-bottom-width: 1px;
-            border-color: #ddd;
-            background-color: #f6f6f6;
             display: flex;
             justify-content: center;
             text-decoration: none;
-            color: black;
             margin: 0;
             margin-bottom: 0.5em;
             font-size: 20px;
@@ -400,6 +580,7 @@ html {
     justify-content: center;
     flex-direction: column;
     font-family: oswald;
+    background-color: rgba(255,255,255,0.2);
 }
 
 .result {
@@ -455,7 +636,7 @@ html {
 }
 
 html {
-    background: url("trianglify.svg") no-repeat center center fixed;
+    background: var(--background-image) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -492,7 +673,6 @@ html {
 
         #places > a {
             text-decoration: none;
-            color: black;
             margin: 0 1em 0 1em;
             font-size: 20px;
             font-family: oswald;

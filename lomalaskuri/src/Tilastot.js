@@ -1,9 +1,6 @@
 import React from 'react';
 
 export class Tilastot extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     createStats() {
         var negativeStats = () =>  {
         return this.props.tiedot.negative.map( (x, index) => (<> <h2>{x}</h2><p className="result">Ei</p></>));

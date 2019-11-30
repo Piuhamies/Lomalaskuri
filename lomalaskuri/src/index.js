@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { SchoolSelectorModal } from './FrontPage.js';
-import { Content } from './FrontPage.js';
 import { FrontPage } from './FrontPage.js';
 import { Placeholder } from './Pages.js';
 import { RuokalistaSivu } from './RuokalistaSivu.js';
@@ -11,9 +9,7 @@ import { Galleria } from './Galleria.js';
 //import { Pelit } from './Pelit.js'; 
 import { Tilastot } from './Tilastot.js';
 import * as serviceWorker from './serviceWorker';
-import Cookie from 'js-cookie';
 import { TimerClass } from './timerClass.js';
-import { MenuContent } from './MenuContent.js';
 
 let allSchools = [
   {
@@ -101,20 +97,7 @@ let allSchools = [
   }
 ];
 
-const allSites = [];
-if (Cookie.get('site') == 'none') {
-}
-else if (Cookie.get('site') == 'Lauri') {
-}
-else if (Cookie.get('site') == 'Hauki') {
-}
-else if (Cookie.get('site') == 'Noka') {
-}
-//ReactDOM.render(<SchoolSelectorModal selected={selectedSchool} schools={allSchools} visible={!selectedSchool && !Cookie.get('site')} />, document.getElementById('SchoolModal'));
-var schoolDataElem = document.querySelectorAll(".selectedSchoolData")[0];
 
-//ReactDOM.render(<MenuContent selectedSchool={selectedSchoolNumber} schools={allSchools} />, document.getElementById('places'));
-//ReactDOM.render(<Content />, document.getElementById('content'));
 ReactDOM.render(<FrontPage schools={allSchools} />, document.getElementById("site"));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

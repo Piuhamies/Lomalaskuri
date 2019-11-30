@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import Cookie from 'js-cookie';
 import { DefaultMenu } from "./defaultMenu.js";
@@ -8,13 +7,20 @@ import {
   Switch,
   Route,
   Redirect,
-  Link,
-  withRouter
+  Link
 } from "react-router-dom";
+import ReactGA from 'react-ga';
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 
+ReactGA.initialize('UA-137016636-1');
+history.listen((location) => {
+  console.log("update");
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname)
+}
+);
 
 class SchoolSelectorModal extends React.Component {
   constructor(props) {
@@ -60,6 +66,32 @@ class PageNotFound extends React.Component {
       </div>);
   }
 }
+export class CookieNotification extends React.Component {
+  hide(target) {
+    var El= target.parentElement;
+    var checkBox = document.getElementById("NotEverAgain");
+    El.style.display = "none";
+    if(checkBox.checked) {
+      Cookie.set('NotAgain', true);
+    }
+}
+render() {
+  console.log(this.props.visible);
+  if(this.props.visible === "false") {
+    return (<div className="cookie">
+
+    <p> Tämä nettisivu käyttää evästeitä</p>
+    <button onClick={(e) => this.hide(e.target)}>Ok</button>
+    <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
+      id="NotEverAgain" />Muista valintani
+  
+  </div>)
+  }
+  else {
+    return null;
+  }
+}
+}
 export class FrontPage extends React.Component {
   constructor(props) {
     super(props);
@@ -67,13 +99,13 @@ export class FrontPage extends React.Component {
     this.darkMode = this.darkMode.bind(this);
   }
   componentDidMount() {
-    console.log("this happened");
     let menuBtn = document.getElementById("menuBtn");
     let placesElem = document.getElementById("places");
     menuBtn.addEventListener("click", animate);
     placesElem.addEventListener("click", animate);
     const $ = window.$;
     function animate() {
+      if(window.outerWidth < 960) {
       let x = document.getElementById("menuBtn");
       x.classList.toggle("change");
 
@@ -83,6 +115,8 @@ export class FrontPage extends React.Component {
       }, 100, function () {
       });
     }
+    }
+
   }
   darkMode = (value) => {
     this.setState({darkMode: value})
@@ -135,14 +169,7 @@ export class FrontPage extends React.Component {
             </Route>
           </Switch>
         </div>
-        <div className="cookie">
-
-          <p> Tämä nettisivu käyttää evästeitä</p>
-          <button onclick="button()">Ok</button>
-          <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
-            id="NotEverAgain" />Muista valintani
-
-    </div>
+        <CookieNotification visible={Cookie.get('NotAgain')}/>
 
       </Router>
 

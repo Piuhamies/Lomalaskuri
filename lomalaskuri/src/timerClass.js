@@ -91,7 +91,6 @@ var slider = 6;
     MainLoop();
     var buttons = document.getElementById("checkboxes");
     buttons.addEventListener("click", MainLoop);
-    var objectIds = [];
 
 function updateYear() {
     var nyt = new Date().getTime();
@@ -195,7 +194,6 @@ function MainLoop() {
             ];
             setSlider();
             for (let i = 0; i < timeNames.length; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 
-                var object = document.getElementById(timeNames[i].nimi + index); // hae objekti johon asetamme arvon
                 document.querySelector("#timer" + index + " h2").textContent = "Aikaa loman loppuun 😢:";
                 document.querySelector("#timer" + index ).setAttribute("class", "theEnd");
                 timers[index].elem[0].textContent = distance[0] + timeNames[0].shortened; //asetamme viikot, koska niitä ei checkboxit piilota

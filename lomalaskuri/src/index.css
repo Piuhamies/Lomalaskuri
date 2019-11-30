@@ -21,6 +21,9 @@
 :root {
     --Quick-bg: rgba(255,255,255,0.6);
 }
+
+
+    
 #show {
     width: 100%;
 }
@@ -562,6 +565,24 @@ html {
             font-size: 20px;
             font-family: oswald;
         }
+        .linkLookALike {
+            background: none!important;
+            border: none;
+            padding: 0!important;
+            cursor: pointer;
+            border-bottom: solid;
+            border-bottom-width: 1px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            margin: 0;
+            margin-bottom: 0.5em;
+            font-size: 20px;
+            font-family: oswald;
+            color: black;
+            border-color: var(--border-color) !important;
+            width: 100%;
+        }
 }
 
 #tilastot {
@@ -668,7 +689,17 @@ html {
             font-size: 20px;
             font-family: oswald;
         }
-
+        .linkLookALike {
+            background: none!important;
+            border: none;
+            padding: 0!important;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 0 1em 0 1em;
+            font-size: 20px;
+            font-family: oswald;
+            color: black;
+        }
     #logo {
         font-family: "Margarine";
         display: flex;

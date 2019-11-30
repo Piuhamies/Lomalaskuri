@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react';
+import React from 'react';
 
 
 import nokaKuva1 from './Kuvat/1.jpg';
@@ -31,17 +31,17 @@ export class Galleria extends React.Component {
 
             <div className="modal-content image">
               <span onClick={(e) => this.closeModal(e)} className="close">&times;</span>
-              <img id="image" src=""/>
+              <img alt="Suurennos" id="image" src=""/>
             </div>
           
         </div>
         <div className="grid-container">
-            <div className="item1"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture1" src={nokaKuva1} /></div>
-            <div className="item2"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture2" src= {nokaKuva2} /></div>
-            <div className="item3"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture3" src={nokaKuva3} /></div>
-            <div className="bottom"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture4" src={nokaKuva4} /></div>
-            <div className="bottom"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture5" src={nokaKuva5} /></div>
-            <div className="bottom1"><img onClick={(e) => this.image(e.target)} className="pictures" id="picture6" src={nokaKuva6} /></div>
+            <div className="item1"><img alt="Kaunis kuva" onClick={(e) => this.image(e.target)} className="pictures" id="picture1" src={nokaKuva1} /></div>
+            <div className="item2"><img alt="Kaunis kuva"  onClick={(e) => this.image(e.target)} className="pictures" id="picture2" src= {nokaKuva2} /></div>
+            <div className="item3"><img alt="Kaunis kuva" onClick={(e) => this.image(e.target)} className="pictures" id="picture3" src={nokaKuva3} /></div>
+            <div className="bottom"><img alt="Kaunis kuva" onClick={(e) => this.image(e.target)} className="pictures" id="picture4" src={nokaKuva4} /></div>
+            <div className="bottom"><img alt="Kaunis kuva" onClick={(e) => this.image(e.target)} className="pictures" id="picture5" src={nokaKuva5} /></div>
+            <div className="bottom1"><img alt="Kaunis kuva" onClick={(e) => this.image(e.target)} className="pictures" id="picture6" src={nokaKuva6} /></div>
         </div>
         </>
         )

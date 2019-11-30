@@ -12,7 +12,7 @@ nextStep();
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send();
     xhr.onload = function () {
-        if (this.status == 200) {
+        if (this.status === 200) {
             onloadDocumentFromContent(this.response);
         }
         else {
@@ -26,14 +26,13 @@ function onloadDocumentFromContent(data) {
     var nyt = new Date();
     var curDate = nyt.getDate();
     var days = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai", "sunnuntai"];
-    let foodStuff = document.createElement("div");
     document.getElementById("firstFood").innerHTML = "";
     document.getElementById("foodList").innerHTML = "";
     menuJson.Days.forEach((element, index) => {
         var menuDate = new Date(element.Date);
         var tempTitle = document.createElement("h1");
         tempTitle.textContent = days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI");
-        if(curDate == menuDate.getDate()) {
+        if(curDate === menuDate.getDate()) {
             let firstElem = document.getElementById("firstFood");
             let textElem = document.createElement("p");
             textElem.textContent = `Päivän ruoka: ${element.Meals[0].Name} `;
@@ -62,7 +61,7 @@ function onloadDocumentFromContent(data) {
 		return (
 			<div id="show">
 				<h1>Ruokalistat</h1>
-				<img id="Loading" src={loading} />
+				<img alt="loading" id="Loading" src={loading} />
 				<div id="firstFood"></div>
 				<div id="foodListPos">
 				<div id="foodList"></div>

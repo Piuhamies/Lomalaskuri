@@ -11,14 +11,14 @@ export class DefaultMenu extends React.Component {
     static getDerivedStateFromProps(props, state) {
         let curSchoolUrl = window.location.pathname.substring(1, window.location.pathname.indexOf("/", 1));
         let curSchoolElem = props.schools[props.schools.findIndex(i => i.href === curSchoolUrl)];
-        var properties = curSchoolElem != null && curSchoolElem  != "undefined" ?  curSchoolElem.theme : props.schools[0].theme ;
+        var properties = curSchoolElem != null && curSchoolElem  !== "undefined" ?  curSchoolElem.theme : props.schools[0].theme ;
         properties.forEach((elem, index) => {
             document.documentElement.style.setProperty(elem.nimi, props.isDarkMode ? elem.dark : elem.light);
            });
-        if(state.reset == true && state.prevReset == false) {
+        if(state.reset === true && state.prevReset === false) {
             return {curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: true, prevReset: true}
         }
-        else if(state.reset == true && state.prevReset == true) {    
+        else if(state.reset === true && state.prevReset === true) {    
             return {curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: false, prevReset: false}
         }
         else {
@@ -27,7 +27,7 @@ export class DefaultMenu extends React.Component {
     }
     toggle = () =>  {
         let darkMode = this.props.isDarkMode;
-        var properties = this.state.curSchool.curSchoolElem != null && this.state.curSchool.curSchoolElem  != "undefined" ?  this.state.curSchool.curSchoolElem.theme : this.props.schools[0].theme ;
+        var properties = this.state.curSchool.curSchoolElem != null && this.state.curSchool.curSchoolElem  !== "undefined" ?  this.state.curSchool.curSchoolElem.theme : this.props.schools[0].theme ;
         darkMode = !darkMode;
         this.props.updateDarkMode(darkMode);
         properties.forEach((elem, index) => {
@@ -47,8 +47,8 @@ export class DefaultMenu extends React.Component {
         return ( this.state.reset ? <Redirect to="/" /> : 
         <>
             {menuItems}
-        <a onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</a>
-            <a onClick={this.changeSchool}> Vaihda koulua</a>
+        <button class="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+            <button class="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
         </>
         );
     }

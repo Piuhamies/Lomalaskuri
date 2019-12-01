@@ -6,6 +6,8 @@
     --border-color: #ddd;
     --text-color: black;
     --invert-amount: 0%;
+    --chat-primary: #223142;
+    --chat-secondary: #31465F;
     --noka-light-bg-img: url("trianglify.svg");
     --noka-dark-bg-img: url("Dark.svg");
     --vantti-light-bg-img: url("trianglify.svg");
@@ -22,7 +24,116 @@
     --Quick-bg: rgba(255,255,255,0.6);
 }
 
-
+.chatContainer {
+    width: 60em;
+    height: 40em;
+    background-color: var(--chat-primary);
+    position: relative;
+}
+ .chatModal {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0,0,0,0.9);
+ }
+ .chatModal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40% !important;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+ }
+#typingDiv{
+    display: flex;
+    justify-content: space-between;
+}
+.Stat {
+    color: white;
+    font-family: Oswald;
+    font-size: 1.5em;
+    margin: 0.1em;
+    padding: 0em 1em 0em 1em;
+}
+#StatDiv {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to bottom, var(--chat-primary), var(--chat-secondary));
+    padding-bottom: 3px;
+}
+#typingDiv {
+    height: 90%;
+    background: var(--chat-primary);
+}
+@media(min-width: 960px) {
+    .Stat {
+        font-size: 1.5em;
+        margin: 0.1em;
+        padding: 0em 1em 0em 1em;
+    }
+}
+@media(max-width: 960px) {
+    .chatModal-content {
+        padding: 1em !important; 
+    }
+    .Stat {
+        font-size: 3vw;
+        margin: 0.1em;
+        padding: 0em 1em 0em 1em;
+    }
+    .chatModal-content > h1 {
+        font-size: 5vw;
+    }
+    .chatModal-content > form {
+        max-width: 93%;
+        display: inline-block;
+        font-size: 2vw;
+    }
+    .btn {
+        font-size: 3vw;
+    }
+    .chatModal-content input {
+        width: 100%;
+    }
+}
+#tekstiAlue {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 3em;
+}
+#tekstiAlue > input {
+    width: 100%;
+    border-radius: 10px 0px 0px 0px;
+}
+#tekstiAlue button {
+    height: 100%;
+    width: 6em;
+    background-color:var(--chat-secondary);
+    color: white;
+    font-weight: bold;
+    border-radius: 0px 10px 0px 0px;
+}
+#chatArea {
+    width: 100%;
+    height: 100%;
+}
+#messages {
+    max-height: 86%;
+    overflow: auto;
+}
+#messages li {
+    padding: 5px 10px;    
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+#messages li:nth-child(2n) {
+    background-color: var(--chat-secondary);
+}
     
 #show {
     width: 100%;
@@ -139,7 +250,7 @@
     text-align: left;
     display: none;
 }
-h1, h2, #show, #logo, #salainen {
+h1, h2, #show, #logo, #salainen, .linkLookALike  {
     color: var(--text-color);
 }
 #menuBtn {
@@ -148,7 +259,8 @@ h1, h2, #show, #logo, #salainen {
 @media(max-width: 960px) {
     #menu {
         background-color: var(--mobile-menu-color) ;
-        transition: background-color, 2s;
+        transition: 2s;
+        transition-property: background-color;
     }
 }
 @media(min-width: 960px) {
@@ -579,7 +691,6 @@ html {
             margin-bottom: 0.5em;
             font-size: 20px;
             font-family: oswald;
-            color: black;
             border-color: var(--border-color) !important;
             width: 100%;
         }
@@ -698,7 +809,6 @@ html {
             margin: 0 1em 0 1em;
             font-size: 20px;
             font-family: oswald;
-            color: black;
         }
     #logo {
         font-family: "Margarine";

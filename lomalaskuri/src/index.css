@@ -23,7 +23,14 @@
 :root {
     --Quick-bg: rgba(255,255,255,0.6);
 }
-
+.loader-inner {
+    display: flex;
+    justify-content: center;
+}
+.square-spin > div {
+    background: var(--seperator-color) !important;
+    border:solid 1px var(--text-color) !important;
+}
 .chatContainer {
     width: 60em;
     height: 40em;
@@ -75,6 +82,9 @@
     }
 }
 @media(max-width: 960px) {
+    .chatContainer {
+        height: 85vh;
+    }
     .chatModal-content {
         padding: 1em !important; 
     }

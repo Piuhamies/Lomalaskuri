@@ -188,7 +188,7 @@ export class Chat extends React.Component {
 </div>
 
         <div id="StatDiv" >
-          <div id="typingDiv"> <h6 className="Stat" id="typing"></h6><h6 className="Stat" id="onlineAmount">0 henkilöä paikalla</h6></div>
+          <div id="typingDiv"> <h6 className="Stat" id="typing"></h6><p style={{color: "white"}}>Chattia ollut mukana tekemässä Aapo H</p><h6 className="Stat" id="onlineAmount">0 henkilöä paikalla</h6></div>
         </div>
         <div id="chatArea" >
           <div id="messages">

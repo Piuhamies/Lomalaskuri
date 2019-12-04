@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import loading from './loading.gif';
-
+import 'loaders.css/loaders.min.css'
 export class RuokalistaSivu extends React.Component {
 	componentDidMount() {
 
@@ -61,7 +61,11 @@ function onloadDocumentFromContent(data) {
 		return (
 			<div id="show">
 				<h1>Ruokalistat</h1>
-				<img alt="loading" id="Loading" src={loading} />
+                <div id="Loading" class="loader">
+        <div class="loader-inner square-spin">
+          <div></div>
+        </div>
+      </div>
 				<div id="firstFood"></div>
 				<div id="foodListPos">
 				<div id="foodList"></div>

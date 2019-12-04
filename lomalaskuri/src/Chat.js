@@ -8,6 +8,7 @@ export class Chat extends React.Component {
     this.state = { 'userName': null, typersInterval: null };
   }
   componentDidMount() {
+    socket.connect();
     const $ = window.$;
     let userModal = async () => {
       var modalForm = document.getElementById("selectUsername")

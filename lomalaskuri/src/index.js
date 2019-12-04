@@ -18,7 +18,7 @@ let allSchools = [
     href: "NoykkionKoulu",
     menuItems: [
       { nimi: "Laskuri", 'class': <TimerClass /> },
-      { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfMnKPLMv3D3EEGEa0MCt1RnquzmeyAmc4K2fcDtyFFqL61xg/viewform?embedded=true"/> },
+      { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScbBqHMZxKEnVhL62blzCY2ZEx4MtHyvDR3641dTFqeLw4YtQ/viewform?embedded=true"/> },
       { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
       { nimi: "Galleria", 'class': <Galleria /> },
      // { nimi: "Pelit", 'class': <Pelit /> },
@@ -37,7 +37,7 @@ let allSchools = [
     schoolName: "Haukilahden koulu",
     href: "HaukilahdenKoulu",
     menuItems: [{ nimi: "Laskuri", 'class': <TimerClass /> },
-    { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSf4Y9MgvLoyW2A3guq9NMkIUlxRz-u41gzbB74dt3N-MWZfUQ/viewform?embedded=true" /> },
+    { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScbBqHMZxKEnVhL62blzCY2ZEx4MtHyvDR3641dTFqeLw4YtQ/viewform?embedded=true" /> },
     { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
     //{ nimi: "Pelit", 'class': <Pelit />  },
     { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:[ "Onko koulussa hometta?"], negative:["Onko Haukilahden koulu korjattu", "Onko limukone korjattu?", "Onko kolmannen kerroksen sohva vaihdettu"] }} /> },

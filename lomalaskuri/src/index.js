@@ -6,6 +6,7 @@ import { Placeholder } from './Pages.js';
 import { RuokalistaSivu } from './RuokalistaSivu.js';
 import { Kysely } from './Kysely.js';
 import { Galleria } from './Galleria.js';
+import { Chat } from './Chat.js';
 //import { Pelit } from './Pelit.js'; 
 import { Tilastot } from './Tilastot.js';
 import * as serviceWorker from './serviceWorker';
@@ -22,7 +23,8 @@ let allSchools = [
       { nimi: "Galleria", 'class': <Galleria /> },
      // { nimi: "Pelit", 'class': <Pelit /> },
       { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"]}} /> },
-      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> }],
+      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> },
+      { nimi: "Chat", 'class': <Chat />}],
     theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
     { nimi: "--places-color", light: "white", dark: "#272727" },
     { nimi: "--border-color", light: "#ddd", dark: "black" },

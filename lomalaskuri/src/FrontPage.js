@@ -118,6 +118,7 @@ export class FrontPage extends React.Component {
     }
 
   }
+
   darkMode = (value) => {
     this.setState({darkMode: value})
   }

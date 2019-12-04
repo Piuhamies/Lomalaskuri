@@ -2,6 +2,7 @@ import React from 'react';
 import Cookie from 'js-cookie';
 import { Link, Redirect } from 'react-router-dom'
 
+
 export class DefaultMenu extends React.Component {
     constructor(props) {
         super(props);

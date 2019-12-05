@@ -1,15 +1,20 @@
 import React from 'react';
 import openSocket from 'socket.io-client';
-let socket = openSocket("https://espoochat.tk/");
+import onlineIconi from './perm_identity-24px.svg';
+import writingIconi from './menu_book-24px.svg';
+let socket = openSocket("https://espoochat.tk");
 console.log(socket);
 export class Chat extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 'userName': null, typersInterval: null };
+    this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6></h6>};
   }
   componentDidMount() {
     socket.connect();
     const $ = window.$;
+    let userAmount;
+    let writingAmount = 0;
+    let writer;
     let userModal = async () => {
       var modalForm = document.getElementById("selectUsername")
       modalForm.addEventListener("submit", (e) => {
@@ -68,7 +73,7 @@ export class Chat extends React.Component {
       socket.emit('unsubscribe', { room: 'Global' });
       function toRealLuku(luku) {
         var TheRealLuku;
-        switch (typers.length) {
+        switch (luku) {
           case (2):
             TheRealLuku = "Kaksi";
             break;
@@ -99,9 +104,42 @@ export class Chat extends React.Component {
         return TheRealLuku;
       }
       var typers = []
-      var sent = false
+      var sent = false;
+      let displayPeopleAmount = () => {
+        var width = window.outerWidth;
+        let writingValue = <h6></h6>;
+        if(width > 960) {
+          console.log("odd");
+          switch(writingAmount) {
+            case 0 :
+              writingValue = <h6 className="Stat">Kukaan ei kirjoita</h6>;
+              break;
+            case (1) :
+              writingValue = <h6 className="Stat">{writer} kirjoittaa</h6>;
+            break;
+            case (writingAmount < 10 ):
+          writingValue = <h6 className="Stat">{toRealLuku(writingAmount)} henkilöä kirjoittaa</h6>;
+            break;
+            default :
+          writingValue = <h6 className="Stat">{writingAmount} henkilöä kirjoittaa</h6>
+            break;
+          }
+        }
+        else {
+         writingValue = <h6 className="Stat"><img src={writingIconi} />{writingAmount}</h6>
+        } 
+        this.setState({writing: writingValue});
+      }
+      let displayAmount = () => {
+        var width = window.outerWidth;
+      this.setState({paikalla: width > 960 ? <h6 className="Stat" >{toRealLuku(userAmount)} henkilöä paikalla</h6>  :<h6 className="Stat"><img src={onlineIconi} alt="icon" />{userAmount}</h6>
+      });
+    } 
+      window.addEventListener("resize", displayAmount);
+      window.addEventListener("resize", displayPeopleAmount);
       var a = setInterval(() => {
         if ($("#m").val().split("")[0] != undefined) {
+          console.log("stuff");
           sent = false
           socket.emit('typing', userName, roomName);
         } else {
@@ -119,18 +157,18 @@ export class Chat extends React.Component {
       this.setState({ typersInterval: a });
       var visible = false
       socket.on('typing', (username, room) => {
-
         if (username != userName) {
-
-          if (typers.length >= 2) {
-            var TheRealLuku = toRealLuku();
-            $("#typing").text(`${TheRealLuku} henkilöä kirjoittaa`)
-          } else {
-            $("#typing").text(`${username} kirjoittaa`)
+          displayPeopleAmount();
+          if(typers.length == 1) {
+            writer = typers[0];
+            writingAmount = 1;
           }
-
+          else {
+            writingAmount = typers.length;
+          }
           if (typers.indexOf(username) == -1) {
             typers.push(username)
+            console.log("push");
           }
 
         }
@@ -141,19 +179,22 @@ export class Chat extends React.Component {
 
 
           typers.splice(typers.indexOf(username), 1);
-
-        }
-        if (typers.length == 0) {
-          $("#typing").text(`Kukaan ei kirjoita tällä hetkellä`)
-
-
+          if(typers.length == 1) {
+            writer = typers[0];
+            writingAmount = 1;
+          }
+          else {
+            writingAmount = typers.length;
+          }
+          displayPeopleAmount();
         }
       })
+      
       socket.on('onlineInRoom', (usernames) => {
         console.log(usernames);
-        var onlineElem = document.getElementById("onlineAmount");
-        var realLuku = toRealLuku(usernames-1);
-        onlineElem.textContent = `${realLuku} henkilöä paikalla`;
+        userAmount = usernames-1;
+        displayAmount();
+        displayPeopleAmount();
       });
       $('#messageForm').submit(function (e) {
         e.preventDefault(); // prevents page reloading
@@ -168,6 +209,7 @@ export class Chat extends React.Component {
   componentWillUnmount() {
     clearInterval(this.state.typersInterval);
     socket.emit('stopTyping', this.state.userName);
+    socket.emit('unsubscribe', 'LomainenHuone');
     socket.disconnect();
   }
   render() {
@@ -186,14 +228,12 @@ export class Chat extends React.Component {
 </form>
 </div>
 </div>
-
+      
         <div id="StatDiv" >
-          <div id="typingDiv"> <h6 className="Stat" id="typing"></h6><p style={{color: "white"}}>Chattia ollut mukana tekemässä Aapo H</p><h6 className="Stat" id="onlineAmount">0 henkilöä paikalla</h6></div>
+    <div id="typingDiv">{this.state.writing}<p style={{color: "white"}}>Chattia ollut mukana tekemässä Aapo H</p>{this.state.paikalla}</div>
         </div>
-        <div id="chatArea" >
           <div id="messages">
           </div>
-        </div>
 
         <div id="send">
 

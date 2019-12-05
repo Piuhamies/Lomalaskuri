@@ -23,8 +23,8 @@ let allSchools = [
       { nimi: "Galleria", 'class': <Galleria /> },
      // { nimi: "Pelit", 'class': <Pelit /> },
       { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"]}} /> },
-      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> }
-     // { nimi: "Chat", 'class': <Chat />}
+      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> },
+      { nimi: "Chat", 'class': <Chat />}
     ],
     theme: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
     { nimi: "--places-color", light: "white", dark: "#272727" },

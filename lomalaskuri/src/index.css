@@ -371,6 +371,7 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     display: grid;
     max-width: 2500px;
     width: 100%;
+    gap: 1em 0em;
 }
 .quickImage {
     background-color: var(--quick-invert-color);

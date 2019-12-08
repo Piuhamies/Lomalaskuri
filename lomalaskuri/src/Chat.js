@@ -2,7 +2,7 @@ import React from 'react';
 import openSocket from 'socket.io-client';
 import onlineIconi from './perm_identity-24px.svg';
 import writingIconi from './menu_book-24px.svg';
-let socket = openSocket("http://localhost:2000");
+let socket = openSocket("https://espoochat.tk");
 console.log(socket);
 export class Chat extends React.Component {
   constructor(props) {

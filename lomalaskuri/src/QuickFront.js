@@ -10,7 +10,7 @@ import nokaKuva3 from './Kuvat/3.jpg';
 import nokaKuva4 from './Kuvat/4.jpg';
 import nokaKuva5 from './Kuvat/5.jpg';
 import nokaKuva6 from './Kuvat/6.jpg';
-let socket = openSocket("http://localhost:2000");
+let socket = openSocket("https://espoochat.tk");
 export class QuickLaskuri extends React.Component {
     constructor(props) {
         super(props);

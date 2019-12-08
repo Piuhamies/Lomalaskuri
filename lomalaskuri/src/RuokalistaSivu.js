@@ -2,10 +2,15 @@
 import loading from './loading.gif';
 import 'loaders.css/loaders.min.css'
 export class RuokalistaSivu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {todaysRuokalista: null, ruokalista: null};
+    }
 	componentDidMount() {
 
 nextStep();
- async function nextStep() {
+onloadDocumentFromContent = onloadDocumentFromContent.bind(this);
+function nextStep() {
     var requesturl = `https://lomalaskuribackend.herokuapp.com/aromidata`;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', requesturl);
@@ -20,34 +25,29 @@ nextStep();
         }
     };
 }
-
 function onloadDocumentFromContent(data) {
+    this.setState({ruokalista:null, todaysRuokalista: null});
     var menuJson = JSON.parse(data);
     var nyt = new Date();
     var curDate = nyt.getDate();
     var days = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai", "sunnuntai"];
-    document.getElementById("firstFood").innerHTML = "";
-    document.getElementById("foodList").innerHTML = "";
+    let listEl = [];
     menuJson.Days.forEach((element, index) => {
         var menuDate = new Date(element.Date);
-        var tempTitle = document.createElement("h1");
-        tempTitle.textContent = days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI");
+        var tempTitle = <h1 key="otsikko">{days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI")}</h1>
         if(curDate === menuDate.getDate()) {
-            let firstElem = document.getElementById("firstFood");
-            let textElem = document.createElement("p");
-            textElem.textContent = `Päivän ruoka: ${element.Meals[0].Name} `;
-            textElem.setAttribute("id", "FoodGlimpse")
-            firstElem.appendChild(textElem);
+            let textElem = <p key={element.Meals[0].Name + "Key"} id="FoodGlimpse">Päivän ruoka: {element.Meals[0].Name} </p>;
+            this.setState({todaysRuokalista: textElem });
         }
-           
-            let listEl = document.getElementById("foodList");
-            listEl.appendChild(tempTitle);
+        listEl.push(tempTitle);           
             for(let i= 0; i<element.Meals.length; i++ ) {
-                let textElem = document.createElement("p");
-                textElem.textContent = `${element.Meals[i].MealType}:    ${element.Meals[i].Name} `;
-				listEl.appendChild(textElem);
+                let textElem = <p key={element.Meals[i].MealType+   element.Meals[i].Name +"key"} > {element.Meals[i].MealType}:    {element.Meals[i].Name} </p>
+                listEl.push(textElem);
+                console.log(listEl);
 				
-			}
+            }
+            this.setState({ruokalista: listEl});
+            
 	});
     var loading = document.getElementById("Loading");
     loading.remove();
@@ -66,9 +66,9 @@ function onloadDocumentFromContent(data) {
           <div></div>
         </div>
       </div>
-				<div id="firstFood"></div>
+        <div id="firstFood">{this.state.todaysRuokalista}</div>
 				<div id="foodListPos">
-				<div id="foodList"></div>
+				<div id="foodList">{this.state.ruokalista}</div>
 				</div>
 				<div id="the-canvas"></div>
 			</div>

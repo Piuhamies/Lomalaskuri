@@ -95,32 +95,12 @@ render() {
 export class FrontPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {curSchool: null, darkMode: false};
-    this.darkMode = this.darkMode.bind(this);
+    this.state = {curSchool: null, darkMode: false, redirect: null};
+    this.toHome = this.toHome.bind(this);
   }
-  componentDidMount() {
-    let menuBtn = document.getElementById("menuBtn");
-    let placesElem = document.getElementById("places");
-    menuBtn.addEventListener("click", animate);
-    placesElem.addEventListener("click", animate);
-    const $ = window.$;
-    function animate() {
-      if(window.outerWidth < 960) {
-      let x = document.getElementById("menuBtn");
-      x.classList.toggle("change");
-
-      $("#places").animate({
-        opacity: 1,
-        width: "toggle"
-      }, 100, function () {
-      });
-    }
-    }
-
-  }
-
-  darkMode = (value) => {
-    this.setState({darkMode: value})
+  toHome() {
+    this.setState({redirect: <Redirect to="Etusivu" /> }, () => this.setState({redirect: null}) );
+    console.log(this.state.redirect);
   }
   routes() {
     let routeArray = [];
@@ -134,21 +114,28 @@ export class FrontPage extends React.Component {
     return (
       <Router>
         <div id="menuContainer">
-          <div id="menu">
-            <div id="menuBtn" onClick={this.openMenu}>
-              <div className="rows" id="row1"></div>
-              <div className="rows" id="row2"></div>
-              <div className="rows" id="row3"></div>
-            </div>
+          <Switch>
+          {this.props.schools.map((x) => {return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
             <h1 id="logo">Espoon l<a id="salainen" href="Salainen.html">o</a>malaskuri</h1>
+          </div></Route>) }) }
+          <Route>
+          <div id="menu">
+            {this.state.redirect}
+            <div onClick={this.toHome} class="menuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </div>
+            <h1 class="offCenter" id="logo">Espoon l<a id="salainen" href="Salainen.html">o</a>malaskuri</h1>
           </div>
+          </Route>
+          </Switch>
+
               <div id="places">
                 <Switch>
                   <Route exact path="/">
                     <DefaultMenu schools={this.props.schools} curSchool={this.getCurSchool} />
                   </Route>
                   <Route>
-                    <DefaultMenu  updateDarkMode={this.darkMode} isDarkMode={this.state.darkMode} schools={this.props.schools} curSchool={this.getCurSchool} />
+                    <DefaultMenu  updateDarkMode={this.props.darkFunction} schools={this.props.schools} curSchool={this.getCurSchool} />
                   </Route>
                 </Switch>
               </div>

@@ -28,12 +28,9 @@ export class DefaultMenu extends React.Component {
     }
     toggle = () =>  {
         let darkMode = this.props.isDarkMode;
+        console.log(this.props.isDarkMode);
         var properties = this.state.curSchool.curSchoolElem != null && this.state.curSchool.curSchoolElem  !== "undefined" ?  this.state.curSchool.curSchoolElem.theme : this.props.schools[0].theme ;
-        darkMode = !darkMode;
-        this.props.updateDarkMode(darkMode);
-        properties.forEach((elem, index) => {
-         document.documentElement.style.setProperty(elem.nimi, darkMode ? elem.dark : elem.light);
-        });
+        this.props.updateDarkMode(properties);
     }
     changeSchool() {
         Cookie.set('site', null);

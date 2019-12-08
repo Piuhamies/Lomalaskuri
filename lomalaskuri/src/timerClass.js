@@ -26,7 +26,7 @@ var timeNames = [{ nimi: "weeks", shortened: "wk" },
 { nimi: "milliseconds", shortened: "ms" }
 ];
 var currentYear = new Date().getFullYear(); //säilytetään nykyinen vuosi muuttujassa, koska sitä käytetään monessa paikkaa
-var nyt = new Date().getTime();
+var nyt = Date.now();
 timers.forEach(function (element, index) {
     if (element.start.getTime() - nyt < 0 && element.end.getTime() - nyt < 0 && element.start.getFullYear() < currentYear && element.start.getMonth() <= element.end.getMonth()) {
         element.start.setFullYear(currentYear);
@@ -150,7 +150,7 @@ function setSlider() {
     }
 }
 function MainLoop() {
-    var nyt = new Date().getTime();
+    var nyt = Date.now();
     timers.forEach(function (element, index) {
         var start = element.start.getTime();
         var end = element.end.getTime();

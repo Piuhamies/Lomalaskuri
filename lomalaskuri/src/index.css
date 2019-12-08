@@ -5,6 +5,8 @@
     --places-color: white;
     --border-color: #ddd;
     --text-color: black;
+    --quick-color: rgba(255,255,255,0.5);
+    --quick-invert-color: rgba(0,0,0,0.5);
     --invert-amount: 0%;
     --chat-primary: #223142;
     --chat-secondary: #31465F;
@@ -23,6 +25,7 @@
 :root {
     --Quick-bg: rgba(255,255,255,0.6);
 }
+
 .loader-inner {
     display: flex;
     justify-content: center;
@@ -186,80 +189,145 @@
 #foodList >h1 {
     color: black !important;
 }
+
 .quickBox {
     
-    margin-top: 2em;
-    margin-left: 1em;
-    margin-right: 1em;
-    width: 90vw;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--quick-color);
+    opacity: 0;
+}
 
+.quickBox.active {
+    animation: disappearLeft 1s;
+    opacity: 0;
 }
-.quickBorderBox {
-    border-left: solid 0.2em var(--Quick-bg);
-    border-right: solid 0.2em var(--Quick-bg);
-    border-bottom: solid 1em var(--Quick-bg);
+@keyframes appearLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-40px,0px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px,0px)
+    }
 }
-.quickWhite {
-    background-color: var(--Quick-bg);
+@keyframes disappearLeft {
+    0% {
+        opacity: 1;
+        transform: translate(0px,0px)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-40px,0px)
+    }
+}
+.quickBox.anim {
+    animation: appearLeft 1s;
+    opacity: 1;
+}
+.quickBoxLeft {
+    width: 90%;
+    font-family: Oswald;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+.quickBoxLeft.full {
+    width: 100%;
 }
 .quickTitle {
+    padding-left: 1em;
+    padding-top: 0.5em;
+    border-bottom: 1px solid var(--seperator-color);
+    height: 2em;
     margin: 0;
-    width: 100%;
-    padding-top: 1em;
-    background-color: var(--Quick-bg);
-    border-radius: 25px 25px 0 0 ;
+    grid-row: 1;
+}
+.quickBoxLeft .alaotsikot {
+    font-size: calc(10px + 2.5vw);
+    color: var(--text-color);
+    text-shadow: none;
+}
+.quickBoxLeft .ajat {
+    background-color: var(--quick-invert-color);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-.quickTitle * {
-    margin: 0;
+.quickBoxRight {
+    height: 100%;
+    border-left: 1px solid var(--seperator-color);
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.quickTitle > .alaotsikot {
-    margin: 0;
+.quickBoxRight:hover {
+    background-color: var(--quick-invert-color);
+}
+.quickBoxRight:hover .arrow > svg {
+    filter: drop-shadow(0px 0px 15px var(--seperator-color));
 }
 .quickContent {
-    display: inline-block;
-    width: 100%;
-    display: none;
+    grid-row: -1 / span 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
+    position: relative;
 }
-.quickSpacer {
-    height: 2em;
+.quickText {
+    background-color: var(--quick-invert-color);
     width: 100%;
+    margin-bottom: 0;
+    color: white;
+    grid-row: 2;
+    font-size: 1.5em;
+}
+.quickLoader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.quickChat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.miniChat {
+    height: 100%;
+    width: 100%;
+    background-color: var(--chat-secondary);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+.miniChat > h3 {
     margin: 0;
-    background-color: var(--Quick-bg);
+    padding: 0.25em 0 0.25em 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+.miniChat > p {
+    margin: 0.5em 0 0 0;
+}
+.quickChat > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: solid 2px rgba(0,0,0,0.5);
+    font-family: 'Roboto-monospace', monospace;
 }
-.quickSpacer > p {
-    margin: 1em 0em 0em 0em;
-}
-.quickArrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.quickChat img {
+    height: 0.5em;
 }
 .arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    background-color: var(--Quick-bg);
-    border-radius: 0 0 25px 25px;
-    width: 2em;
-    margin: 0;
-    width: 100%;
-}
-.arrow > span {
-    transition: 0.2s ease-in-out;
-    transform: rotate(0deg);
-    pointer-events: none;
-    padding: 0.2em;
-
-}
-.arrow.rotated > span {
-    transform: rotate(180deg);
+    display: inline-block;
 }
 #FoodGlimpse {
     margin: 0;
@@ -286,22 +354,133 @@
     text-align: left;
     display: none;
 }
-h1, h2, #show, #logo, #salainen, .linkLookALike  {
+h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     color: var(--text-color);
 }
-#menuBtn {
+.menuBtn {
     filter: invert(var(--invert-amount));
 }
+.quickContainerContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3em;
+}
+.quickContainer {
+    display: grid;
+    max-width: 2500px;
+    width: 100%;
+}
+.quickImage {
+    background-color: var(--quick-invert-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quickTilastot {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.quickImage > img {
+    height: 100%;
+    position: absolute;
+    transition: 0.2s;
+    transition-property: opacity;
+}
+
 @media(max-width: 960px) {
+    .menuBtn {
+        display: block;
+    }
+    .menuBtn > svg {
+        height: 6vw;
+    }
+    .quickText {
+        font-size: 4vw;
+    }
+    .miniChat {
+        font-size: 3vw !important;
+    }
+    .quickBox {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .quickChat > div {
+        font-size: 13vw;
+    }
+    .quickContent {
+        height: 10em;
+    }
+    .arrow > svg {
+        width: 6vw;
+    }
+    .quickTitle {
+        font-size: calc(10px + 3vw);
+    }
+    .quickBoxLeft .alaotsikot {
+        font-size: calc(10px + 2.5vw);
+        color: var(--text-color);
+        text-shadow: none;
+    }
+    .quickBoxLeft .ajat {
+        font-size: calc(10px + 6vw);
+        
+    }
+    .quickContainer {
+        grid-template-columns: 100%;
+    }
+    #foodList {
+        width: 100vw;
+    }
     #menu {
         background-color: var(--mobile-menu-color) ;
         transition: 2s;
         transition-property: background-color;
     }
+    
 }
 @media(min-width: 960px) {
+    .quickText {
+        font-size: 1.5em;
+    }
+    .miniChat {
+        font-size: 1em !important;
+    }
+    .quickBox:nth-child(odd) {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .quickBox:nth-child(even) {
+        margin-left: 0em;
+        margin-right: 1em;
+    }
+    .quickChat > div {
+        font-size: 5em;
+    }
+    .quickContent {
+        height: 15em;
+    }
+    .quickBoxLeft .alaotsikot {
+        font-size: 3em;
+        color: var(--text-color);
+        text-shadow: none;
+    }
+    .quickContainer {
+        grid-template-columns:  50% 50% ;
+    }
+    #foodList {
+        width: 50vw;
+    }   
     #menu {
         background-color: var(--menu-color) ;
+    }
+    .quickBoxLeft .ajat {
+        font-size: 3.5em;
+        
     }
 }
 #places {
@@ -440,7 +619,7 @@ html {
 
 #SchoolModal {
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
+    z-index: 999; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -599,40 +778,9 @@ html {
 }
 @media (max-width:960px) {
 
+
     .milliseconds {
         width: 3em;
-    }
-
-    .change #row1 {
-        -o-transform: rotate(-45deg) translate(-9px, 6px);
-        -ms-transform: rotate(-45deg) translate(-9px, 6px);
-        -moz-transform: rotate(-45deg) translate(-9px, 6px);
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px);
-    }
-
-
-
-    .change #row2 {
-        transform-origin: left;
-        animation: shotsFired 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530); /*cool animation*/
-        opacity: 0;
-    }
-
-    .change #row3 {
-        -moz-transform: rotate(45deg) translate(-8px, -8px);
-        -ms-transform: rotate(45deg) translate(-8px, -8px);
-        -o-transform: rotate(45deg) translate(-8px, -8px);
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px);
-    }
-
-    #row1, #row2, #row3 {
-        width: 35px;
-        height: 5px;
-        background-color: black;
-        margin: 6px;
-        transition: all 0.3s 0.2s;
     }
 
     #the-canvas {
@@ -682,8 +830,12 @@ html {
         font-family: "Margarine";
         display: flex;
         margin: 0;
-        margin-left: auto;
         font-size: 8vw;
+        transition: 0.2s; 
+        transition-property: margin;
+    }
+    #logo.offCenter {
+        margin: auto;
     }
 
     #menuBtn {
@@ -812,15 +964,14 @@ html {
 }
 
 @media (min-width:960px) {
+    .menuBtn {
+        display: none
+    }
     .milliseconds {
         width: 3em;
     }
 
     #anotherPage {
-        display: none;
-    }
-
-    #menuBtn {
         display: none;
     }
 

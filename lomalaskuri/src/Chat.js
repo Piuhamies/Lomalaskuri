@@ -2,7 +2,7 @@ import React from 'react';
 import openSocket from 'socket.io-client';
 import onlineIconi from './perm_identity-24px.svg';
 import writingIconi from './menu_book-24px.svg';
-let socket = openSocket("https://espoochat.tk");
+let socket = openSocket("http://localhost:2000");
 console.log(socket);
 export class Chat extends React.Component {
   constructor(props) {
@@ -47,7 +47,7 @@ export class Chat extends React.Component {
     }).then(msglist => {
       msglist.forEach(element => {
         if (element.room == roomName) {
-          $('#messages').append(`<li class="chatMessage">  <b>${element.sender}</b>  (${new Date(element.time).toLocaleTimeString()}): ${element.text}`);
+          $('#messages').append(`<li class="chatMessage">  <b>${element.sender}</b>  (${new Date(element.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}): ${element.text}`);
 
         }
 
@@ -57,9 +57,9 @@ export class Chat extends React.Component {
     })    
     userModal();
     let roomName = 'LomainenHuone';
-    socket.emit('subscribe', { room: roomName })
+    socket.emit('subscribe', { room: roomName, addToOnline:true })
     socket.on('chat message', (msg, username, time) => {
-      $('#messages').append(`<li class="chatMessage">  <b>${username}</b>  (${new Date(time).toLocaleTimeString()}): ${msg}`);
+      $('#messages').append(`<li class="chatMessage">  <b>${username}</b>  (${new Date(time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}): ${msg}`);
       var msgDiv = document.getElementById("messages");
       if (msgDiv.getElementsByTagName("li").length > 100) {
         msgDiv.getElementsByTagName("li")[0].remove()
@@ -69,8 +69,7 @@ export class Chat extends React.Component {
     let activateChat = async () => {
       let userName = this.state.userName;
       let testMsg = 'chat message';
-      socket.emit('roomchange', userName, 'Global')
-      socket.emit('unsubscribe', { room: 'Global' });
+      socket.emit('roomchange', userName, 'LomainenHuone')
       function toRealLuku(luku) {
         var TheRealLuku;
         switch (luku) {
@@ -208,8 +207,7 @@ export class Chat extends React.Component {
   }
   componentWillUnmount() {
     clearInterval(this.state.typersInterval);
-    socket.emit('stopTyping', this.state.userName);
-    socket.emit('unsubscribe', 'LomainenHuone');
+    socket.emit('unsubscribe', {room:'LomainenHuone', addToOnline: true});
     socket.disconnect();
   }
   render() {

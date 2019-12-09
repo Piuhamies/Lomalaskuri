@@ -334,13 +334,6 @@ body, html {
 .arrow {
     display: inline-block;
 }
-#FoodGlimpse {
-    margin: 0;
-    padding: 2em;
-    font-size: 1.5em;
-    font-family: Roboto;
-    text-align: center;
-}
 #peli {
     border: 0;
     display: block;
@@ -409,7 +402,7 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
         height: 7vw;
     }
     .quickText {
-        font-size: 4vw;
+        font-size: 3vw;
     }
     .miniChat {
         font-size: 3vw !important;
@@ -853,27 +846,9 @@ html {
     }
 
     #places {
-        width: 40vw;
-        display: none;
-        margin: 0;
-        height: 100vh;
-        padding-top: 0.5em;
-        justify-content: center;
-        align-content: center;
-        flex-direction: column;
+        display: none
     }
 
-        #places > a {
-            border-bottom: solid;
-            border-bottom-width: 1px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            margin: 0;
-            margin-bottom: 0.5em;
-            font-size: 20px;
-            font-family: oswald;
-        }
         .linkLookALike {
             background: none!important;
             border: none;

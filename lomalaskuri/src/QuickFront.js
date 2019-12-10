@@ -247,10 +247,10 @@ export class QuickChat extends React.Component {
             this.setState({ready: true, online: userAmount })
           });
         socket.on('sendRecentMsg', messageList => {
-            console.log(messageList[messageList.length-1]);
             let latest = {};
-            if(messageList.length != 0 )
-            { latest = messageList[messageList.length-1] 
+            let messageListLength = messageList.length
+            if(messageListLength > 0 )
+            { latest = messageList[messageListLength-1] 
             }
             else {
                 latest.text= "Ei viestejä";

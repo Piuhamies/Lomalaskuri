@@ -9,18 +9,7 @@ import {
   Redirect,
   Link
 } from "react-router-dom";
-import ReactGA from 'react-ga';
-import { createBrowserHistory } from "history";
-const history = createBrowserHistory();
 
-
-ReactGA.initialize('UA-137016636-1');
-history.listen((location) => {
-  console.log("update");
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname)
-}
-);
 
 class SchoolSelectorModal extends React.Component {
   constructor(props) {

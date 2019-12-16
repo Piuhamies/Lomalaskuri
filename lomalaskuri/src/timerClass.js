@@ -157,10 +157,10 @@ function MainLoop() {
         if (start - nyt > 0) { //jos lomaan on vielä aikaa näytä loma timeri
             let distance = [
                 Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
-                Math.floor((start - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
-                Math.floor((start - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
-                Math.floor((start - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit
-                Math.floor((start - nyt) % (1000 * 60) / 1000), //sekunnit
+                Math.floor((start - nyt) / (1000 * 60 * 60 * 24) % 7), //päivät
+                Math.floor((start - nyt) / (1000 * 60 * 60) % 24 ), // tunnit
+                Math.floor((start - nyt) / (1000 * 60 ) % 60), //minuutit
+                Math.floor((start - nyt) / 1000 % 60), //sekunnit
                 `000${Math.floor((start - nyt) % 1000)}`.substring((Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))) + 1, 4 + (Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))))
             ];
             setSlider();
@@ -185,12 +185,12 @@ function MainLoop() {
         }
         else if ((end - nyt) > 0) { //jos loma on nyt näytä koulun alku timeri
             let distance = [
-                Math.floor((end - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
-                Math.floor((end - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
-                Math.floor((end - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
-                Math.floor((end - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit
-                Math.floor((end - nyt) % (1000 * 60) / 1000), //sekunnit
-                Math.floor((end - nyt) % 1000) // millisekunnit
+                Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
+                Math.floor((start - nyt) / (1000 * 60 * 60 * 24) % 7), //päivät
+                Math.floor((start - nyt) / (1000 * 60 * 60) % 24 ), // tunnit
+                Math.floor((start - nyt) / (1000 * 60 ) % 60), //minuutit
+                Math.floor((start - nyt) / 1000 % 60), //sekunnit
+                `000${Math.floor((start - nyt) % 1000)}`.substring((Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))) + 1, 4 + (Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))))
             ];
             setSlider();
             for (let i = 0; i < timeNames.length; ++i) { //kunnolla optimoitu for-looppi prefix lisäyksellä ja kaikella 

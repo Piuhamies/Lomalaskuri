@@ -237,8 +237,6 @@ body, html {
 .quickBoxLeft {
     width: 90%;
     font-family: Oswald;
-    display: grid;
-    grid-template-rows: auto auto auto;
 }
 .quickBoxLeft.full {
     width: 100%;

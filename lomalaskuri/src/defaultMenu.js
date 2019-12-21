@@ -27,7 +27,6 @@ export class DefaultMenu extends React.Component {
         }
     }
     toggle = () =>  {
-        let darkMode = this.props.isDarkMode;
         console.log(this.props.isDarkMode);
         var properties = this.state.curSchool.curSchoolElem != null && this.state.curSchool.curSchoolElem  !== "undefined" ?  this.state.curSchool.curSchoolElem.theme : this.props.schools[0].theme ;
         this.props.updateDarkMode(properties);

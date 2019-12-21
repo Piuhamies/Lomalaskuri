@@ -10,11 +10,12 @@ import nokaKuva3 from './Kuvat/3.jpg';
 import nokaKuva4 from './Kuvat/4.jpg';
 import nokaKuva5 from './Kuvat/5.jpg';
 import nokaKuva6 from './Kuvat/6.jpg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 let socket = openSocket("https://espoochat.tk");
 export class QuickLaskuri extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {ready: false, active: true, otsikko: null, weeks: <p id="glimpsewk"></p>, days: <p id="glimpsed"></p>, hours: <p id="glimpseh"></p>, minutes: <p id="glimpsemin"></p>, redirect: false};
+        this.state = {ready: false, active: true, otsikko: null, weeks: <p id="glimpsewk"></p>, days: <p id="glimpsed"></p>, hours: <p id="glimpseh"></p>, minutes: <p id="glimpsemin"></p>, redirect: false, theEnd: false};
     }
     componentDidMount () {
         this.setState({active: true, ready: false});
@@ -50,8 +51,8 @@ export class QuickLaskuri extends React.Component {
             return a.end.getTime() - b.end.getTime();  //lasketaan arvo on pienempi ja pienin arvo järjestyy ylemmäksi. Ei tarvitse suhteuttaa nykyiseen aikaan koska edellisessä promisessa arvojen on varmistettu olevan nykyisen päivämäärän jälkeen. 
             //jos sorttaisi nykyajan mukaan pitäisi varmistaa ettei nykyaika muuttuisi sorttauksen aikana, koska muuten sorttaus menee rikki.
         });
-        let start = timers[0].start.getTime();
-        let end = timers[0].end.getTime();
+        var lomaState = timers[0].start.getTime() < nyt; //muuttuja joka ilmoittaa onko loma nyt vai tulevaisuudessa. 
+        let start = lomaState ? timers[0].end.getTime() : timers[0].start.getTime() ;   //jos loma on nyt lasketaan loman loppuun, muuten loman alkuun
         let distance = [
             Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
             Math.floor((start - nyt) / (1000 * 60 * 60 * 24) % 7), //päivät
@@ -64,14 +65,17 @@ export class QuickLaskuri extends React.Component {
             var stateToBeSet = {ready: true};
             nyt = Date.now();
             if(timers[0].start.getTime() < nyt ) {
-                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa koulun alkuun:</h2>); 
+                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa loman loppuun <span   aria-label=" Crying" role="img">😢</span>:</h2>); 
+                this.setState({theEnd: true});
+
             }
             else {
                 stateToBeSet.otsikko = (<h2 className="alaotsikot">{timers[0].nimi + ":"}</h2>); 
+                this.setState({theEnd: false});
             }
             timeNames.forEach((data, i) => {
                 if(oldDistance) {
-                    if(oldDistance[i] != distance[i]) {
+                    if(oldDistance[i] !== distance[i]) {
                         stateToBeSet[timeNames[i].nimi] = (<p className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>);
                    }
             }
@@ -119,7 +123,7 @@ export class QuickLaskuri extends React.Component {
             <div className="quickBox ">
             <div className="quickBoxLeft">
                 <h1 className="quickTitle">Laskuri:</h1>
-                <div className="quickContent">
+                <div className={`quickContent ${this.state.theEnd ? "theEnd" : ""}`}>
                     {this.state.ready ? ( <>
                     {this.state.otsikko}
                     <div className="ajat quickText">
@@ -196,7 +200,7 @@ export class QuickRuokalista extends React.Component {
                 <div className="quickBoxLeft">
                     
                     <h1 className="quickTitle" >Päivän ruokalista:</h1>
-                {this.state.ready == true ? (<>
+                {this.state.ready === true ? (<>
                 <div id="firstFood" className="quickContent">
                     {this.state.todaysRuokalista}
                 </div>
@@ -228,7 +232,7 @@ export class QuickChat extends React.Component {
         var typers = []
         var writingAmount = 0;
         socket.on('typing', (username, room) => {
-            if (typers.indexOf(username) == -1) {
+            if (typers.indexOf(username) === -1) {
                 typers.push(username)
               }
                 writingAmount = typers.length;
@@ -282,7 +286,7 @@ export class QuickChat extends React.Component {
                     { this.state.ready ? ( 
                         <>
             <h2 className="alaotsikot">Chatin tilastoja:</h2>
-                    <div className="quickText quickChat"><div><p>{this.state.online}</p><img src={onlineIconi} /></div><div className="miniChat"><h3>Viimeisin viesti:</h3>{this.state.latestMessage}</div><div><p>{this.state.writingAmount}</p><img src={writingIconi} /></div> </div>
+                    <div className="quickText quickChat"><div><p>{this.state.online}</p><img alt="paikalla" src={onlineIconi} /></div><div className="miniChat"><h3>Viimeisin viesti:</h3>{this.state.latestMessage}</div><div><p>{this.state.writingAmount}</p><img alt="kirjoittaa" src={writingIconi} /></div> </div>
              </>
                     ) : (<div id="Loading" className="loader quickLoader">
         <div className="loader-inner square-spin">
@@ -351,7 +355,7 @@ export class QuickTilastot extends React.Component {
         this.updateTilastot();
     }
     componentDidUpdate() {
-        if(this.state.lastProps != this.props ) {
+        if(this.state.lastProps !== this.props ) {
             this.setState({lastProps: this.props});
             this.updateTilastot();
         }
@@ -421,11 +425,11 @@ export class QuickGallery extends React.Component {
                 <h1 className="quickTitle">{this.props.href}:</h1>
                 <div className="quickContent">
                     <div className="quickImage">
-                        <img alt="" src={nokaKuva2} /> {/*preloadataan kaikki kuvat nykyisen kuvan alle */}
-                        <img alt="" src={nokaKuva3} />
-                        <img alt="" src={nokaKuva4} />
-                        <img alt="" src={nokaKuva5} />
-                        <img alt="" src={nokaKuva6} />
+                        <LazyLoadImage alt="" src={nokaKuva2} /> {/*preloadataan kaikki kuvat nykyisen kuvan alle */}
+                        <LazyLoadImage alt="" src={nokaKuva3} />
+                        <LazyLoadImage alt="" src={nokaKuva4} />
+                        <LazyLoadImage alt="" src={nokaKuva5} />
+                        <LazyLoadImage alt="" src={nokaKuva6} />
                         <img alt="" src={this.state.img1} ></img>
                     </div>
                  </div>

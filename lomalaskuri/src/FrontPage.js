@@ -9,6 +9,7 @@ import {
   Redirect,
   Link
 } from "react-router-dom";
+<<<<<<< Updated upstream
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
@@ -43,6 +44,9 @@ class SchoolSelectorModal extends React.Component {
     return this.state.content;
   }
 };
+=======
+import { NewSchoolSelector } from './NewSchoolSelector';
+>>>>>>> Stashed changes
 
 
 
@@ -105,7 +109,7 @@ export class FrontPage extends React.Component {
   routes() {
     let routeArray = [];
     for (let i = 0; i < this.props.schools.length; i++) {
-    routeArray.push(this.props.schools[i].menuItems.map((x) => (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}>{x.class}</Route>)));
+      routeArray.push(this.props.schools[i].menuItems.map((x) => (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}>{x.class}</Route>)));
     }
     return routeArray;
   }
@@ -113,7 +117,12 @@ export class FrontPage extends React.Component {
     let curSchoolCookie = this.props.schools[this.props.schools.findIndex(i => i.href === Cookie.get('site'))] ;
     return (
       <Router>
-        <div id="menuContainer">
+        <Switch>
+          <Route exact path="/">
+            <NewSchoolSelector toggleTheme={this.props.darkFunction} schools={this.props.schools}> </NewSchoolSelector>
+          </Route>
+          {this.props.schools.map((x) => (<Route key={x.href + "key"} path={`/${x.href}`}> {/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
+          <div id="menuContainer">
           <Switch>
           {this.props.schools.map((x) => {return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
             <h1 id="logo">Espoon l<a id="salainen" href="Salainen.html">o</a>malaskuri</h1>
@@ -130,21 +139,8 @@ export class FrontPage extends React.Component {
           </Switch>
 
               <div id="places">
-                <Switch>
-                  <Route exact path="/">
-                    <DefaultMenu schools={this.props.schools} curSchool={this.getCurSchool} />
-                  </Route>
-                  <Route>
                     <DefaultMenu  updateDarkMode={this.props.darkFunction} schools={this.props.schools} curSchool={this.getCurSchool} />
-                  </Route>
-                </Switch>
               </div>
-        </div>
-        <div id="SchoolModal" className="modal">
-          <Route exact path="/">
-
-    {curSchoolCookie === null || curSchoolCookie === undefined ? <SchoolSelectorModal click={this.getCurSchool} schools={this.props.schools} /> : () => {return (<Redirect to={"/" + curSchoolCookie.href + "/" + curSchoolCookie.menuItems[0].nimi}></Redirect>) } } 
-          </Route>
         </div>
         <div id="content">
           <Switch>
@@ -158,6 +154,9 @@ export class FrontPage extends React.Component {
           </Switch>
         </div>
         <CookieNotification visible={Cookie.get('NotAgain')}/>
+
+          </Route> ))}
+        </Switch>
 
       </Router>
 

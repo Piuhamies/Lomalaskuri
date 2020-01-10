@@ -19,10 +19,10 @@ export class QuickLaskuri extends React.Component {
     componentDidMount () {
         this.setState({active: true, ready: false});
         var timers = [
-            { nimi: "Aikaa kesälomaan: ", start: new Date("Jun 1, 2019 12:00:00"), end: new Date("Aug 8, 2019 10:00:00") },
-            { nimi: "Aikaa Syyslomaan:", start: new Date("Oct 14, 2019 00:00:00"), end: new Date("Oct 18, 2019 00:00:00") },
+            { nimi: "Aikaa kesälomaan ", start: new Date("Jun 1, 2019 12:00:00"), end: new Date("Aug 8, 2019 10:00:00") },
+            { nimi: "Aikaa Syyslomaan", start: new Date("Oct 14, 2019 00:00:00"), end: new Date("Oct 18, 2019 00:00:00") },
             { nimi: "Aikaa Joululomaan", start: new Date("Dec 21, 2019 00:00:00"), end: new Date("Jan 6, 2020 00:00:00") },
-            { nimi: "Aikaa Hiihtolomaan:", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 21, 2019 00:00:00") },
+            { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 21, 2019 00:00:00") },
             { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 18 2019 16:00:00"), end: new Date("Apr 23 2019 8:30:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
@@ -128,8 +128,14 @@ export class QuickLaskuri extends React.Component {
                         {this.state.hours}
                         {this.state.minutes}
                     </div>
+<<<<<<< Updated upstream
                     </>) : (<div id="Loading" class="loader quickLoader">
                     <div class="loader-inner square-spin">
+=======
+                    
+                    </>) : (<div id="Loading" className="loader quickLoader">
+                    <div className="loader-inner square-spin">
+>>>>>>> Stashed changes
                     <div></div>
                    </div>
                     </div>)}
@@ -445,7 +451,11 @@ export class QuickSettings extends React.Component {
         this.changeSchool = this.changeSchool.bind(this);
     }
     toggle = () =>  {
+<<<<<<< Updated upstream
         let darkMode = this.props.isDarkMode;
+=======
+        console.log(this.props.theme)
+>>>>>>> Stashed changes
         this.props.themes(this.props.theme);
     }
     changeSchool() {

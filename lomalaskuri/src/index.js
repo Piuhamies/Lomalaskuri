@@ -38,7 +38,10 @@ let themes = {
   { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
   { nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" },
  { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
-{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
+{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+{nimi: '--background-image', light: 'var(--noka-light-bg-img)', dark:'var(--noka-dark-bg-img)' },
+{nimi: '--login-bg', light: 'rgba(255,255,255,0.3)', dark: 'rgba(0,0,0,0.8)'},
+{nimi: '--text-color', light:  "black", dark: "white"}],
 HaukilahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
 { nimi: "--places-color", light: "white", dark: "#272727" },
 { nimi: "--border-color", light: "#ddd", dark: "black" },
@@ -46,8 +49,11 @@ HaukilahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727"
 { nimi: "--invert-amount", light: "0%", dark: "100%" },
 { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
 { nimi: "--background-image", light: "var(--hauki-light-bg-img)", dark: "var(--hauki-dark-bg-img)" },
-{ nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
-{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
+{ nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)"},
+{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+{nimi: '--background-image', light: 'var(--noka-light-bg-img)', dark:'var(--noka-dark-bg-img)' },
+{nimi: '--login-bg', light: 'rgba(255,255,255,0.3)', dark: 'rgba(0,0,0,0.8)'},
+{nimi: '--text-color', light:  "black", dark: "white"}],
 LaurinlahdenKoulu:  [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
 { nimi: "--places-color", light: "white", dark: "#272727" },
 { nimi: "--border-color", light: "#ddd", dark: "black" },
@@ -55,8 +61,11 @@ LaurinlahdenKoulu:  [{ nimi: "--menu-color", light: "transparent", dark: "#27272
 { nimi: "--invert-amount", light: "0%", dark: "100%" },
 { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
 { nimi: "--background-image", light: "var(--lauri-light-bg-img)", dark: "var(--lauri-dark-bg-img)" },
-{ nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
-{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
+{ nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)"},
+{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+{nimi: '--background-image', light: 'var(--noka-light-bg-img)', dark:'var(--noka-dark-bg-img)' },
+{nimi: '--login-bg', light: 'rgba(255,255,255,0.3)', dark: 'rgba(0,0,0,0.8)'},
+{nimi: '--text-color', light:  "black", dark: "white"}],
 VanttilanKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
 { nimi: "--places-color", light: "white", dark: "#272727" },
 { nimi: "--border-color", light: "#ddd", dark: "black" },
@@ -64,8 +73,11 @@ VanttilanKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" }
 { nimi: "--invert-amount", light: "0%", dark: "100%" },
 { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
 { nimi: "--background-image", light: "var(--vantti-light-bg-img)", dark: "var(--vantti-dark-bg-img)" },
-{ nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
-{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
+{ nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)"},
+{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+{nimi: '--background-image', light: 'var(--noka-light-bg-img)', dark:'var(--noka-dark-bg-img)' },
+{nimi: '--login-bg', light: 'rgba(255,255,255,0.3)', dark: 'rgba(0,0,0,0.8)'},
+{nimi: '--text-color', light:  "black", dark: "white"}],
 None: 
 [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
     { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -74,8 +86,11 @@ None:
     { nimi: "--invert-amount", light: "0%", dark: "100%" },
     { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
     { nimi: "--background-image", light: "var(--vantti-light-bg-img)", dark: "var(--vantti-dark-bg-img)" },
-    { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
-   { nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }]
+    { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)"},
+   { nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+   {nimi: '--background-image', light: 'var(--noka-light-bg-img)', dark:'var(--noka-dark-bg-img)' },
+   {nimi: '--login-bg', light: 'rgba(255,255,255,0.3)', dark: 'rgba(0,0,0,0.8)'},
+   {nimi: '--text-color', light:  "black", dark: "white"}]
 
 }
 
@@ -84,12 +99,21 @@ let allSchools = [
     schoolName: "Nöykkiön koulu",
     href: "NoykkionKoulu",
     menuItems: [
+<<<<<<< Updated upstream
       { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickGallery href="Galleria"/>, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot" tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"] }} />, <QuickSettings key="QuickSettings" theme={themes.NoykkionKoulu} themes={toggleTheme}  />]}/>  },
       { nimi: "Laskuri", 'class': <TimerClass /> },
       { nimi: "Chat", 'class': <Chat />},
       { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
       { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true"/> },
       { nimi: "Galleria", 'class': <Galleria /> },
+=======
+      { nimi: "Etusivu",visible: true, 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickGallery key="QuickGalleryKey" href="Galleria"/>, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot" tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"] }} />, <QuickSettings key="QuickSettings" theme={themes.NoykkionKoulu} themes={toggleTheme}  />]}/>  },
+      { nimi: "Laskuri",visible: true,  'class': <TimerClass /> },
+      { nimi: "Chat", visible: true, 'class': <Chat />},
+      { nimi: "Ruokalista",visible: true,  'class': <RuokalistaSivu /> },
+      { nimi: "Kysely",visible: true,  'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true"/> },
+      { nimi: "Galleria",visible: true,  'class': <Galleria /> },
+>>>>>>> Stashed changes
      // { nimi: "Pelit", 'class': <Pelit /> },
       { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"]}} /> },
       { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> },
@@ -100,11 +124,19 @@ let allSchools = [
     schoolName: "Haukilahden koulu",
     href: "HaukilahdenKoulu",
     menuItems: [
+<<<<<<< Updated upstream
       { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot"  tiedot={{positive:[ "Onko koulussa hometta?"], negative:["Onko Haukilahden koulu korjattu", "Onko limukone korjattu?", "Onko kolmannen kerroksen sohva vaihdettu"] }}  />, , <QuickSettings key="QuickSettings" theme={themes.HaukilahdenKoulu} themes={toggleTheme}  />]}/>  },
     { nimi: "Laskuri", 'class': <TimerClass /> },
     { nimi: "Kysely", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true" /> },
     { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
     { nimi: "Chat", 'class': <Chat />},
+=======
+    { nimi: "Etusivu",visible: true,  'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot"  tiedot={{positive:[ "Onko koulussa hometta?"], negative:["Onko Haukilahden koulu korjattu", "Onko limukone korjattu?", "Onko kolmannen kerroksen sohva vaihdettu"] }}  />,  <QuickSettings key="QuickSettings" theme={themes.HaukilahdenKoulu} themes={toggleTheme}  />]}/>  },
+    { nimi: "Laskuri",visible: true,  'class': <TimerClass /> },
+    { nimi: "Kysely",visible: true,  'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true" /> },
+    { nimi: "Ruokalista",visible: true,  'class': <RuokalistaSivu /> },
+    { nimi: "Chat",visible: true,  'class': <Chat />},
+>>>>>>> Stashed changes
     //{ nimi: "Pelit", 'class': <Pelit />  },
     { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:[ "Onko koulussa hometta?"], negative:["Onko Haukilahden koulu korjattu", "Onko limukone korjattu?", "Onko kolmannen kerroksen sohva vaihdettu"] }} /> },
     { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" /> }], 
@@ -114,10 +146,17 @@ let allSchools = [
     schoolName: "Laurinlahden koulu",
     href: "LaurinlahdenKoulu",
     menuItems: [
+<<<<<<< Updated upstream
     { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.LaurinlahdenKoulu} themes={toggleTheme}  />]}/>  },
     { nimi: "Laskuri", 'class': <TimerClass /> },
     { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
     { nimi: "Chat", 'class': <Chat />},
+=======
+    { nimi: "Etusivu",visible: true,  'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.LaurinlahdenKoulu} themes={toggleTheme}  />]}/>  },
+    { nimi: "Laskuri",visible: true,  'class': <TimerClass /> },
+    { nimi: "Ruokalista",visible: true,  'class': <RuokalistaSivu /> },
+    { nimi: "Chat",visible: true,  'class': <Chat />},
+>>>>>>> Stashed changes
     //{ nimi: "Pelit", 'class': <Pelit />  },
     { nimi: "Tilastot", 'class': <Tilastot tiedot={{positive:[], negative:["Keksinkö mitään tilastoja"] }} /> },
     { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/> }],
@@ -128,10 +167,17 @@ let allSchools = [
     schoolName: "Vanttilan koulu",
     href: "VanttilanKoulu",
     menuItems: [
+<<<<<<< Updated upstream
       { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.VanttilanKoulu} themes={toggleTheme}  />]}/>  },
     { nimi: "Laskuri", 'class': <TimerClass /> },
     { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
     { nimi: "Chat", 'class': <Chat />},
+=======
+      { nimi: "Etusivu",visible: true,  'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.VanttilanKoulu} themes={toggleTheme}  />]}/>  },
+    { nimi: "Laskuri",visible: true,  'class': <TimerClass /> },
+    { nimi: "Ruokalista",visible: true,  'class': <RuokalistaSivu /> },
+    { nimi: "Chat",visible: true,  'class': <Chat />},
+>>>>>>> Stashed changes
    // { nimi: "Pelit", 'class':  <Pelit /> },
     { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/>  }],
     theme: themes.VanttilanKoulu
@@ -140,10 +186,17 @@ let allSchools = [
     schoolName: "Ei mikään yllä mainittu",
     href: "None",
     menuItems: [
+<<<<<<< Updated upstream
     { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.None} themes={toggleTheme}  />]}/>  },
     { nimi: "Laskuri", 'class': <TimerClass /> },
     { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
     { nimi: "Chat", 'class': <Chat />},
+=======
+    { nimi: "Etusivu",visible: true,  'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.None} themes={toggleTheme}  />]}/>  },
+    { nimi: "Laskuri",visible: true,  'class': <TimerClass /> },
+    { nimi: "Ruokalista", visible: true, 'class': <RuokalistaSivu /> },
+    { nimi: "Chat",visible: true,  'class': <Chat />},
+>>>>>>> Stashed changes
     //{ nimi: "Pelit", 'class': <Pelit /> },
     { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true"/>  }],
     theme: themes.None

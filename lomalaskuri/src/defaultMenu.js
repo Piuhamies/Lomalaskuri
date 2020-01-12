@@ -9,21 +9,19 @@ export class DefaultMenu extends React.Component {
         this.state = {curSchool: null, reset: false, prevReset:false};
         this.changeSchool = this.changeSchool.bind(this);
     }
-    static getDerivedStateFromProps(props, state) {
+    componentDidMount() {
         let curSchoolUrl = window.location.pathname.substring(1, window.location.pathname.indexOf("/", 1));
-        let curSchoolElem = props.schools[props.schools.findIndex(i => i.href === curSchoolUrl)];
-        var properties = curSchoolElem != null && curSchoolElem  !== "undefined" ?  curSchoolElem.theme : props.schools[0].theme ;
-        properties.forEach((elem, index) => {
-            document.documentElement.style.setProperty(elem.nimi, props.isDarkMode ? elem.dark : elem.light);
-           });
-        if(state.reset === true && state.prevReset === false) {
-            return {curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: true, prevReset: true}
+        let curSchoolElem = this.props.schools[this.props.schools.findIndex(i => i.href === curSchoolUrl)];
+        var properties = curSchoolElem != null && curSchoolElem  !== "undefined" ?  curSchoolElem.theme : this.props.schools[0].theme ;
+        this.props.updateDarkMode(properties, true);
+        if(this.state.reset === true && this.state.prevReset === false) {
+            this.setState({curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: true, prevReset: true});
         }
-        else if(state.reset === true && state.prevReset === true) {    
-            return {curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: false, prevReset: false}
+        else if(this.state.reset === true && this.state.prevReset === true) {    
+            this.setState ({curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}, reset: false, prevReset: false});
         }
         else {
-            return {curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}}
+            this.setState({curSchool: { 'curSchoolUrl': curSchoolUrl, 'curSchoolElem':curSchoolElem}} );
         }
     }
     toggle = () =>  {
@@ -37,7 +35,7 @@ export class DefaultMenu extends React.Component {
         this.setState({reset:true, prevReset: false});
     }
     render() {
-        let curSchool = this.state.curSchool.curSchoolElem ? this.state.curSchool.curSchoolElem : this.props.schools[0];
+        let curSchool = this.state.curSchool !== null ? this.state.curSchool.curSchoolElem : this.props.schools[0];
         console.log(this.state.curSchool);
         let menuItems = curSchool.menuItems.map((x) => <Link key={`menuItem${x.nimi}`} to={"/"+ curSchool.href +"/"+ x.nimi}>{x.nimi}</Link>);
         console.log("render");

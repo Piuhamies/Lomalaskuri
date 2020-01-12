@@ -8,7 +8,10 @@ export class NewSchoolSelector extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
     toggle() {
-        this.props.toggleTheme(this.props.schools[0].theme);
+        this.props.toggleTheme(this.props.themes.login);
+    }
+    componentDidMount() {
+        this.props.toggleTheme(this.props.themes.login, true)
     }
     render() {
         return (

@@ -9,44 +9,7 @@ import {
   Redirect,
   Link
 } from "react-router-dom";
-<<<<<<< Updated upstream
-import ReactGA from 'react-ga';
-import { createBrowserHistory } from "history";
-const history = createBrowserHistory();
-
-
-ReactGA.initialize('UA-137016636-1');
-history.listen((location) => {
-  console.log("update");
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname)
-}
-);
-
-class SchoolSelectorModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.close = this.close.bind(this)
-    this.state = {
-      selectedSchool: "", content: (
-        <div className="modal-content">
-            <h1> Valitse koulusi: </h1>
-            {this.props.schools.map((x, index) => (<Link onChange={() => console.log("change")} onClick={(e) => this.close(e.target)}  key={"kouluValinta" + index} className="schoolSelection" to={x.href + "/" + x.menuItems[0].nimi}>{x.schoolName}</Link>))}
-        </div>
-      )
-    };
-  }
-  close(targetti) {
-    this.setState({ content: null });
-
-  }
-  render() {
-    return this.state.content;
-  }
-};
-=======
 import { NewSchoolSelector } from './NewSchoolSelector';
->>>>>>> Stashed changes
 
 
 
@@ -119,13 +82,13 @@ export class FrontPage extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/">
-            <NewSchoolSelector toggleTheme={this.props.darkFunction} schools={this.props.schools}> </NewSchoolSelector>
+            <NewSchoolSelector toggleTheme={this.props.darkFunction} themes={this.props.themes} schools={this.props.schools}> </NewSchoolSelector>
           </Route>
           {this.props.schools.map((x) => (<Route key={x.href + "key"} path={`/${x.href}`}> {/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
           <div id="menuContainer">
           <Switch>
           {this.props.schools.map((x) => {return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
-            <h1 id="logo">Espoon l<a id="salainen" href="Salainen.html">o</a>malaskuri</h1>
+            <h1 id="logo">Lomalaskuri</h1>
           </div></Route>) }) }
           <Route>
           <div id="menu">
@@ -139,7 +102,7 @@ export class FrontPage extends React.Component {
           </Switch>
 
               <div id="places">
-                    <DefaultMenu  updateDarkMode={this.props.darkFunction} schools={this.props.schools} curSchool={this.getCurSchool} />
+                    <DefaultMenu  updateDarkMode={this.props.darkFunction} schools={this.props.schools}  />
               </div>
         </div>
         <div id="content">

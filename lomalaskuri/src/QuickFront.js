@@ -10,7 +10,7 @@ import nokaKuva3 from './Kuvat/3.jpg';
 import nokaKuva4 from './Kuvat/4.jpg';
 import nokaKuva5 from './Kuvat/5.jpg';
 import nokaKuva6 from './Kuvat/6.jpg';
-let socket = openSocket("http://localhost:2000");
+let socket = openSocket("https://espoochat.tk");
 export class QuickLaskuri extends React.Component {
     constructor(props) {
         super(props);
@@ -71,7 +71,7 @@ export class QuickLaskuri extends React.Component {
             }
             timeNames.forEach((data, i) => {
                 if(oldDistance) {
-                    if(oldDistance[i] != distance[i]) {
+                    if(oldDistance[i] !== distance[i]) {
                         stateToBeSet[timeNames[i].nimi] = (<p className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>);
                    }
             }
@@ -128,14 +128,9 @@ export class QuickLaskuri extends React.Component {
                         {this.state.hours}
                         {this.state.minutes}
                     </div>
-<<<<<<< Updated upstream
-                    </>) : (<div id="Loading" class="loader quickLoader">
-                    <div class="loader-inner square-spin">
-=======
                     
                     </>) : (<div id="Loading" className="loader quickLoader">
                     <div className="loader-inner square-spin">
->>>>>>> Stashed changes
                     <div></div>
                    </div>
                     </div>)}
@@ -202,7 +197,7 @@ export class QuickRuokalista extends React.Component {
                 <div className="quickBoxLeft">
                     
                     <h1 className="quickTitle" >Päivän ruokalista:</h1>
-                {this.state.ready == true ? (<>
+                {this.state.ready === true ? (<>
                 <div id="firstFood" class="quickContent">
                     {this.state.todaysRuokalista}
                 </div>
@@ -234,14 +229,14 @@ export class QuickChat extends React.Component {
         var typers = []
         var writingAmount = 0;
         socket.on('typing', (username, room) => {
-            if (typers.indexOf(username) == -1) {
+            if (typers.indexOf(username) === -1) {
                 typers.push(username)
               }
                 writingAmount = typers.length;
                 this.setState({ready: true, 'writingAmount': writingAmount })
           })
         socket.on('stop-typing', (username, room) => {
-            if(room == roomName) {
+            if(room === roomName) {
                 typers.pop();
                 writingAmount = typers.length;
                 this.setState({ 'writingAmount': writingAmount })
@@ -255,7 +250,7 @@ export class QuickChat extends React.Component {
         socket.on('sendRecentMsg', messageList => {
             console.log(messageList[messageList.length-1]);
             let latest = {};
-            if(messageList.length != 0 )
+            if(messageList.length !== 0 )
             { latest = messageList[messageList.length-1] 
             }
             else {
@@ -356,7 +351,7 @@ export class QuickTilastot extends React.Component {
         this.updateTilastot();
     }
     componentDidUpdate() {
-        if(this.state.lastProps != this.props ) {
+        if(this.state.lastProps !== this.props ) {
             this.setState({lastProps: this.props});
             this.updateTilastot();
         }
@@ -451,11 +446,7 @@ export class QuickSettings extends React.Component {
         this.changeSchool = this.changeSchool.bind(this);
     }
     toggle = () =>  {
-<<<<<<< Updated upstream
-        let darkMode = this.props.isDarkMode;
-=======
         console.log(this.props.theme)
->>>>>>> Stashed changes
         this.props.themes(this.props.theme);
     }
     changeSchool() {

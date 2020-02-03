@@ -28,7 +28,11 @@
 body, html {
     height: 100%;
   }
-  
+.loader {
+   padding: 1em;
+   height: auto !important;
+   justify-content: flex-start;
+}
 .loader-inner {
     display: flex;
     justify-content: center;

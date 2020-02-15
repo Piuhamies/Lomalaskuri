@@ -10,11 +10,12 @@ import nokaKuva3 from './Kuvat/3.jpg';
 import nokaKuva4 from './Kuvat/4.jpg';
 import nokaKuva5 from './Kuvat/5.jpg';
 import nokaKuva6 from './Kuvat/6.jpg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 let socket = openSocket("https://espoochat.tk");
 export class QuickLaskuri extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {ready: false, active: true, otsikko: null, weeks: <p id="glimpsewk"></p>, days: <p id="glimpsed"></p>, hours: <p id="glimpseh"></p>, minutes: <p id="glimpsemin"></p>, redirect: false};
+        this.state = {ready: false, active: true, otsikko: null, weeks: <p id="glimpsewk"></p>, days: <p id="glimpsed"></p>, hours: <p id="glimpseh"></p>, minutes: <p id="glimpsemin"></p>, redirect: false, theEnd: false};
     }
     componentDidMount () {
         this.setState({active: true, ready: false});
@@ -50,24 +51,27 @@ export class QuickLaskuri extends React.Component {
             return a.end.getTime() - b.end.getTime();  //lasketaan arvo on pienempi ja pienin arvo järjestyy ylemmäksi. Ei tarvitse suhteuttaa nykyiseen aikaan koska edellisessä promisessa arvojen on varmistettu olevan nykyisen päivämäärän jälkeen. 
             //jos sorttaisi nykyajan mukaan pitäisi varmistaa ettei nykyaika muuttuisi sorttauksen aikana, koska muuten sorttaus menee rikki.
         });
-        let start = timers[0].start.getTime();
-        let end = timers[0].end.getTime();
+        var lomaState = timers[0].start.getTime() < nyt; //muuttuja joka ilmoittaa onko loma nyt vai tulevaisuudessa. 
+        let start = lomaState ? timers[0].end.getTime() : timers[0].start.getTime() ;   //jos loma on nyt lasketaan loman loppuun, muuten loman alkuun
         let distance = [
             Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
-            Math.floor((start - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
-            Math.floor((start - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
-            Math.floor((start - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit
-            Math.floor((start - nyt) % (1000 * 60) / 1000), //sekunnit
+            Math.floor((start - nyt) / (1000 * 60 * 60 * 24) % 7), //päivät
+            Math.floor((start - nyt) / (1000 * 60 * 60) % 24 ), // tunnit
+            Math.floor((start - nyt) / (1000 * 60 ) % 60), //minuutit
+            Math.floor((start - nyt) / 1000 % 60), //sekunnit
             `000${Math.floor((start - nyt) % 1000)}`.substring((Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))) + 1, 4 + (Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))))
         ];
         let updateElems = (distance, oldDistance) => {
             var stateToBeSet = {ready: true};
             nyt = Date.now();
             if(timers[0].start.getTime() < nyt ) {
-                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa koulun alkuun:</h2>); 
+                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa loman loppuun <span   aria-label=" Crying" role="img">😢</span>:</h2>); 
+                this.setState({theEnd: true});
+
             }
             else {
                 stateToBeSet.otsikko = (<h2 className="alaotsikot">{timers[0].nimi + ":"}</h2>); 
+                this.setState({theEnd: false});
             }
             timeNames.forEach((data, i) => {
                 if(oldDistance) {
@@ -119,7 +123,7 @@ export class QuickLaskuri extends React.Component {
             <div className="quickBox ">
             <div className="quickBoxLeft">
                 <h1 className="quickTitle">Laskuri:</h1>
-                <div className="quickContent">
+                <div className={`quickContent ${this.state.theEnd ? "theEnd" : ""}`}>
                     {this.state.ready ? ( <>
                     {this.state.otsikko}
                     <div className="ajat quickText">
@@ -198,11 +202,11 @@ export class QuickRuokalista extends React.Component {
                     
                     <h1 className="quickTitle" >Päivän ruokalista:</h1>
                 {this.state.ready === true ? (<>
-                <div id="firstFood" class="quickContent">
+                <div id="firstFood" className="quickContent">
                     {this.state.todaysRuokalista}
                 </div>
-            </>) : (<div id="Loading" class="loader quickLoader">
-        <div class="loader-inner square-spin">
+            </>) : (<div id="Loading" className="loader quickLoader">
+        <div className="loader-inner square-spin">
         <div></div>
        </div>
         </div>)  }
@@ -221,11 +225,11 @@ export class QuickChat extends React.Component {
         super(props);
         this.state = {ready: false, redirect: false, online: 0, writingAmount: 0, latestMessage: null};
     }
-    componentDidMount() {
+    async componentDidMount() {
         socket.connect();
         let roomName = 'LomainenHuone';
-        socket.emit('subscribe', { room: roomName , addToOnline: false});
-        socket.emit('getRecentMessages');
+        await socket.emit('subscribe', { room: roomName , addToOnline: false});
+        await socket.emit('getRecentMessages');
         var typers = []
         var writingAmount = 0;
         socket.on('typing', (username, room) => {
@@ -247,18 +251,19 @@ export class QuickChat extends React.Component {
             let userAmount = usernames;
             this.setState({ready: true, online: userAmount })
           });
-        socket.on('sendRecentMsg', messageList => {
-            console.log(messageList[messageList.length-1]);
+        socket.on('sendRecentMsg', async (messageList)  => {
             let latest = {};
-            if(messageList.length !== 0 )
-            { latest = messageList[messageList.length-1] 
+            let messageListLength = messageList.length
+            if(messageListLength > 0 )
+            { latest = messageList[messageListLength-1]; 
             }
             else {
                 latest.text= "Ei viestejä";
                 latest.time = Date.now();
             }
             let latestDate =  new Date(latest.time).toLocaleTimeString("fi-FI", {hour: '2-digit', minute:'2-digit'});
-            this.setState({latestMessage:<p><strong>{latest.sender}</strong> ({latestDate}): {latest.text}</p>, ready: true});
+            console.log(latest.text);
+            this.setState({latestMessage:<p><strong>{latest.sender}</strong> ({latestDate}): {latest.text.length > 80 ? latest.text.substring(0, 80)+ "..." : latest.text }</p>, ready: true});
           });
           socket.on('chat message', (msg, username, time) => {
             this.setState({latestMessage:<p><strong>{username}</strong> ({new Date(time).toLocaleTimeString("fi-FI", {hour: '2-digit', minute:'2-digit'})}): {msg}</p>});
@@ -282,10 +287,10 @@ export class QuickChat extends React.Component {
                     { this.state.ready ? ( 
                         <>
             <h2 className="alaotsikot">Chatin tilastoja:</h2>
-                    <div className="quickText quickChat"><div><p>{this.state.online}</p><img src={onlineIconi} /></div><div className="miniChat"><h3>Viimeisin viesti:</h3>{this.state.latestMessage}</div><div><p>{this.state.writingAmount}</p><img src={writingIconi} /></div> </div>
+                    <div className="quickText quickChat"><div><p>{this.state.online}</p><img alt="paikalla" src={onlineIconi} /></div><div className="miniChat"><h3>Viimeisin viesti:</h3>{this.state.latestMessage}</div><div><p>{this.state.writingAmount}</p><img alt="kirjoittaa" src={writingIconi} /></div> </div>
              </>
-                    ) : (<div id="Loading" class="loader quickLoader">
-        <div class="loader-inner square-spin">
+                    ) : (<div id="Loading" className="loader quickLoader">
+        <div className="loader-inner square-spin">
         <div></div>
        </div>
         </div>)}
@@ -421,12 +426,12 @@ export class QuickGallery extends React.Component {
                 <h1 className="quickTitle">{this.props.href}:</h1>
                 <div className="quickContent">
                     <div className="quickImage">
-                        <img src={nokaKuva2} /> {/*preloadataan kaikki kuvat nykyisen kuvan alle */}
-                        <img src={nokaKuva3} />
-                        <img src={nokaKuva4} />
-                        <img src={nokaKuva5} />
-                        <img src={nokaKuva6} />
-                        <img src={this.state.img1} ></img>
+                        <LazyLoadImage alt="" src={nokaKuva2} /> {/*preloadataan kaikki kuvat nykyisen kuvan alle */}
+                        <LazyLoadImage alt="" src={nokaKuva3} />
+                        <LazyLoadImage alt="" src={nokaKuva4} />
+                        <LazyLoadImage alt="" src={nokaKuva5} />
+                        <LazyLoadImage alt="" src={nokaKuva6} />
+                        <img alt="" src={this.state.img1} ></img>
                     </div>
                  </div>
             </div>
@@ -466,8 +471,8 @@ export class QuickSettings extends React.Component {
                     <h1 className="quickTitle">Asetukset:</h1>
                     <div className="quickContent">
                         <div className="quickImage"> 
-                        <button class="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
-                        <button class="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
+                        <button className="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+                        <button className="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
                         </div>
                      </div>
                 </div>
@@ -499,8 +504,8 @@ export class QuickFront extends React.Component {
     
     render() {
         return (    
-            <div class="quickContainerContainer">
-        <div class="quickContainer">
+            <div className="quickContainerContainer">
+        <div className="quickContainer">
             {this.props.quickItems}
 
         

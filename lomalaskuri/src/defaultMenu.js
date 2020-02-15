@@ -25,7 +25,6 @@ export class DefaultMenu extends React.Component {
         }
     }
     toggle = () =>  {
-        let darkMode = this.props.isDarkMode;
         console.log(this.props.isDarkMode);
         var properties = this.state.curSchool.curSchoolElem != null && this.state.curSchool.curSchoolElem  !== "undefined" ?  this.state.curSchool.curSchoolElem.theme : this.props.schools[0].theme ;
         this.props.updateDarkMode(properties);
@@ -43,8 +42,8 @@ export class DefaultMenu extends React.Component {
         return ( this.state.reset ? <Redirect to="/" /> : 
         <>
             {menuItems}
-        <button class="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
-            <button class="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
+        <button className="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+            <button className="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
         </>
         );
     }

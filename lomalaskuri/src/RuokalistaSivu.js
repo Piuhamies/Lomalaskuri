@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import loading from './loading.gif';
 import 'loaders.css/loaders.min.css'
 export class RuokalistaSivu extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ function nextStep() {
     };
 }
 function onloadDocumentFromContent(data) {
-    this.setState({ruokalista:null, todaysRuokalista: null, foodlistStyle: {}});
+    this.setState({ruokalista:null, todaysRuokalista: null});
     var menuJson = JSON.parse(data);
     var nyt = new Date();
     var curDate = nyt.getDate();
@@ -33,15 +34,16 @@ function onloadDocumentFromContent(data) {
     let listEl = [];
     menuJson.Days.forEach((element, index) => {
         var menuDate = new Date(element.Date);
-        var tempTitle = <h1 key="otsikko">{days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI")}</h1>
+        var tempTitle = <><h1 key="otsikko">{days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI")}</h1> </>;
+        var tempTextElem = <p></p>;
         if(curDate === menuDate.getDate()) {
-            let textElem = <p key={element.Meals[0].Name + "Key"} id="FoodGlimpse">Päivän ruoka: {element.Meals[0].Name} </p>;
-            this.setState({todaysRuokalista: textElem });
+            tempTextElem = <p key={element.Meals[0].Name + "Key"} id="FoodGlimpse">Päivän ruoka: {element.Meals[0].Name} </p>;
+            this.setState({todaysRuokalista: tempTextElem });
         }
-        listEl.push(tempTitle);           
             for(let i= 0; i<element.Meals.length; i++ ) {
                 let textElem = <p key={element.Meals[i].MealType+   element.Meals[i].Name +"key"} > {element.Meals[i].MealType}:    {element.Meals[i].Name} </p>
-                listEl.push(textElem);
+                let tempDiv = <div key={element.Meals[i].MealType+   element.Meals[i].Name +"divKey"}> {tempTitle} {tempTextElem} {textElem}</div>;
+                listEl.push(tempDiv);
                 console.log(listEl);
 				
             }
@@ -50,7 +52,7 @@ function onloadDocumentFromContent(data) {
 	});
     var loading = document.getElementById("Loading");
     loading.remove();
-    this.setState({foodlistStyle: {"display" : "block"}})
+    document.getElementById("foodList").style.display = "block";    
 }
 	}
 	componentDidCatch () {
@@ -67,7 +69,7 @@ function onloadDocumentFromContent(data) {
       </div>
         <div id="firstFood">{this.state.todaysRuokalista}</div>
 				<div id="foodListPos">
-				<div id="foodList" style={this.state.foodlistStyle}>{this.state.ruokalista}</div>
+				<div id="foodList">{this.state.ruokalista}</div>
 				</div>
 				<div id="the-canvas"></div>
 			</div>

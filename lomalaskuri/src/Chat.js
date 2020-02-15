@@ -198,7 +198,7 @@ export class Chat extends React.Component {
       $('#messageForm').submit(function (e) {
         e.preventDefault(); // prevents page reloading
         if ($('#m').val() != '') {
-          socket.emit('chat message', $('#m').val(), userName, roomName, new Date().getTime());
+          socket.emit('chat message', $('#m').val().substring(0,500), userName, roomName, new Date().getTime());
         }
         $('#m').val('');
         return false;

@@ -7,11 +7,10 @@ console.log(socket);
 export class Chat extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6>{null}</h6> };
+    this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6></h6>};
   }
   componentDidMount() {
     socket.connect();
-    getRecentMessages();
     const $ = window.$;
     let userAmount;
     let writingAmount = 0;
@@ -23,48 +22,44 @@ export class Chat extends React.Component {
         var inputti = document.getElementById("signNameField");
         socket.emit('approval', inputti.value);
         console.log("emit");
-        this.setState({ 'userName': inputti.value });
+        this.setState({'userName': inputti.value});
       });
     }
     socket.on('noDuplicates', (username) => {
-      if (username === this.state.userName) {
-        this.setState({ userName: null });
+      if(username === this.state.userName) {
+        this.setState({userName: null});
       }
     });
     socket.on('approved', (username) => {
-      if (username === this.state.userName) {
+      if(username === this.state.userName) {
         var modal = document.getElementById("signUpModal");
         modal.style.display = "none";
         activateChat();
       }
     });
-    function getRecentMessages() {
-      var getRecentMessagesPromise = new Promise((resolve, reject) => {
-        socket.emit('getRecentMessages')
-        console.log('request sent')
-        socket.on('sendRecentMsg', messageList => {
-          console.log(messageList)
-          resolve(messageList)
-        })
-      }).then(msglist => {
-        let thingsToAppend = [];
-        msglist.forEach(element => {
-          if (element.room === roomName) {
-            thingsToAppend.push(`<li class="chatMessage">  <b>${element.sender}</b>  (${new Date(element.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}): ${element.text}`);
-          }
-
-        });
-        $('#messages').append(thingsToAppend.join(""));
-        var msgDiv = document.getElementById("messages");
-        msgDiv.scrollTop = msgDiv.scrollHeight;
+    var getRecentMessages = new Promise((resolve, reject) => {
+      socket.emit('getRecentMessages')
+      console.log('request sent')
+      socket.on('sendRecentMsg', messageList => {
+        console.log(messageList)
+        resolve(messageList)
       })
-      return getRecentMessagesPromise;
-    }
+    }).then(msglist => {
+      msglist.forEach(element => {
+        if (element.room == roomName) {
+          $('#messages').append(`<li class="chatMessage">  <b>${element.sender}</b>  (${new Date(element.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}): ${element.text}`);
+
+        }
+
+      })
+      var msgDiv = document.getElementById("messages");
+      msgDiv.scrollTop = msgDiv.scrollHeight;
+    })    
     userModal();
     let roomName = 'LomainenHuone';
-    socket.emit('subscribe', { room: roomName, addToOnline: true })
+    socket.emit('subscribe', { room: roomName, addToOnline:true })
     socket.on('chat message', (msg, username, time) => {
-      $('#messages').append(`<li class="chatMessage">  <b>${username}</b>  (${new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}): ${msg}`);
+      $('#messages').append(`<li class="chatMessage">  <b>${username}</b>  (${new Date(time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}): ${msg}`);
       var msgDiv = document.getElementById("messages");
       if (msgDiv.getElementsByTagName("li").length > 100) {
         msgDiv.getElementsByTagName("li")[0].remove()
@@ -112,38 +107,37 @@ export class Chat extends React.Component {
       let displayPeopleAmount = () => {
         var width = window.outerWidth;
         let writingValue = <h6></h6>;
-        if (width > 960) {
+        if(width > 960) {
           console.log("odd");
-          switch (writingAmount) {
-            case 0:
+          switch(writingAmount) {
+            case 0 :
               writingValue = <h6 className="Stat">Kukaan ei kirjoita</h6>;
               break;
-            case (1):
+            case (1) :
               writingValue = <h6 className="Stat">{writer} kirjoittaa</h6>;
-              break;
-            case (writingAmount < 10):
-              writingValue = <h6 className="Stat">{toRealLuku(writingAmount)} henkilöä kirjoittaa</h6>;
-              break;
-            default:
-              writingValue = <h6 className="Stat">{writingAmount} henkilöä kirjoittaa</h6>
-              break;
+            break;
+            case (writingAmount < 10 ):
+          writingValue = <h6 className="Stat">{toRealLuku(writingAmount)} henkilöä kirjoittaa</h6>;
+            break;
+            default :
+          writingValue = <h6 className="Stat">{writingAmount} henkilöä kirjoittaa</h6>
+            break;
           }
         }
         else {
-          writingValue = <h6 className="Stat"><img  alt="henkilöä kirjoittaa" src={writingIconi} />{writingAmount}</h6>
-        }
-        this.setState({ writing: writingValue });
+         writingValue = <h6 className="Stat"><img src={writingIconi} />{writingAmount}</h6>
+        } 
+        this.setState({writing: writingValue});
       }
       let displayAmount = () => {
         var width = window.outerWidth;
-        this.setState({
-          paikalla: width > 960 ? <h6 className="Stat" >{toRealLuku(userAmount)} henkilöä paikalla</h6> : <h6 className="Stat"><img alt="henkilöä paikalla" src={onlineIconi} alt="icon" />{userAmount}</h6>
-        });
-      }
+      this.setState({paikalla: width > 960 ? <h6 className="Stat" >{toRealLuku(userAmount)} henkilöä paikalla</h6>  :<h6 className="Stat"><img src={onlineIconi} alt="icon" />{userAmount}</h6>
+      });
+    } 
       window.addEventListener("resize", displayAmount);
       window.addEventListener("resize", displayPeopleAmount);
       var a = setInterval(() => {
-        if ($("#m").val().split("")[0] !== undefined) {
+        if ($("#m").val().split("")[0] != undefined) {
           console.log("stuff");
           sent = false
           socket.emit('typing', userName, roomName);
@@ -162,16 +156,16 @@ export class Chat extends React.Component {
       this.setState({ typersInterval: a });
       var visible = false
       socket.on('typing', (username, room) => {
-        if (username !== userName) {
+        if (username != userName) {
           displayPeopleAmount();
-          if (typers.length === 1) {
+          if(typers.length == 1) {
             writer = typers[0];
             writingAmount = 1;
           }
           else {
             writingAmount = typers.length;
           }
-          if (typers.indexOf(username) === -1) {
+          if (typers.indexOf(username) == -1) {
             typers.push(username)
             console.log("push");
           }
@@ -180,11 +174,11 @@ export class Chat extends React.Component {
 
       })
       socket.on('stop-typing', (username, room) => {
-        if (username !== userName) {
+        if (username != userName) {
 
 
           typers.splice(typers.indexOf(username), 1);
-          if (typers.length === 1) {
+          if(typers.length == 1) {
             writer = typers[0];
             writingAmount = 1;
           }
@@ -194,16 +188,16 @@ export class Chat extends React.Component {
           displayPeopleAmount();
         }
       })
-
+      
       socket.on('onlineInRoom', (usernames) => {
         console.log(usernames);
-        userAmount = usernames - 1;
+        userAmount = usernames-1;
         displayAmount();
         displayPeopleAmount();
       });
       $('#messageForm').submit(function (e) {
         e.preventDefault(); // prevents page reloading
-        if ($('#m').val() !== '') {
+        if ($('#m').val() != '') {
           socket.emit('chat message', $('#m').val(), userName, roomName, new Date().getTime());
         }
         $('#m').val('');
@@ -213,52 +207,52 @@ export class Chat extends React.Component {
   }
   componentWillUnmount() {
     clearInterval(this.state.typersInterval);
-    socket.emit('unsubscribe', { room: 'LomainenHuone', addToOnline: true });
+    socket.emit('unsubscribe', {room:'LomainenHuone', addToOnline: true});
     socket.disconnect();
   }
   render() {
     return (
-
-      <div className="kysely">
-        <div className="chatContainer">
-          <div id="signUpModal" className="chatModal">
-            <div className="chatModal-content modal-content">
-              <h1>Valitse käyttäjänimi:</h1>
-              <form id="selectUsername">
-                <input type="text" id="signNameField" required placeholder="Nimimerkkisi" />
-                <br />
-                <br />
-                <input type="submit" value="Luo käyttäjä" id="signUpconfirm" class="btn btn-primary" />
-              </form>
-            </div>
-          </div>
-
-          <div id="StatDiv" >
-            <div id="typingDiv">{this.state.writing}<p style={{ color: "white" }}>Chattia ollut mukana tekemässä Aapo H</p>{this.state.paikalla}</div>
-          </div>
+    
+    <div className="kysely">
+      <div className="chatContainer">
+      <div id="signUpModal" className="chatModal">
+<div className="chatModal-content modal-content">
+  <h1>Valitse käyttäjänimi:</h1>
+  <form id="selectUsername">
+      <input type="text" id="signNameField" required placeholder="Nimimerkkisi" />
+      <br />
+      <br />
+      <input type="submit" value="Luo käyttäjä" id="signUpconfirm" class="btn btn-primary" />
+</form>
+</div>
+</div>
+      
+        <div id="StatDiv" >
+    <div id="typingDiv">{this.state.writing}<p style={{color: "white"}}>Chattia ollut mukana tekemässä Aapo H</p>{this.state.paikalla}</div>
+        </div>
           <div id="messages">
           </div>
 
-          <div id="send">
+        <div id="send">
 
-            <form id="messageForm" action="">
+          <form id="messageForm" action="">
 
-              <div id="tekstiAlue">
+            <div id="tekstiAlue">
 
-                <input id="m" autoComplete="off" type="text" className="textInput" placeholder="kirjoita viesti" aria-label="kirjoita viesti" />
-                <div className="chatButtonContainer">
-                  <button className="chatButton" >Lähetä</button>
-                  <br />
-
-                </div>
+              <input id="m" autoComplete="off" type="text" className="textInput" placeholder="kirjoita viesti" aria-label="kirjoita viesti" />
+              <div className="chatButtonContainer">
+                <button className="chatButton" >Lähetä</button>
+                <br />
 
               </div>
-              <br />
-              <br />
-            </form>
-          </div>
+
+            </div>
+            <br />
+            <br />
+          </form>
         </div>
       </div>
+    </div>
     )
   }
 }

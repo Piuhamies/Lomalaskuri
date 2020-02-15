@@ -25,6 +25,14 @@
 }
 
 
+body, html {
+    height: 100%;
+  }
+.loader {
+   padding: 1em;
+   height: auto !important;
+   justify-content: flex-start;
+}
 .loader-inner {
     display: flex;
     justify-content: center;
@@ -200,6 +208,7 @@
     justify-content: space-between;
     background-color: var(--quick-color);
     opacity: 0;
+    height: 100%;
 }
 
 .quickBox.active {
@@ -235,8 +244,6 @@
 .quickBoxLeft {
     width: 90%;
     font-family: Oswald;
-    display: grid;
-    grid-template-rows: auto auto auto;
 }
 .quickBoxLeft.full {
     width: 100%;
@@ -259,6 +266,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto-monospace', monospace;
 }
 .quickBoxRight {
     height: 100%;
@@ -319,6 +327,7 @@
 }
 .miniChat > p {
     margin: 0.5em 0 0 0;
+    word-break: break-all
 }
 .quickChat > div {
     display: flex;
@@ -331,13 +340,6 @@
 }
 .arrow {
     display: inline-block;
-}
-#FoodGlimpse {
-    margin: 0;
-    padding: 2em;
-    font-size: 1.5em;
-    font-family: Roboto;
-    text-align: center;
 }
 #peli {
     border: 0;
@@ -362,6 +364,9 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
 }
 .menuBtn {
     filter: invert(var(--invert-amount));
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 .quickContainerContainer {
     display: flex;
@@ -373,6 +378,7 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     display: grid;
     max-width: 2500px;
     width: 100%;
+    gap: 1em 0em;
 }
 .quickImage {
     background-color: var(--quick-invert-color);
@@ -397,13 +403,13 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
 
 @media(max-width: 960px) {
     .menuBtn {
-        display: block;
+        display: flex;
     }
     .menuBtn > svg {
-        height: 6vw;
+        height: 7vw;
     }
     .quickText {
-        font-size: 4vw;
+        font-size: 3vw;
     }
     .miniChat {
         font-size: 3vw !important;
@@ -892,27 +898,9 @@ html {
     }
 
     #places {
-        width: 40vw;
-        display: none;
-        margin: 0;
-        height: 100vh;
-        padding-top: 0.5em;
-        justify-content: center;
-        align-content: center;
-        flex-direction: column;
+        display: none
     }
 
-        #places > a {
-            border-bottom: solid;
-            border-bottom-width: 1px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            margin: 0;
-            margin-bottom: 0.5em;
-            font-size: 20px;
-            font-family: oswald;
-        }
         .linkLookALike {
             background: none!important;
             border: none;

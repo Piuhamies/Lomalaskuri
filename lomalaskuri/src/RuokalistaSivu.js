@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import loading from './loading.gif';
 import 'loaders.css/loaders.min.css'
 export class RuokalistaSivu extends React.Component {
     constructor(props) {
@@ -26,7 +25,7 @@ function nextStep() {
     };
 }
 function onloadDocumentFromContent(data) {
-    this.setState({ruokalista:null, todaysRuokalista: null});
+    this.setState({ruokalista:null, todaysRuokalista: null, foodlistStyle: {}});
     var menuJson = JSON.parse(data);
     var nyt = new Date();
     var curDate = nyt.getDate();
@@ -52,7 +51,7 @@ function onloadDocumentFromContent(data) {
 	});
     var loading = document.getElementById("Loading");
     loading.remove();
-    document.getElementById("foodList").style.display = "block";    
+    this.setState({foodlistStyle: {"display" : "block"}})
 }
 	}
 	componentDidCatch () {
@@ -69,7 +68,7 @@ function onloadDocumentFromContent(data) {
       </div>
         <div id="firstFood">{this.state.todaysRuokalista}</div>
 				<div id="foodListPos">
-				<div id="foodList">{this.state.ruokalista}</div>
+				<div id="foodList" style={this.state.foodlistStyle}>{this.state.ruokalista}</div>
 				</div>
 				<div id="the-canvas"></div>
 			</div>

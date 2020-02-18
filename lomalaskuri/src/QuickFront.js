@@ -19,10 +19,10 @@ export class QuickLaskuri extends React.Component {
     componentDidMount () {
         this.setState({active: true, ready: false});
         var timers = [
-            { nimi: "Aikaa kesälomaan ", start: new Date("Jun 1, 2019 12:00:00"), end: new Date("Aug 8, 2019 10:00:00") },
-            { nimi: "Aikaa Syyslomaan", start: new Date("Oct 14, 2019 00:00:00"), end: new Date("Oct 18, 2019 00:00:00") },
-            { nimi: "Aikaa Joululomaan", start: new Date("Dec 21, 2019 00:00:00"), end: new Date("Jan 6, 2020 00:00:00") },
-            { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 21, 2019 00:00:00") },
+            { nimi: "Aikaa kesälomaan ", start: new Date("May 30, 2019 12:00:00"), end: new Date("Aug 13, 2019 10:00:00") },
+            { nimi: "Aikaa Syyslomaan", start: new Date("Oct 12, 2019 00:00:00"), end: new Date("Oct 16, 2019 00:00:00") },
+            { nimi: "Aikaa Joululomaan", start: new Date("Dec 23, 2019 00:00:00"), end: new Date("Jan 6, 2020 00:00:00") },
+            { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 24, 2019 00:00:00") },
             { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 18 2019 16:00:00"), end: new Date("Apr 23 2019 8:30:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
@@ -64,7 +64,7 @@ export class QuickLaskuri extends React.Component {
             var stateToBeSet = {ready: true};
             nyt = Date.now();
             if(timers[0].start.getTime() < nyt ) {
-                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa koulun alkuun:</h2>); 
+                stateToBeSet.otsikko = (<h2  className="alaotsikot">Aikaa loman loppuun 😢:</h2>); 
             }
             else {
                 stateToBeSet.otsikko = (<h2 className="alaotsikot">{timers[0].nimi + ":"}</h2>); 
@@ -82,7 +82,7 @@ export class QuickLaskuri extends React.Component {
             this.setState(stateToBeSet);
         }
         MainLoop = MainLoop.bind(this);
-        setTimeout(MainLoop, (((start - nyt) % (1000 * 60 * 60) / (1000 * 60)) - Math.floor((start - nyt) % (1000 * 60 * 60) / (1000 * 60) ))*60*1000);
+        MainLoop();
         updateElems(distance);
         function MainLoop () {
             let oldDistance = distance;

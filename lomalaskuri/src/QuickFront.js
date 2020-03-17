@@ -94,7 +94,7 @@ export class QuickCorona extends React.Component {
         }
         return this.state.redirect ? <Redirect to={`${this.props.href}`} />  : (
             <div className="quickBox corona ">
-            <div className="quickBoxLeft">
+            <div className="quickBoxLeft full">
                 <h1 className="quickTitle">Erikoislaskuri:</h1>
                 <div className="quickContent">
                     {this.state.ready ? ( <>
@@ -111,11 +111,6 @@ export class QuickCorona extends React.Component {
                     <div></div>
                    </div>
                     </div>)}
-                </div>
-                </div>
-                <div onClick={redirect} className="quickBoxRight">
-                    <div className="quickWhite arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path strokeWidth="1px" stroke="white" d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
                 </div>
                 </div>
             </div>

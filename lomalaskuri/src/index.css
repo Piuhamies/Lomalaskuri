@@ -210,7 +210,12 @@ body, html {
     opacity: 0;
     height: 100%;
 }
-
+.quickBox.corona {
+    box-shadow: red 0px 0px 10px 2px;
+}
+.corona.ajat {
+    background-color: rgba(95, 0, 0, 0.514) !important;
+}
 .quickBox.active {
     animation: disappearLeft 1s;
     opacity: 0;
@@ -472,6 +477,9 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     }
     .quickContent {
         height: 15em;
+    }
+       .quickBoxLeft .alaotsikot.corona {
+        font-size: 2em;
     }
     .quickBoxLeft .alaotsikot {
         font-size: 3em;
@@ -960,11 +968,6 @@ html {
     justify-content: center;
     align-content: space-between;
     flex-wrap: wrap;
-}
-
-.alaotsikot {
-    color: white;
-    text-shadow: black 3px 3px 2px;
 }
 
 .ajat > p {

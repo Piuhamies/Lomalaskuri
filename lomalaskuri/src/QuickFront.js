@@ -11,6 +11,117 @@ import nokaKuva4 from './Kuvat/4.jpg';
 import nokaKuva5 from './Kuvat/5.jpg';
 import nokaKuva6 from './Kuvat/6.jpg';
 let socket = openSocket("https://espoochat.tk");
+
+export class QuickCorona extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {ready: false, active: true, otsikko: null, weeks: <p id="glimpsewk"></p>, days: <p id="glimpsed"></p>, hours: <p id="glimpseh"></p>, minutes: <p id="glimpsemin"></p>, redirect: false};
+    }
+    componentDidMount () {
+        this.setState({active: true, ready: false});
+        var timers = [
+            { nimi: "Aikaa koulujen sulkemiseen" , start: new Date("Mar 18, 2020 00:00:00"), end: new Date("Apr 14, 2020 10:00:00") }
+        ];  //Kaikki nykyiset lomat
+        var timeNames = [{ nimi: "weeks", shortened: "wk" },
+        { nimi: "days", shortened: "d" },
+        { nimi: "hours", shortened: "h" },
+        { nimi: "minutes", shortened: "min" }
+        ];        var nyt = Date.now();        
+        let start = timers[0].start.getTime();
+        let end = timers[0].end.getTime();
+        let distance = [
+            Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
+            Math.floor((start - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
+            Math.floor((start - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
+            Math.floor((start - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit
+            Math.floor((start - nyt) % (1000 * 60) / 1000), //sekunnit
+            `000${Math.floor((start - nyt) % 1000)}`.substring((Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))) + 1, 4 + (Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))))
+        ];
+        let updateElems = (distance, oldDistance) => {
+            var stateToBeSet = {ready: true};
+            nyt = Date.now();
+            if(timers[0].start.getTime() < nyt ) {
+                stateToBeSet.otsikko = (<h2  className="alaotsikot corona">Aikaa koulurakennusten aukeamiseen:</h2>); 
+            }
+            else {
+                stateToBeSet.otsikko = (<h2 className="alaotsikot corona">{timers[0].nimi + ":"}</h2>); 
+            }
+            timeNames.forEach((data, i) => {
+                if(oldDistance) {
+                    if(oldDistance[i] !== distance[i]) {
+                        stateToBeSet[timeNames[i].nimi] = (<p className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>);
+                   }
+            }
+            else {
+                stateToBeSet[timeNames[i].nimi] = (<p className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>);
+            }
+            });
+            this.setState(stateToBeSet);
+        }
+        MainLoop = MainLoop.bind(this);
+        MainLoop();
+        updateElems(distance);
+        function MainLoop () {
+            let oldDistance = distance;
+            nyt = Date.now();
+            if(timers[0].start.getTime() < nyt ) {
+                start = timers[0].end.getTime();
+            }
+            else {
+                start = timers[0].start.getTime();
+            }
+            distance = [
+                Math.floor((start - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
+                Math.floor((start - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
+                Math.floor((start - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
+                Math.floor((start - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit
+                Math.floor((start - nyt) % (1000 * 60) / 1000), //sekunnit
+                `000${Math.floor((start - nyt) % 1000)}`.substring((Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))) + 1, 4 + (Math.floor(Math.log10(Math.floor((start - nyt) % 1000)))))
+            ];
+            updateElems(distance, oldDistance);
+            if(this.state.active) {
+                setTimeout(MainLoop, 30000);
+            }
+        }
+    }
+    componentWillUnmount () {
+        this.setState({active:false});
+    }
+    render() {
+        redirect = redirect.bind(this);
+        function redirect() {
+            this.setState({redirect: true});
+        }
+        return this.state.redirect ? <Redirect to={`${this.props.href}`} />  : (
+            <div className="quickBox corona ">
+            <div className="quickBoxLeft">
+                <h1 className="quickTitle">Erikoislaskuri:</h1>
+                <div className="quickContent">
+                    {this.state.ready ? ( <>
+                    {this.state.otsikko}
+                    <div className="ajat corona quickText">
+                        {this.state.weeks}
+                        {this.state.days}
+                        {this.state.hours}
+                        {this.state.minutes}
+                    </div>
+                    
+                    </>) : (<div id="Loading" className="loader quickLoader">
+                    <div className="loader-inner square-spin">
+                    <div></div>
+                   </div>
+                    </div>)}
+                </div>
+                </div>
+                <div onClick={redirect} className="quickBoxRight">
+                    <div className="quickWhite arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path strokeWidth="1px" stroke="white" d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+                </div>
+                </div>
+            </div>
+        );
+    }
+}
 export class QuickLaskuri extends React.Component {
     constructor(props) {
         super(props);

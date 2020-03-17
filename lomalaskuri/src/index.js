@@ -10,6 +10,7 @@ import { QuickForm } from './QuickFront.js';
 import { QuickGallery } from './QuickFront.js';
 import { QuickTilastot } from './QuickFront.js';
 import { QuickSettings } from './QuickFront.js';
+import { QuickCorona } from './QuickFront.js';
 import { Placeholder } from './Pages.js';
 import { RuokalistaSivu } from './RuokalistaSivu.js';
 import { Kysely } from './Kysely.js';
@@ -88,7 +89,8 @@ let allSchools = [
     schoolName: "Nöykkiön koulu",
     href: "NoykkionKoulu",
     menuItems: [
-      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickGallery href="Galleria"/>, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot" tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"] }} />, <QuickSettings key="QuickSettings" theme={themes.NoykkionKoulu} themes={toggleTheme}  />]}/>  },
+
+      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickCorona key="QuickLaskuri"/>,<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickChat key="QuickChat" href="Chat" />, <QuickForm key="QuickForm" kysymys="Vastaa kyselyyn:" teksti="Mikä on eniten käyttämäsi ominaisuus lomalaskurissa?" href="Kysely" />, <QuickGallery href="Galleria"/>, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickTilastot key="quickTilastot" href="Tilastot" tiedot={{positive:["Onko auditorio valmistunut", "Onko kahvikone saapunut", "Onko koulussa hometta"], negative:["Onko nöykkiön koulu korjattu"] }} />, <QuickSettings key="QuickSettings" theme={themes.NoykkionKoulu} themes={toggleTheme}  />]}/>  },
       { nimi: "Laskuri", 'class': <TimerClass /> },
       { nimi: "Chat", 'class': <Chat />},
       { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },

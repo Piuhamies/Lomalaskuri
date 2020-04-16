@@ -4,14 +4,14 @@
     --mobile-menu-color: white;
     --places-color: white;
     --border-color: #ddd;
-    --text-color: black;
+    --text-color: white;
     --quick-color: rgba(255,255,255,0.5);
     --quick-invert-color: rgba(0,0,0,0.5);
     --login-bg: rgba(255,255,255,0.3);
     --invert-amount: 0%;
     --chat-primary: #223142;
     --chat-secondary: #31465F;
-    --noka-light-bg-img: url("trianglify.svg");
+    --noka-light-bg-img: whitesmoke;
     --noka-dark-bg-img: url("Dark.svg");
     --vantti-light-bg-img: url("trianglify.svg");
     --vantti-dark-bg-img: url("vanttiyo.png");
@@ -22,6 +22,7 @@
     --none-light-bg-img: url("nonepaiva.png");
     --none-dark-bg-img: url("noneyo.jpg");
     --background-image: url("trianglify.svg");
+    --box-shadow: 10px 10px 10px rgba(0,0,0,35%);
 }
 
 
@@ -72,7 +73,7 @@ body, html {
 }
 .Stat {
     color: white;
-    font-family: Oswald;
+    font-family: Montserrat;
     font-size: 1.5em;
     margin: 0.1em;
     padding: 0em 1em 0em 1em;
@@ -88,6 +89,7 @@ body, html {
     height: 3em;
     background: var(--chat-primary);
 }
+
 @media(min-width: 960px) {
     .chatModal-content {
         top: 50%;
@@ -202,16 +204,19 @@ body, html {
 }
 
 .quickBox {
-    
+    z-index: 2;
+    border-radius: 10px;
+    overflow: hidden;
     margin-top: 1em;
     display: flex;
     justify-content: space-between;
-    background-color: var(--quick-color);
+    background: linear-gradient(-45deg,  hsl(207,100%,60%), hsl(265,100%,70%) 130%);
+    box-shadow: var(--box-shadow);
     opacity: 0;
-    height: 100%;
+    height: 95%;
 }
 .quickBox.corona {
-    box-shadow: red 0px 0px 10px 2px;
+    box-shadow: inset red 0 8px 0px 0px, var(--box-shadow);
 }
 .corona.ajat {
     background-color: rgba(95, 0, 0, 0.514) !important;
@@ -248,18 +253,19 @@ body, html {
 }
 .quickBoxLeft {
     width: 90%;
-    font-family: Oswald;
+    font-family: Montserrat;
 }
 .quickBoxLeft.full {
     width: 100%;
 }
 .quickTitle {
     padding-left: 1em;
-    padding-top: 0.5em;
     border-bottom: 1px solid var(--seperator-color);
     height: 2em;
     margin: 0;
     grid-row: 1;
+    display: flex;
+    align-items: center;
 }
 .quickBoxLeft .alaotsikot {
     font-size: calc(10px + 2.5vw);
@@ -301,6 +307,7 @@ body, html {
     color: white;
     grid-row: 2;
     font-size: 1.5em;
+    font-family: Roboto;
 }
 .quickLoader {
     width: 100%;
@@ -364,7 +371,7 @@ body, html {
     text-align: left;
     display: none;
 }
-h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
+h1, h2, h3, #show, #salainen, .linkLookALike  {
     color: var(--text-color);
 }
 .menuBtn {
@@ -451,6 +458,7 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
         width: 100vw;
     }
     #menu {
+
         background-color: var(--mobile-menu-color) ;
         transition: 2s;
         transition-property: background-color;
@@ -493,7 +501,10 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
         width: 50vw;
     }   
     #menu {
-        background-color: var(--menu-color) ;
+        font-size: 8vw;
+        width: 7em;
+        transform: rotate(-5deg);
+        background: linear-gradient(90deg,  hsl(250, 100%, 98%), hsl(220,100%,85%) 120%) ;
     }
     .quickBoxLeft .ajat {
         font-size: 3.5em;
@@ -649,7 +660,7 @@ html {
 /* Modal Content/Box */
 .modal-content {
     display: flex;
-    font-family: oswald;
+    font-family: Montserrat;
     text-align: center;
     flex-direction: column;
     background-color: #fefefe;
@@ -702,7 +713,7 @@ html {
     margin: auto;
     width: 80%;
     display: flex;
-    font-family: oswald;
+    font-family: Montserrat;
     text-align: center;
     background-color: transparent ;
     flex-direction: column;
@@ -819,7 +830,7 @@ html {
         width: 100vw;
         min-height: 100vh;
         font-size: 4.25vw;
-        font-family: Oswald;
+        font-family: Montserrat;
     }
     .loginOptions h2 {
         font-size: 1.5em;
@@ -889,12 +900,13 @@ html {
     }
 
     #logo {
-        font-family: "Margarine";
+        font-family: Poppins;
         display: flex;
         margin: 0;
         font-size: 8vw;
         transition: 0.2s; 
         transition-property: margin;
+
     }
     #logo.offCenter {
         margin: auto;
@@ -922,7 +934,7 @@ html {
             margin: 0;
             margin-bottom: 0.5em;
             font-size: 20px;
-            font-family: oswald;
+            font-family: Montserrat;
             border-color: var(--border-color) !important;
             width: 100%;
         }
@@ -934,7 +946,7 @@ html {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    font-family: oswald;
+    font-family: Montserrat;
     background-color: rgba(255,255,255,0.2);
 }
 
@@ -960,7 +972,7 @@ html {
 
 #show {
     text-align: center;
-    font-family: oswald;
+    font-family: Montserrat;
 }
 
 #checkboxes {
@@ -986,12 +998,12 @@ html {
 }
 
 html {
-    background: var(--background-image) no-repeat center center fixed;
+    background: linear-gradient(170deg, hsl(207, 100%,99%), hsl(220, 100%, 75%)) no-repeat center center fixed;
     background-size: cover;
 }
 
 .alaotsikot {
-    font-family: oswald;
+    font-family: Montserrat;
     display: flex;
     justify-content: center;
     font-size: 4vw;
@@ -1021,7 +1033,7 @@ html {
         max-width: 60vw;
         min-height: 100vh;
         font-size: 28px;
-        font-family: Oswald;
+        font-family: Montserrat;
         margin-left: 2em;
         border-left: 3px solid var(--border-color);
         border-right: 3px solid var(--border-color);
@@ -1058,7 +1070,8 @@ html {
     }
 
     #places {
-        display: flex !important;
+       /* display: flex !important; */
+       display:none;
         justify-content: center;
         background-color: white;
     }
@@ -1067,7 +1080,7 @@ html {
             text-decoration: none;
             margin: 0 1em 0 1em;
             font-size: 20px;
-            font-family: oswald;
+            font-family: Montserrat;
         }
         .linkLookALike {
             background: none!important;
@@ -1077,15 +1090,18 @@ html {
             text-decoration: none;
             margin: 0 1em 0 1em;
             font-size: 20px;
-            font-family: oswald;
+            font-family: Montserrat;
         }
     #logo {
-        font-family: "Margarine";
+        font-family: Poppins;
         display: flex;
         margin-top: 0;
         margin-bottom: 0;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-left: 0.2rem;
         font-size: 8vw;
+        transform: rotate(5deg) translateX(0.2em);
+        color: black;
     }
 
     .ajat {

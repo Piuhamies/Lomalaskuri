@@ -34,7 +34,7 @@ let themes = {
   NoykkionKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
   { nimi: "--places-color", light: "white", dark: "#272727" },
   { nimi: "--border-color", light: "#ddd", dark: "black" },
-  { nimi: "--text-color", light: "black", dark: "white" },
+  { nimi: "--text-color", light: "white", dark: "white" },
   { nimi: "--invert-amount", light: "0%", dark: "100%" },
   { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
   { nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" },

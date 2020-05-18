@@ -996,6 +996,7 @@ html {
     justify-content: center;
     font-size: 4vw;
     margin-top: 0;
+    color: white;
 }
 
 #menu > a:hover {

@@ -20,7 +20,7 @@ export class QuickCorona extends React.Component {
     componentDidMount () {
         this.setState({active: true, ready: false});
         var timers = [
-            { nimi: "Aikaa koulujen sulkemiseen" , start: new Date("Mar 18, 2020 00:00:00"), end: new Date("Apr 14, 2020 10:00:00") }
+            { nimi: "Aikaa koulujen sulkemiseen" , start: new Date("Mar 18, 2020 00:00:00"), end: new Date("May 14, 2020 10:00:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
         { nimi: "days", shortened: "d" },
@@ -129,7 +129,7 @@ export class QuickLaskuri extends React.Component {
             { nimi: "Aikaa Syyslomaan", start: new Date("Oct 12, 2019 00:00:00"), end: new Date("Oct 16, 2019 00:00:00") },
             { nimi: "Aikaa Joululomaan", start: new Date("Dec 23, 2019 00:00:00"), end: new Date("Jan 6, 2020 00:00:00") },
             { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 24, 2019 00:00:00") },
-            { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 18 2019 16:00:00"), end: new Date("Apr 23 2019 8:30:00") }
+            { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 9 2019 16:00:00"), end: new Date("Apr 13 2019 8:30:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
         { nimi: "days", shortened: "d" },

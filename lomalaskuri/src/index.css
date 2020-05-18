@@ -211,7 +211,7 @@ body, html {
     height: 100%;
 }
 .quickBox.corona {
-    box-shadow: red 0px 0px 10px 2px;
+    box-shadow: inset red 0 8px 0px 0px;
 }
 .corona.ajat {
     background-color: rgba(95, 0, 0, 0.514) !important;

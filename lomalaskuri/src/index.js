@@ -77,10 +77,15 @@ None:
     { nimi: "--background-image", light: "var(--none-light-bg-img)", dark: "var(--none-dark-bg-img)" },
     { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)"},
    { nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
-login: [{nimi: "--background-image", light:"var(--noka-light-bg-img)", dark:"var(--noka-dark-bg-img" },
-        {nimi: "--login-bg", light: "rgba(255,255,255,0.3)", dark: "rgba(0,0,0,0.8)"},
-        {nimi:"--text-color", light: "black", dark: "white"},
-        { nimi: "--border-color", light: "#ddd", dark: "black" }]
+login: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+{ nimi: "--places-color", light: "white", dark: "#272727" },
+{ nimi: "--border-color", light: "#ddd", dark: "black" },
+{ nimi: "--text-color", light: "black", dark: "white" },
+{ nimi: "--invert-amount", light: "0%", dark: "100%" },
+{ nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+{ nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" },
+{ nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
+{ nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }]
 
 }
 

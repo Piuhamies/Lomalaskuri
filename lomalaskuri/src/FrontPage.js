@@ -35,38 +35,41 @@ class PageNotFound extends React.Component {
 }
 export class CookieNotification extends React.Component {
   hide(target) {
-    var El= target.parentElement;
+    var El = target.parentElement;
     var checkBox = document.getElementById("NotEverAgain");
     El.style.display = "none";
-    if(checkBox.checked) {
+    if (checkBox.checked) {
       Cookie.set('NotAgain', true);
     }
-}
-render() {
-  console.log(this.props.visible);
-  if(this.props.visible === "false") {
-    return (<div className="cookie">
+  }
+  render() {
+    console.log(this.props.visible);
+    if (this.props.visible === "false") {
+      return (<div className="cookie">
 
-    <p> Tämä nettisivu käyttää evästeitä</p>
-    <button onClick={(e) => this.hide(e.target)}>Ok</button>
-    <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
-      id="NotEverAgain" />Muista valintani
-  
-  </div>)
+        <p> Tämä nettisivu käyttää evästeitä</p>
+        <button onClick={(e) => this.hide(e.target)}>Ok</button>
+        <input type="checkbox" title="Huom! Tämän valitsemalla, evästeistä ei ilmoiteta enää uudestaan"
+          id="NotEverAgain" />Muista valintani
+
+      </div>)
+    }
+    else {
+      return null;
+    }
   }
-  else {
-    return null;
-  }
-}
 }
 export class FrontPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {curSchool: null, darkMode: false, redirect: null};
+    this.state = { curSchool: null, darkMode: false, redirect: null };
     this.toHome = this.toHome.bind(this);
   }
+  componentDidMount() {
+    this.props.darkFunction(this.props.themes.login, false);
+  }
   toHome() {
-    this.setState({redirect: <Redirect to="Etusivu" /> }, () => this.setState({redirect: null}) );
+    this.setState({ redirect: <Redirect to="Etusivu" /> }, () => this.setState({ redirect: null }));
     console.log(this.state.redirect);
   }
   routes() {
@@ -77,7 +80,7 @@ export class FrontPage extends React.Component {
     return routeArray;
   }
   render() {
-    let curSchoolCookie = this.props.schools[this.props.schools.findIndex(i => i.href === Cookie.get('site'))] ;
+    let curSchoolCookie = this.props.schools[this.props.schools.findIndex(i => i.href === Cookie.get('site'))];
     return (
       <Router>
         <Switch>
@@ -85,40 +88,42 @@ export class FrontPage extends React.Component {
             <NewSchoolSelector toggleTheme={this.props.darkFunction} themes={this.props.themes} schools={this.props.schools}> </NewSchoolSelector>
           </Route>
           {this.props.schools.map((x) => (<Route key={x.href + "key"} path={`/${x.href}`}> {/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
-          <div id="menuContainer">
-          <Switch>
-          {this.props.schools.map((x) => {return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
-            <h1 id="logo">Lomalaskuri</h1>
-          </div></Route>) }) }
-          <Route>
-          <div id="menu">
-            {this.state.redirect}
-            <div onClick={this.toHome} class="menuBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-            </div>
-            <h1 class="offCenter" id="logo">Lomalaskuri</h1>
-          </div>
-          </Route>
-          </Switch>
+            <div id="menuContainer">
+              <Switch>
+                {this.props.schools.map((x) => {
+                  return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
+                    <h1 id="logo">Lomalaskuri</h1>
+                  </div></Route>)
+                })}
+                <Route>
+                  <div id="menu">
+                    {this.state.redirect}
+                    <div onClick={this.toHome} class="menuBtn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg>
+                    </div>
+                    <h1 class="offCenter" id="logo">Lomalaskuri</h1>
+                  </div>
+                </Route>
+              </Switch>
 
               <div id="places">
-                    <DefaultMenu  updateDarkMode={this.props.darkFunction} schools={this.props.schools}  />
+                <DefaultMenu updateDarkMode={this.props.darkFunction} schools={this.props.schools} />
               </div>
-        </div>
-        <div id="content">
-          <Switch>
-            <Route exact path="/">
-              {this.props.schools[0].menuItems[0].class}
-            </Route>
-            {this.routes()}
-            <Route>
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </div>
-        <CookieNotification visible={Cookie.get('NotAgain')}/>
+            </div>
+            <div id="content">
+              <Switch>
+                <Route exact path="/">
+                  {this.props.schools[0].menuItems[0].class}
+                </Route>
+                {this.routes()}
+                <Route>
+                  <PageNotFound />
+                </Route>
+              </Switch>
+            </div>
+            <CookieNotification visible={Cookie.get('NotAgain')} />
 
-          </Route> ))}
+          </Route>))}
         </Switch>
 
       </Router>

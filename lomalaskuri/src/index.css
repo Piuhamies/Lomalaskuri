@@ -194,13 +194,6 @@ body, html {
     align-items: center;
     display: flex;
 }
-#foodList {
-    color: black !important;
-}
-#foodList >h1 {
-    color: black !important;
-}
-
 .quickBox {
     
     margin-top: 1em;
@@ -359,7 +352,7 @@ body, html {
 
 #foodList {
     width: 50vw;
-    background-color: white;
+    background-color: var(--mobile-menu-color);
     padding: 2em;
     text-align: left;
     display: none;
@@ -791,9 +784,10 @@ html {
 }
 .loginOptions {
     box-shadow: 0px 0px 20px var(--seperator-color);
+    background-color: var(--mobile-menu-color);
 }
-.loginOptions > h2{
-    color: black;
+.loginOptions > h2, p, a{
+    color: var(--text-color);
 }
 .ajat p {
     font-family: "Roboto Mono", monospace;
@@ -825,7 +819,6 @@ html {
         font-size: 1.5em;
     }
     .loginOptions {
-        background-color: white;
         font-size: 1.3em;
         box-sizing: border-box;
         padding: 0 2em 2em 1em;
@@ -834,9 +827,6 @@ html {
         border: solid;
         width: auto;
         height: auto;
-    }
-    .loginOptions > a {
-        color: black;
     }
     .loginOptions > a:hover {
         color: grey;
@@ -1028,7 +1018,6 @@ html {
         border-right: 3px solid var(--border-color);
     }
     .loginOptions {
-        background-color: white;
         font-size: 0.8em;
         box-sizing: border-box;
         padding: 0 1em 2em 1em;
@@ -1039,10 +1028,6 @@ html {
         height: auto;
         max-height: 50em;
         overflow: auto;
-    }
-    .loginOptions > a {
-        color: black;
-        
     }
     .loginOptions > a:hover {
         color: grey;

@@ -21,7 +21,6 @@ export class NewSchoolSelector extends React.Component {
                 <h1>Tervetuloa Lomalaskuriin!</h1>
                 <div class="loginOptions">
                 <h2> Valitse koulusi: </h2>
-                <p> severionjonne </p>
                 {this.props.schools.map((x, index) => (<Link onChange={() => console.log("change")} key={"kouluValinta" + index} className="schoolSelection" to={x.href + "/" + x.menuItems[0].nimi}>{x.schoolName}</Link>))}
                 </div>
                 <img class="darkIcon" alt="vaihda dark themeen" onClick={this.toggle} src={darkModeIcon} />

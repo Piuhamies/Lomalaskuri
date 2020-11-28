@@ -818,9 +818,6 @@ html {
     .loginOptions h2 {
         font-size: 1.5em;
     }
-    p { font-size: 0.2em;
-        color: black;
-    }
     .loginOptions {
         font-size: 1.3em;
         box-sizing: border-box;

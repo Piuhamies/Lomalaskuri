@@ -328,7 +328,7 @@ export class QuickChat extends React.Component {
     }
     componentDidMount() {
         this.setState({socket: openSocket("https://espoochat.tk")});
-        socket = this.state.socket;
+        let socket = this.state.socket;
         socket.connect();
         let roomName = 'LomainenHuone';
         socket.emit('subscribe', { room: roomName , addToOnline: false});

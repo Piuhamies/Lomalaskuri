@@ -11,6 +11,7 @@
     --invert-amount: 0%;
     --chat-primary: #223142;
     --chat-secondary: #31465F;
+    --bg-fallback: linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%);
     --noka-light-bg-img: url("trianglify.svg");
     --noka-dark-bg-img: url("Dark.svg");
     --vantti-light-bg-img: url("trianglify.svg");
@@ -32,8 +33,7 @@ body:before { /*A bg workaround to get it to work with mobile devices */
     height: 100%;
     width: 100%;
     content: '';
-    background-color: rgb(2,0,36);
-    background-image: var(--background-image);
+    background-image: var(--background-image), var(--bg-fallback);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -292,7 +292,7 @@ body, html {
 
 .quickText {
     background-color: var(--quick-invert-color);
-    width: 100%;
+    width: calc( 100% - 0.5em ); /* we have to do some calculations to avoid the div overflowing from the padding */
     margin-bottom: 0;
     color: white;
     grid-row: 2;

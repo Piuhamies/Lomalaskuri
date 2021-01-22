@@ -38,6 +38,7 @@ let themes = {
   { nimi: "--invert-amount", light: "0%", dark: "100%" },
   { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
   { nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" },
+  { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)"},
  { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)"},
 { nimi:"--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
 HaukilahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },

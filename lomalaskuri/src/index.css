@@ -25,11 +25,11 @@
 }
 
 html {
-    background-color: rgb(2,0,36); /*As a fallback use the places-color. It will look horrible */
     background-image: var(--background-image); /*This bg-image will be used if the browser doesn't support pseudo-elements*/
+    background-color: rgb(2,0,36);
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom right;
+    background-repeat:repeat-y;
+    background-position: center;
 }
 body:after { /*A bg workaround to get it to work with mobile devices */
     position: fixed;

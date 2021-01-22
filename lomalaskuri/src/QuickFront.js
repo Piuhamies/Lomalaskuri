@@ -572,8 +572,8 @@ export class QuickSettings extends React.Component {
                     <h1 className="quickTitle">Asetukset:</h1>
                     <div className="quickContent">
                         <div className="quickImage"> 
-                        <button class="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
-                        <button class="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
+                        <button class="linkLookALike SettingBtn" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+                        <button class="linkLookALike SettingBtn"  onClick={this.changeSchool}> Vaihda koulua</button>
                         </div>
                      </div>
                 </div>

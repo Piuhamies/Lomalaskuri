@@ -1,13 +1,13 @@
 :root {
     --seperator-color: #4389f9;
-    --menu-color: transparent ;
+    --menu-color: transparent;
     --mobile-menu-color: white;
     --places-color: white;
     --border-color: #ddd;
     --text-color: black;
-    --quick-color: rgba(255,255,255,0.5);
-    --quick-invert-color: rgba(0,0,0,0.5);
-    --login-bg: rgba(255,255,255,0.3);
+    --quick-color: rgba(255, 255, 255, 0.5);
+    --quick-invert-color: rgba(0, 0, 0, 0.5);
+    --login-bg: rgba(255, 255, 255, 0.3);
     --invert-amount: 0%;
     --chat-primary: #223142;
     --chat-secondary: #31465F;
@@ -24,52 +24,67 @@
     --background-image: url("trianglify.svg");
 }
 
+html {
+    background-image: var(--background-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 body, html {
     height: 100%;
-  }
-.loader {
-   padding: 1em;
-   height: auto !important;
-   justify-content: flex-start;
 }
+
+.loader {
+    padding: 1em;
+    height: auto !important;
+    justify-content: flex-start;
+}
+
 .loader-inner {
     display: flex;
     justify-content: center;
 }
-.square-spin > div {
+
+.square-spin>div {
     background: var(--seperator-color) !important;
-    border:solid 1px var(--text-color) !important;
+    border: solid 1px var(--text-color) !important;
     height: 3em !important;
     width: 3em !important;
     max-height: 50px;
     max-width: 50px;
 }
+
 .chatContainer {
     width: 60em;
     height: 40em;
     background-color: var(--chat-primary);
     position: relative;
 }
- .chatModal {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(0,0,0,0.9);
-     z-index: 2;
- }
- .chatModal-content {
+
+.chatModal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+}
+
+.chatModal-content {
     position: absolute;
     top: 50%;
     left: 50%;
     display: flex;
     justify-content: center;
- }
-#typingDiv{
+}
+
+#typingDiv {
     display: flex;
     justify-content: space-between;
     height: 3em;
 }
+
 .Stat {
     color: white;
     font-family: Oswald;
@@ -77,6 +92,7 @@ body, html {
     margin: 0.1em;
     padding: 0em 1em 0em 1em;
 }
+
 #StatDiv {
     width: 100%;
     position: relative;
@@ -84,61 +100,16 @@ body, html {
     padding-bottom: 3px;
     z-index: 1;
 }
+
 #typingDiv {
     height: 3em;
     background: var(--chat-primary);
 }
-@media(min-width: 960px) {
-    .chatModal-content {
-        top: 50%;
-        left: 50%;
-        width: 40% !important;
-        transform: translate(-50%, -50%);
-     }
-    .Stat {
-        font-size: 1.5em;
-        margin: 0.1em;
-        padding: 0em 1em 0em 1em;
-    }
+
+.linkLookALike {
+    color: white;
 }
-@media(max-width: 960px) {
-    .chatModal-content {
-        top: 50%;
-        left: 50%;
-        width: 100% !important;
-        transform: translate(-50%, -50%);
-        max-width: 600px;
-     }
-     .chatModal-content input {
-         width: 80%;
-     }
-    .chatContainer {
-        height: 85vh;
-    }
-    .chatModal-content {
-        padding: 1em !important; 
-    }
-    .Stat {
-        font-size: 3vw;
-        margin: 0.1em;
-        padding: 0em 1em 0em 1em;
-        font-family: 'Roboto-mono', monospace; 
-    }
-    #typingDiv > p {
-        font-size: calc(4px + 2vw);
-    }
-    .chatModal-content > h1 {
-        font-size: 5vw;
-    }
-    .chatModal-content > form {
-        max-width: 93%;
-        display: inline-block;
-        font-size: 2vw;
-    }
-    .btn {
-        font-size: 3vw;
-    }
-}
+
 #tekstiAlue {
     position: absolute;
     bottom: 0;
@@ -146,56 +117,64 @@ body, html {
     width: 100%;
     height: 3em;
 }
-#tekstiAlue > input {
+
+#tekstiAlue>input {
     width: 100%;
     border-radius: 10px 0px 0px 0px;
 }
+
 #tekstiAlue button {
     height: 100%;
     width: 6em;
-    background-color:var(--chat-secondary);
+    background-color: var(--chat-secondary);
     color: white;
     font-weight: bold;
     border-radius: 0px 10px 0px 0px;
 }
+
 #chatArea {
     width: 100%;
     height: 100%;
 }
+
 #messages {
-    height: calc(100% - 2em - 3em );
+    height: calc(100% - 2em - 3em);
     position: absolute;
     bottom: 2em;
     width: 100%;
     overflow: auto;
 }
+
 #messages li {
-    padding: 5px 10px;    
-    list-style-type: none; 
+    padding: 5px 10px;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     color: whitesmoke;
     word-wrap: break-word;
     max-width: 100%;
 }
+
 #messages li:nth-child(2n) {
     background-color: var(--chat-secondary);
 }
+
 #messages li:last-of-type {
     padding-bottom: 1em;
-} 
+}
 
 #show {
     width: 100%;
 }
+
 #foodListPos {
     width: 100vw;
     justify-content: center;
     align-items: center;
     display: flex;
 }
+
 .quickBox {
-    
     margin-top: 1em;
     display: flex;
     justify-content: space-between;
@@ -203,49 +182,56 @@ body, html {
     opacity: 0;
     height: 100%;
 }
+
 .quickBox.corona {
     box-shadow: inset red 0 8px 0px 0px;
 }
+
 .corona.ajat {
     background-color: rgba(95, 0, 0, 0.514) !important;
 }
+
 .quickBox.active {
     animation: disappearLeft 1s;
     opacity: 0;
 }
+
 @keyframes appearLeft {
     0% {
         opacity: 0;
-        transform: translate(-40px,0px)
+        transform: translate(-40px, 0px)
     }
-
     100% {
         opacity: 1;
-        transform: translate(0px,0px)
+        transform: translate(0px, 0px)
     }
 }
+
 @keyframes disappearLeft {
     0% {
         opacity: 1;
-        transform: translate(0px,0px)
+        transform: translate(0px, 0px)
     }
-
     100% {
         opacity: 0;
-        transform: translate(-40px,0px)
+        transform: translate(-40px, 0px)
     }
 }
+
 .quickBox.anim {
     animation: appearLeft 1s;
     opacity: 1;
 }
+
 .quickBoxLeft {
     width: 90%;
     font-family: Oswald;
 }
+
 .quickBoxLeft.full {
     width: 100%;
 }
+
 .quickTitle {
     padding-left: 1em;
     padding-top: 0.5em;
@@ -254,11 +240,13 @@ body, html {
     margin: 0;
     grid-row: 1;
 }
+
 .quickBoxLeft .alaotsikot {
     font-size: calc(10px + 2.5vw);
     color: var(--text-color);
     text-shadow: none;
 }
+
 .quickBoxLeft .ajat {
     background-color: var(--quick-invert-color);
     display: flex;
@@ -266,6 +254,7 @@ body, html {
     align-items: center;
     font-family: 'Roboto-monospace', monospace;
 }
+
 .quickBoxRight {
     height: 100%;
     border-left: 1px solid var(--seperator-color);
@@ -274,12 +263,15 @@ body, html {
     justify-content: center;
     align-items: center;
 }
+
 .quickBoxRight:hover {
     background-color: var(--quick-invert-color);
 }
-.quickBoxRight:hover .arrow > svg {
+
+.quickBoxRight:hover .arrow>svg {
     filter: drop-shadow(0px 0px 15px var(--seperator-color));
 }
+
 .quickContent {
     grid-row: -1 / span 2;
     display: grid;
@@ -287,6 +279,7 @@ body, html {
     grid-template-rows: 40% 60%;
     position: relative;
 }
+
 .quickText {
     background-color: var(--quick-invert-color);
     width: 100%;
@@ -294,19 +287,23 @@ body, html {
     color: white;
     grid-row: 2;
     font-size: 1.5em;
+    padding-left: 0.5em;
 }
+
 .quickLoader {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
 }
+
 .quickChat {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .miniChat {
     height: 100%;
     width: 100%;
@@ -316,29 +313,35 @@ body, html {
     flex-wrap: wrap;
     overflow: auto;
 }
-.miniChat > h3 {
+
+.miniChat>h3 {
     margin: 0;
     padding: 0.25em 0 0.25em 0;
     width: 100%;
     text-align: center;
     border-bottom: 1px solid;
 }
-.miniChat > p {
+
+.miniChat>p {
     margin: 0.5em 0 0 0;
     word-break: break-all
 }
-.quickChat > div {
+
+.quickChat>div {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Roboto-monospace', monospace;
 }
+
 .quickChat img {
     height: 0.5em;
 }
+
 .arrow {
     display: inline-block;
 }
+
 #peli {
     border: 0;
     display: block;
@@ -357,27 +360,34 @@ body, html {
     text-align: left;
     display: none;
 }
-h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
+.SettingBtn {
+    color: white !important;
+}
+h1, h2, #show, #logo, #salainen, .linkLookALike {
     color: var(--text-color);
 }
+
 .menuBtn {
     filter: invert(var(--invert-amount));
     height: 100%;
     display: flex;
     align-items: center;
 }
+
 .quickContainerContainer {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 3em;
 }
+
 .quickContainer {
     display: grid;
     max-width: 2500px;
     width: 100%;
     gap: 1em 0em;
 }
+
 .quickImage {
     background-color: var(--quick-invert-color);
     position: absolute;
@@ -387,120 +397,29 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     justify-content: center;
     align-items: center;
 }
+
 .quickTilastot {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.quickImage > img {
+
+.quickImage>img {
     height: 100%;
     position: absolute;
     transition: 0.2s;
     transition-property: opacity;
 }
 
-@media(max-width: 960px) {
-    .menuBtn {
-        display: flex;
-    }
-    .menuBtn > svg {
-        height: 7vw;
-    }
-    .quickText {
-        font-size: 3vw;
-    }
-    .miniChat {
-        font-size: 3vw !important;
-    }
-    .quickBox {
-        margin-left: 1em;
-        margin-right: 1em;
-    }
-    .quickChat > div {
-        font-size: 13vw;
-    }
-    .quickContent {
-        height: 10em;
-    }
-    .arrow > svg {
-        width: 6vw;
-    }
-    .quickTitle {
-        font-size: calc(10px + 3vw);
-    }
-    .quickBoxLeft .alaotsikot {
-        font-size: calc(10px + 2.5vw);
-        color: var(--text-color);
-        text-shadow: none;
-    }
-    .quickBoxLeft .ajat {
-        font-size: calc(10px + 6vw);
-        
-    }
-    .quickContainer {
-        grid-template-columns: 100%;
-    }
-    #foodList {
-        width: 100vw;
-    }
-    #menu {
-        background-color: var(--mobile-menu-color) ;
-        transition: 2s;
-        transition-property: background-color;
-    }
-    
-}
-@media(min-width: 960px) {
-    .quickText {
-        font-size: 1.5em;
-    }
-    .miniChat {
-        font-size: 1em !important;
-    }
-    .quickBox:nth-child(odd) {
-        margin-left: 1em;
-        margin-right: 1em;
-    }
-    .quickBox:nth-child(even) {
-        margin-left: 0em;
-        margin-right: 1em;
-    }
-    .quickChat > div {
-        font-size: 5em;
-    }
-    .quickContent {
-        height: 15em;
-    }
-       .quickBoxLeft .alaotsikot.corona {
-        font-size: 2.25em;
-    }
-    .quickBoxLeft .alaotsikot {
-        font-size: 3em;
-        color: var(--text-color);
-        text-shadow: none;
-    }
-    .quickContainer {
-        grid-template-columns:  50% 50% ;
-    }
-    #foodList {
-        width: 50vw;
-    }   
-    #menu {
-        background-color: var(--menu-color) ;
-    }
-    .quickBoxLeft .ajat {
-        font-size: 3.5em;
-        
-    }
-}
 #places {
     background-color: var(--places-color) !important;
-   border-color: var(--border-color) !important;
+    border-color: var(--border-color) !important;
 }
-#places > a {
+
+#places>a {
     background-color: var(--menu-color) !important;
-       color:  var(--text-color) !important;
-       border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
 }
 
 #peli {
@@ -524,27 +443,26 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     padding-left: 22px;
 }
 
-    .checkbox label::before,
-    .checkbox label::after {
-        position: absolute;
-        content: "";
-        display: inline-block;
-    }
+.checkbox label::before, .checkbox label::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+}
 
-    .checkbox label::before {
-        height: 16px;
-        width: 16px;
-        background-color: rgb(255,255,255);
-        background-color: rgba(255,255,255,0.3);
-        transition: 0.2s ease-in-out;
-        border: 1px solid;
-        left: 0;
-        top: 3px;
-    }
+.checkbox label::before {
+    height: 16px;
+    width: 16px;
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.2s ease-in-out;
+    border: 1px solid;
+    left: 0;
+    top: 3px;
+}
 
-.checkbox input[type="checkbox"].check + label::before {
-    background-color: rgb(0,0,255);
-    background-color: rgba(0,0,255,0.3);
+.checkbox input[type="checkbox"].check+label::before {
+    background-color: rgb(0, 0, 255);
+    background-color: rgba(0, 0, 255, 0.3);
 }
 
 .checkbox label::after {
@@ -557,20 +475,17 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     top: 7px;
 }
 
-.checkbox input[type="checkbox"] + label::after {
+.checkbox input[type="checkbox"]+label::after {
     content: none;
 }
 
-.checkbox input[type="checkbox"].check + label::after {
+.checkbox input[type="checkbox"].check+label::after {
     content: "";
 }
 
-.checkbox input[type="checkbox"]:hover + label::before {
+.checkbox input[type="checkbox"]:hover+label::before {
     outline: rgb(59, 153, 252) auto 5px;
 }
-
-
-
 
 .close {
     color: black;
@@ -585,11 +500,11 @@ h1, h2, h3, #show, #logo, #salainen, .linkLookALike  {
     font-weight: bold;
 }
 
-    .close:hover {
-        cursor: pointer;
-        background-color: #d8d8d8;
-        color: red;
-    }
+.close:hover {
+    cursor: pointer;
+    background-color: #d8d8d8;
+    color: red;
+}
 
 body {
     width: 100%;
@@ -612,10 +527,12 @@ html {
     margin: auto;
     overflow: auto;
 }
+
 .modal:empty {
     display: none;
 }
-.modal{
+
+.modal {
     display: blocK;
     position: fixed;
     z-index: 1;
@@ -623,51 +540,59 @@ html {
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #SchoolModal {
-    position: fixed; /* Stay in place */
-    z-index: 999; /* Sit on top */
+    position: fixed;
+    /* Stay in place */
+    z-index: 999;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
+
 .modal-content {
     display: flex;
     font-family: oswald;
     text-align: center;
     flex-direction: column;
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
+    /* Could be more or less, depending on screen size */
 }
 
-    .modal-content > h1 {
-        color: black !important;
-    }
+.modal-content>h1 {
+    color: black !important;
+}
 
-    .modal-content > a {
-        text-decoration: none;
-        color: black;
-    }
+.modal-content>a {
+    text-decoration: none;
+    color: black;
+}
 
-        .modal-content > a:hover {
-            cursor: pointer;
-            text-decoration: none;
-            color: lightblue;
-        }
-
-
+.modal-content>a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: lightblue;
+}
 
 .modal-content {
     margin: auto;
@@ -677,36 +602,41 @@ html {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .item1 {
-    grid-row: 1 / span 3; /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
+    grid-row: 1 / span 3;
+    /* tässä kohtaa määritellään että pystysuuntainen kuva on kolmen normaalinkuvan korkuinen */
 }
+
 .modal.image {
-        display: none;
-        flex-direction: column;
-        padding: 20px;
-        width: 100vw;
-        background-color: rgba(0,0,0,0.8);
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
 .modal-content.image {
     margin: auto;
     width: 80%;
     display: flex;
     font-family: oswald;
     text-align: center;
-    background-color: transparent ;
+    background-color: transparent;
     flex-direction: column;
     margin: 15% auto;
     padding: 20px;
     border: none;
     width: 80%;
 }
-.modal-content.image > img {
+
+.modal-content.image>img {
     border: solid 2px var(--seperator-color);
 }
+
 #picture1 {
     max-width: 98%;
     height: auto;
@@ -742,8 +672,8 @@ html {
     transition: 0.5s;
     animation: fadein 0.5s;
     text-align: center;
-    background-color: rgb(255,255,255);
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.6);
     width: 100%;
     position: sticky;
     bottom: 0;
@@ -753,22 +683,20 @@ html {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
 }
+
 @keyframes example {
     from {
         margin: 6px;
     }
-
     to {
         position: fixed;
         bottom: 0;
     }
 }
-
 
 .login {
     display: flex;
@@ -776,23 +704,112 @@ html {
     position: relative;
     background-color: var(--login-bg);
 }
+
 .login h1 {
     color: var(--text-color);
 }
+
 .darkIcon {
     transition: 0.5s filter ease-out;
 }
+
 .loginOptions {
     box-shadow: 0px 0px 20px var(--seperator-color);
     background-color: var(--mobile-menu-color);
 }
-.loginOptions > h2, p, a{
+
+.loginOptions>h2, .loginOptions>p, .loginOptions>a {
     color: var(--text-color);
 }
+
 .ajat p {
     font-family: "Roboto Mono", monospace;
 }
+
 @media (max-width:960px) {
+    .chatModal-content {
+        top: 50%;
+        left: 50%;
+        width: 100% !important;
+        transform: translate(-50%, -50%);
+        max-width: 600px;
+    }
+    .chatModal-content input {
+        width: 80%;
+    }
+    .chatContainer {
+        height: 85vh;
+    }
+    .chatModal-content {
+        padding: 1em !important;
+    }
+    .Stat {
+        font-size: 3vw;
+        margin: 0.1em;
+        padding: 0em 1em 0em 1em;
+        font-family: 'Roboto-mono', monospace;
+    }
+    #typingDiv>p {
+        font-size: calc(4px + 2vw);
+    }
+    .chatModal-content>h1 {
+        font-size: 5vw;
+    }
+    .chatModal-content>form {
+        max-width: 93%;
+        display: inline-block;
+        font-size: 2vw;
+    }
+    .btn {
+        font-size: 3vw;
+    }
+    .menuBtn {
+        display: flex;
+    }
+    .menuBtn>svg {
+        height: 7vw;
+    }
+    .quickText {
+        font-size: 3vw;
+    }
+    .miniChat {
+        font-size: 3vw !important;
+    }
+    .quickBox {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .quickChat>div {
+        font-size: 13vw;
+    }
+    .quickContent {
+        height: 10em;
+    }
+    .arrow>svg {
+        width: 6vw;
+    }
+    .quickTitle {
+        font-size: calc(10px + 3vw);
+    }
+    .quickBoxLeft .alaotsikot {
+        font-size: calc(10px + 2.5vw);
+        color: var(--text-color);
+        text-shadow: none;
+    }
+    .quickBoxLeft .ajat {
+        font-size: calc(10px + 6vw);
+    }
+    .quickContainer {
+        grid-template-columns: 100%;
+    }
+    #foodList {
+        width: 100vw;
+    }
+    #menu {
+        background-color: var(--mobile-menu-color);
+        transition: 2s;
+        transition-property: background-color;
+    }
     .darkIcon {
         display: inline-block;
         background-color: var(--login-bg);
@@ -828,44 +845,36 @@ html {
         width: auto;
         height: auto;
     }
-    .loginOptions > a:hover {
+    .loginOptions>a:hover {
         color: grey;
     }
-
     .milliseconds {
         width: 3em;
     }
-
     #the-canvas {
         width: 100vw;
     }
-
     .ajat {
         font-size: 6vw;
         letter-spacing: 0;
         display: flex;
         justify-content: center;
     }
-
     .noShake {
         width: 3em;
     }
-
-    .ajat > p {
+    .ajat>p {
         margin: 2%;
     }
-
     #menuContainer {
         position: fixed;
         width: 100%;
         z-index: 99;
         top: 0;
     }
-
     #content {
         margin-top: 12vw;
     }
-
     #menu {
         display: flex;
         border-bottom: solid 1px;
@@ -877,45 +886,41 @@ html {
         width: 100%;
         text-align: center;
     }
-
     #logo {
         font-family: "Margarine";
         display: flex;
         margin: 0;
         font-size: 8vw;
-        transition: 0.2s; 
+        transition: 0.2s;
         transition-property: margin;
     }
     #logo.offCenter {
         margin: auto;
     }
-
     #menuBtn {
         display: inline-block;
         cursor: pointer;
     }
-
     #places {
         display: none
     }
-
-        .linkLookALike {
-            background: none!important;
-            border: none;
-            padding: 0!important;
-            cursor: pointer;
-            border-bottom: solid;
-            border-bottom-width: 1px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            margin: 0;
-            margin-bottom: 0.5em;
-            font-size: 20px;
-            font-family: oswald;
-            border-color: var(--border-color) !important;
-            width: 100%;
-        }
+    .linkLookALike {
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        cursor: pointer;
+        border-bottom: solid;
+        border-bottom-width: 1px;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        margin: 0;
+        margin-bottom: 0.5em;
+        font-size: 20px;
+        font-family: oswald;
+        border-color: var(--border-color) !important;
+        width: 100%;
+    }
 }
 
 #tilastot {
@@ -925,17 +930,19 @@ html {
     justify-content: center;
     flex-direction: column;
     font-family: oswald;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .result {
     font-size: 3em;
-    color: red; /* Tilastojen negatiivisen vastauksen väri */
+    color: red;
+    /* Tilastojen negatiivisen vastauksen väri */
 }
 
 .positiveResult {
     font-size: 3em;
-    color: green; /* Positiivisen vastauksen väri */
+    color: green;
+    /* Positiivisen vastauksen väri */
 }
 
 .kysely {
@@ -960,24 +967,19 @@ html {
     flex-wrap: wrap;
 }
 
-.ajat > p {
+.ajat>p {
     text-shadow: black 3px 3px 2px;
     color: white
 }
 
 .ajat {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.theEnd > .ajat {
-    background-color: rgb(255,0,0) !important;
-    background-color: rgba(255,0,0, 0.3) !important;
-}
-
-html {
-    background: var(--background-image) no-repeat center center fixed;
-    background-size: cover;
+.theEnd>.ajat {
+    background-color: rgb(255, 0, 0) !important;
+    background-color: rgba(255, 0, 0, 0.3) !important;
 }
 
 .alaotsikot {
@@ -989,10 +991,62 @@ html {
     color: white;
 }
 
-#menu > a:hover {
+#menu>a:hover {
     color: blue;
 }
+
 @media (min-width:960px) {
+    .quickText {
+        font-size: 1.5em;
+    }
+    .miniChat {
+        font-size: 1em !important;
+    }
+    .quickBox:nth-child(odd) {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .quickBox:nth-child(even) {
+        margin-left: 0em;
+        margin-right: 1em;
+    }
+    .quickChat>div {
+        font-size: 5em;
+    }
+    .quickContent {
+        height: 15em;
+    }
+    .quickBoxLeft .alaotsikot.corona {
+        font-size: 2.25em;
+    }
+    .quickBoxLeft .alaotsikot {
+        font-size: 3em;
+        color: var(--text-color);
+        text-shadow: none;
+    }
+    .quickContainer {
+        grid-template-columns: 50% 50%;
+    }
+    #foodList {
+        width: 50vw;
+    }
+    #menu {
+        background-color: var(--menu-color);
+    }
+    .quickBoxLeft .ajat {
+        font-size: 3.5em;
+    }
+    .chatModal-content {
+        top: 50%;
+        left: 50%;
+        width: 40% !important;
+        transform: translate(-50%, -50%);
+    }
+    .Stat {
+        font-size: 1.5em;
+        margin: 0.1em;
+        padding: 0em 1em 0em 1em;
+    }
     .darkIcon {
         position: absolute;
         right: 0;
@@ -1029,7 +1083,7 @@ html {
         max-height: 50em;
         overflow: auto;
     }
-    .loginOptions > a:hover {
+    .loginOptions>a:hover {
         color: grey;
     }
     .menuBtn {
@@ -1038,33 +1092,30 @@ html {
     .milliseconds {
         width: 3em;
     }
-
     #anotherPage {
         display: none;
     }
-
     #places {
         display: flex !important;
         justify-content: center;
         background-color: white;
     }
-
-        #places > a {
-            text-decoration: none;
-            margin: 0 1em 0 1em;
-            font-size: 20px;
-            font-family: oswald;
-        }
-        .linkLookALike {
-            background: none!important;
-            border: none;
-            padding: 0!important;
-            cursor: pointer;
-            text-decoration: none;
-            margin: 0 1em 0 1em;
-            font-size: 20px;
-            font-family: oswald;
-        }
+    #places>a {
+        text-decoration: none;
+        margin: 0 1em 0 1em;
+        font-size: 20px;
+        font-family: oswald;
+    }
+    .linkLookALike {
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        cursor: pointer;
+        text-decoration: none;
+        margin: 0 1em 0 1em;
+        font-size: 20px;
+        font-family: oswald;
+    }
     #logo {
         font-family: "Margarine";
         display: flex;
@@ -1073,7 +1124,6 @@ html {
         justify-content: center;
         font-size: 8vw;
     }
-
     .ajat {
         font-size: 5em;
         font-family: "Roboto Mono", monospace;
@@ -1081,15 +1131,12 @@ html {
         display: flex;
         justify-content: center;
     }
-
     .noShake {
         width: 3em;
     }
-
-    .ajat > p {
+    .ajat>p {
         margin: 2%;
     }
-
     #dynaaminenNappi {
         cursor: pointer;
     }

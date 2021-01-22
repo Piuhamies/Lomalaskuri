@@ -123,7 +123,7 @@ function MainLoop() {
         }
         else if ((end - nyt) > 0) { //jos loma on nyt näytä koulun alku timeri
             let distance = [
-                Math.floor((end - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot)
+                Math.floor((end - nyt) / (1000 * 60 * 60 * 24 * 7)), //maaginen seiskalla jako(viikot) //Meme on siinä, ettei nää joskus 2019 toiminu ja mä sain vähä kettuilua siitä nökälaskurin tiimiltä
                 Math.floor((end - nyt) % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24)), //päivät
                 Math.floor((end - nyt) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)), // tunnit
                 Math.floor((end - nyt) % (1000 * 60 * 60) / (1000 * 60)), //minuutit

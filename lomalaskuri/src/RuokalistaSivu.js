@@ -1,6 +1,4 @@
 ﻿import React from 'react';
-import loading from './loading.gif';
-import 'loaders.css/loaders.min.css'
 export class RuokalistaSivu extends React.Component {
     constructor(props) {
         super(props);

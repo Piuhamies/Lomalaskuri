@@ -24,7 +24,14 @@
     --background-image: url("trianglify.svg");
 }
 
+@supports (-webkit-touch-callout: inherit) {
+    html {
+        background-attachment: scroll !important;/* If we are using an ios safari, fix the bg image */
+        background-repeat: repeat !important;
+    }
+}
 html {
+    background-color: var(--places-color); /*As a fallback use the places-color. It will look horrible */
     background-image: var(--background-image);
     background-repeat: no-repeat;
     background-position: center;

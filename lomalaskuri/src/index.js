@@ -21,6 +21,10 @@ import { Tilastot } from './Tilastot.js';
 import * as serviceWorker from './serviceWorker';
 import { TimerClass } from './timerClass.js';
 
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-137016636-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 var darkmode = false;
 
 let toggleTheme = (theme, dontToggle) =>  {

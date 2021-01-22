@@ -581,6 +581,7 @@ html {
 .modal-content {
     display: flex;
     font-family: oswald;
+    font-display: swap;
     text-align: center;
     flex-direction: column;
     background-color: #fefefe;
@@ -637,6 +638,7 @@ html {
     width: 80%;
     display: flex;
     font-family: oswald;
+    font-display: swap;
     text-align: center;
     background-color: transparent;
     flex-direction: column;
@@ -901,6 +903,7 @@ html {
     }
     #logo {
         font-family: "Margarine";
+        font-display: swap;
         display: flex;
         margin: 0;
         font-size: 8vw;
@@ -931,6 +934,7 @@ html {
         margin-bottom: 0.5em;
         font-size: 20px;
         font-family: oswald;
+        font-display: swap;
         border-color: var(--border-color) !important;
         width: 100%;
     }
@@ -943,6 +947,7 @@ html {
     justify-content: center;
     flex-direction: column;
     font-family: oswald;
+    font-display: swap;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -971,6 +976,7 @@ html {
 #show {
     text-align: center;
     font-family: oswald;
+    font-display: swap;
 }
 
 #checkboxes {
@@ -997,6 +1003,7 @@ html {
 
 .alaotsikot {
     font-family: oswald;
+    font-display: swap;
     display: flex;
     justify-content: center;
     font-size: 4vw;
@@ -1118,6 +1125,7 @@ html {
         margin: 0 1em 0 1em;
         font-size: 20px;
         font-family: oswald;
+        font-display: swap;
     }
     .linkLookALike {
         background: none!important;
@@ -1128,9 +1136,11 @@ html {
         margin: 0 1em 0 1em;
         font-size: 20px;
         font-family: oswald;
+        font-display: swap;
     }
     #logo {
         font-family: "Margarine";
+        font-display: swap;
         display: flex;
         margin-top: 0;
         margin-bottom: 0;

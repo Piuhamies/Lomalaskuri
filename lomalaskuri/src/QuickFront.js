@@ -4,12 +4,12 @@ import {Redirect} from 'react-router-dom';
 import openSocket from 'socket.io-client';
 import onlineIconi from './perm_identity-24px.svg';
 import writingIconi from './menu_book-24px.svg';
-import nokaKuva1 from './Kuvat/1.jpg';
-import nokaKuva2 from './Kuvat/2.jpg';
-import nokaKuva3 from './Kuvat/3.jpg';
-import nokaKuva4 from './Kuvat/4.jpg';
-import nokaKuva5 from './Kuvat/5.jpg';
-import nokaKuva6 from './Kuvat/6.jpg';
+import nokaKuva1 from './Kuvat/1.webp';
+import nokaKuva2 from './Kuvat/2.webp';
+import nokaKuva3 from './Kuvat/3.webp';
+import nokaKuva4 from './Kuvat/4.webp';
+import nokaKuva5 from './Kuvat/5.webp';
+import nokaKuva6 from './Kuvat/6.webp';
 let socket = openSocket("https://espoochat.tk");
 
 export class QuickCorona extends React.Component {

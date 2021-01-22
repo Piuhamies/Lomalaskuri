@@ -10,7 +10,6 @@ import nokaKuva3 from './Kuvat/3.webp';
 import nokaKuva4 from './Kuvat/4.webp';
 import nokaKuva5 from './Kuvat/5.webp';
 import nokaKuva6 from './Kuvat/6.webp';
-//let socket = openSocket("https://espoochat.tk");
 
 export class QuickCorona extends React.Component {
     constructor(props) {
@@ -328,6 +327,7 @@ export class QuickChat extends React.Component {
         this.state = {ready: false, redirect: false, online: 0, writingAmount: 0, latestMessage: null};
     }
     componentDidMount() {
+        let socket = openSocket("https://espoochat.tk");
         socket.connect();
         let roomName = 'LomainenHuone';
         socket.emit('subscribe', { room: roomName , addToOnline: false});

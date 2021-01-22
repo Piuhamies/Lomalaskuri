@@ -7,10 +7,17 @@
     {
       "src": "logo.png",
       "sizes": "512x512",
-      "type": "image/png"
-    }
+      "type": "image/png",
+	  "purpose": "any"
+    },
+	{
+	  "src": "maskable_logo.png",
+	  "sizes": "243x243",
+	  "type": "image/png",
+	  "purpose": "maskable"
   ],
   "name": "Lomalaskuri",
   "short_name": "Lomalaskuri",
-  "start_url": "/"
+  "start_url": "/",
+  "categories": ["utilities", "lifestyle", "food", "education", "social"]
 }

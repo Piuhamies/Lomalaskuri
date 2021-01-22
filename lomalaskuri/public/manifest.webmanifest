@@ -2,7 +2,7 @@
   "background_color": "#272727",
   "theme_color": "#4389f9",
   "description": "The one and only lomalaskuri.",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "logo.png",

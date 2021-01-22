@@ -10,7 +10,7 @@ import nokaKuva3 from './Kuvat/3.webp';
 import nokaKuva4 from './Kuvat/4.webp';
 import nokaKuva5 from './Kuvat/5.webp';
 import nokaKuva6 from './Kuvat/6.webp';
-let socket = openSocket("https://espoochat.tk");
+//let socket = openSocket("https://espoochat.tk");
 
 export class QuickCorona extends React.Component {
     constructor(props) {

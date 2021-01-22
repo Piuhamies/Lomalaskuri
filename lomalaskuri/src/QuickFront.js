@@ -327,7 +327,8 @@ export class QuickChat extends React.Component {
         this.state = {ready: false, redirect: false, online: 0, writingAmount: 0, latestMessage: null};
     }
     componentDidMount() {
-        let socket = openSocket("https://espoochat.tk");
+        this.setState({socket: openSocket("https://espoochat.tk")});
+        socket = this.state.socket;
         socket.connect();
         let roomName = 'LomainenHuone';
         socket.emit('subscribe', { room: roomName , addToOnline: false});
@@ -372,8 +373,8 @@ export class QuickChat extends React.Component {
         
     }
     componentWillUnmount() {
-        socket.emit('unsubscribe', {room:'LomainenHuone', addToOnline: false});
-        socket.disconnect();
+        this.state.socket.emit('unsubscribe', {room:'LomainenHuone', addToOnline: false});
+        this.state.socket.disconnect();
     }
     render() {
         redirect = redirect.bind(this);

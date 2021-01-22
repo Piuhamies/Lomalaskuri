@@ -12,6 +12,9 @@
     --chat-primary: #223142;
     --chat-secondary: #31465F;
     --bg-fallback: linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%);
+    --bg-fallback-image: var(--noka-light-bg-img-fallback);
+    --noka-dark-bg-img-fallback: url("Dark.webP");
+    --noka-light-bg-img-fallback: url("trianglify.webp");
     --noka-light-bg-img: url("trianglify.svg");
     --noka-dark-bg-img: url("Dark.svg");
     --vantti-light-bg-img: url("trianglify.svg");
@@ -33,13 +36,13 @@ body:before { /*A bg workaround to get it to work with mobile devices */
     height: 100%;
     width: 100%;
     content: '';
-    background-image: var(--background-image), var(--bg-fallback);
-    background-size: cover;
+    background-image: var(--background-image), var(--bg-fallback-image),  var(--bg-fallback);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom right;
+    background-size: cover;
   }
 
 body, html {

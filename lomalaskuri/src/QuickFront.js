@@ -303,11 +303,11 @@ export class QuickRuokalista extends React.Component {
                     
                     <h1 className="quickTitle" >Päivän ruokalista:</h1>
                 {this.state.ready === true ? (<>
-                <div id="firstFood" class="quickContent">
+                <div id="firstFood" className="quickContent">
                     {this.state.todaysRuokalista}
                 </div>
-            </>) : (<div id="Loading" class="loader quickLoader">
-        <div class="loader-inner square-spin">
+            </>) : (<div id="Loading" className="loader quickLoader">
+        <div className="loader-inner square-spin">
         <div></div>
        </div>
         </div>)  }
@@ -391,8 +391,8 @@ export class QuickChat extends React.Component {
             <h2 className="alaotsikot">Chatin tilastoja:</h2>
                     <div className="quickText quickChat"><div><p>{this.state.online}</p><img src={onlineIconi} /></div><div className="miniChat"><h3>Viimeisin viesti:</h3>{this.state.latestMessage}</div><div><p>{this.state.writingAmount}</p><img src={writingIconi} /></div> </div>
              </>
-                    ) : (<div id="Loading" class="loader quickLoader">
-        <div class="loader-inner square-spin">
+                    ) : (<div id="Loading" className="loader quickLoader">
+        <div className="loader-inner square-spin">
         <div></div>
        </div>
         </div>)}
@@ -529,11 +529,11 @@ export class QuickGallery extends React.Component {
                 <div className="quickContent">
                     <div className="quickImage">
                         <img src={nokaKuva2} /> {/*preloadataan kaikki kuvat nykyisen kuvan alle */}
-                        <img src={nokaKuva3} />
-                        <img src={nokaKuva4} />
-                        <img src={nokaKuva5} />
-                        <img src={nokaKuva6} />
-                        <img src={this.state.img1} ></img>
+                        <img loading="lazy" src={nokaKuva3} />
+                        <img loading="lazy" src={nokaKuva4} />
+                        <img loading="lazy" src={nokaKuva5} />
+                        <img loading="lazy" src={nokaKuva6} />
+                        <img loading="lazy" src={this.state.img1} ></img>
                     </div>
                  </div>
             </div>
@@ -602,9 +602,9 @@ export class QuickSettings extends React.Component {
                     <h1 className="quickTitle">Asetukset:</h1>
                     <div className="quickContent">
                         <div className="quickImage"> 
-                        <button class="linkLookALike SettingBtn" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
-                        <button class="linkLookALike SettingBtn"  onClick={this.changeSchool}> Vaihda koulua</button>
-                        <button id="progressiveBtn" class="linkLookALike SettingBtn"> Lisää kotinäytölle </button>
+                        <button className="linkLookALike SettingBtn" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+                        <button className="linkLookALike SettingBtn"  onClick={this.changeSchool}> Vaihda koulua</button>
+                        <button id="progressiveBtn" className="linkLookALike SettingBtn"> Lisää kotinäytölle </button>
                         </div>
                      </div>
                 </div>
@@ -636,8 +636,8 @@ export class QuickFront extends React.Component {
     
     render() {
         return (    
-            <div class="quickContainerContainer">
-        <div class="quickContainer">
+            <div className="quickContainerContainer">
+        <div className="quickContainer">
             {this.props.quickItems}
 
         

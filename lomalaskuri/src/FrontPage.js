@@ -66,7 +66,9 @@ export class FrontPage extends React.Component {
     this.toHome = this.toHome.bind(this);
   }
   componentDidMount() {
-    this.props.darkFunction(this.props.themes.login, false);
+    if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || Cookie.get("dark") === "true" ) {
+      this.props.darkFunction(this.props.themes.login, false);
+    }
   }
   toHome() {
     this.setState({ redirect: <Redirect to="Etusivu" /> }, () => this.setState({ redirect: null }));
@@ -90,8 +92,8 @@ export class FrontPage extends React.Component {
           {this.props.schools.map((x) => (<Route key={x.href + "key"} path={`/${x.href}`}> {/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
             <div id="menuContainer">
               <Switch>
-                {this.props.schools.map((x) => {
-                  return (<Route exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
+                {this.props.schools.map((x, index) => {
+                  return (<Route key={index+ "key12342"} exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
                     <h1 id="logo">Lomalaskuri</h1>
                   </div></Route>)
                 })}

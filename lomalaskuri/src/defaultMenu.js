@@ -43,8 +43,8 @@ export class DefaultMenu extends React.Component {
         return ( this.state.reset ? <Redirect to="/" /> : 
         <>
             {menuItems}
-        <button class="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
-            <button class="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
+        <button className="linkLookALike" onClick={this.toggle}id="dynaaminenNappi">Vaihda teemaa</button>
+            <button className="linkLookALike"  onClick={this.changeSchool}> Vaihda koulua</button>
         </>
         );
     }

@@ -5,6 +5,7 @@ import { FrontPage } from './FrontPage.js';
 import { QuickFront } from './QuickFront.js';
 import { QuickLaskuri } from './QuickFront.js';
 import { QuickRuokalista } from './QuickFront.js';
+import { QuickOtaniemiRuokalista } from './QuickFront.js';
 import { QuickChat } from './QuickFront.js';
 import { QuickForm } from './QuickFront.js';
 import { QuickGallery } from './QuickFront.js';
@@ -13,6 +14,7 @@ import { QuickSettings } from './QuickFront.js';
 import { QuickCorona } from './QuickFront.js';
 import { Placeholder } from './Pages.js';
 import { RuokalistaSivu } from './RuokalistaSivu.js';
+import { OtaniemiRuokalista } from './OtaniemiRuokalista.js';
 import { Kysely } from './Kysely.js';
 import { Galleria } from './Galleria.js';
 import { Chat } from './Chat.js';
@@ -51,6 +53,7 @@ let themes = {
   { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
   { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)" },
+  { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
   HaukilahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
   { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -62,6 +65,7 @@ let themes = {
   { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
   { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)" },
+  { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
   LaurinlahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
   { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -73,6 +77,7 @@ let themes = {
   { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
   { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)" },
+  { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
   VanttilanKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
   { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -84,7 +89,20 @@ let themes = {
   { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
   { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)" },
+  { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },],
+  OtaniemenLukio: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
+  { nimi: "--places-color", light: "white", dark: "#272727" },
+  { nimi: "--border-color", light: "#ddd", dark: "black" },
+  { nimi: "--text-color", light: "black", dark: "white" },
+  { nimi: "--invert-amount", light: "0%", dark: "100%" },
+  { nimi: "--mobile-menu-color", light: "white", dark: "#272727" },
+  { nimi: "--background-image", light: "var(--noka-light-bg-img)", dark: "var(--noka-dark-bg-img)" },
+  { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
+  { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
+  { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)" },
+  { nimi: "--seperator-color", light: "#7f281a", dark: "#7f281a" },
+  { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
   None:
     [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
     { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -96,6 +114,7 @@ let themes = {
     { nimi: "--bg-fallback-image", light: "var(--noka-light-bg-img-fallback)", dark: "var( --noka-light-bg-img-fallback)" },
     { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
     { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)" },
+    { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
     { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" }],
   login: [{ nimi: "--menu-color", light: "transparent", dark: "#272727" },
   { nimi: "--places-color", light: "white", dark: "#272727" },
@@ -108,6 +127,7 @@ let themes = {
   { nimi: "--bg-fallback", light: "linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%)", dark: "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(56,90,154,1) 63%, rgba(18,34,62,1) 100%)" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.5)", dark: "rgba(39,39,39,0.7)" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
+  { nimi: "--seperator-color", light: "#4389f9", dark: "#4389f9" },
   { nimi: "--login-bg", light: "rgba(255,255,255,0.3)", dark: "rgba(0,0,0,0.8)" }
   ]
 
@@ -172,7 +192,18 @@ let allSchools = [
     theme: themes.VanttilanKoulu
   },
   {
-    schoolName: "Ei mikään yllä mainittu",
+    schoolName: "Otaniemen lukio",
+    href: "OtaniemenLukio",
+    menuItems: [
+      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickOtaniemiRuokalista key="QuickOtaniemiRuokalista" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.VanttilanKoulu} themes={toggleTheme} />]} /> },
+      { nimi: "Laskuri", 'class': <TimerClass /> },
+      { nimi: "Ruokalista", 'class': <OtaniemiRuokalista /> },
+      { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" /> }
+    ],
+    theme: themes.OtaniemenLukio
+  },
+  {
+    schoolName: "Jokin muu espoon koulu",
     href: "None",
     menuItems: [
       { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.None} themes={toggleTheme} />]} /> },

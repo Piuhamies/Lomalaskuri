@@ -11,11 +11,11 @@ export class TimerClass extends React.Component {
 
    //luodaan elementit kaikille lomille
    var timers = [
-    { nimi: "Aikaa kesälomaan ", start: new Date("May 30, 2019 12:00:00"), end: new Date("Aug 13, 2019 10:00:00") },
-    { nimi: "Aikaa Syyslomaan", start: new Date("Oct 12, 2019 00:00:00"), end: new Date("Oct 16, 2019 00:00:00") },
-    { nimi: "Aikaa Joululomaan", start: new Date("Dec 23, 2019 00:00:00"), end: new Date("Jan 6, 2020 00:00:00") },
-    { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 17, 2019 00:00:00"), end: new Date("Feb 24, 2019 00:00:00") },
-    { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 9 2019 16:00:00"), end: new Date("Apr 13 2019 8:30:00") }
+    { nimi: "Aikaa kesälomaan ", start: new Date("Jun 5, 2019 12:00:00"), end: new Date("Aug 11, 2019 10:00:00") },
+    { nimi: "Aikaa Syyslomaan", start: new Date("Oct 18, 2019 00:00:00"), end: new Date("Oct 22, 2019 00:00:00") },
+    { nimi: "Aikaa Joululomaan", start: new Date("Dec 23, 2019 00:00:00"), end: new Date("Jan 9, 2020 00:00:00") },
+    { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 22, 2019 00:00:00"), end: new Date("Feb 26, 2019 00:00:00") },
+    { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 2 2019 16:00:00"), end: new Date("Apr 5 2019 8:30:00") }
 ];  //Kaikki nykyiset lomat
 
 var timeNames = [{ nimi: "weeks", shortened: "wk" },

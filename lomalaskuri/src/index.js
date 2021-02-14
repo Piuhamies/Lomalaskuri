@@ -195,7 +195,7 @@ let allSchools = [
     schoolName: "Otaniemen lukio",
     href: "OtaniemenLukio",
     menuItems: [
-      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickOtaniemiRuokalista key="QuickOtaniemiRuokalista" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.VanttilanKoulu} themes={toggleTheme} />]} /> },
+      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickOtaniemiRuokalista key="QuickOtaniemiRuokalista" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.OtaniemenLukio} themes={toggleTheme} />]} /> },
       { nimi: "Laskuri", 'class': <TimerClass /> },
       { nimi: "Ruokalista", 'class': <OtaniemiRuokalista /> },
       { nimi: "Palaute", 'class': <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" /> }
@@ -206,7 +206,7 @@ let allSchools = [
     schoolName: "Jokin muu espoon koulu",
     href: "None",
     menuItems: [
-      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.None} themes={toggleTheme} />]} /> },
+      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.none} themes={toggleTheme} />]} /> },
       { nimi: "Laskuri", 'class': <TimerClass /> },
       { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
       //{ nimi: "Chat", 'class': <Chat />},

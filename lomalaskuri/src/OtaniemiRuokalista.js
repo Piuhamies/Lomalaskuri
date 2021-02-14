@@ -25,7 +25,7 @@ export class OtaniemiRuokalista extends React.Component {
             };
         }
         function onloadDocumentFromContent(data) {
-            //document.getElementById("Loading").remove();
+            document.getElementById("Loading").remove();
             let foodlist = document.getElementById("foodList");
             foodlist.innerHTML = data;
             //poistetaan alusta turha roska

@@ -15,6 +15,7 @@ import { QuickCorona } from './QuickFront.js';
 import { Placeholder } from './Pages.js';
 import { RuokalistaSivu } from './RuokalistaSivu.js';
 import { OtaniemiRuokalista } from './OtaniemiRuokalista.js';
+
 import { Kysely } from './Kysely.js';
 import { Galleria } from './Galleria.js';
 import { Chat } from './Chat.js';

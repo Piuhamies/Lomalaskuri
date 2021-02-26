@@ -849,6 +849,7 @@ html {
         margin: 1em;
         transform: rotate(-45deg);
         height: 10vw;
+        width: 10vw;
         filter: hue-rotate(0) drop-shadow(0 0 10px var(--seperator-color));
     }
     .darkIcon:hover {
@@ -1091,6 +1092,7 @@ html {
         transform: rotate(-45deg);
         height: 1.5em;
         filter: hue-rotate(0) drop-shadow(0 0 2px var(--seperator-color));
+        width: 1.5em;
     }
     .darkIcon:hover {
         filter: hue-rotate(150deg) drop-shadow(0 0 2px var(--seperator-color));

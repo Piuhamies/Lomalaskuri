@@ -1,189 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="
-            http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-    <url>
-        <loc>https://lomalaskuri.tk</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/NoykkionKoulu/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Kysely</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Galleria</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/NoykkionKoulu/Tilastot</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/HaukilahdenKoulu/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/HaukilahdenKoulu/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/HaukilahdenKoulu/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/HaukilahdenKoulu/Kysely</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/HaukilahdenKoulu/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/HaukilahdenKoulu/Tilastot</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/LaurinlahdenKoulu/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/LaurinlahdenKoulu/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/LaurinlahdenKoulu/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/LaurinlahdenKoulu/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/VanttilanKoulu/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/VanttilanKoulu/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/VanttilanKoulu/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/VanttilanKoulu/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/OtaniemenLukio/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/OtaniemenLukio/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/OtaniemenLukio/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/OtaniemenLukio/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://lomalaskuri.tk/None/Etusivu</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/None/Laskuri</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/None/Ruokalista</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6000</priority>
-    </url>
-    <url>
-        <loc>https://www.lomalaskuri.tk/None/Palaute</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5000</priority>
-    </url>
-</urlset>
+<?xml version='1.0'?> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XS
+L/Transform ">
+<xsl:template match="/"> 
+<html><body> 
+<table border="2" bgcolor="yellow"> 
+<tr> 
+<th>lastmod</th> 
+<th>changefreq</th> 
+</tr> 
+<xsl:for-each select=""sm:sitemap"> 
+<div class="th">
+URL
+<xsl:if test="sm:url/sm:lastmod"> / Last Modified</xsl:if>
+<xsl:if test="sm:url/sm:changefreq"> / Change Frequency</xsl:if>
+<xsl:if test="sm:url/sm:priority"> / Priority</xsl:if>
+</div>
+</xsl:for-each> 
+</table> 
+</body> </html> 
+</xsl:template> 
+</xsl:stylesheet>

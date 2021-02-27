@@ -2,10 +2,6 @@
   command = "CI= npm run build"
   publish="lomalaskuri/build"
   base = "/lomalaskuri"
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/sitemap.xml"
-  status = 200
 
 [[redirects]]
   from = "/*"

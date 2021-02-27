@@ -10,17 +10,15 @@
 				<title>Lomalaskuri | Sitemap</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 				<style type="text/css">
+					html {
+						background-color: #272727;
+						color: white;
+					}
 					body {
 						font-family:"Roboto", "Comic Sans";
 						font-size:13px;
 					}
 					
-					#intro {
-						background-color:#CFEBF7;
-						border:1px #2580B2 solid;
-						padding:5px 13px 5px 13px;
-						margin:10px;
-					}
 					
 					#intro p {
 						line-height:	16.8667px;
@@ -58,8 +56,6 @@
 			</head>
 			<body>
 				<h1>Sitemap</h1>
-				<div id="intro">
-				</div>
 				<div id="content">
 					<table cellpadding="5">
 						<tr style="border-bottom:1px black solid;">

@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "create-react-app": "^3.2.0",
+    "create-react-app": "^3.4.1",
     "js-cookie": "^2.2.1",
     "loaders.css": "^0.1.2",
     "p5": "^0.10.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
     "react-helmet": "^6.1.0",
-    "react-p5-wrapper": "^2.0.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-p5-wrapper": "^2.3.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
     "react-socket-io": "^0.2.5",
-    "serve": "^11.2.0",
-    "socket.io-client": "^2.3.0"
+    "serve": "^11.3.2",
+    "socket.io-client": "^2.4.0"
   },
   "scripts": {
     "start": "npx react-scripts start",

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import darkModeIcon from './icons8-moon-symbol.svg';
 import { Helmet } from 'react-helmet';
 
 export class NewSchoolSelector extends React.Component {

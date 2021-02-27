@@ -308,7 +308,15 @@ export class QuickRuokalista extends React.Component {
             };
         }
         function onloadDocumentFromContent(data) {
-            var menuJson = JSON.parse(data);
+            try {
+                var menuJson = JSON.parse(data);
+            }
+            catch {
+                console.log("Unable to fetch food data");
+                let textElem = (<div className="quickText quickRuokalista"><p id="FoodGlimpse">Tänään ei ole kouluruokailua</p> </div>); //luotetaan siihen, ettei ruokailua ole jos ruokalistojen haku epäonnistuu
+                this.setState({ready: true, todaysRuokalista: textElem });
+                return;
+            }
             var nyt = new Date();
             var curDate = nyt.getDate();
             var days = ["sunnuntai","maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai"];

@@ -2,15 +2,15 @@ import React from 'react';
 import openSocket from 'socket.io-client';
 import onlineIconi from './perm_identity-24px.svg';
 import writingIconi from './menu_book-24px.svg';
-let socket = openSocket("https://espoochat.tk");
-console.log(socket);
 export class Chat extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6></h6>};
+    this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6></h6>, socket: openSocket("https://espoochat.tk")};
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
-  componentDidMount() {
-    socket.connect();
+  async componentDidMount() {
+    let socket = this.state.socket;
+    await socket.connect();
     const $ = window.$;
     let userAmount;
     let writingAmount = 0;
@@ -206,6 +206,7 @@ export class Chat extends React.Component {
     }
   }
   componentWillUnmount() {
+    let socket = this.state.socket;
     clearInterval(this.state.typersInterval);
     socket.emit('unsubscribe', {room:'LomainenHuone', addToOnline: true});
     socket.disconnect();

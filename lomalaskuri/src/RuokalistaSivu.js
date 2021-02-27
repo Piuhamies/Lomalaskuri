@@ -25,7 +25,16 @@ export class RuokalistaSivu extends React.Component {
         }
         function onloadDocumentFromContent(data) {
             this.setState({ ruokalista: null, todaysRuokalista: null });
-            var menuJson = JSON.parse(data);
+            try {
+                var menuJson = JSON.parse(data);
+            }
+            catch {
+                console.log("Unable to fetch food data");
+                var loading = document.getElementById("Loading");
+                loading.remove();
+                this.setState({todaysRuokalista: "Tänään ei ole kouluruokailua"}); //luotetaan siihen, ettei ruokailua ole jos ruokalistojen haku epäonnistuu
+                return;
+            }
             var nyt = new Date();
             var curDate = nyt.getDate();
             var days = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai", "sunnuntai"];

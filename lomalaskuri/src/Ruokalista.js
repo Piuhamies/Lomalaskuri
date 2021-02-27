@@ -17,7 +17,13 @@ async function nextStep() {
 }
 
 function onloadDocumentFromContent(data) {
-    var menuJson = JSON.parse(data);
+    try {
+        var menuJson = JSON.parse(data);
+    }
+    catch {
+        console.log("Unable to fetch food data");
+        return;
+    }
     var nyt = new Date();
     var curDate = nyt.getDate();
     var days = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai", "sunnuntai"];

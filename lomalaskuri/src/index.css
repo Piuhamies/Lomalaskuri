@@ -68,6 +68,8 @@ body, html {
     max-height: 50px;
     max-width: 50px;
     animation: spin 2s infinite ease-in-out;       
+    text-align: center;
+    color: white;
 }
 .square-spin>div::after {
     font-family: 'Roboto';

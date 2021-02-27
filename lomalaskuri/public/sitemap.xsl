@@ -33,24 +33,16 @@
 						padding-right:30px;
 						font-size:11px;
 					}
-					
+					table {
+	border: solid white 1px;
+}
 					tr.high {
-						background-color:whitesmoke;
+						background-color:grey;
 					}
 					
-					#footer {
-						padding:2px;
-						margin:10px;
-						font-size:8pt;
-						color:gray;
-					}
-					
-					#footer a {
-						color:gray;
-					}
 					
 					a {
-						color:black;
+						color:white;
 					}
 				</style>
 			</head>
@@ -58,7 +50,7 @@
 				<h1>Sitemap</h1>
 				<div id="content">
 					<table cellpadding="5">
-						<tr style="border-bottom:1px black solid;">
+						<tr style="border-bottom:1px white solid;">
 							<th>URL</th>
 							<th>Priority</th>
 							<th>Change frequency</th>

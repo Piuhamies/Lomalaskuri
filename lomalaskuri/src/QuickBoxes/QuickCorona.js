@@ -81,7 +81,7 @@ export default class QuickCorona extends React.Component {
         function redirect() {
             this.setState({redirect: true});
         }
-        return this.state.redirect ? <Redirect to={`${this.props.href}`} />  : (
+        return this.state.redirect ? <Redirect push to={`${this.props.href}`} />  : (
             <div className="quickBox corona ">
             <div className="quickBoxLeft full">
                 <h1 className="quickTitle">Erikoislaskuri:</h1>

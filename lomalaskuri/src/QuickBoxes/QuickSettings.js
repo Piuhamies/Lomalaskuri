@@ -55,7 +55,7 @@ export default class QuickSettings extends React.Component {
         function redirect() {
             this.setState({redirect: true});
         }
-        return this.state.redirect ? <Redirect to="/" /> : (
+        return this.state.redirect ? <Redirect push to="/" /> : (
             <div className="quickBox anim active">
                 <div className="quickBoxLeft full" >
                     <h1 className="quickTitle">Asetukset:</h1>

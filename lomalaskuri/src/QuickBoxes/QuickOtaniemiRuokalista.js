@@ -11,7 +11,7 @@ export default class QuickOtaniemiRuokalista extends React.Component {
         function redirect() {
             this.setState({redirect: true});
         }
-        return this.state.redirect ? <Redirect to={`${this.props.href}`} />: (
+        return this.state.redirect ? <Redirect push to={`${this.props.href}`} />: (
             <div className="quickBox anim active">
                 <div className="quickBoxLeft">
                     

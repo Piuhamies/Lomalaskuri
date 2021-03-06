@@ -20,9 +20,7 @@ export default class QuickFront extends React.Component {
                 elem.classList.remove("anim");
             }
         });
-        this.prevScrollY = document.documentElement .scrollTop;
-        console.log(this.prevScrollY);
-    }
+        this.prevScrollY = document.documentElement .scrollTop;    }
     componentDidMount() {
         window.addEventListener("scroll", this.laukaiseAnimaatio);
         window.addEventListener("resize", this.laukaiseAnimaatio);

@@ -65,7 +65,7 @@ export default class QuickChat extends React.Component {
         function redirect() {
             this.setState({redirect: true});
         }
-        return this.state.redirect ? <Redirect to={`${this.props.href}`} /> : (
+        return this.state.redirect ? <Redirect push to={`${this.props.href}`} /> : (
             <div className="quickBox">
                 <div className="quickBoxLeft">
                     <h1 className="quickTitle">Chat: </h1>

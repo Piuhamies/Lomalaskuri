@@ -761,7 +761,7 @@ html {
 
 @media (max-width:960px) {
     .schoolSelection {
-        height: 48px;
+        min-height: 48px;
     }
     .chatModal-content {
         top: 50%;

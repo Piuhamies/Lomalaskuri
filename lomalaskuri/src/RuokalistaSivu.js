@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-export class RuokalistaSivu extends React.Component {
+export default class RuokalistaSivu extends React.Component {
     constructor(props) {
         super(props);
         this.state = { todaysRuokalista: null, ruokalista: null };
@@ -41,7 +41,7 @@ export class RuokalistaSivu extends React.Component {
             let listEl = [];
             menuJson.Days.forEach((element, index) => {
                 var menuDate = new Date(element.Date);
-                var tempTitle = <h1 key="otsikko">{days[menuDate.getDay() - 1] + "  " + menuDate.toLocaleDateString("fi-FI")}</h1>
+                var tempTitle = <h1 key={"otsikko" + days[menuDate.getDay()-1]}>{days[menuDate.getDay() - 1] + "  " + menuDate.toLocaleDateString("fi-FI")}</h1>
                 if (curDate === menuDate.getDate()) {
                     let textElem = <p key={element.Meals[0].Name + "Key"} id="FoodGlimpse">Päivän ruoka: {element.Meals[0].Name} </p>;
                     this.setState({ todaysRuokalista: textElem });
@@ -68,8 +68,8 @@ export class RuokalistaSivu extends React.Component {
         return (
             <div id="show">
                 <h1>Ruokalistat</h1>
-                <div id="Loading" class="loader">
-                    <div class="loader-inner square-spin">
+                <div id="Loading" className="loader">
+                    <div className="loader-inner square-spin">
                         <div></div>
                     </div>
                 </div>

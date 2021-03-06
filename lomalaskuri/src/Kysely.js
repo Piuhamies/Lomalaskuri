@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Kysely extends React.Component {
+export default class Kysely extends React.Component {
     render() {
         return (
             <div className="kysely">

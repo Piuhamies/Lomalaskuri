@@ -19,14 +19,14 @@ export class NewSchoolSelector extends React.Component {
             <Helmet>
                 <link rel="preload" as="image" href="icons8-moon-symbol.svg" />  {/*joutuu uhrautumaan tekemään purkkavirityksiä jos meinaa saada lighthouse testistä hyvän tuloksen. */}
              </Helmet>
-            <div class="login">
+            <div className="login">
                 
                 <h1>Tervetuloa Lomalaskuriin!</h1>
-                <div class="loginOptions">
+                <div className="loginOptions">
                 <h2> Valitse koulusi: </h2>
                 {this.props.schools.map((x, index) => (<Link onChange={() => console.log("change")} key={"kouluValinta" + index} className="schoolSelection" to={x.href + "/" + x.menuItems[0].nimi}>{x.schoolName}</Link>))}
                 </div>
-                <img class="darkIcon" alt="vaihda dark themeen" onClick={this.toggle} src="icons8-moon-symbol.svg" />
+                <img className="darkIcon" alt="vaihda dark themeen" onClick={this.toggle} src="icons8-moon-symbol.svg" />
             </div>
             </>
         );

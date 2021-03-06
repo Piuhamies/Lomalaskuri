@@ -1,5 +1,5 @@
 import React from 'react';
-export class OtaniemiRuokalista extends React.Component {
+export default class OtaniemiRuokalista extends React.Component {
     constructor(props) {
         super(props);
         this.state = { todaysRuokalista: null, ruokalista: null };
@@ -43,8 +43,8 @@ export class OtaniemiRuokalista extends React.Component {
         return (
             <div id="show">
                 <h1>Ruokalistat</h1>
-                <div id="Loading" class="loader">
-                    <div class="loader-inner square-spin">
+                <div id="Loading" className="loader">
+                    <div className="loader-inner square-spin">
                         <div></div>
                     </div>
                 </div>

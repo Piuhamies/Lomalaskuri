@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Tilastot extends React.Component {
+export default class Tilastot extends React.Component {
     createStats() {
         var negativeStats = () =>  {
         return this.props.tiedot.negative.map( (x, index) => (<> <h2>{x}</h2><p className="result">Ei</p></>));

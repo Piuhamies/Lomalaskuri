@@ -15,7 +15,7 @@ import nokaKuva5Res from './Kuvat/5_HighRes.jpg';
 import nokaKuva6Res from './Kuvat/6_HighRes.jpg';
 
 
-export class Galleria extends React.Component {
+export default class Galleria extends React.Component {
     image(elem) {
             var modalElem = document.querySelector(".modal.image");
             var modalContentElem = document.querySelector(".modal-content img");

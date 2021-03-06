@@ -2,7 +2,7 @@ import React from 'react';
 import openSocket from 'socket.io-client';
 import onlineIconi from './perm_identity-24px.svg';
 import writingIconi from './menu_book-24px.svg';
-export class Chat extends React.Component {
+export default class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 'userName': null, typersInterval: null, paikalla: <h6 className="Stat" >X henkilöä paikalla</h6>, writing: <h6></h6>, socket: openSocket("https://espoochat.tk")};

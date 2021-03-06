@@ -3,20 +3,20 @@ import { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { FrontPage } from './FrontPage.js';
-import { QuickFront } from './QuickFront.js';
-import { QuickLaskuri } from './QuickFront.js';
-import { QuickRuokalista } from './QuickFront.js';
-import { QuickOtaniemiRuokalista } from './QuickFront.js';
-//import { QuickChat } from './QuickFront.js';
-import { QuickForm } from './QuickFront.js';
-import { QuickGallery } from './QuickFront.js';
-import { QuickTilastot } from './QuickFront.js';
-import { QuickSettings } from './QuickFront.js';
-//import { QuickCorona } from './QuickFront.js';
-//import { Placeholder } from './Pages.js';
 import * as serviceWorker from './serviceWorker';
 import Cookie from 'js-cookie';
 import ReactGA from 'react-ga';
+const QuickFront = lazy(() => import('./QuickFront'))
+const QuickLaskuri = lazy(() => import('./QuickBoxes/QuickLaskuri'))
+const QuickRuokalista = lazy(() => import('./QuickBoxes/QuickRuokalista'))
+const QuickOtaniemiRuokalista = lazy(() => import('./QuickBoxes/QuickOtaniemiRuokalista'))
+const QuickForm = lazy(() => import('./QuickBoxes/QuickForm'))
+const QuickGallery = lazy(() => import('./QuickBoxes/QuickGallery'))
+const QuickTilastot = lazy(() => import('./QuickBoxes/QuickTilastot'))
+const QuickSettings = lazy(() => import('./QuickBoxes/QuickSettings'))
+//import { QuickChat } from './QuickFront.js';
+//import { QuickCorona } from './QuickFront.js';
+//import { Placeholder } from './Pages.js';
 
 const RuokalistaSivu = lazy(() => import('./RuokalistaSivu'));
 const OtaniemiRuokalista = lazy(() => import('./OtaniemiRuokalista'))

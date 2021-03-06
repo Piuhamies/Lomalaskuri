@@ -1,4 +1,5 @@
 import React from 'react';
+import {Suspense} from 'react';
 import './App.css';
 import Cookie from 'js-cookie';
 import { DefaultMenu } from "./defaultMenu.js";
@@ -78,7 +79,7 @@ export class FrontPage extends React.Component {
   routes() {
     let routeArray = [];
     for (let i = 0; i < this.props.schools.length; i++) {
-      routeArray.push(this.props.schools[i].menuItems.map((x) => (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}><><Helmet><title>Lomalaskuri | {x.nimi} </title></Helmet>{x.class}</></Route>)));
+      routeArray.push(this.props.schools[i].menuItems.map((x) => (<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}><><Helmet><title>Lomalaskuri | {x.nimi} </title></Helmet><Suspense fallback={<div id="Loading" className="loader"> <div className="loader-inner square-spin"> <div></div> </div> </div>}>{x.class}</Suspense></></Route>)));
     }
     return routeArray;
   }
@@ -104,10 +105,10 @@ export class FrontPage extends React.Component {
                 <Route>
                   <div id="menu">
                     {this.state.redirect}
-                    <div onClick={this.toHome} class="menuBtn">
+                    <div onClick={this.toHome} className="menuBtn">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg>
                     </div>
-                    <h1 class="offCenter" id="logo">Lomalaskuri</h1>
+                    <h1 className="offCenter" id="logo">Lomalaskuri</h1>
                   </div>
                 </Route>
               </Switch>

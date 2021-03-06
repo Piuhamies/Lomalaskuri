@@ -1,4 +1,5 @@
 import React from 'react';
+import { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { FrontPage } from './FrontPage.js';
@@ -13,19 +14,19 @@ import { QuickTilastot } from './QuickFront.js';
 import { QuickSettings } from './QuickFront.js';
 //import { QuickCorona } from './QuickFront.js';
 //import { Placeholder } from './Pages.js';
-import { RuokalistaSivu } from './RuokalistaSivu.js';
-import { OtaniemiRuokalista } from './OtaniemiRuokalista.js';
+import * as serviceWorker from './serviceWorker';
+import Cookie from 'js-cookie';
+import ReactGA from 'react-ga';
 
-import { Kysely } from './Kysely.js';
-import { Galleria } from './Galleria.js';
+const RuokalistaSivu = lazy(() => import('./RuokalistaSivu'));
+const OtaniemiRuokalista = lazy(() => import('./OtaniemiRuokalista'))
+const Kysely = lazy(() => import('./Kysely'));
+const Galleria = lazy(() => import('./Galleria'));
 //import { Chat } from './Chat.js';
 //import { Pelit } from './Pelit.js'; 
-import { Tilastot } from './Tilastot.js';
-import * as serviceWorker from './serviceWorker';
-import { TimerClass } from './timerClass.js';
-import Cookie from 'js-cookie';
+const Tilastot = lazy(() => import('./Tilastot'));
+const TimerClass = lazy(() => import('./timerClass'));
 
-import ReactGA from 'react-ga';
 ReactGA.initialize('UA-137016636-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 

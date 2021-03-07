@@ -12,19 +12,11 @@
     --chat-primary: #223142;
     --chat-secondary: #31465F;
     --bg-fallback: linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%);
-    --bg-fallback-image: var(--noka-light-bg-img-fallback);
-    --noka-dark-bg-img-fallback: url("Dark.webP");
-    --noka-light-bg-img-fallback: url("trianglify.webp");
-    --noka-light-bg-img: url("trianglify.svg");
-    --noka-dark-bg-img: url("Dark.svg");
-    --vantti-light-bg-img: url("trianglify.svg");
-    --vantti-dark-bg-img: url("vanttiyo.png");
-    --lauri-light-bg-img: url("paivalauri-min.jpg");
-    --lauri-dark-bg-img: url("lauriyo.jpg");
-    --hauki-light-bg-img: url("haukipaiva.jpg");
-    --hauki-dark-bg-img: url("haukiyo.jpg");
-    --none-light-bg-img: url("nonepaiva.png");
-    --none-dark-bg-img: url("noneyo.jpg");
+    --bg-fallback-image: var(--light-bg-img-fallback);
+    --dark-bg-img-fallback: url("Dark.webP");
+    --light-bg-img-fallback: url("trianglify.webp");
+    --light-bg-img: url("trianglify.svg");
+    --dark-bg-img: url("Dark.svg");
     --background-image: url("trianglify.svg");
 }
 

@@ -237,7 +237,7 @@ let allSchools = [
     schoolName: "Jokin muu espoon koulu",
     href: "None",
     menuItems: [
-      { nimi: "Etusivu", 'class': <QuickFront quickItems={[ <QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.none} themes={toggleTheme} />]} /> },
+      { nimi: "Etusivu", 'class': <QuickFront quickItems={[<QuickCorona key= "QuickCorona"/>, <QuickLaskuri key="QuickLaskuri" href="Laskuri" />, <QuickRuokalista key="QuickRuoka" href="Ruokalista" />, <QuickForm key="QuickPalaute" kysymys="Anna palautetta: " teksti="Mitä pidit Espoon lomalaskurista?" href="Palaute" />, <QuickSettings key="QuickSettings" theme={themes.none} themes={toggleTheme} />]} /> },
       { nimi: "Laskuri", 'class': <TimerClass /> },
       { nimi: "Ruokalista", 'class': <RuokalistaSivu /> },
       //{ nimi: "Chat", 'class': <Chat />},

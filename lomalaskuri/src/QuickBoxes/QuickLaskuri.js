@@ -13,7 +13,7 @@ export default class QuickLaskuri extends React.Component {
             { nimi: "Aikaa Syyslomaan", start: new Date("Oct 18, 2019 00:00:00"), end: new Date("Oct 22, 2019 00:00:00") },
             { nimi: "Aikaa Joululomaan", start: new Date("Dec 23, 2019 00:00:00"), end: new Date("Jan 9, 2020 00:00:00") },
             { nimi: "Aikaa Hiihtolomaan", start: new Date("Feb 22, 2019 00:00:00"), end: new Date("Feb 26, 2019 00:00:00") },
-            { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 2 2019 16:00:00"), end: new Date("Apr 5 2019 8:30:00") }
+            { nimi: "Aikaa Pääsiäislomaan", start: new Date("Apr 1 2019 16:00:00"), end: new Date("Apr 6 2019 8:30:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
         { nimi: "days", shortened: "d" },

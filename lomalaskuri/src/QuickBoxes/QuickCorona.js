@@ -9,7 +9,7 @@ export default class QuickCorona extends React.Component {
     componentDidMount() {
         this.setState({ active: true, ready: false });
         var timers = [
-            { nimi: "Aikaa koulujen sulkemiseen", start: new Date("Mar 1, 2021 00:00:00"), end: new Date("April 5, 2021 10:00:00") }
+            { nimi: "Aikaa koulujen sulkemiseen", start: new Date("Mar 1, 2021 00:00:00"), end: new Date("April 11, 2021 10:00:00") }
         ];  //Kaikki nykyiset lomat
         var timeNames = [{ nimi: "weeks", shortened: "wk" },
         { nimi: "days", shortened: "d" },

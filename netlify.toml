@@ -12,5 +12,5 @@
   for = "/*"
   [headers.values]
 	cache-control = '''
-	no-cache,
+	no-cache, 
 	no-store'''

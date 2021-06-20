@@ -1,41 +1,29 @@
+/*Good luck to everyone trying to edit this stylesheet! 
+It was first created in 2018 and has only been modified during all the numerous design changes the site has gone through.
+That is why it contains a lot of unclean and unneccessary code */
+
 :root {
     --seperator-color: #4389f9;
     --menu-color: transparent;
-    --mobile-menu-color: white;
+    --header-color: rgb(223, 239, 255);
+    --mobile-menu-color: #0f0f0f;
     --places-color: white;
     --border-color: #ddd;
     --text-color: black;
     --quick-color: rgba(255, 255, 255, 0.5);
     --quick-invert-color: rgba(0, 0, 0, 0.5);
-    --login-bg: rgba(255, 255, 255, 0.3);
+    --login-gradient: url("Gradient.webp");
+    --login-gradient-white: url("Gradient_light.webp");
+    --login-bg: var(--login-gradient); 
     --invert-amount: 0%;
     --chat-primary: #223142;
     --chat-secondary: #31465F;
-    --bg-fallback: linear-gradient(336deg, rgba(255,255,255,1) 0%, rgba(67,137,249,1) 30%, rgba(118,169,251,1) 70%, rgba(255,255,255,1) 100%);
-    --bg-fallback-image: var(--light-bg-img-fallback);
-    --dark-bg-img-fallback: url("Dark.webP");
-    --light-bg-img-fallback: url("trianglify.webp");
-    --light-bg-img: url("trianglify.svg");
-    --dark-bg-img: url("Dark.svg");
-    --background-image: url("trianglify.svg");
+    --background-color: #0f0f0f;
 }
 
-body:before { /*A bg workaround to get it to work with mobile devices */
-    position: fixed;
-    z-index: -10;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    content: '';
-    background-image: var(--background-image), var(--bg-fallback-image),  var(--bg-fallback);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: cover;
-  }
+html {
+    background-color: var(--background-color);
+}
 
 body, html {
     height: 100%;
@@ -64,7 +52,7 @@ body, html {
     color: white;
 }
 .square-spin>div::after {
-    font-family: 'Roboto';
+    font-family: 'Roboto Mono';
     content: "L";
     font-size: 2.5em;    
 }
@@ -205,6 +193,8 @@ body, html {
     background-color: var(--quick-color);
     opacity: 0;
     height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px black;
 }
 
 .quickBox.corona {
@@ -223,22 +213,22 @@ body, html {
 @keyframes appearLeft {
     0% {
         opacity: 0;
-        transform: translate(-40px, 0px)
+        transform: translate(-40px, 0px);
     }
     100% {
         opacity: 1;
-        transform: translate(0px, 0px)
+        transform: translate(0px, 0px);
     }
 }
 
 @keyframes disappearLeft {
     0% {
         opacity: 1;
-        transform: translate(0px, 0px)
+        transform: translate(0px, 0px);
     }
     100% {
         opacity: 0;
-        transform: translate(-40px, 0px)
+        transform: translate(-40px, 0px);
     }
 }
 
@@ -286,6 +276,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0px 15px 15px 0px;
 }
 
 .quickBoxRight:hover {
@@ -435,15 +426,9 @@ h1, h2, #show, #logo, #salainen, .linkLookALike {
     transition-property: opacity;
 }
 
-#places {
-    background-color: var(--places-color) !important;
-    border-color: var(--border-color) !important;
-}
 
 #places>a {
-    background-color: var(--menu-color) !important;
     color: var(--text-color) !important;
-    border-color: var(--border-color) !important;
 }
 
 #peli {
@@ -723,16 +708,61 @@ html {
         bottom: 0;
     }
 }
-
+.loginSite {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.lomaEsittely {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1em;
+    height: 100vh;
+    width: 40vw;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+}
+.lomaEsittely > div {
+    margin-left: 2vw;
+    margin-bottom: 15vh;
+}
+.lomaEsittely h1{
+    margin: 0.3em;
+}
+#terveDiv {
+    animation: appearLeft 1s forwards;
+}
+#lomaDiv {
+    opacity: 0;
+    animation: appearLeft 1s forwards;
+    animation-delay: 0.2s;
+}
+#terveText {
+    font-size: 3vw;
+    transform: scaleX(1.4) translate(17%, 1.2%);
+    color: var(--header-color);
+}
+#lomaText {
+    transform: scaleY(1.4);
+    font-size: 5vw;
+    margin-left: 1em;
+    color: var(--seperator-color);
+}
 .login {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: var(--login-bg);
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--login-bg) left repeat-y;
+    background-size: 100% auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-.login h1 {
-    color: var(--text-color);
+.login > h2 {
+    color: var(--header-color);
 }
 
 .darkIcon {
@@ -740,10 +770,19 @@ html {
 }
 
 .loginOptions {
-    box-shadow: 0px 0px 20px var(--seperator-color);
+    box-shadow: 0px 0px 20px black;
     background-color: var(--mobile-menu-color);
+    border-radius: 15px;
+    color: whitesmoke;
+    overflow: auto;
+    padding: 1em 1em 2em 1em;
 }
-
+#menuContainer {
+    background: var(--quick-color);
+}
+#logo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .loginOptions>h2, .loginOptions>p, .loginOptions>a {
     color: var(--text-color);
 }
@@ -751,9 +790,16 @@ html {
     font-family: "Roboto Mono", monospace;
 }
 
+@media (max-width:1500px) and (min-width:960px) {
+    .darkIcon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+}
 @media (max-width:960px) {
     .schoolSelection {
-        min-height: 48px;
+        min-height: 60px;
     }
     .chatModal-content {
         top: 50%;
@@ -834,43 +880,48 @@ html {
         width: 100vw;
     }
     #menu {
-        background-color: var(--mobile-menu-color);
         transition: 2s;
         transition-property: background-color;
     }
     .darkIcon {
         display: inline-block;
-        background-color: var(--login-bg);
-        border-radius: 10px;
+        background: var(--login-bg);
+        border-radius: 15px;
         margin: 1em;
         transform: rotate(-45deg);
         height: 10vw;
         width: 10vw;
-        filter: hue-rotate(0) drop-shadow(0 0 10px var(--seperator-color));
+        /*filter: hue-rotate(0) drop-shadow(0 0 10px var(--seperator-color)); */
+        box-shadow: 0px 0px 20px black;
     }
     .darkIcon:hover {
         filter: hue-rotate(150deg) drop-shadow(0 0 10px var(--seperator-color));
+    }
+    .lomaEsittely {
+        display: none;
+    }
+    #loginContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .login {
         justify-content: flex-start;
         align-items: center;
         box-sizing: border-box;
         padding: 0 1em;
-        width: 100vw;
         min-height: 100vh;
+        height: auto;
+        width: 100vw;
         font-size: 4.25vw;
-        font-family: Oswald;
     }
     .loginOptions h2 {
         font-size: 1.5em;
     }
     .loginOptions {
         font-size: 1.3em;
-        box-sizing: border-box;
-        padding: 0 2em 2em 1em;
         display: flex;
         flex-direction: column;
-        border: solid;
         width: auto;
         height: auto;
     }
@@ -916,8 +967,6 @@ html {
         text-align: center;
     }
     #logo {
-        font-family: "Margarine";
-        font-display: swap;
         display: flex;
         margin: 0;
         font-size: 8vw;
@@ -1067,9 +1116,6 @@ html {
     #foodList {
         width: 50vw;
     }
-    #menu {
-        background-color: var(--menu-color);
-    }
     .quickBoxLeft .ajat {
         font-size: 3.5em;
     }
@@ -1085,41 +1131,42 @@ html {
         padding: 0em 1em 0em 1em;
     }
     .darkIcon {
-        position: absolute;
-        right: 0;
-        margin: 0.5em;
+        background: var(--mobile-menu-color);
+        margin-left: 3em;
+        border-radius: 10px;
         transform: rotate(-45deg);
         height: 1.5em;
-        filter: hue-rotate(0) drop-shadow(0 0 2px var(--seperator-color));
+        /*filter: hue-rotate(0) drop-shadow(0 0 2px var(--seperator-color)); */
+        box-shadow: 0px 0px 20px black;
         width: 1.5em;
     }
     .darkIcon:hover {
         filter: hue-rotate(150deg) drop-shadow(0 0 2px var(--seperator-color));
     }
+    #loginContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: auto;
+    }
     .login {
         box-sizing: border-box;
-        padding: 0 1em;
-        width: 1000px;
-        min-width: 20vw;
-        max-width: 60vw;
-        min-height: 100vh;
+        padding-left: 8%;
+        width: 60vw;
+        max-width: 1200px;
+        height: 100vh;
         font-size: 28px;
-        font-family: Oswald;
         margin-left: 2em;
-        border-left: 3px solid var(--border-color);
-        border-right: 3px solid var(--border-color);
     }
     .loginOptions {
         font-size: 0.8em;
-        box-sizing: border-box;
-        padding: 0 1em 2em 1em;
         display: flex;
         flex-direction: column;
-        border: solid;
-        width: 20em;
+        width: 35vw;
+        max-width: 20em;
         height: auto;
         max-height: 50em;
-        overflow: auto;
+        margin-left: 2em;
     }
     .loginOptions>a:hover {
         color: grey;
@@ -1136,7 +1183,6 @@ html {
     #places {
         display: flex !important;
         justify-content: center;
-        background-color: white;
     }
     #places>a {
         text-decoration: none;
@@ -1157,13 +1203,13 @@ html {
         font-display: swap;
     }
     #logo {
-        font-family: "Margarine";
-        font-display: swap;
+        transform: scaleX(1.3);
         display: flex;
         margin-top: 0;
         margin-bottom: 0;
         justify-content: center;
         font-size: 8vw;
+        color: var(--header-color);
     }
     .ajat {
         font-size: 5em;

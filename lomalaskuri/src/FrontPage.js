@@ -99,7 +99,7 @@ export class FrontPage extends React.Component {
               <Switch>
                 {this.props.schools.map((x, index) => {
                   return (<Route key={index + "key"} exact path={`/${x.href}/${x.menuItems[0].nimi}`} >          <div id="menu">
-                    <a href="/" id="logo"> Lomalaskuri </a>
+                    <h1 id="logo">Lomalaskuri</h1>
                   </div></Route>)
                 })}
                 <Route>

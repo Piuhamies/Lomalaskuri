@@ -1075,7 +1075,7 @@ html {
 }
 
 #menu>a:hover {
-    color: blue;
+    color: var(--header-color);
 }
 
 @media (min-width:960px) {

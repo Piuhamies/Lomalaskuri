@@ -19,6 +19,7 @@ That is why it contains a lot of unclean and unneccessary code */
     --chat-primary: #223142;
     --chat-secondary: #31465F;
     --background-color: #0f0f0f;
+    --shadow-color: rgba(0,0,0,1);
 }
 
 html {
@@ -194,7 +195,7 @@ body, html {
     opacity: 0;
     height: 100%;
     border-radius: 15px;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 20px var(--shadow-color);
 }
 
 .quickBox.corona {
@@ -1204,6 +1205,8 @@ html {
     }
     #logo {
         transform: scaleX(1.3);
+        transform-origin: 0 0;
+        width: 76.92%; /*Compensates for the transform*/
         display: flex;
         margin-top: 0;
         margin-bottom: 0;

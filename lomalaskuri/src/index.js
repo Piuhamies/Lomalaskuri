@@ -56,6 +56,7 @@ let themes = {
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
   { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
 ],
   HaukilahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
   { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
@@ -64,10 +65,11 @@ let themes = {
   { nimi: "--invert-amount", light: "0%", dark: "100%" },
   { nimi: "--mobile-menu-color", light: "white", dark: "#202020" },
   { nimi: "--quick-color", light: "rgba(255,255,255,0.7)", dark: "rgba(39,39,39,0.7)" },
-  { nimi: "--seperator-color", light: "#FAFADD", dark: "#FAFADD" },
+  { nimi: "--seperator-color", light: "#C8C87D", dark: "#C8C87D" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
   { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
 ],
   LaurinlahdenKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
   { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
@@ -80,6 +82,7 @@ let themes = {
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
   { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
 ],
   VanttilanKoulu: [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
   { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
@@ -91,7 +94,9 @@ let themes = {
   { nimi: "--seperator-color", light: "#6BD046", dark: "#6BD046" },
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
-  { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },],
+  { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
+],
   OtaniemenLukio: [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
   { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
   { nimi: "--border-color", light: "#ddd", dark: "black" },
@@ -103,6 +108,7 @@ let themes = {
   { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
   { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
 ],
   JuvanPuisto:
   [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -114,7 +120,9 @@ let themes = {
     { nimi: "--seperator-color", light: "#FFFD76", dark: "#FFFD76" },
     { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
-    { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },],
+    { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+    { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
+],
   None:
     [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
     { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
@@ -126,7 +134,9 @@ let themes = {
     { nimi: "--seperator-color", light: "#A84AD2", dark: "#A84AD2" },
     { nimi: "--quick-invert-color", light: "rgba(0,0,0,0.5)", dark: "rgba(255,255,255,0.1)" },
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
-    { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },],
+    { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+    { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"}
+],
   login: [{ nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
   { nimi: "--places-color", light: "white", dark: "#0f0f0f" },
   { nimi: "--border-color", light: "#ddd", dark: "black" },
@@ -142,6 +152,7 @@ let themes = {
   { nimi: "--login-bg", light: "var(--login-gradient-white)", dark: "var(--login-gradient)", },
   { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)", },
   { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f", },
+  { nimi: "--shadow-color", light:"rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)"},
   ]
 
 }

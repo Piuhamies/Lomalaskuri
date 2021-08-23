@@ -28,10 +28,6 @@ export default class OtaniemiRuokalista extends React.Component {
             document.getElementById("Loading").remove();
             let foodlist = document.getElementById("foodList");
             foodlist.innerHTML = data;
-            //poistetaan alusta turha roska
-            foodlist.firstChild.remove();
-            foodlist.firstChild.remove();
-            foodlist.firstChild.remove();
 
             document.getElementById("foodList").style.display = "block";
         }

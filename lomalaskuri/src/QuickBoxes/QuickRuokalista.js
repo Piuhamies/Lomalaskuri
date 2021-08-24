@@ -9,12 +9,11 @@ export default class QuickRuokalista extends React.Component {
         this.state = {redirect: false, ready: false, todaysRuokalista: null, ruokalista: null};
     }
     componentDidMount() {
-        nextStep();
+        nextStep(this.props.url);
         onloadDocumentFromContent = onloadDocumentFromContent.bind(this);
-         async function nextStep() {
-            var requesturl = `https://lomalaskuribackend.herokuapp.com/aromidata`;
+         async function nextStep(url) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', requesturl);
+            xhr.open('GET', url);
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.send();
             xhr.onload = function () {
@@ -36,21 +35,15 @@ export default class QuickRuokalista extends React.Component {
                 this.setState({ready: true, todaysRuokalista: textElem });
                 return;
             }
-            var nyt = new Date();
-            var curDate = nyt.getDate();
-            var days = ["sunnuntai","maanantai", "tiistai", "keskiviikko", "torstai", "perjantai","lauantai"];
-            var paivanNimi = <h1 className="alaotsikot" >{days[nyt.getDay()] +  "  " +nyt.toLocaleDateString("fi-FI")}:</h1>
+            var now = new Date().getDay()-1;
+            var paivanNimi = <h1 className="alaotsikot" >{menuJson[now].day}:</h1>;
             this.setState({ready: true, todaysRuokalista: (<>{paivanNimi} <div className="quickText quickRuokalista"><p>Tänään ei ole kouluruokailua</p> </div> </> )});
-            menuJson.Days.forEach((element, index) => {
-                var menuDate = new Date(element.Date);
-                var tempTitle = <h1 className="alaotsikot">{days[menuDate.getDay()-1] +  "  " +menuDate.toLocaleDateString("fi-FI")}</h1>
-                if(curDate === menuDate.getDate()) {
-                    let textElem = (<div className="quickText quickRuokalista"><p key={element.Meals[0].Name + "Key"} id="FoodGlimpse">Päivän ruoka: {element.Meals[0].Name} </p> </div>);
-                    console.log(textElem);
-                    this.setState({ready: true, todaysRuokalista: textElem });
-                }
-                    
-            });
+                var tempTitle = paivanNimi;
+                let textElem = (<div className="quickText quickRuokalista">
+                    <p id="FoodGlimpse">Päivän ruoka: {menuJson[now].food} </p>
+                    <p id="FoodGlimpse">Päivän kasvisruoka: {menuJson[now].veganFood}</p>
+                     </div>);
+                this.setState({ready: true, todaysRuokalista: textElem });
         }
     }
     render() {

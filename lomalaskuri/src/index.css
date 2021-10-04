@@ -305,7 +305,9 @@ body, html {
     font-size: 1.5em;
     padding-left: 0.5em;
 }
-
+.quickRuokalista {
+    grid-row: span 2;
+}
 .quickLoader {
     width: 100%;
     height: 100%;

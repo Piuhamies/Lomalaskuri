@@ -14,3 +14,10 @@
 	cache-control = '''
 	no-cache, 
 	no-store'''
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html"
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "text/javascript"
+    charset = UTF-8

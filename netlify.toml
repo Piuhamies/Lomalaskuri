@@ -14,9 +14,11 @@
 	cache-control = '''
 	no-cache, 
 	no-store'''
+[[headers]]
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html"
+[[headers]]
   for = "/*.js"
   [headers.values]
     Content-Type = "text/javascript"

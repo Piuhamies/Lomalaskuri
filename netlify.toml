@@ -20,4 +20,4 @@
   for = "/*.js"
   [headers.values]
     Content-Type = "text/javascript"
-    charset = UTF-8
+    charset = "UTF-8"

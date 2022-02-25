@@ -12,8 +12,8 @@ That is why it contains a lot of unclean and unneccessary code */
     --text-color: black;
     --quick-color: rgba(255, 255, 255, 0.5);
     --quick-invert-color: rgba(0, 0, 0, 0.5);
-    --login-gradient: url("Gradient.webp");
-    --login-gradient-white: url("Gradient_light.webp");
+    --login-gradient: url("./Backgrounds/Gradient.webp");
+    --login-gradient-white: url("./Backgrounds/Gradient_light.webp");
     --login-bg: var(--login-gradient); 
     --invert-amount: 0%;
     --chat-primary: #223142;

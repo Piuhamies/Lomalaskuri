@@ -9,14 +9,14 @@
       "src": "logo.png",
       "sizes": "512x512",
       "type": "image/png",
-	  "purpose": "any"
+      "purpose": "any"
     },
-	{
-	  "src": "maskable_logo.png",
-	  "sizes": "243x243",
-	  "type": "image/png",
-	  "purpose": "maskable"
-	}
+    {
+      "src": "maskable_logo.png",
+      "sizes": "243x243",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "name": "Lomalaskuri",
   "short_name": "Lomalaskuri",
@@ -35,10 +35,10 @@
       "short_name": "Laskuri",
       "description": "Katso kuinka kauan on seuraavaan lomaan",
       "url": "https://lomalaskuri.tk/None/Laskuri",
-      "icons": [{ "src": "maskable_logo.png", "sizes": "243x243" }] 
+      "icons": [{ "src": "maskable_logo.png", "sizes": "243x243" }]
     }
   ],
-  "screenshots" : [
+  "screenshots": [
     {
       "src": "screenshot1.png",
       "sizes": "1280x720",

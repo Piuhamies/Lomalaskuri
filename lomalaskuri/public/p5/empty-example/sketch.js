@@ -1,7 +1,6 @@
-
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
 var numSegments = 10;
-var direction = 'right';
+var direction = "right";
 
 var xStart = 0; //starting x coordinate for snake
 var yStart = 250; //starting y coordinate for snake
@@ -18,7 +17,6 @@ var img;
 var pizza;
 var wait = 0;
 
-
 function preload() {
   img = loadImage("hdKakka.png");
   pizza = loadImage("pizza.png");
@@ -27,8 +25,8 @@ function setup() {
   //luodaan teksti paikat pisteille
   scoreElem = createDiv(score);
   scoreElem.position(20, 0);
-  scoreElem.id = 'score';
-  scoreElem.style('color', 'black');
+  scoreElem.id = "score";
+  scoreElem.style("color", "black");
   fullscreen();
   createCanvas(windowWidth, windowHeight);
   frameRate(30);
@@ -38,7 +36,7 @@ function setup() {
 
   for (var i = 0; i < numSegments; i++) {
     fill(204, 102, 0);
-    xCor.push(xStart + (i * diff));
+    xCor.push(xStart + i * diff);
     yCor.push(yStart);
   }
 }
@@ -51,11 +49,10 @@ function draw() {
     beginShape();
     /* Tein if logiikan ettei pelei tulisi liian raskaaksi.
     Tämä kohta vaikuttaa ulkonäköön siten että yksi väri jatkuu kaksi pistettä */
-    if (wait == 0){
+    if (wait == 0) {
       stroke(random(0, 255), random(0, 255), random(0, 255));
       wait = 1;
-    }
-    else if (wait = 1) {
+    } else if ((wait = 1)) {
       wait = 0;
     }
     line(xCor[i], yCor[i], xCor[i + 2], yCor[i + 2]);
@@ -78,25 +75,24 @@ function draw() {
  or down, the segment's y coordinate is affected.
 */
 function updateSnakeCoordinates() {
-
   for (var i = 0; i < numSegments - 1; i++) {
     xCor[i] = xCor[i + 1];
     yCor[i] = yCor[i + 1];
   }
   switch (direction) {
-    case 'right':
+    case "right":
       xCor[numSegments - 1] = xCor[numSegments - 2] + diff;
       yCor[numSegments - 1] = yCor[numSegments - 2];
       break;
-    case 'up':
+    case "up":
       xCor[numSegments - 1] = xCor[numSegments - 2];
       yCor[numSegments - 1] = yCor[numSegments - 2] - diff;
       break;
-    case 'left':
+    case "left":
       xCor[numSegments - 1] = xCor[numSegments - 2] - diff;
       yCor[numSegments - 1] = yCor[numSegments - 2];
       break;
-    case 'down':
+    case "down":
       xCor[numSegments - 1] = xCor[numSegments - 2];
       yCor[numSegments - 1] = yCor[numSegments - 2] + diff;
       break;
@@ -109,13 +105,15 @@ function updateSnakeCoordinates() {
  or if the snake hits itself.
 */
 function checkGameStatus() {
-  if (xCor[xCor.length - 1] > width ||
-      xCor[xCor.length - 1] < 0 ||
-      yCor[yCor.length - 1] > height ||
-      yCor[yCor.length - 1] < 0 ||
-      checkSnakeCollision()) {
+  if (
+    xCor[xCor.length - 1] > width ||
+    xCor[xCor.length - 1] < 0 ||
+    yCor[yCor.length - 1] > height ||
+    yCor[yCor.length - 1] < 0 ||
+    checkSnakeCollision()
+  ) {
     noLoop();
-    scoreElem.html('Game ended! Your score was : ' + score);
+    scoreElem.html("Game ended! Your score was : " + score);
   }
 }
 
@@ -141,10 +139,10 @@ function checkSnakeCollision() {
 function checkForFruit() {
   stroke(0);
   //näytetään pizza pisteen kohdalla
-  image(pizza, xFruit-32, yFruit-32);
-  disX = xFruit - xCor[xCor.length -1];
-  disY = yFruit - yCor[yCor.length -1];
-  if (sqrt(sq(disX) + sq(disY)) < 80/2 ) {
+  image(pizza, xFruit - 32, yFruit - 32);
+  disX = xFruit - xCor[xCor.length - 1];
+  disY = yFruit - yCor[yCor.length - 1];
+  if (sqrt(sq(disX) + sq(disY)) < 80 / 2) {
     /*Tein pistejärjestelmän täysin uudestaan, koska koodissa ollut oli
      liian monimutkainen eikä ollut helposti muokattavissa */
     score = score + 1;
@@ -152,16 +150,16 @@ function checkForFruit() {
     //tämä kohta monta kertaa että se kasavaisi enemmän kerralla
     xCor.unshift(xCor[1]);
     xCor.unshift(xCor[0]);
-    xCor.unshift(xCor[0-10]);
-    xCor.unshift(xCor[0-20]);
-    xCor.unshift(xCor[0-30]);
+    xCor.unshift(xCor[0 - 10]);
+    xCor.unshift(xCor[0 - 20]);
+    xCor.unshift(xCor[0 - 30]);
     yCor.unshift(yCor[1]);
     yCor.unshift(yCor[0]);
-    yCor.unshift(yCor[0-10]);
-    yCor.unshift(yCor[0-20]);
-    yCor.unshift(yCor[0-30]);
+    yCor.unshift(yCor[0 - 10]);
+    yCor.unshift(yCor[0 - 20]);
+    yCor.unshift(yCor[0 - 30]);
     numSegments = numSegments + 5;
-    print(numSegments); 
+    print(numSegments);
     print(xCor);
     updateFruitCoordinates();
   }
@@ -181,23 +179,23 @@ function updateFruitCoordinates() {
 function keyPressed() {
   switch (keyCode) {
     case 65:
-      if (direction != 'right') {
-        direction = 'left';
+      if (direction != "right") {
+        direction = "left";
       }
       break;
     case 68:
-      if (direction != 'left') {
-        direction = 'right';
+      if (direction != "left") {
+        direction = "right";
       }
       break;
     case 87:
-      if (direction != 'down') {
-        direction = 'up';
+      if (direction != "down") {
+        direction = "up";
       }
       break;
     case 83:
-      if (direction != 'up') {
-        direction = 'down';
+      if (direction != "up") {
+        direction = "down";
       }
       break;
   }

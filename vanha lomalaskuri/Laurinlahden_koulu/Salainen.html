@@ -1,80 +1,97 @@
 <html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <body>
+    <audio id="player" autoplay controls>
+      <source src="deja.mp3" type="audio/mp3" />
+    </audio>
 
-<body>
+    <a href="index.html">Takaisin laskuriin</a>
 
+    <div id="otsikot">
+      <h1>Salainen sivu</h1>
+      <h2>Laurinlahden koulu 6/5</h2>
+    </div>
 
+    <div id="kuva">
+      <img
+        src="pepe.JPG"
+        alt=""
+        id="kauppa"
+        style="width: 800px; height: 600px"
+      />
 
-    <audio id="player" autoplay controls><source src="deja.mp3" type="audio/mp3"></audio>
+      <img src="es.JPG" alt="" id="es" class="spin" />
 
+      <img
+        src="dogg.gif"
+        alt=""
+        id="suojain"
+        style="width: 800px; height: 600px"
+      />
+    </div>
+  </body>
 
+  <style>
+    #otsikot {
+      color: red;
+      text-align: center;
+    }
 
+    .spin {
+      width: 120px;
+      height: 140px;
 
-<a href="index.html">Takaisin laskuriin</a>
+      -webkit-animation: spin 4s linear infinite;
+      -moz-animation: spin 4s linear infinite;
+      animation: spin 4s linear infinite;
+    }
 
-<div id="otsikot">
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-<h1>Salainen sivu</h1>
-<h2>Laurinlahden koulu 6/5</h2>
-</div>
-
-<div id="kuva">
-
-<img src="pepe.JPG" alt="" id="kauppa" style="width:800px;height:600px;"> 
- 
- <img src="es.JPG" alt="" id="es" class="spin"> 
-
-<img src="dogg.gif" alt="" id="suojain" style="width:800px;height:600px;"> 
-
-</div>
-
-
-</body>
-
-<style>
-
-#otsikot {
-color: red;
-text-align: center;
-}
-
-
-
-.spin {
-
-    width: 120px;
-    height: 140px;
-
-    
--webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-} 
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#Kauppa {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 120px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-</style>
-
-
+    #Kauppa {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      margin: -60px 0 0 -60px;
+      -webkit-animation: spin 4s linear infinite;
+      -moz-animation: spin 4s linear infinite;
+      animation: spin 4s linear infinite;
+    }
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </html>
-

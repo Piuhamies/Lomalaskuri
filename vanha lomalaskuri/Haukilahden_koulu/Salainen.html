@@ -1,72 +1,93 @@
 <html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <body>
+    <a href="index.html">Takaisin laskuriin</a>
 
-<body>
+    <div id="otsikot">
+      <h1>Salainen sivu</h1>
+      <h2>Nöykkiö starter pack:</h2>
+    </div>
 
-<a href="index.html">Takaisin laskuriin</a>
+    <div id="kuva">
+      <img
+        src="Kauppa.JPG"
+        alt=""
+        id="kauppa"
+        style="width: 800px; height: 600px"
+      />
 
-<div id="otsikot">
+      <img src="es.JPG" alt="" id="es" class="spin" />
 
-<h1>Salainen sivu</h1>
-<h2>Nöykkiö starter pack:</h2>
-</div>
+      <img
+        src="Hengityssuojain.JPG"
+        alt=""
+        id="suojain"
+        style="width: 800px; height: 600px"
+      />
+    </div>
+  </body>
 
-<div id="kuva">
+  <style>
+    #otsikot {
+      color: red;
+      text-align: center;
+    }
 
-<img src="Kauppa.JPG" alt="" id="kauppa" style="width:800px;height:600px;"> 
- 
- <img src="es.JPG" alt="" id="es" class="spin"> 
+    .spin {
+      width: 120px;
+      height: 140px;
 
-<img src="Hengityssuojain.JPG" alt="" id="suojain" style="width:800px;height:600px;"> 
+      -webkit-animation: spin 4s linear infinite;
+      -moz-animation: spin 4s linear infinite;
+      animation: spin 4s linear infinite;
+    }
 
-</div>
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
 
-
-</body>
-
-<style>
-
-#otsikot {
-color: red;
-text-align: center;
-}
-
-
-
-.spin {
-
-    width: 120px;
-    height: 140px;
-
-    
--webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-} 
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#Kauppa {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 120px;
-    margin:-60px 0 0 -60px;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-</style>
-
+    #Kauppa {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      margin: -60px 0 0 -60px;
+      -webkit-animation: spin 4s linear infinite;
+      -moz-animation: spin 4s linear infinite;
+      animation: spin 4s linear infinite;
+    }
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </html>
-

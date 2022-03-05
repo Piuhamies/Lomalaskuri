@@ -34,18 +34,21 @@ export class NewSchoolSelector extends React.Component {
           <div className="login">
             <h2> Valitse koulusi: </h2>
             <div id="loginContainer">
-              <div className="loginOptions">
-                {this.props.schools.map((x, index) => (
-                  <Link
-                    onChange={() => console.log("change")}
-                    key={"kouluValinta" + index}
-                    className="schoolSelection"
-                    to={x.href + "/" + x.menuItems[0].nimi}
-                  >
-                    {x.schoolName}
-                  </Link>
-                ))}
-              </div>
+                <div className="loginBox">
+                  <div className="loginOptions">
+                  {this.props.schools.map((x, index) => (
+                    <Link
+                      onChange={() => console.log("change")}
+                      key={"kouluValinta" + index}
+                      className="schoolSelection"
+                      to={x.href + "/" + x.menuItems[0].nimi}
+                    >
+                      {x.schoolName}
+                    </Link>
+                  ))}
+                  </div>
+                  <Link id="infoLink" to={"/Info"}>Mikä on lomalaskuri?</Link>
+                </div>
               <img
                 className="darkIcon"
                 alt="vaihda dark themeen"

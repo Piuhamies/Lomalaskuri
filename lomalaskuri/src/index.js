@@ -165,6 +165,11 @@ let themes = {
     { nimi: "--mobile-menu-color", light: "white", dark: "#202020" },
     { nimi: "--seperator-color", light: "#FFFD76", dark: "#FFFD76" },
     {
+      nimi: "--quick-color",
+      light: "rgba(255,255,255,0.5)",
+      dark: "rgba(39,39,39,0.7)",
+    },
+    {
       nimi: "--quick-invert-color",
       light: "rgba(0,0,0,0.5)",
       dark: "rgba(255,255,255,0.1)",
@@ -650,6 +655,102 @@ let allSchools = [
       },
     ],
     theme: themes.JuvanPuisto,
+  },
+  {
+    schoolName: "Viherlaakson lukio",
+    href: "ViherlaaksonLukio",
+    menuItems: [
+      {
+        nimi: "Etusivu",
+        class: (
+          <QuickFront
+            quickItems={[
+              <QuickLaskuri key="QuickLaskuri" href="Laskuri" />,
+              <QuickRuokalista
+                key="QuickRuoka"
+                url="https://lomalaskuribackend.herokuapp.com/aromidata"
+                href="Ruokalista"
+              />,
+              <QuickForm
+                key="QuickPalaute"
+                kysymys="Anna palautetta: "
+                teksti="Mitä pidit Espoon lomalaskurista?"
+                href="Palaute"
+              />,
+              <QuickSettings
+                key="QuickSettings"
+                theme={themes.none}
+                themes={toggleTheme}
+              />,
+            ]}
+          />
+        ),
+      },
+      { nimi: "Laskuri", class: <TimerClass /> },
+      {
+        nimi: "Ruokalista",
+        class: (
+          <RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
+        ),
+      },
+      //{ nimi: "Chat", 'class': <Chat />},
+      //{ nimi: "Pelit", 'class': <Pelit /> },
+      {
+        nimi: "Palaute",
+        class: (
+          <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
+        ),
+      },
+    ],
+    theme: themes.None,
+  },
+  {
+    schoolName: "Tapiolan lukio",
+    href: "TapiolanLukio",
+    menuItems: [
+      {
+        nimi: "Etusivu",
+        class: (
+          <QuickFront
+            quickItems={[
+              <QuickLaskuri key="QuickLaskuri" href="Laskuri" />,
+              <QuickRuokalista
+                key="QuickRuoka"
+                url="https://lomalaskuribackend.herokuapp.com/aromidata"
+                href="Ruokalista"
+              />,
+              <QuickForm
+                key="QuickPalaute"
+                kysymys="Anna palautetta: "
+                teksti="Mitä pidit Espoon lomalaskurista?"
+                href="Palaute"
+              />,
+              <QuickSettings
+                key="QuickSettings"
+                theme={themes.none}
+                themes={toggleTheme}
+              />,
+            ]}
+          />
+        ),
+      },
+      { nimi: "Laskuri", class: <TimerClass /> },
+      {
+        nimi: "Ruokalista",
+        class: (
+          <RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
+        ),
+      },
+      //{ nimi: "Chat", 'class': <Chat />},
+      //{ nimi: "Pelit", 'class': <Pelit /> },
+      {
+        nimi: "Palaute",
+        class: (
+          <Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
+        ),
+      },
+    ],
+    theme: themes.None,
   },
   {
     schoolName: "Jokin muu Espoon yläkoulu",

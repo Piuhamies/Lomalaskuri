@@ -41,7 +41,11 @@ html {
   display: flex;
   justify-content: center;
 }
-
+.infoPage {
+  width: 100vw;
+  height: 100vh;
+  background: var(--login-bg) repeat-y;
+}
 .square-spin > div {
   background: var(--seperator-color) !important;
   border: solid 1px var(--text-color) !important;
@@ -783,14 +787,44 @@ html {
 .darkIcon {
   transition: 0.5s filter ease-out;
 }
-
-.loginOptions {
+.loginBox {
   box-shadow: 0px 0px 20px black;
   background-color: var(--mobile-menu-color);
   border-radius: 15px;
-  color: whitesmoke;
   overflow: auto;
-  padding: 1em 1em 2em 1em;
+  padding: 1em 1em 0em 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.loginOptions {
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 5px;
+  color: whitesmoke;
+  overflow-y: auto;
+  scrollbar-color: white var(--background-color) ;
+  scrollbar-width: thin;
+}
+.loginOptions::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+}
+
+.loginOptions::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 8px;
+  height: 4px;
+}
+#infoLink {
+  color: grey;
+  text-decoration: none;
+  font-size: 80%;
+  margin: 5px 0 5px 0;
+}
+#infoLink:hover {
+  color: white;
 }
 #menuContainer {
   background: var(--quick-color);
@@ -1175,15 +1209,18 @@ html {
     font-size: 28px;
     margin-left: 2em;
   }
-  .loginOptions {
+  .loginBox {
+    margin-left: 2em;
+    height: 13em;
     font-size: 0.8em;
-    display: flex;
-    flex-direction: column;
     width: 35vw;
     max-width: 20em;
-    height: auto;
-    max-height: 50em;
-    margin-left: 2em;
+  }
+  .loginOptions {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
   }
   .loginOptions > a:hover {
     color: grey;

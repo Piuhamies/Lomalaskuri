@@ -11,6 +11,7 @@ import {
   Link,
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
+import { Info } from "../Components/Info";
 import { Helmet } from "react-helmet";
 
 class PageNotFound extends React.Component {
@@ -147,6 +148,9 @@ export class FrontPage extends React.Component {
             >
               {" "}
             </NewSchoolSelector>
+          </Route>
+          <Route exact path="/info">
+            <Info />
           </Route>
           {this.props.schools.map((x) => (
             <Route key={x.href + "key"} path={`/${x.href}`}>

@@ -1,6 +1,6 @@
 import React from "react";
 import Cookie from "js-cookie";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default class QuickSettings extends React.Component {
   constructor(props) {
@@ -74,6 +74,9 @@ export default class QuickSettings extends React.Component {
                 {" "}
                 Vaihda koulua
               </button>
+              <Link className="linkLookALike SettingBtn" to={"/info"}> {/*Lol pränk tää onki oikeesti linkki, mut silti class on linkLookALike :DD*/}
+                Tietoa lomalaskurista
+              </Link>
               <button id="progressiveBtn" className="linkLookALike SettingBtn">
                 {" "}
                 Lisää kotinäytölle{" "}

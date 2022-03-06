@@ -41,10 +41,66 @@ html {
   display: flex;
   justify-content: center;
 }
+.infoPage * {
+  box-sizing: border-box;
+}
 .infoPage {
   width: 100vw;
   height: 100vh;
   background: var(--login-bg) repeat-y;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 50cm;
+  overflow: hidden;
+}
+.cube {
+  transform-style: preserve-3d;
+  width: 50vmax;
+  height: 50vmax;
+  transform:translateZ(-25vmax);
+  transition: transform 0.5s ease-in-out;
+  font-size: 10vmax;
+}
+.cube.onSide1{
+  transform: translateZ(-25vmax) rotateY(0deg);
+}
+.cube.onSide2 {
+  transform: translateZ(-25vmax) rotateX(90deg);
+}
+.cubeSide {
+  position: absolute;
+  height: 50vmax;
+  width: 50vmax;
+}
+.cubeSide1 {
+  background: var(--seperator-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transform: rotateY(0deg) translateY(10px) translateZ(25vmax);
+}
+.cubeSide1 > h1 {
+  font-size: 100%; 
+  color: white;
+  margin: 0;
+}
+.cubeSide1 > h2 {
+  font-size: 50%;
+  color: white;
+  margin: 0;
+}
+.cubeSide1 > p {
+  font-size: 30%;
+  color: var(--background-color);
+  margin: 0;
+}
+.cubeSide2 {
+  font-size: 20%;
+  background: var(--background-color);
+  transform: rotateX(-90deg) translateZ(25vmax);
 }
 .square-spin > div {
   background: var(--seperator-color) !important;
@@ -58,7 +114,7 @@ html {
   color: white;
 }
 .square-spin > div::after {
-  font-family: "Roboto Mono";
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   content: "L";
   font-size: 2.5em;
 }
@@ -230,7 +286,16 @@ html {
     transform: translate(0px, 0px);
   }
 }
-
+@keyframes appearRight {
+  0% {
+    opacity: 0;
+    transform: translate(40px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
 @keyframes disappearLeft {
   0% {
     opacity: 1;
@@ -770,6 +835,12 @@ html {
   margin-left: 1em;
   color: var(--seperator-color);
 }
+.loginSite.closing .lomaEsittely {
+  animation: appearLeft 0.5s reverse forwards;
+}
+.loginSite.closing .login {
+  animation: appearRight 0.5s reverse forwards;
+}
 .login {
   display: flex;
   flex-direction: column;
@@ -791,20 +862,22 @@ html {
   box-shadow: 0px 0px 20px black;
   background-color: var(--mobile-menu-color);
   border-radius: 15px;
-  overflow: auto;
-  padding: 1em 1em 0em 1em;
   display: flex;
+  width: auto;
+  height: auto;
   justify-content: space-between;
   flex-direction: column;
 }
 .loginOptions {
-  border-radius: 15px;
-  box-sizing: border-box;
   padding: 5px;
   color: whitesmoke;
+  margin: 1em 1em 0em 1em;
   overflow-y: auto;
-  scrollbar-color: white var(--background-color) ;
+  scrollbar-color: var(--header-color) var(--background-color) ;
   scrollbar-width: thin;
+  height: 13em;
+  width: 35vw;
+  max-width: 20em;
 }
 .loginOptions::-webkit-scrollbar {
   width: 8px;
@@ -813,18 +886,32 @@ html {
 }
 
 .loginOptions::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: var(--header-color);
   border-radius: 8px;
   height: 4px;
+}
+.schoolSelection {
+  font-size: 1em;
+  text-align: left;
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor: pointer;
 }
 #infoLink {
   color: grey;
   text-decoration: none;
   font-size: 80%;
-  margin: 5px 0 5px 0;
+  padding: 5px 0 5px 1em;
+  box-shadow: 1px 1px 15px #0f0f0f;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  border-radius: 0 0 15px 15px;
 }
 #infoLink:hover {
-  color: white;
+  color: var(--text-color);
 }
 #menuContainer {
   background: var(--quick-color);
@@ -834,7 +921,7 @@ html {
 }
 .loginOptions > h2,
 .loginOptions > p,
-.loginOptions > a {
+.loginOptions > button {
   color: var(--text-color);
 }
 .ajat p {
@@ -850,7 +937,7 @@ html {
 }
 @media (max-width: 960px) {
   .schoolSelection {
-    min-height: 60px;
+    min-height: 2.5em;
   }
   .chatModal-content {
     top: 50%;
@@ -956,6 +1043,9 @@ html {
     flex-direction: column;
     align-items: center;
   }
+  .loginBox {
+    border-radius: 2rem;
+  }
   .login {
     justify-content: flex-start;
     align-items: center;
@@ -976,7 +1066,14 @@ html {
     width: auto;
     height: auto;
   }
-  .loginOptions > a:hover {
+  #infoLink {
+    font-size: 1.3em; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: calc(1em + 5px);
+    border-radius: 0 0 2rem 2rem;
+  }
+  .loginOptions > button:hover {
     color: grey;
   }
   .milliseconds {
@@ -1130,6 +1227,9 @@ html {
 }
 
 @media (min-width: 960px) {
+  .loginSite {
+    overflow: hidden;
+  }
   .schoolSelection {
     min-height: 35px;
   }
@@ -1211,18 +1311,13 @@ html {
   }
   .loginBox {
     margin-left: 2em;
-    height: 13em;
     font-size: 0.8em;
-    width: 35vw;
-    max-width: 20em;
   }
   .loginOptions {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
   }
-  .loginOptions > a:hover {
+  .loginOptions > button:hover {
     color: grey;
   }
   .menuBtn {

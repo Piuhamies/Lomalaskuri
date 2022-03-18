@@ -67,6 +67,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   HaukilahdenKoulu: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -89,6 +90,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   LaurinlahdenKoulu: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -111,6 +113,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   VanttilanKoulu: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -133,6 +136,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   OtaniemenLukio: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -155,6 +159,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   JuvanPuisto: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -177,6 +182,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   None: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -199,6 +205,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
   login: [
     { nimi: "--menu-color", light: "transparent", dark: "#0f0f0f" },
@@ -242,6 +249,7 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
   ],
 };
 

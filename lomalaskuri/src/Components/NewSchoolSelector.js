@@ -4,18 +4,19 @@ import { Helmet } from "react-helmet";
 
 export function NewSchoolSelector(props) {
   let history = useHistory();
-  const [additionalClass, setAdditionalClass] = useState(""); 
+  const [additionalClass, setAdditionalClass] = useState("");
   function toggle() {
     props.toggleTheme(props.themes.login);
   }
   useEffect(() => {
     props.toggleTheme(props.themes.login, true);
   })
-  function changePage(url) {
-    setAdditionalClass("closing");
-    setTimeout(()=> {
-      history.push(url);
-    }, 500)
+  async function changePage(url, animate = true) { //animate arvo, "mikä on lomalaskuri" demo sivua varten. Tehdään siitä extra fancy :D
+    if (animate) {
+      setAdditionalClass("closing");
+      await new Promise(res => setTimeout(res, 500)); // käytetään await syntaksia, koska lyhempi koodi :DD Eihän se toki siis tarkoita automaattisesti cleanimpaa koodia.
+    }
+    history.push(url);
   }
   return (
     <>
@@ -43,13 +44,13 @@ export function NewSchoolSelector(props) {
                   <button
                     key={"kouluValinta" + index}
                     className="schoolSelection"
-                    onClick={() => {changePage(x.href + "/" + x.menuItems[0].nimi)} }
+                    onClick={() => { changePage(x.href + "/" + x.menuItems[0].nimi, false) }}
                   >
                     {x.schoolName}
                   </button>
                 ))}
               </div>
-              <button id="infoLink" onClick={() => {changePage("/info")}}>Mikä on Lomalaskuri?</button>
+              <button id="infoLink" onClick={() => { changePage("/info", true) }}>Mikä on Lomalaskuri?</button>
             </div>
             <img
               className="darkIcon"

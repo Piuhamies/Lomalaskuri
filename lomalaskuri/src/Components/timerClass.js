@@ -12,28 +12,28 @@ export default class TimerClass extends React.Component {
     var timers = [
       {
         nimi: "Aikaa kesälomaan ",
-        start: new Date("Jun 5, 2019 12:00:00"),
-        end: new Date("Aug 11, 2019 10:00:00"),
+        start: new Date("Jun 4, 2022 12:00:00"),
+        end: new Date("Aug 11, 2022 10:00:00"),
       },
       {
         nimi: "Aikaa Syyslomaan",
-        start: new Date("Oct 18, 2019 00:00:00"),
-        end: new Date("Oct 22, 2019 00:00:00"),
+        start: new Date("Oct 17, 2022 00:00:00"),
+        end: new Date("Oct 21, 2022 00:00:00"),
       },
       {
         nimi: "Aikaa Joululomaan",
-        start: new Date("Dec 23, 2019 00:00:00"),
-        end: new Date("Jan 9, 2020 00:00:00"),
+        start: new Date("Dec 23, 2022 00:00:00"),
+        end: new Date("Jan 8, 2023 00:00:00"),
       },
       {
         nimi: "Aikaa Hiihtolomaan",
-        start: new Date("Feb 22, 2019 00:00:00"),
-        end: new Date("Feb 26, 2019 00:00:00"),
+        start: new Date("Feb 20, 2023 00:00:00"),
+        end: new Date("Feb 24, 2023 00:00:00"),
       },
       {
         nimi: "Aikaa Pääsiäislomaan",
-        start: new Date("Apr 1 2019 16:00:00"),
-        end: new Date("Apr 6 2019 8:30:00"),
+        start: new Date("Apr 15 2022 16:00:00"),
+        end: new Date("Apr 18 2022 8:30:00"),
       },
     ]; //Kaikki nykyiset lomat
 
@@ -104,28 +104,28 @@ export default class TimerClass extends React.Component {
     var timers = [
       {
         nimi: "Aikaa kesälomaan ",
-        start: new Date("Jun 5, 2019 12:00:00"),
-        end: new Date("Aug 11, 2019 10:00:00"),
+        start: new Date("Jun 4, 2022 12:00:00"),
+        end: new Date("Aug 11, 2022 10:00:00"),
       },
       {
         nimi: "Aikaa Syyslomaan",
-        start: new Date("Oct 18, 2019 00:00:00"),
-        end: new Date("Oct 22, 2019 00:00:00"),
+        start: new Date("Oct 17, 2022 00:00:00"),
+        end: new Date("Oct 21, 2022 00:00:00"),
       },
       {
         nimi: "Aikaa Joululomaan",
-        start: new Date("Dec 23, 2019 00:00:00"),
-        end: new Date("Jan 9, 2020 00:00:00"),
+        start: new Date("Dec 23, 2022 00:00:00"),
+        end: new Date("Jan 8, 2023 00:00:00"),
       },
       {
         nimi: "Aikaa Hiihtolomaan",
-        start: new Date("Feb 22, 2019 00:00:00"),
-        end: new Date("Feb 26, 2019 00:00:00"),
+        start: new Date("Feb 20, 2023 00:00:00"),
+        end: new Date("Feb 24, 2023 00:00:00"),
       },
       {
         nimi: "Aikaa Pääsiäislomaan",
-        start: new Date("Apr 1 2019 16:00:00"),
-        end: new Date("Apr 6 2019 8:30:00"),
+        start: new Date("Apr 15 2022 16:00:00"),
+        end: new Date("Apr 18 2022 8:30:00"),
       },
     ]; //Kaikki nykyiset lomat
 

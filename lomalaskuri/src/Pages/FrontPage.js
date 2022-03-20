@@ -150,7 +150,7 @@ export class FrontPage extends React.Component {
             </NewSchoolSelector>
           </Route>
           <Route exact path="/info">
-            <Info />
+            <Info toggleTheme={this.props.darkFunction} themes={this.props.themes} />
           </Route>
           {this.props.schools.map((x) => (
             <Route key={x.href + "key"} path={`/${x.href}`}>

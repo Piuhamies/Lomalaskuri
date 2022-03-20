@@ -29,9 +29,17 @@ ReactGA.initialize("UA-137016636-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 var darkmode = false;
-
+let getTheme = () => {
+  return darkmode;
+}
+const themeEvent = new CustomEvent('themeChange', {
+  detail: {
+    getTheme: getTheme
+  }
+});
 let toggleTheme = (theme, dontToggle) => {
   console.log("theme1");
+  document.dispatchEvent(themeEvent);
   darkmode = dontToggle ? darkmode : !darkmode;
   var properties = theme;
   properties.forEach((elem, index) => {
@@ -249,7 +257,8 @@ let themes = {
     { nimi: "--header-color", light: "black", dark: "rgb(223, 239, 255)" },
     { nimi: "--background-color", light: "#a9d3ff", dark: "#0f0f0f" },
     { nimi: "--shadow-color", light: "rgba(0,0,0,0.5)", dark: "rgba(0,0,0,1)" },
-    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"}
+    { nimi: "--logo-color", light: "#4389f9", dark: "#0f0f0f"},
+    { nimi: "--lomalaskuri-color", light: "#fff", dark: "#4389f9"}
   ],
 };
 

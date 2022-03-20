@@ -53,7 +53,7 @@ export function NewSchoolSelector(props) {
               <button id="infoLink" onClick={() => { changePage("/info", true) }}>Mikä on Lomalaskuri?</button>
             </div>
             <img
-              className="darkIcon"
+              className="darkIcon selectorDarkIcon"
               alt="vaihda dark themeen"
               onClick={toggle}
               src="icons8-moon-symbol.svg"

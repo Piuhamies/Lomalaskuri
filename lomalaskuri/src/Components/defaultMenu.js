@@ -83,6 +83,9 @@ export class DefaultMenu extends React.Component {
           {" "}
           Vaihda koulua
         </button>
+        <Link to="/Info" className="linkLookALike">
+          Tietoa Lomalaskurista
+        </Link> 
       </>
     );
   }

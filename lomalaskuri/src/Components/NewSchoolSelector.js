@@ -50,7 +50,6 @@ export function NewSchoolSelector(props) {
                   </button>
                 ))}
               </div>
-              <button id="infoLink" onClick={() => { changePage("/info", true) }}>Mikä on Lomalaskuri?</button>
             </div>
             <img
               className="darkIcon selectorDarkIcon"
@@ -59,6 +58,7 @@ export function NewSchoolSelector(props) {
               src="icons8-moon-symbol.svg"
             />
           </div>
+          <button id="infoLink" onClick={() => { changePage("/info", true) }}>Mikä on Lomalaskuri?</button>
         </div>
       </div>
     </>

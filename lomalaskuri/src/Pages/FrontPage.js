@@ -1,5 +1,4 @@
-import React from "react";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import "../App.css";
 import Cookie from "js-cookie";
 import { DefaultMenu } from "../Components/defaultMenu.js";
@@ -8,7 +7,6 @@ import {
   Switch,
   Route,
   Redirect,
-  Link,
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
 import { Info } from "../Components/Info";
@@ -81,16 +79,15 @@ export class CookieNotification extends React.Component {
 export class FrontPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curSchool: null, darkMode: false, redirect: null };
+    this.state = { curSchool: null, redirect: null };
     this.toHome = this.toHome.bind(this);
   }
   componentDidMount() {
-    if (
-      (window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-      Cookie.get("dark") === "true"
-    ) {
-      this.props.darkFunction(this.props.themes.login, false);
+    if ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || Cookie.get("dark") === "true") {
+      this.props.darkFunction(this.props.themes.login, false, true);
+    }
+    else {
+      this.props.darkFunction(this.props.themes.login, false, false);
     }
   }
   toHome() {
@@ -112,11 +109,9 @@ export class FrontPage extends React.Component {
               <Suspense
                 fallback={
                   <div id="Loading" className="loader">
-                    {" "}
                     <div className="loader-inner square-spin">
-                      {" "}
-                      <div></div>{" "}
-                    </div>{" "}
+                      <div></div>
+                    </div>
                   </div>
                 }
               >
@@ -130,10 +125,6 @@ export class FrontPage extends React.Component {
     return routeArray;
   }
   render() {
-    let curSchoolCookie =
-      this.props.schools[
-        this.props.schools.findIndex((i) => i.href === Cookie.get("site"))
-      ];
     return (
       <Router>
         <Switch>

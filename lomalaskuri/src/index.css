@@ -92,7 +92,7 @@ html {
   width: 70%;
   background-color: var(--logo-color);
   box-shadow: var(--seperator-color) 0px 0px 6px 1px, black 0px 0px 2px 2px inset;
-  border-radius: 2rem;
+  border-radius: 25px;
 }
 .cubeSide1 h1 {
   font-size: 140%; 
@@ -150,6 +150,16 @@ html {
 }
 .infoImg img:hover {
   transform: scale(1.1);
+}
+.backArrow {
+  position: absolute;
+  filter: invert(1);
+  transform: rotate(180deg);
+  top: 1em;
+  left: 0;
+}
+.backArrow img {
+  width: 2em;
 }
 .highlight {
   color: var(--seperator-color);
@@ -925,8 +935,8 @@ html {
 }
 .darkIcon {
   position: fixed;
-  right: 10px;
-  top: 10px;
+  right: 20px;
+  top: 20px;
   font-size: 25px;
 }
 .darkIcon {
@@ -952,7 +962,7 @@ html {
 .loginOptions {
   padding: 5px;
   color: whitesmoke;
-  margin: 1em 1em 0em 1em;
+  margin: 0.5em 1em 0.5em 1em;
   overflow-y: auto;
   scrollbar-color: var(--header-color) var(--background-color) ;
   scrollbar-width: thin;
@@ -981,15 +991,19 @@ html {
   cursor: pointer;
 }
 #infoLink {
-  color: grey;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 80%;
-  padding: 5px 0 5px 1em;
-  box-shadow: 1px 1px 15px #0f0f0f;
-  background-color: transparent;
+  background-color: var(--mobile-menu-color);
+  border-radius: 15px;
+  padding: 0.5em;
   border: none;
-  text-align: left;
-  border-radius: 0 0 15px 15px;
+  position: absolute;
+  right: 1vmax;
+  bottom: 1vmax;
+  transition: filter 0.5s ease-out, color 0.5s ease-out;
+  
+  box-shadow: 0px 0px 20px black;
 }
 #infoLink:hover {
   color: var(--text-color);
@@ -1107,7 +1121,7 @@ html {
     /*filter: hue-rotate(0) drop-shadow(0 0 10px var(--seperator-color)); */
     box-shadow: 0px 0px 20px black;
   }
-  .darkIcon:hover {
+  .darkIcon:hover, #infoLink:hover {
     filter: hue-rotate(150deg) drop-shadow(0 0 10px var(--seperator-color));
   }
   .lomaEsittely {
@@ -1368,8 +1382,9 @@ html {
     box-shadow: 0px 0px 20px black;
     width: 1.5em;
   }
-  .darkIcon:hover {
-    filter: hue-rotate(150deg) drop-shadow(0 0 2px var(--seperator-color));
+  .darkIcon:hover, #infoLink:hover {
+    filter: hue-rotate(150deg) drop-shadow(0 0 5px var(--seperator-color));
+    color: grey;
   }
   #loginContainer {
     display: flex;
@@ -1393,6 +1408,7 @@ html {
   .loginOptions {
     display: flex;
     flex-direction: column;
+    max-height: 45vh;
   }
   .loginOptions > button:hover {
     color: grey;

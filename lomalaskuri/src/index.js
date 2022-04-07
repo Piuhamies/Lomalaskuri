@@ -37,11 +37,14 @@ const themeEvent = new CustomEvent('themeChange', {
     getTheme: getTheme
   }
 });
-let toggleTheme = (theme, dontToggle) => {
-  console.log("theme1");
-  document.dispatchEvent(themeEvent);
-  darkmode = dontToggle ? darkmode : !darkmode;
+let toggleTheme = (theme, dontToggle, forceTheme=undefined) => {
+  if(forceTheme !== undefined){
+    darkmode = forceTheme;  }
+  else {
+    darkmode = dontToggle ? darkmode : !darkmode;
+  }
   var properties = theme;
+  document.dispatchEvent(themeEvent);
   properties.forEach((elem, index) => {
     document.documentElement.style.setProperty(
       elem.nimi,

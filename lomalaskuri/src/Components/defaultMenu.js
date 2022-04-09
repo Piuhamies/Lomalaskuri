@@ -75,8 +75,7 @@ export class DefaultMenu extends React.Component {
         <button
           className="linkLookALike"
           onClick={this.toggle}
-          id="dynaaminenNappi"
-        >
+          id="dynaaminenNappi">
           Vaihda teemaa
         </button>
         <button className="linkLookALike" onClick={this.changeSchool}>
@@ -85,7 +84,7 @@ export class DefaultMenu extends React.Component {
         </button>
         <Link to="/Info" className="linkLookALike">
           Tietoa Lomalaskurista
-        </Link> 
+        </Link>
       </>
     );
   }

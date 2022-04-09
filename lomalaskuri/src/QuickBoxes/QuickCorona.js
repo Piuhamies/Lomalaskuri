@@ -65,15 +65,13 @@ export default class QuickCorona extends React.Component {
           if (oldDistance[i] !== distance[i]) {
             stateToBeSet[timeNames[i].nimi] = (
               <p
-                className={`glimpse${timeNames[i].shortened}`}
-              >{`${distance[i]}${timeNames[i].shortened}`}</p>
+                className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>
             );
           }
         } else {
           stateToBeSet[timeNames[i].nimi] = (
             <p
-              className={`glimpse${timeNames[i].shortened}`}
-            >{`${distance[i]}${timeNames[i].shortened}`}</p>
+              className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>
           );
         }
       });

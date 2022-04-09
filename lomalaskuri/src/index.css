@@ -59,11 +59,11 @@ html {
   transform-style: preserve-3d;
   width: 80vmin;
   height: 80vmin;
-  transform:translateZ(-40vmin);
+  transform: translateZ(-40vmin);
   transition: transform 0.5s ease-in-out;
   font-size: 18vmin;
 }
-.cube.onSide1{
+.cube.onSide1 {
   transform: translateZ(-40vmin) rotateY(0deg);
 }
 .cube.onSide2 {
@@ -95,11 +95,12 @@ html {
   height: 70%;
   width: 70%;
   background-color: var(--logo-color);
-  box-shadow: var(--seperator-color) 0px 0px 6px 1px, black 0px 0px 2px 2px inset;
+  box-shadow: var(--seperator-color) 0px 0px 6px 1px,
+    black 0px 0px 2px 2px inset;
   border-radius: 25px;
 }
 .cubeSide1 h1 {
-  font-size: 140%; 
+  font-size: 140%;
   color: white;
   margin: 0;
 }
@@ -972,7 +973,7 @@ html {
   color: whitesmoke;
   margin: 0.5em 1em 0.5em 1em;
   overflow-y: auto;
-  scrollbar-color: var(--header-color) var(--background-color) ;
+  scrollbar-color: var(--header-color) var(--background-color);
   scrollbar-width: thin;
   height: 13em;
   width: 35vw;
@@ -1010,7 +1011,7 @@ html {
   right: 1vmax;
   bottom: 1vmax;
   transition: filter 0.5s ease-out, color 0.5s ease-out;
-  
+
   box-shadow: 0px 0px 20px black;
 }
 #infoLink:hover {
@@ -1129,7 +1130,8 @@ html {
     /*filter: hue-rotate(0) drop-shadow(0 0 10px var(--seperator-color)); */
     box-shadow: 0px 0px 20px black;
   }
-  .darkIcon:hover, #infoLink:hover {
+  .darkIcon:hover,
+  #infoLink:hover {
     filter: hue-rotate(150deg) drop-shadow(0 0 10px var(--seperator-color));
   }
   .lomaEsittely {
@@ -1164,7 +1166,7 @@ html {
     height: auto;
   }
   #infoLink {
-    font-size: 1.3em; 
+    font-size: 1.3em;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: calc(1em + 5px);
@@ -1390,7 +1392,8 @@ html {
     box-shadow: 0px 0px 20px black;
     width: 1.5em;
   }
-  .darkIcon:hover, #infoLink:hover {
+  .darkIcon:hover,
+  #infoLink:hover {
     filter: hue-rotate(150deg) drop-shadow(0 0 5px var(--seperator-color));
     color: grey;
   }

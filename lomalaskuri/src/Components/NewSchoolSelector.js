@@ -10,11 +10,12 @@ export function NewSchoolSelector(props) {
   }
   useEffect(() => {
     props.toggleTheme(props.themes.login, true);
-  })
-  async function changePage(url, animate = true) { //animate arvo, "mikä on lomalaskuri" demo sivua varten. Tehdään siitä extra fancy :D
+  });
+  async function changePage(url, animate = true) {
+    //animate arvo, "mikä on lomalaskuri" demo sivua varten. Tehdään siitä extra fancy :D
     if (animate) {
       setAdditionalClass("closing");
-      await new Promise(res => setTimeout(res, 500)); // käytetään await syntaksia, koska lyhempi koodi :DD Eihän se toki siis tarkoita automaattisesti cleanimpaa koodia.
+      await new Promise((res) => setTimeout(res, 500)); // käytetään await syntaksia, koska lyhempi koodi :DD Eihän se toki siis tarkoita automaattisesti cleanimpaa koodia.
     }
     history.push(url);
   }
@@ -44,8 +45,9 @@ export function NewSchoolSelector(props) {
                   <button
                     key={"kouluValinta" + index}
                     className="schoolSelection"
-                    onClick={() => { changePage(x.href + "/" + x.menuItems[0].nimi, false) }}
-                  >
+                    onClick={() => {
+                      changePage(x.href + "/" + x.menuItems[0].nimi, false);
+                    }}>
                     {x.schoolName}
                   </button>
                 ))}
@@ -58,7 +60,13 @@ export function NewSchoolSelector(props) {
               src="icons8-moon-symbol.svg"
             />
           </div>
-          <button id="infoLink" onClick={() => { changePage("/info", true) }}>Mikä on Lomalaskuri?</button>
+          <button
+            id="infoLink"
+            onClick={() => {
+              changePage("/info", true);
+            }}>
+            Mikä on Lomalaskuri?
+          </button>
         </div>
       </div>
     </>

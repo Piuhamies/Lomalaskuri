@@ -63,18 +63,18 @@ export default class QuickSettings extends React.Component {
               <button
                 className="linkLookALike SettingBtn"
                 onClick={this.toggle}
-                id="dynaaminenNappi"
-              >
+                id="dynaaminenNappi">
                 Vaihda teemaa
               </button>
               <button
                 className="linkLookALike SettingBtn"
-                onClick={this.changeSchool}
-              >
+                onClick={this.changeSchool}>
                 {" "}
                 Vaihda koulua
               </button>
-              <Link className="linkLookALike SettingBtn" to={"/info"}> {/*Lol pränk tää onki oikeesti linkki, mut silti class on linkLookALike :DD*/}
+              <Link className="linkLookALike SettingBtn" to={"/info"}>
+                {" "}
+                {/*Lol pränk tää onki oikeesti linkki, mut silti class on linkLookALike :DD*/}
                 Tietoa lomalaskurista
               </Link>
               <button id="progressiveBtn" className="linkLookALike SettingBtn">

@@ -36,8 +36,7 @@ export default class Galleria extends React.Component {
         <div
           id="myModal"
           onClick={(e) => this.closeModal(e)}
-          className="modal image"
-        >
+          className="modal image">
           <div className="modal-content image">
             <span onClick={(e) => this.closeModal(e)} className="close">
               &times;

@@ -12,8 +12,7 @@ export default class Kysely extends React.Component {
           height="589"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0"
-        >
+          marginWidth="0">
           Ladataan...
         </iframe>
       </div>

@@ -113,15 +113,13 @@ export default class QuickLaskuri extends React.Component {
           if (oldDistance[i] !== distance[i]) {
             stateToBeSet[timeNames[i].nimi] = (
               <p
-                className={`glimpse${timeNames[i].shortened}`}
-              >{`${distance[i]}${timeNames[i].shortened}`}</p>
+                className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>
             );
           }
         } else {
           stateToBeSet[timeNames[i].nimi] = (
             <p
-              className={`glimpse${timeNames[i].shortened}`}
-            >{`${distance[i]}${timeNames[i].shortened}`}</p>
+              className={`glimpse${timeNames[i].shortened}`}>{`${distance[i]}${timeNames[i].shortened}`}</p>
           );
         }
       });
@@ -197,8 +195,7 @@ export default class QuickLaskuri extends React.Component {
               xmlns="http://www.w3.org/2000/svg"
               width="50"
               height="50"
-              viewBox="0 0 24 24"
-            >
+              viewBox="0 0 24 24">
               <path
                 strokeWidth="1px"
                 stroke="white"

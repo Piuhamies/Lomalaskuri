@@ -32,8 +32,7 @@ class PageNotFound extends React.Component {
           justifyContent: "center",
           alignItems: " center",
           verticalAlign: "center",
-        }}
-      >
+        }}>
         <div style={{ width: "15em" }}>
           <h1 style={{ fontFamily: "Roboto", color: "red" }}>404</h1>
           <p>
@@ -83,10 +82,13 @@ export class FrontPage extends React.Component {
     this.toHome = this.toHome.bind(this);
   }
   componentDidMount() {
-    if ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || Cookie.get("dark") === "true") {
+    if (
+      (window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+      Cookie.get("dark") === "true"
+    ) {
       this.props.darkFunction(this.props.themes.login, false, true);
-    }
-    else {
+    } else {
       this.props.darkFunction(this.props.themes.login, false, false);
     }
   }
@@ -113,8 +115,7 @@ export class FrontPage extends React.Component {
                       <div></div>
                     </div>
                   </div>
-                }
-              >
+                }>
                 {x.class}
               </Suspense>
             </>
@@ -135,13 +136,15 @@ export class FrontPage extends React.Component {
             <NewSchoolSelector
               toggleTheme={this.props.darkFunction}
               themes={this.props.themes}
-              schools={this.props.schools}
-            >
+              schools={this.props.schools}>
               {" "}
             </NewSchoolSelector>
           </Route>
           <Route exact path="/info">
-            <Info toggleTheme={this.props.darkFunction} themes={this.props.themes} />
+            <Info
+              toggleTheme={this.props.darkFunction}
+              themes={this.props.themes}
+            />
           </Route>
           {this.props.schools.map((x) => (
             <Route key={x.href + "key"} path={`/${x.href}`}>
@@ -154,8 +157,7 @@ export class FrontPage extends React.Component {
                       <Route
                         key={index + "key"}
                         exact
-                        path={`/${x.href}/${x.menuItems[0].nimi}`}
-                      >
+                        path={`/${x.href}/${x.menuItems[0].nimi}`}>
                         {" "}
                         <div id="menu">
                           <h1 id="logo">Lomalaskuri</h1>
@@ -169,8 +171,7 @@ export class FrontPage extends React.Component {
                       <div onClick={this.toHome} className="menuBtn">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
+                          viewBox="0 0 24 24">
                           <path d="M0 0h24v24H0z" fill="none" />
                           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
                         </svg>

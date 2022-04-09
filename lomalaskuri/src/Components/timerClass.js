@@ -88,8 +88,7 @@ export default class TimerClass extends React.Component {
               <p
                 id={x.nimi + oldIndex}
                 key={index + "pTimeTypeKey"}
-                className={x.nimi}
-              ></p>
+                className={x.nimi}></p>
             ))}
           </div>
         </div>

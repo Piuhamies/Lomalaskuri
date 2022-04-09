@@ -69,13 +69,17 @@ html {
 .cube.onSide2 {
   transform: translateZ(-40vmin) rotateX(90deg);
 }
+.cube.onSide3 {
+  transform: translateZ(-40vmin) rotateX(180deg);
+}
 .cubeSide {
   position: absolute;
   height: 80vmin;
   width: 80vmin;
+  background: var(--background-color);
+  box-shadow: black 0px 0px 10px;
 }
 .cubeSide1 {
-  background: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,7 +116,6 @@ html {
 .cubeSide2 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 21%;
-  background: var(--background-color);
   transform: rotateX(-90deg) translateZ(40vmin);
   padding: 0 1em;
 }
@@ -128,6 +131,11 @@ html {
 }
 .cubeSide2 p:first-of-type {
   margin: 0;
+}
+.cubeSide3 {
+  font-size: 21%;
+  transform: rotateX(-180deg) translateZ(40vmin);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .infoText {
   font-family: "Roboto", Arial, sans-serif;

@@ -5,6 +5,8 @@ import lomaLight from "../Kuvat/2020 laskuri light.webp";
 import lomaDark from "../Kuvat/2020 laskuri dark.webp"
 import { useHistory } from "react-router-dom";
 
+
+
 //Info page should be as fancy as possible without sacrificing usability and performance
 export function Info(props) {
     const [onSide, setOnSide] = useState(1);
@@ -14,7 +16,7 @@ export function Info(props) {
     const history = useHistory();
 
     useEffect(() => { //Handles rotating the cube
-        const faceAmount = 2;
+        const faceAmount = 3;
         const scrollDelay = 250;
         let rotateCube = (e) => {
             setShowScrollSign(false); //When the user has understood that you can rotate the cube, hide the hint.
@@ -27,21 +29,22 @@ export function Info(props) {
                 setOnSide(onSide - 1);
             }
         };
-        let wheelListener = window.addEventListener('wheel', rotateCube);
+        window.addEventListener('wheel', rotateCube);
         return () => {
-            window.removeEventListener('wheel', wheelListener);
-        }
-    }, [onSide]);
+            window.removeEventListener('wheel', rotateCube);
+        };
+    }, [lastScroll, onSide]);
 
     useEffect(() => { //Handles changing a picture of Lomalaskuri to the one corresponding to the current theme.
-        let themeListener = document.addEventListener('themeChange', (event) => {
+        let setOldImg = (event) => {
             setOldImg(event.detail.getTheme() ? lomaDark : lomaLight);
-        });
+        }
+        let themeListener = document.addEventListener('themeChange', setOldImg);
         props.toggleTheme(props.themes.login, true) //Updates the theme to get the 'themeChange' event fired 
         return () => { //Similar to componentWillUnmount()
-            document.removeEventListener('themeChange', themeListener);
+            document.removeEventListener('themeChange', setOldImg);
         };
-    }, []);
+    }, [props]);
     function toggle() {
         props.toggleTheme(props.themes.login);
     }
@@ -76,6 +79,9 @@ export function Info(props) {
                             <figcaption>Lomalaskuri vuonna 2020</figcaption>
                         </figure>
                     </div>
+                </div>
+                <div className="cubeSide cubeSide3">
+                    <h1>Miten <span className="highlight">Lomalaskuri</span> toimii?</h1>
                 </div>
             </div>
             {showScrollSign ? <img className="scrollSign" src={arrow} /> : null}

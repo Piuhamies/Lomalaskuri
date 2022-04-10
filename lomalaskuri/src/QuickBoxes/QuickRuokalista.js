@@ -36,23 +36,22 @@ export default class QuickRuokalista extends React.Component {
 					<div className="quickText quickRuokalista">
 						<p id="FoodGlimpse">Tänään ei ole kouluruokailua</p>{" "}
 					</div>
-				); //luotetaan siihen, ettei ruokailua ole jos ruokalistojen haku epäonnistuu
+				);
 				this.setState({ ready: true, todaysRuokalista: textElem });
 				return;
 			}
 			var now = new Date().getDay() - 1;
+			if(menuJson.length <= now || now < 0 ) {
+				console.log("Unable to fetch food data");
+				let textElem = (
+					<div className="quickText quickRuokalista">
+						<p id="FoodGlimpse">Tänään ei ole kouluruokailua</p>{" "}
+					</div>
+				);
+				this.setState({ ready: true, todaysRuokalista: textElem });
+				return;
+			}
 			var paivanNimi = <h1 className="alaotsikot">{menuJson[now].day}:</h1>;
-			this.setState({
-				ready: true,
-				todaysRuokalista: (
-					<>
-						{paivanNimi}{" "}
-						<div className="quickText quickRuokalista">
-							<p>Tänään ei ole kouluruokailua</p>{" "}
-						</div>{" "}
-					</>
-				),
-			});
 			var tempTitle = paivanNimi;
 			let textElem = (
 				<div className="quickText quickRuokalista">

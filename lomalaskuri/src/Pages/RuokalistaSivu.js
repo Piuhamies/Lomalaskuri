@@ -35,13 +35,15 @@ export default class RuokalistaSivu extends React.Component {
 			}
 			var listEl = [];
 			let now = new Date().getDay() - 1;
-			let todaysFood = menuJson[now];
-			let tempFood = (
-				<p key={todaysFood.food + "today"} id="FoodGlimpse">
-					Päivän ruoka: {todaysFood.food}
-				</p>
-			);
-			this.setState({ todaysRuokalista: tempFood });
+			if(menuJson.length > now && now >= 0) {
+				let todaysFood = menuJson[now];
+				let todaysFoodElem = (
+					<p key={todaysFood.food + "today"} id="FoodGlimpse">
+						Päivän ruoka: {todaysFood.food}
+					</p>
+				);
+				this.setState({ todaysRuokalista: todaysFoodElem });
+			}
 			menuJson.forEach((element, index) => {
 				let textHeader = <h1>{element.day}</h1>;
 				let textElem = <p key={element.food}> Lounas: {element.food}</p>;

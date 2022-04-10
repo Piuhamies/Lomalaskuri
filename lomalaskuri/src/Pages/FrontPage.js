@@ -9,7 +9,7 @@ import {
 	Redirect,
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
-import { Info } from "../Components/Info";
+import { Info } from "../Components/Info/Info";
 import { Helmet } from "react-helmet";
 
 class PageNotFound extends React.Component {

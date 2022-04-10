@@ -30,6 +30,10 @@ body,
 html {
 	height: 100%;
 }
+#site {
+  height: 100%;
+  width: 100%;
+}
 
 .loader {
 	padding: 1em;
@@ -41,12 +45,12 @@ html {
 	display: flex;
 	justify-content: center;
 }
-.infoPage * {
+#infoPage * {
 	box-sizing: border-box;
 }
-.infoPage {
+#infoPage {
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	background: var(--login-bg) repeat-y;
 	background-size: 100vw 100vh;
 	display: flex;
@@ -131,6 +135,7 @@ html {
 	color: var(--header-color);
 	grid-column: 1 / span 2;
   font-size: 180%;
+  margin: 0.5em 1em 1em 0em;
 }
 .cubeGrid p:first-of-type {
 	margin: 0;

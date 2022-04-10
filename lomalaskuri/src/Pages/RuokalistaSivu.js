@@ -24,7 +24,6 @@ export default class RuokalistaSivu extends React.Component {
 		function onloadDocumentFromContent(data) {
 			this.setState({ ruokalista: null, todaysRuokalista: null });
 			try {
-				console.log(data);
 				var menuJson = JSON.parse(data);
 			} catch {
 				console.log("Unable to fetch food data");

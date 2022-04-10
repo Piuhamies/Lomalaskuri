@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import arrow from "../../Icons/arrow_forward_ios-24px.svg";
 import { useHistory } from "react-router-dom";
+import { useRotateDetector } from "./RotateDetector";
 
 import Side1 from "./Side1";
 import Side2 from "./Side2";
@@ -8,38 +9,28 @@ import Side3 from "./Side3";
 
 //Info page should be as fancy as possible without sacrificing usability or performance
 export function Info(props) {
-	const [onSide, setOnSide] = useState(1);
-	const [lastScroll, setLastScroll] = useState(0);
+	const [visibleSide, setVisibleSide] = useState(1);
 	const [showScrollSign, setShowScrollSign] = useState(true);
 	const history = useHistory();
-
+	const infoEl = useRef(null);
+	const RotateDetector = useRotateDetector(infoEl);
 	useEffect(() => {
 		//Handles rotating the cube
 		const faceAmount = 3;
-		const scrollDelay = 250;
-		let rotateCube = (e) => {
+		let rotateCube = (swipeStatus) => {
 			setShowScrollSign(false); //When the user has understood that you can rotate the cube, hide the hint.
-			if (
-				e.deltaY > 0 &&
-				Date.now() > lastScroll + scrollDelay &&
-				onSide + 1 <= faceAmount
-			) {
-				setLastScroll(Date.now());
-				setOnSide(onSide + 1);
-			} else if (
-				e.deltaY < 0 &&
-				Date.now() > lastScroll + scrollDelay &&
-				onSide - 1 > 0
-			) {
-				setLastScroll(Date.now());
-				setOnSide(onSide - 1);
+			if (swipeStatus === 1 && visibleSide + 1 <= faceAmount) {
+				setVisibleSide(visibleSide + 1);
+			} else if (swipeStatus === -1 && visibleSide - 1 > 0) {
+				setVisibleSide(visibleSide - 1);
 			}
 		};
-		window.addEventListener("wheel", rotateCube);
-		return () => {
-			window.removeEventListener("wheel", rotateCube);
-		};
-	}, [lastScroll, onSide]);
+		let swipeStatus = RotateDetector.swipeStatus;
+		if (swipeStatus != 0) {
+			rotateCube(swipeStatus);
+			RotateDetector.resetStatus();
+		}
+	}, [visibleSide, RotateDetector]);
 
 	function toggle() {
 		props.toggleTheme(props.themes.login);
@@ -48,8 +39,8 @@ export function Info(props) {
 		history.goBack();
 	}
 	return (
-		<div className="infoPage">
-			<div className={`cube onSide${onSide}`}>
+		<div ref={infoEl} id="infoPage">
+			<div className={`cube onSide${visibleSide}`}>
 				<section className={`cubeSide cubeSide1`}>
 					<Side1 />
 				</section>

@@ -8,9 +8,9 @@ export default function Side3() {
 			</h1>
 			<div className="infoText full">
 				<p>
-					Lomalaskuri on kokonaisuudessaan yli 5000 rivistä koodia muodostunut
-					(backendia ei laskettu mukaan) Reactilla luotu nettisivu, joka
-					hyödyntää Node.js pohjaista backendia ruokatietojen hakuun.
+					Lomalaskuri on yli 30 React komponentista muodostunut React:illa luotu 
+					verkkosivu, joka hyödyntää Node.js pohjaista backendia ruokatietojen
+					hakuun.
 				</p>
 				<p>
 					Sivujen tyyli on pyritty tekemään mahdollisimman reponsiiviseksi. Ota

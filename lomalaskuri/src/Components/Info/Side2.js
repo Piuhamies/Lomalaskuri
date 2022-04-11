@@ -23,7 +23,7 @@ export default function Side2(props) {
 				Mikä on <br />
 				<span className="highlight">Lomalaskuri?</span>
 			</h1>
-			<div className="infoText">
+			<div className="infoText half">
 				<p>
 					{" "}
 					Lomalaskuri on monipuolinen työkalu jokaiselle Espoolaiselle

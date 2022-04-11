@@ -151,7 +151,12 @@ html {
 	color: var(--text-color);
 	font-size: 80%;
 	grid-row: 2 / span 3;
+}
+.infoText.half {
 	grid-column: 1;
+}
+.infoText.full {
+	grid-column: 1 / span 2;
 }
 .infoImg {
 	margin: 0;
@@ -238,7 +243,7 @@ html {
 	.cubeSide2 h1 {
 		margin: 0 0 0.5em 0;
 	}
-	.infoText {
+	.infoText.half {
 		grid-column: 1 / span 2;
 		grid-row: 2;
 	}

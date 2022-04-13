@@ -13,7 +13,7 @@ export function Info(props) {
 	const [showScrollSign, setShowScrollSign] = useState(true);
 	const history = useHistory();
 	const infoEl = useRef(null);
-	const RotateDetector = useRotateDetector(infoEl);
+	const { rotateStatus, resetStatus } = useRotateDetector(infoEl);
 	useEffect(() => {
 		//Handles rotating the cube
 		const faceAmount = 3;
@@ -25,12 +25,11 @@ export function Info(props) {
 				setVisibleSide(visibleSide - 1);
 			}
 		};
-		let swipeStatus = RotateDetector.swipeStatus;
-		if (swipeStatus != 0) {
-			rotateCube(swipeStatus);
-			RotateDetector.resetStatus();
+		if (rotateStatus != 0) {
+			rotateCube(rotateStatus);
+			resetStatus();
 		}
-	}, [visibleSide, RotateDetector]);
+	}, [visibleSide, rotateStatus]);
 
 	function toggle() {
 		props.toggleTheme(props.themes.login);

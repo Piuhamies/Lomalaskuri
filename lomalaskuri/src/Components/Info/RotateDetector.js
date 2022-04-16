@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import Hammer from "hammerjs";
 
 export function useRotateDetector(ref) {
-	const [rotateStatus, setSwipeStatus] = useState(0); // 1 for up. -1 for down. 0 for no swipes detected.
+	const [rotateStatus, setRotateStatus] = useState(0); // 1 for up. -1 for down. 0 for no swipes detected.
 	const [lastRotation, setLastRotation] = useState(0);
 	const rotateDelay = 250;
 	const resetStatus = () => {
-		setSwipeStatus(0);
+		setRotateStatus(0);
 	};
 	const setStatus = (newValue) => {
 		//We could combine this with the function above by giving the function parameter a default value, but we do not want to expose setSwipeStatus to outside
-		if (Date.now() > lastRotation + rotateDelay) {
-			setSwipeStatus(newValue);
+		if (Date.now() > lastRotation + rotateDelay && rotateStatus === 0) {
 			setLastRotation(Date.now());
+			setRotateStatus(newValue);
+			console.log("swipeStatus");
 		}
 	};
 	useEffect(() => {

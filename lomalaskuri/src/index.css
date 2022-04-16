@@ -34,6 +34,15 @@ html {
 	height: 100%;
 	width: 100%;
 }
+@media (prefers-reduced-motion) {
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+	#lomaDiv {
+		opacity: 1 !important;
+	}
+}
 .loader {
 	padding: 1em;
 	height: auto !important;

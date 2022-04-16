@@ -13,9 +13,8 @@ export default function Side3() {
 					hakuun.
 				</p>
 				<p>
-					Sivujen tyyli on pyritty tekemään mahdollisimman reponsiiviseksi. Ota
-					siis yhteyttä sähköpostiin:{" "}
-					<a href="mailto:severi.lybeck@gmail.com">severi.lybeck@gmail.com</a>{" "}
+					Ota yhteyttä{" "}
+					<a href="mailto:severi.lybeck@gmail.com">severi.lybeck@gmail.com</a>,{" "}
 					jos jokin ei toimi mobiililaitteella kuten pitäisi!
 				</p>
 				<p>

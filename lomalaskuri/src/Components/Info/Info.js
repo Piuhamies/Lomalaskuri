@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import arrow from "../../Icons/arrow_forward_ios-24px.svg";
 import { useHistory } from "react-router-dom";
 import { useRotateDetector } from "./RotateDetector";
@@ -14,23 +14,28 @@ export function Info(props) {
 	const history = useHistory();
 	const infoEl = useRef(null);
 	const { rotateStatus, resetStatus } = useRotateDetector(infoEl);
+
+	const faceAmount = 3; //The amount of faces the infocube has.
+	const rotateCube = (newSide) => {
+		if (newSide > 0 && newSide <= faceAmount) {
+			setShowScrollSign(false); //When the user has understood that you can rotate the cube, hide the hint.
+			setVisibleSide(newSide);
+		}
+	};
 	useEffect(() => {
 		//Handles rotating the cube
-		const faceAmount = 3;
-		let rotateCube = (swipeStatus) => {
-			setShowScrollSign(false); //When the user has understood that you can rotate the cube, hide the hint.
-			if (swipeStatus === 1 && visibleSide + 1 <= faceAmount) {
-				setVisibleSide(visibleSide + 1);
-			} else if (swipeStatus === -1 && visibleSide - 1 > 0) {
-				setVisibleSide(visibleSide - 1);
-			}
-		};
 		if (rotateStatus != 0) {
-			rotateCube(rotateStatus);
+			rotateCube(rotateStatus + visibleSide);
 			resetStatus();
 		}
-	}, [visibleSide, rotateStatus]);
+	}, [rotateStatus, visibleSide]);
 
+	const indicatorBtns = [];
+	for (let i = 1; i <= faceAmount; i++) {
+		indicatorBtns.push(
+			<div onClick={() => rotateCube(i)} key={"indicatorBtn" + i}></div>
+		);
+	}
 	function toggle() {
 		props.toggleTheme(props.themes.login);
 	}
@@ -50,7 +55,12 @@ export function Info(props) {
 					<Side3 />
 				</section>
 			</div>
-			{showScrollSign && <img className="scrollSign" src={arrow} />}
+			<div className={`pageIndicator onSide${visibleSide}`}>
+				{indicatorBtns}
+			</div>
+			{showScrollSign && (
+				<img className="scrollSign" onClick={() => rotateCube(2)} src={arrow} />
+			)}
 			<img
 				className="darkIcon"
 				alt="vaihda dark themeen"

@@ -13,7 +13,6 @@ export function useRotateDetector(ref) {
 		if (Date.now() > lastRotation + rotateDelay && rotateStatus === 0) {
 			setLastRotation(Date.now());
 			setRotateStatus(newValue);
-			console.log("swipeStatus");
 		}
 	};
 	useEffect(() => {

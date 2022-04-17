@@ -8,7 +8,6 @@ export function useRotateDetector(ref) {
 	const rotateDelay = 250;
 	const resetStatus = () => {
 		setRotateStatus(0);
-		setLastRotation(Date.now());
 	};
 	const setStatus = useCallback(
 		(newValue) => {
@@ -18,6 +17,7 @@ export function useRotateDetector(ref) {
 				(rotateStatus !== 0 && rotateStatus !== newValue) //We dont need delay, when rotating back and forward :D It's much more fun that way.
 			) {
 				setRotateStatus(newValue);
+				setLastRotation(Date.now());
 			}
 		},
 		[rotateStatus, lastRotation]
@@ -69,9 +69,18 @@ export function useRotateDetector(ref) {
 					setStatus(-1);
 				}
 			};
+			let handleArrow = (e) => {
+				if (e.code === "ArrowDown") {
+					setStatus(1);
+				} else if (e.code === "ArrowUp") {
+					setStatus(-1);
+				}
+			};
 			window.addEventListener("wheel", handleWheel);
+			window.addEventListener("keydown", handleArrow);
 			return () => {
 				window.removeEventListener("wheel", handleWheel);
+				window.removeEventListener("keydown", handleArrow);
 				hammertime.off("swipeup");
 				hammertime.off("swipedown");
 			};

@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Side3() {
 	return (
-		<>
+		<div className="infoGrid">
 			<h1>
 				Miten <span className="highlight">Lomalaskuri</span> toimii?
 			</h1>
 			<div className="infoText full">
 				<p>
-					Lomalaskuri on yli 30 React komponentista muodostunut React:illa luotu 
+					Lomalaskuri on yli 30 React komponentista muodostunut React:lla luotu 
 					verkkosivu, joka hyödyntää Node.js pohjaista backendia ruokatietojen
 					hakuun.
 				</p>
@@ -21,6 +21,6 @@ export default function Side3() {
 					Lähdekoodi: <span className="highlight">Tulossa pian </span>
 				</p>
 			</div>
-		</>
+		</div>
 	);
 }

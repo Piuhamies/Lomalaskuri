@@ -85,6 +85,6 @@ export function useRotateDetector(ref) {
 				hammertime.off("swipedown");
 			};
 		}
-	}, [ref, lastRotation, initialDelta, setStatus]);
+	}, [ref, lastRotation, initialDelta, resetInitialDelta, setStatus]);
 	return { rotateStatus, resetStatus };
 }

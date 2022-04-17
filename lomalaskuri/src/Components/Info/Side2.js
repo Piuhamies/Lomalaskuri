@@ -18,7 +18,7 @@ export default function Side2(props) {
 		};
 	}, [props]);
 	return (
-		<>
+		<div className="infoGrid">
 			<h1>
 				Mikä on <br />
 				<span className="highlight">Lomalaskuri?</span>
@@ -45,6 +45,6 @@ export default function Side2(props) {
 				<img src={oldImg} />
 				<figcaption>Lomalaskuri vuonna 2020</figcaption>
 			</figure>
-		</>
+		</div>
 	);
 }

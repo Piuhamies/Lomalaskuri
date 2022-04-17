@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Side3() {
 	return (
-		<div className="infoGrid">
+		<div className="infoContent infoGrid">
 			<h1>
 				Miten <span className="highlight">Lomalaskuri</span> toimii?
 			</h1>

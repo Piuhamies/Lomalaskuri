@@ -47,9 +47,16 @@ export function Info(props) {
 				oldCubeSides[(visibleSide) % 4] = infoPages[(visibleSide) % 3];
 				oldCubeSides[(visibleSide + 1) % 4] = infoPages[(visibleSide + 1) % 3];
 				setCubeSides(oldCubeSides);
-				cubeEl.current.style.transform = `translateZ(-40vmin) rotateX(${
+				if(window.matchMedia("(orientation: portrait)").matches) {
+					cubeEl.current.style.transform = `translateZ(-80vh) rotateX(${
+						newSide * 90
+					}deg)`;
+					
+				}
+				else {cubeEl.current.style.transform = `translateZ(-40vmin) rotateX(${
 					newSide * 90
 				}deg)`;
+			}
 			}
 		},
 		[cubeSides, infoPages, visibleSide]

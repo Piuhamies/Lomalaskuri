@@ -18,7 +18,7 @@ export default function Side2(props) {
 		};
 	}, [props]);
 	return (
-		<div className="infoGrid">
+		<div className="infoContent infoGrid">
 			<h1>
 				Mikä on <br />
 				<span className="highlight">Lomalaskuri?</span>

@@ -108,12 +108,12 @@ html {
 		black 0px 0px 2px 2px inset;
 	border-radius: 7.5%;
 }
-.infoContent1  h1 {
+.infoContent1 h1 {
 	font-size: 140%;
 	color: white;
 	margin: 0;
 }
-.infoContent1  h2 {
+.infoContent1 h2 {
 	font-size: 50%;
 	color: var(--lomalaskuri-color);
 	margin: 0;
@@ -258,39 +258,36 @@ html {
 		height: 80vh;
 		width: 100vw;
 		font-size: 15vh;
+		transform: translateZ(-80vh);
 	}
-	.cubeSide1 > div {
+	.infoContent1 > div {
 		width: 75vw;
 		height: 75vw;
 	}
-	.cube.onSide1 {
-		transform: translateZ(-80vh) rotateX(0deg);
+	.cubeSide1 {
+		transform: rotateX(0deg) translateZ(40vh);
 	}
-	.cube.onSide2 {
-		transform: translateZ(-80vh) rotateX(90deg);
+	.cubeSide2 {
+		transform: rotateX(-90deg) translateZ(40vh);
 	}
-	.cube.onSide3 {
-		transform: translateZ(-80vh) rotateX(180deg);
+	.cubeSide3 {
+		transform: rotateX(-180deg) translateZ(40vh);
+	}
+	.cubeSide4 {
+		transform: rotateX(-270deg) translateZ(40vh);
 	}
 	.cubeSide {
 		height: 80vh;
 		width: 100vw;
 	}
-	.cubeSide1 {
-		transform: rotateY(0deg) translateZ(40vh);
+	.infoContent1 {
 		font-size: 18vw;
 	}
-	.cubeSide2 {
-		transform: rotateX(-90deg) translateZ(40vh);
-	}
-	.cubeGrid {
+	.infoGrid {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: minmax(max-content, 5em) 1fr 1fr;
 	}
-	.cubeSide3 {
-		transform: rotateX(-180deg) translateZ(40vh);
-	}
-	.cubeSide2 h1 {
+	.infoContent2 h1 {
 		margin: 0 0 0.5em 0;
 	}
 	.infoText.half {

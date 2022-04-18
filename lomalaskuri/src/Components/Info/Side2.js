@@ -26,7 +26,7 @@ export default function Side2(props) {
 			<div className="infoText half">
 				<p>
 					{" "}
-					Lomalaskuri on monipuolinen työkalu jokaiselle Espoolaiselle
+					Lomalaskuri on monipuolinen työkalu jokaiselle espoolaiselle
 					oppilaalle ja opiskelijalle. Sivu luotiin alunperin vuonna 2019 ja
 					siitä lähtien sitä on paranneltu tasaiseen tahtiin.{" "}
 				</p>

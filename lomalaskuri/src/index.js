@@ -700,7 +700,7 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.none}
+								theme={themes.None}
 								themes={toggleTheme}
 							/>,
 						]}

@@ -1,5 +1,4 @@
-import React from "react";
-import { lazy } from "react";
+import React, {lazy, Context} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { FrontPage } from "./Pages/FrontPage.js";
@@ -28,32 +27,21 @@ const TimerClass = lazy(() => import("./Components/timerClass"));
 ReactGA.initialize("UA-137016636-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-var darkmode = false;
-let getTheme = () => {
-	return darkmode;
-};
-const themeEvent = new CustomEvent("themeChange", {
-	detail: {
-		getTheme: getTheme,
-	},
-});
-let toggleTheme = (theme, dontToggle, forceTheme = undefined) => {
+const ThemeContext = React.createContext(false);
+let changeTheme = (toggle, theme = false) => {
 	if (forceTheme !== undefined) {
 		darkmode = forceTheme;
-	} else {
-		darkmode = dontToggle ? darkmode : !darkmode;
+	} else if(toggle) {
+		darktheme != darktheme;
 	}
 	var properties = theme;
-	document.dispatchEvent(themeEvent);
 	properties.forEach((elem, index) => {
 		document.documentElement.style.setProperty(
 			elem.nimi,
 			darkmode ? elem.dark : elem.light
 		);
-		if (!dontToggle) {
-			Cookie.set("dark", darkmode, { expires: 200, sameSite: "Strict" });
-		}
 	});
+	Cookie.set("dark", darkmode, { expires: 200, sameSite: "Strict" });
 };
 
 let themes = {

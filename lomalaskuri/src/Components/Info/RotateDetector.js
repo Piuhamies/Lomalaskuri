@@ -37,7 +37,7 @@ export function useRotateDetector(ref) {
 			hammertime.get("swipe").set({ direction: Hammer.DIRECTION_VERTICAL });
 			hammertime.on("swipeup", () => setStatus(1));
 			hammertime.on("swipedown", () => setStatus(-1));
-			let handleWheel = (e) => {
+			const handleWheel = (e) => {
 				//When using a touchpad to scroll, this function gets spammed with a massive amount of events with a small deltaY value.
 				//We have to filter out these extra-events to avoid the cube from spinning over too many pages.
 				//The filtering is extra complicated because the deltaY values dont follow a linear line. More like a parabola.
@@ -69,11 +69,12 @@ export function useRotateDetector(ref) {
 					setStatus(-1);
 				}
 			};
-			let handleArrow = (e) => {
-				if (e.code === "ArrowDown") {
-					setStatus(1);
-				} else if (e.code === "ArrowUp") {
-					setStatus(-1);
+			const handleArrow = (e) => {
+				switch(e.code) {
+					case "ArrowDown": 
+						setStatus(1);
+					case "ArrowUp": 
+						setStatus(-1);
 				}
 			};
 			window.addEventListener("wheel", handleWheel);

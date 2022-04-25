@@ -1,4 +1,10 @@
-import React, { Suspense } from "react";
+import React, {
+	Suspense,
+	useContext,
+	useEffect,
+	useState,
+	useCallback,
+} from "react";
 import "../App.css";
 import Cookie from "js-cookie";
 import { DefaultMenu } from "../Components/defaultMenu.js";
@@ -10,6 +16,7 @@ import {
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
 import { Info } from "../Components/Info/Info";
+import themes from "../themes.json";
 import { Helmet } from "react-helmet";
 
 class PageNotFound extends React.Component {
@@ -75,30 +82,61 @@ export class CookieNotification extends React.Component {
 		}
 	}
 }
-export class FrontPage extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { curSchool: null, redirect: null };
-		this.toHome = this.toHome.bind(this);
-	}
-	componentDidMount() {
+const ThemeContext = React.createContext(false);
+export function FrontPage(props) {
+	let [activePage, setActivePage] = useState(null);
+	let [redirect, setRedirect] = useState(null);
+	let [themeName, setThemeName] = useState("light");
+	let ThemeContext = useContext({ theme: "light", updateTheme: updateTheme });
+
+	const updateTheme = useCallback(
+		(toggle, requestedTheme = undefined) => {
+			if (requestedTheme !== undefined) {
+				setThemeName(requestedTheme);
+			} else if (toggle) {
+				switch (themeName) {
+					case "light":
+						setThemeName("dark");
+					case "dark":
+						setThemeName("light");
+				}
+			}
+			var newTheme = new Map(
+				themes[activePage].map((themeObj) => [themeObj.Name, themeObj])
+			);
+			themes[activePage].forEach((elem, index) => {
+				newTheme[elem.property] = elem;
+			});
+
+			properties.forEach((elem, index) => {
+				document.documentElement.style.setProperty(
+					elem.property,
+					elem[themeName]
+				);
+			});
+			Cookie.set("dark", darkmode, { expires: 200, sameSite: "Strict" });
+		},
+		[theme]
+	);
+
+	useEffect(() => {
 		if (
 			(window.matchMedia &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches) ||
 			Cookie.get("dark") === "true"
 		) {
-			this.props.darkFunction(this.props.themes.login, false, true);
+			this.props.darkFunction(props.themes.login, false, true);
 		} else {
-			this.props.darkFunction(this.props.themes.login, false, false);
+			this.props.darkFunction(props.themes.login, false, false);
 		}
-	}
-	toHome() {
+	}, []);
+	const toHome = () => {
 		this.setState({ redirect: <Redirect to="Etusivu" /> }, () =>
 			this.setState({ redirect: null })
 		);
 		console.log(this.state.redirect);
-	}
-	routes() {
+	};
+	const routes = () => {
 		let routeArray = [];
 		for (let i = 0; i < this.props.schools.length; i++) {
 			routeArray.push(
@@ -124,88 +162,86 @@ export class FrontPage extends React.Component {
 			);
 		}
 		return routeArray;
-	}
-	render() {
-		return (
-			<Router>
-				<Switch>
-					<Route exact path="/">
-						<Helmet>
-							<title>Lomalaskuri | Kouluvalitsin</title>
-						</Helmet>
-						<NewSchoolSelector
-							toggleTheme={this.props.darkFunction}
-							themes={this.props.themes}
-							schools={this.props.schools}>
-							{" "}
-						</NewSchoolSelector>
-					</Route>
-					<Route exact path="/info">
-						<Info
-							toggleTheme={this.props.darkFunction}
-							themes={this.props.themes}
-						/>
-					</Route>
-					{this.props.schools.map((x) => (
-						<Route key={x.href + "key"} path={`/${x.href}`}>
-							{" "}
-							{/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
-							<div id="menuContainer">
-								<Switch>
-									{this.props.schools.map((x, index) => {
-										return (
-											<Route
-												key={index + "key"}
-												exact
-												path={`/${x.href}/${x.menuItems[0].nimi}`}>
-												{" "}
-												<div id="menu">
-													<h1 id="logo">Lomalaskuri</h1>
-												</div>
-											</Route>
-										);
-									})}
-									<Route>
-										<div id="menu">
-											{this.state.redirect}
-											<div onClick={this.toHome} className="menuBtn">
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 24 24">
-													<path d="M0 0h24v24H0z" fill="none" />
-													<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-												</svg>
+	};
+	return (
+		<Router>
+			<Switch>
+				<Route exact path="/">
+					<Helmet>
+						<title>Lomalaskuri | Kouluvalitsin</title>
+					</Helmet>
+					<NewSchoolSelector
+						toggleTheme={this.props.darkFunction}
+						themes={this.props.themes}
+						schools={this.props.schools}>
+						{" "}
+					</NewSchoolSelector>
+				</Route>
+				<Route exact path="/info">
+					<Info
+						toggleTheme={this.props.darkFunction}
+						themes={this.props.themes}
+					/>
+				</Route>
+				{this.props.schools.map((x) => (
+					<Route key={x.href + "key"} path={`/${x.href}`}>
+						{" "}
+						{/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
+						<div id="menuContainer">
+							<Switch>
+								{this.props.schools.map((x, index) => {
+									return (
+										<Route
+											key={index + "key"}
+											exact
+											path={`/${x.href}/${x.menuItems[0].nimi}`}>
+											{" "}
+											<div id="menu">
+												<h1 id="logo">Lomalaskuri</h1>
 											</div>
-											<h1 className="offCenter" id="logo">
-												Lomalaskuri
-											</h1>
+										</Route>
+									);
+								})}
+								<Route>
+									<div id="menu">
+										{this.state.redirect}
+										<div onClick={this.toHome} className="menuBtn">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24">
+												<path d="M0 0h24v24H0z" fill="none" />
+												<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+											</svg>
 										</div>
-									</Route>
-								</Switch>
+										<h1 className="offCenter" id="logo">
+											Lomalaskuri
+										</h1>
+									</div>
+								</Route>
+							</Switch>
 
-								<div id="places">
-									<DefaultMenu
-										updateDarkMode={this.props.darkFunction}
-										schools={this.props.schools}
-									/>
-								</div>
+							<div id="places">
+								<DefaultMenu
+									updateDarkMode={this.props.darkFunction}
+									schools={this.props.schools}
+								/>
 							</div>
-							<div id="content">
-								<Switch>
-									<Route exact path="/">
-										{this.props.schools[0].menuItems[0].class}
-									</Route>
-									{this.routes()}
-									<Route>
-										<PageNotFound />
-									</Route>
-								</Switch>
-							</div>
-							<CookieNotification visible={Cookie.get("NotAgain")} />
-						</Route>
-					))}
-				</Switch>
-			</Router>
-		);
-	}
+						</div>
+						<div id="content">
+							<Switch>
+								<Route exact path="/">
+									{this.props.schools[0].menuItems[0].class}
+								</Route>
+								{this.routes()}
+								<Route>
+									<PageNotFound />
+								</Route>
+							</Switch>
+						</div>
+						<CookieNotification visible={Cookie.get("NotAgain")} />
+					</Route>
+				))}
+			</Switch>
+		</Router>
+	);
 }

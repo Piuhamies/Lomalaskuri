@@ -1,0 +1,160 @@
+{
+    "Default": [
+      {
+        "property": "--menu-color",
+        "light": "transparent",
+        "dark": "#0f0f0f0"
+      },
+      {
+        "property": "--places-color",
+        "light": "white",
+        "dark": "#0f0f0f0"
+      },
+      {
+        "property": "--border-color",
+        "light": "#ddd",
+        "dark": "black"
+      },
+      {
+        "property": "--text-color",
+        "light": "black",
+        "dark": "white"
+      },
+      {
+        "property": "--invert-amount",
+        "light": "0%",
+        "dark": "100%"
+      },
+      {
+        "property": "--mobile-menu-color",
+        "light": "white",
+        "dark": "#202020"
+      },
+      {
+        "property": "--quick-color",
+        "light": "rgba(255,255,255,0.5)",
+        "dark": "rgba(35,35,35,0.7)"
+      },
+      {
+        "property": "--seperator-color",
+        "light": "#4389f9",
+        "dark": "#4389f9"
+      },
+      {
+        "property": "--quick-invert-color",
+        "light": "rgba(0,0,0,0.5)",
+        "dark": "rgba(255,255,255,0.1)"
+      },
+      {
+        "property": "--header-color",
+        "light": "black",
+        "dark": "rgb(223, 239, 255)"
+      },
+      {
+        "property": "--background-color",
+        "light": "#a9d3ff",
+        "dark": "#0f0f0f"
+      },
+      {
+        "property": "--shadow-color",
+        "light": "rgba(0,0,0,0.5)",
+        "dark": "rgba(0,0,0,1)"
+      },
+      {
+        "property": "--logo-color",
+        "light": "#4389f9",
+        "dark": "#0f0f0f"
+      }
+    ],
+    "NoykkionKoulu": [
+        {
+            "property": "--seperator-color",
+            "light": "#4389f9",
+            "dark": "#4389f9"
+          }
+    ],
+    "HaukilahdenKoulu": [
+      {
+        "property": "--seperator-color",
+        "light": "#C8C87D",
+        "dark": "#C8C87D"
+      }
+    ],
+    "LaurinlahdenKoulu": [
+      {
+        "property": "--seperator-color",
+        "light": "#9E6F3F",
+        "dark": "#9E6F3F"
+      }
+    ],
+    "VanttilanKoulu": [
+      {
+        "property": "--seperator-color",
+        "light": "#6BD046",
+        "dark": "#6BD046"
+      }
+    ],
+    "OtaniemenLukio": [
+      {
+        "property": "--seperator-color",
+        "light": "#7f281a",
+        "dark": "#7f281a"
+      }
+    ],
+    "JuvanPuisto": [
+      {
+        "property": "--seperator-color",
+        "light": "#FFFD76",
+        "dark": "#FFFD76"
+      }
+    ],
+    "None": [
+      {
+        "property": "--seperator-color",
+        "light": "#A84AD2",
+        "dark": "#A84AD2"
+      }
+    ],
+    "login": [
+      {
+        "property": "--seperator-color",
+        "light": "#4389f9",
+        "dark": "#4389f9"
+      },
+      {
+        "property": "--login-bg",
+        "light": "var(--login-gradient-white)",
+        "dark": "var(--login-gradient)"
+      },
+      {
+        "property": "--header-color",
+        "light": "black",
+        "dark": "rgb(223, 239, 255)"
+      },
+      {
+        "property": "--background-color",
+        "light": "#a9d3ff",
+        "dark": "#0f0f0f"
+      },
+      {
+        "property": "--shadow-color",
+        "light": "rgba(0,0,0,0.5)",
+        "dark": "rgba(0,0,0,1)"
+      },
+      {
+        "property": "--logo-color",
+        "light": "#4389f9",
+        "dark": "#0f0f0f"
+      },
+      {
+        "property": "--lomalaskuri-color",
+        "light": "#fff",
+        "dark": "#4389f9"
+      },
+      {
+        "property": "--cube-color",
+        "light": "#a9d3ff",
+        "dark": "#161616"
+      }
+    ]
+  }

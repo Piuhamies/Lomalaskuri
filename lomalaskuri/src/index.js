@@ -5,6 +5,7 @@ import { FrontPage } from "./Pages/FrontPage.js";
 import * as serviceWorker from "./serviceWorker";
 import Cookie from "js-cookie";
 import ReactGA from "react-ga";
+import themes from "./themes.json"
 const QuickFront = lazy(() => import("./QuickFront"));
 const QuickLaskuri = lazy(() => import("./QuickBoxes/QuickLaskuri"));
 const QuickRuokalista = lazy(() => import("./QuickBoxes/QuickRuokalista"));
@@ -70,8 +71,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.NoykkionKoulu}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -158,8 +157,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.HaukilahdenKoulu}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -227,8 +224,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.LaurinlahdenKoulu}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -284,8 +279,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.VanttilanKoulu}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -332,8 +325,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.OtaniemenLukio}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -395,8 +386,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.JuvanPuisto}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -461,8 +450,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.None}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -509,8 +496,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.none}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -557,8 +542,6 @@ let allSchools = [
 							/>,
 							<QuickSettings
 								key="QuickSettings"
-								theme={themes.none}
-								themes={toggleTheme}
 							/>,
 						]}
 					/>
@@ -585,7 +568,7 @@ let allSchools = [
 ];
 
 ReactDOM.render(
-	<FrontPage darkFunction={toggleTheme} schools={allSchools} themes={themes} />,
+	<FrontPage schools={allSchools} />,
 	document.getElementById("site")
 );
 // If you want your app to work offline and load faster, you can change

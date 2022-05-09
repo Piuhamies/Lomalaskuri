@@ -8,25 +8,26 @@ import React, {
 import arrow from "../../Icons/arrow_forward_ios-24px.svg";
 import { useHistory } from "react-router-dom";
 import { useRotateDetector } from "./RotateDetector";
+import {ThemeToggle} from '../ThemeToggle'
 
 import Side1 from "./Side1";
 import Side2 from "./Side2";
 import Side3 from "./Side3";
 
-//Info page should be as fancy as possible without sacrificing usability or performance
+//The info page should be as fancy as possible without sacrificing usability or performance
 export function Info(props) {
 	const [visibleSide, setVisibleSide] = useState(0);
 	const [showScrollSign, setShowScrollSign] = useState(true);
 	const [cubeSides, setCubeSides] = useState([
 		<Side1 />,
-		<Side2 toggleTheme={props.toggleTheme} themes={props.themes} />,
+		<Side2 />,
 		<Side3 />,
 		<Side1 />,
 	]);
 	const infoPages = useMemo(
 		() => [
 			<Side1 />,
-			<Side2 toggleTheme={props.toggleTheme} themes={props.themes} />,
+			<Side2 />,
 			<Side3 />,
 		],
 		[props]
@@ -75,9 +76,6 @@ export function Info(props) {
 			<div onClick={() => rotateCube((Math.floor(visibleSide/3)*3) + i)} key={"indicatorBtn" + i}></div>
 		);
 	}
-	function toggle() {
-		props.toggleTheme(props.themes.login);
-	}
 	function goBack() {
 		history.goBack();
 	}
@@ -98,12 +96,13 @@ export function Info(props) {
 			{showScrollSign && (
 				<img className="scrollSign" onClick={() => rotateCube(2)} src={arrow} />
 			)}
+			<ThemeToggle>
 			<img
 				className="darkIcon"
 				alt="vaihda dark themeen"
-				onClick={toggle}
 				src="icons8-moon-symbol.svg"
 			/>
+			</ThemeToggle>
 			<button className="backArrow linkLookALike" onClick={goBack}>
 				<img alt="close" src={arrow}></img>
 			</button>

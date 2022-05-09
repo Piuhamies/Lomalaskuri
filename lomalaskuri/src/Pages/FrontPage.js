@@ -1,8 +1,5 @@
 import React, {
 	Suspense,
-	useEffect,
-	useState,
-	useCallback,
 } from "react";
 import "../App.css";
 import Cookie from "js-cookie";
@@ -13,11 +10,12 @@ import {
 	Route,
 	Redirect,
 	useHistory,
+	useParams,
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
 import { Info } from "../Components/Info/Info";
 import { Helmet } from "react-helmet";
-import {ThemeContext} from "../ThemeContext";
+import { ThemeHandler } from '../Components/ThemeHandler';
 
 class PageNotFound extends React.Component {
 	constructor(props) {
@@ -83,56 +81,7 @@ export class CookieNotification extends React.Component {
 	}
 }
 export function FrontPage(props) {
-	let [activePage, setActivePage] = useState(null);
-	let [themeName, setThemeName] = useState("light");
 	let history = useHistory();
-
-	const updateTheme = useCallback(
-		(toggle, requestedTheme = undefined) => {
-			if (requestedTheme !== undefined) {
-				setThemeName(requestedTheme);
-			} else if (toggle) {
-				switch (themeName) {
-					case "light":
-						setThemeName("dark");
-						break;
-					case "dark":
-						setThemeName("light");
-						break;
-					default:
-						setThemeName("light");
-						break;
-				}
-			}
-			var newTheme = new Map(
-				activePage.theme.map((themeObj) => [themeObj.Name, themeObj])
-			);
-			activePage.theme.forEach((elem, index) => {
-				newTheme[elem.property] = elem;
-			});
-
-			newTheme.forEach((elem, index) => {
-				document.documentElement.style.setProperty(
-					elem.property,
-					elem[themeName]
-				);
-			});
-			Cookie.set("themeName", themeName, { expires: 200, sameSite: "Strict" });
-		},
-		[themeName, activePage]
-	);
-
-	useEffect(() => {
-		if (
-			(window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-			Cookie.get("dark") === "true"
-		) {
-			updateTheme(false, "dark");
-		} else {
-			updateTheme(false, "light");
-		}
-	}, [updateTheme]);
 	const toHome = () => {
 		history.push("Etusivu");
 	};
@@ -164,8 +113,8 @@ export function FrontPage(props) {
 		return routeArray;
 	};
 	return (
-		<ThemeContext.Provider value={{"themeName": themeName, "updateTheme": updateTheme}}>
 			<Router>
+				<ThemeHandler>
 				<Switch>
 					<Route exact path="/">
 						<Helmet>
@@ -178,8 +127,6 @@ export function FrontPage(props) {
 					</Route>
 					{props.schools.map((x) => (
 						<Route key={x.href + "key"} path={`/${x.href}`}>
-							{" "}
-							{/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
 							<div id="menuContainer">
 								<Switch>
 									{props.schools.map((x, index) => {
@@ -231,7 +178,7 @@ export function FrontPage(props) {
 						</Route>
 					))}
 				</Switch>
+				</ThemeHandler>
 			</Router>
-		</ThemeContext.Provider>
 	);
 }

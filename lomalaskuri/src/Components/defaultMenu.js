@@ -1,6 +1,7 @@
 import React from "react";
 import Cookie from "js-cookie";
 import { Link, Redirect } from "react-router-dom";
+import { ThemeContext } from "../ThemeContext";
 
 export class DefaultMenu extends React.Component {
 	constructor(props) {

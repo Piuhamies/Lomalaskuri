@@ -1,4 +1,4 @@
-import React, {lazy} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { FrontPage } from "./Pages/FrontPage.js";

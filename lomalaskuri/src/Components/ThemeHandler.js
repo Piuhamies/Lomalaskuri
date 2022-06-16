@@ -13,7 +13,12 @@ export function ThemeHandler(props) {
     useEffect(() => {
         setActivePage(location.pathname.split('/')[1]);
     }, [location]);
-
+	useEffect(() => {
+		updateTheme(false); //everytime the page changes, load the theme for the new page.
+	}, [activePage]);
+	useEffect(() => {
+		console.log(themeName);
+	}, [themeName]);
 	const getProcessedThemes = useMemo(() => {
 		/*Processes the theme file from a human readable form to a one that's easier understood by the machine */
 		const defaultTheme = themes["Default"];
@@ -30,19 +35,19 @@ export function ThemeHandler(props) {
                 }
 			});
 			return mergedTheme;
-		};
+		}
 		const processedThemes = new Map(
 			themes["ThemeOverrides"].map((elem) => {
 				return [
 					elem.page,
-					elem.applyScheme == "Merge"
+					elem.applyScheme === "Merge"
 						? MergeThemes(elem.properties, defaultTheme)
 						: elem.properties,
 				];
 			})
 		);
 		return { processedThemes, defaultTheme };
-	});
+	}, [themes]);
 	const updateTheme = useCallback(
 		(toggle, requestedThemeName = undefined) => {
 			const { processedThemes, defaultTheme } = getProcessedThemes;

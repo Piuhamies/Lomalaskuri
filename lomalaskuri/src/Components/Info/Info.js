@@ -63,7 +63,6 @@ export function Info(props) {
 		[cubeSides, infoPages, visibleSide]
 	);
 	useEffect(() => {
-		//Handles rotating the cube
 		if (rotateStatus !== 0) {
 			rotateCube(rotateStatus + visibleSide);
 			resetStatus();

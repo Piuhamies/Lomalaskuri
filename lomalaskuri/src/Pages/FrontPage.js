@@ -1,6 +1,4 @@
-import React, {
-	Suspense,
-} from "react";
+import React, { Suspense } from "react";
 import "../App.css";
 import Cookie from "js-cookie";
 import { DefaultMenu } from "../Components/defaultMenu";
@@ -15,7 +13,7 @@ import {
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
 import { Info } from "../Components/Info/Info";
 import { Helmet } from "react-helmet";
-import { ThemeHandler } from '../Components/ThemeHandler';
+import { ThemeHandler } from "../Components/ThemeHandler";
 
 class PageNotFound extends React.Component {
 	constructor(props) {
@@ -61,7 +59,6 @@ export class CookieNotification extends React.Component {
 		}
 	}
 	render() {
-		console.log(this.props.visible);
 		if (this.props.visible === "false") {
 			return (
 				<div className="cookie">
@@ -113,8 +110,8 @@ export function FrontPage(props) {
 		return routeArray;
 	};
 	return (
-			<Router>
-				<ThemeHandler>
+		<Router>
+			<ThemeHandler>
 				<Switch>
 					<Route exact path="/">
 						<Helmet>
@@ -125,43 +122,19 @@ export function FrontPage(props) {
 					<Route exact path="/info">
 						<Info />
 					</Route>
-					{props.schools.map((x) => (
-						<Route key={x.href + "key"} path={`/${x.href}`}>
+					{props.schools.map((school) => (
+						<Route key={school.href + "key"} path={`/${school.href}`}>
 							<div id="menuContainer">
-								<Switch>
-									{props.schools.map((x, index) => {
-										return (
-											<Route
-												key={index + "key"}
-												exact
-												path={`/${x.href}/${x.menuItems[0].nimi}`}>
-												{" "}
-												<div id="menu">
-													<h1 id="logo">Lomalaskuri</h1>
-												</div>
-											</Route>
-										);
-									})}
-									<Route>
-										<div id="menu">
-											<div onClick={toHome} className="menuBtn">
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 24 24">
-													<path d="M0 0h24v24H0z" fill="none" />
-													<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-												</svg>
-											</div>
-											<h1 className="offCenter" id="logo">
-												Lomalaskuri
-											</h1>
-										</div>
-									</Route>
-								</Switch>
-
-								<div id="places">
-									<DefaultMenu schools={props.schools} />
+								<div id="menu">
+									<div onClick={toHome} className="menuBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+											<path d="M0 0h24v24H0z" fill="none" />
+											<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+										</svg>
+									</div>
+									<h1 id="logo">Lomalaskuri</h1>
 								</div>
+								<DefaultMenu school={school} />
 							</div>
 							<div id="content">
 								<Switch>
@@ -178,7 +151,7 @@ export function FrontPage(props) {
 						</Route>
 					))}
 				</Switch>
-				</ThemeHandler>
-			</Router>
+			</ThemeHandler>
+		</Router>
 	);
 }

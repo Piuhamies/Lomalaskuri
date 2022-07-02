@@ -8,7 +8,7 @@ import React, {
 import arrow from "../../Icons/arrow_forward_ios-24px.svg";
 import { useHistory } from "react-router-dom";
 import { useRotateDetector } from "./RotateDetector";
-import {ThemeToggle} from '../ThemeToggle'
+import { ThemeToggle } from '../ThemeToggle'
 
 import Side1 from "./Side1";
 import Side2 from "./Side2";
@@ -48,16 +48,15 @@ export function Info(props) {
 				oldCubeSides[(visibleSide) % 4] = infoPages[(visibleSide) % 3];
 				oldCubeSides[(visibleSide + 1) % 4] = infoPages[(visibleSide + 1) % 3];
 				setCubeSides(oldCubeSides);
-				if(window.matchMedia("(orientation: portrait)").matches) {
-					cubeEl.current.style.transform = `translateZ(-80vh) rotateX(${
-						newSide * 90
-					}deg)`;
-					
+				if (window.matchMedia("(orientation: portrait)").matches) {
+					cubeEl.current.style.transform = `translateZ(-80vh) rotateX(${newSide * 90
+						}deg)`;
+
 				}
-				else {cubeEl.current.style.transform = `translateZ(-40vmin) rotateX(${
-					newSide * 90
-				}deg)`;
-			}
+				else {
+					cubeEl.current.style.transform = `translateZ(-40vmin) rotateX(${newSide * 90
+						}deg)`;
+				}
 			}
 		},
 		[cubeSides, infoPages, visibleSide]
@@ -72,7 +71,7 @@ export function Info(props) {
 	const indicatorBtns = [];
 	for (let i = 0; i <= infoPages.length - 1; i++) {
 		indicatorBtns.push(
-			<div onClick={() => rotateCube((Math.floor(visibleSide/3)*3) + i)} key={"indicatorBtn" + i}></div>
+			<div onClick={() => rotateCube((Math.floor(visibleSide / 3) * 3) + i)} key={"indicatorBtn" + i}></div>
 		);
 	}
 	function goBack() {
@@ -96,11 +95,11 @@ export function Info(props) {
 				<img className="scrollSign" onClick={() => rotateCube(2)} src={arrow} />
 			)}
 			<ThemeToggle>
-			<img
-				className="darkIcon"
-				alt="vaihda dark themeen"
-				src="icons8-moon-symbol.svg"
-			/>
+				<img
+					className="darkIcon"
+					alt="vaihda dark themeen"
+					src="icons8-moon-symbol.svg"
+				/>
 			</ThemeToggle>
 			<button className="backArrow linkLookALike" onClick={goBack}>
 				<img alt="close" src={arrow}></img>

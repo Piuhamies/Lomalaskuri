@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import Cookie from "js-cookie";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function DefaultMenu(props) {
 	let history = useHistory();
-	let theme = useContext(ThemeContext);
 	let curSchool = props.school;
 	let menuItems = curSchool.menuItems.map((x) => (
 		<Link key={`menuItem${x.nimi}`} to={"/" + curSchool.href + "/" + x.nimi}>
@@ -18,12 +16,11 @@ export function DefaultMenu(props) {
 	return (
 		<div id="places">
 			{menuItems}
-			<button
-				className="linkLookALike"
-				onClick={() => theme.updateTheme(true)}
-				id="dynaaminenNappi">
-				Vaihda teemaa
-			</button>
+			<ThemeToggle>
+				<button className="linkLookALike" id="dynaaminenNappi">
+					Vaihda teemaa
+				</button>
+			</ThemeToggle>
 			<button className="linkLookALike" onClick={changeSchool}>
 				{" "}
 				Vaihda koulua

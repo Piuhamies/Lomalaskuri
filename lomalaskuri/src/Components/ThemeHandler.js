@@ -4,21 +4,17 @@ import { useLocation } from "react-router-dom";
 import Cookie from "js-cookie";
 import { ThemeContext } from "../ThemeContext";
 
-
 export function ThemeHandler(props) {
-    const location = useLocation();
+	const location = useLocation();
 	const [activePage, setActivePage] = useState("");
 	const [themeName, setThemeName] = useState("light");
 
-    useEffect(() => {
-        setActivePage(location.pathname.split('/')[1]);
-    }, [location]);
 	useEffect(() => {
-		updateTheme(false); //everytime the page changes, load the theme for the new page.
+		setActivePage(location.pathname.split("/")[1]);
+	}, [location]);
+	useEffect(() => {
+		updateTheme(); //everytime the page changes, load the theme for the new page.
 	}, [activePage]);
-	useEffect(() => {
-		console.log(themeName);
-	}, [themeName]);
 	const getProcessedThemes = useMemo(() => {
 		/*Processes the theme file from a human readable form to a one that's easier understood by the machine */
 		const defaultTheme = themes["Default"];
@@ -27,15 +23,14 @@ export function ThemeHandler(props) {
 				defaultTheme.map((propertyObj) => [propertyObj.property, propertyObj])
 			);
 			theme.forEach((elem) => {
-                if(mergedTheme.has(elem.property)) {
-                    mergedTheme[elem.property] = elem;
-                }
-                else {
-                    mergedTheme.set(elem.property, elem);
-                }
+				if (mergedTheme.has(elem.property)) {
+					mergedTheme[elem.property] = elem;
+				} else {
+					mergedTheme.set(elem.property, elem);
+				}
 			});
 			return mergedTheme;
-		}
+		};
 		const processedThemes = new Map(
 			themes["ThemeOverrides"].map((elem) => {
 				return [
@@ -49,31 +44,16 @@ export function ThemeHandler(props) {
 		return { processedThemes, defaultTheme };
 	}, [themes]);
 	const updateTheme = useCallback(
-		(toggle, requestedThemeName = undefined) => {
+		(newTheme = undefined) => {
 			const { processedThemes, defaultTheme } = getProcessedThemes;
-			if (requestedThemeName !== undefined) {
-				setThemeName(requestedThemeName);
-			} else if (toggle) {
-				switch (themeName) {
-					case "light":
-						setThemeName("dark");
-						break;
-					case "dark":
-						setThemeName("light");
-						break;
-					default:
-						setThemeName("light");
-						break;
-				}
-			}
-			Cookie.set("themeName", themeName, { expires: 200, sameSite: "Strict" });
-            const themeToApply = processedThemes.has(activePage) ? processedThemes.get(activePage) : defaultTheme;
-            themeToApply.forEach((elem) => {
-                document.documentElement.style.setProperty(
-                    elem.property,
-                    elem[themeName]
-                );
-            });
+			let theme = newTheme || themeName;
+			setThemeName(theme);
+			console.log(newTheme);
+			Cookie.set("themeName", theme, { expires: 200, sameSite: "Strict" });
+			const themeToApply = processedThemes.get(activePage) || defaultTheme;
+			themeToApply.forEach((elem) => {
+				document.documentElement.style.setProperty(elem.property, elem[theme]);
+			});
 		},
 		[themeName, activePage]
 	);
@@ -81,11 +61,11 @@ export function ThemeHandler(props) {
 		if (
 			(window.matchMedia &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-			Cookie.get("dark") === "true"
+			Cookie.get("themeName") === "dark"
 		) {
-			updateTheme(false, "dark");
+			updateTheme("dark");
 		} else {
-			updateTheme(false, "light");
+			updateTheme("light");
 		}
 	}, []);
 	return (

@@ -5,8 +5,18 @@ export function ThemeToggle(props) {
 	const themeContext = useContext(ThemeContext);
 
 	function toggleTheme() {
-		themeContext.updateTheme(true);
+		let themeName = themeContext.themeName;
+		let newTheme;
+		switch (themeName) {
+			case "light":
+				newTheme = "dark";
+				break;
+			case "dark":
+				newTheme = "light";
+				break;
+		}
+		themeContext.updateTheme(newTheme);
 	}
 
-	return React.cloneElement(props.children, { onClick: toggleTheme }); 
+	return React.cloneElement(props.children, { onClick: toggleTheme });
 }

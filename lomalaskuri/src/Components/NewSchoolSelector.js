@@ -1,19 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function NewSchoolSelector(props) {
 	let history = useHistory();
-	const theme = useContext(ThemeContext);
 	const [additionalClass, setAdditionalClass] = useState("");
-	function toggle() {
-		theme.updateTheme(true);
-	}
 	async function changePage(url, animate = true) {
 		if (animate) {
 			setAdditionalClass("closing");
-			await new Promise((res) => setTimeout(res, 500)); // We get a much shorter code by using the await syntax. 
+			await new Promise((res) => setTimeout(res, 500)); // We get a much shorter code by using the await syntax.
 		}
 		history.push(url);
 	}
@@ -51,12 +47,13 @@ export function NewSchoolSelector(props) {
 								))}
 							</div>
 						</div>
-						<img
-							className="darkIcon selectorDarkIcon"
-							alt="vaihda dark themeen"
-							onClick={toggle}
-							src="icons8-moon-symbol.svg"
-						/>
+						<ThemeToggle>
+							<img
+								className="darkIcon selectorDarkIcon"
+								alt="vaihda dark themeen"
+								src="icons8-moon-symbol.svg"
+							/>
+						</ThemeToggle>
 					</div>
 					<button
 						id="infoLink"

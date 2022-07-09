@@ -1,6 +1,7 @@
 import React from "react";
 import Cookie from "js-cookie";
 import { Redirect, Link } from "react-router-dom";
+import { ThemeToggle } from "../Components/ThemeToggle";
 
 export default class QuickSettings extends React.Component {
 	constructor(props) {
@@ -41,12 +42,13 @@ export default class QuickSettings extends React.Component {
 					<h1 className="quickTitle">Asetukset:</h1>
 					<div className="quickContent">
 						<div className="quickImage">
-							<button
-								className="linkLookALike SettingBtn"
-								onClick={this.toggle}
-								id="dynaaminenNappi">
-								Vaihda teemaa
-							</button>
+							<ThemeToggle>
+								<button
+									className="linkLookALike SettingBtn"
+									id="dynaaminenNappi">
+									Vaihda teemaa
+								</button>
+							</ThemeToggle>
 							<button
 								className="linkLookALike SettingBtn"
 								onClick={this.changeSchool}>

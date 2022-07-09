@@ -119,7 +119,7 @@ export function FrontPage(props) {
 						</Helmet>
 						<NewSchoolSelector schools={props.schools}> </NewSchoolSelector>
 					</Route>
-					<Route exact path="/info">
+					<Route exact path="/Info">
 						<Info />
 					</Route>
 					{props.schools.map((school) => (

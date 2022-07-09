@@ -58,7 +58,7 @@ export function NewSchoolSelector(props) {
 					<button
 						id="infoLink"
 						onClick={() => {
-							changePage("/info", true);
+							changePage("/Info", true);
 						}}>
 						Mikä on Lomalaskuri?
 					</button>

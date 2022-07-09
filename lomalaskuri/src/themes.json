@@ -195,8 +195,8 @@
 			]
 		},
 		{
-			"page": "info",
-			"applyScheme": "Merge",
+			"page": "Info",
+			"applyScheme": "Override",
 			"properties": [
 				{
 					"property": "--mobile-menu-color",

@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function NewSchoolSelector(props) {
 	let history = useHistory();
 	const [additionalClass, setAdditionalClass] = useState("");
-	function toggle() {
-		props.toggleTheme(props.themes.login);
-	}
-	useEffect(() => {
-		props.toggleTheme(props.themes.login, true);
-	});
 	async function changePage(url, animate = true) {
-		//animate arvo, "mikä on lomalaskuri" demo sivua varten. Tehdään siitä extra fancy :D
 		if (animate) {
 			setAdditionalClass("closing");
-			await new Promise((res) => setTimeout(res, 500)); // käytetään await syntaksia, koska lyhempi koodi :DD Eihän se toki siis tarkoita automaattisesti cleanimpaa koodia.
+			await new Promise((res) => setTimeout(res, 500)); // We get a much shorter code by using the await syntax.
 		}
 		history.push(url);
 	}
 	return (
 		<>
 			<Helmet>
+				{/*This code is kinda ugly but it yields in a much better lighthouse score*/}
 				<link rel="preload" as="image" href="icons8-moon-symbol.svg" />{" "}
-				{/*joutuu uhrautumaan tekemään purkkavirityksiä jos meinaa saada lighthouse testistä hyvän tuloksen. */}
 			</Helmet>
 			<div className={`loginSite ${additionalClass}`}>
 				<div className="lomaEsittely">
@@ -53,17 +47,18 @@ export function NewSchoolSelector(props) {
 								))}
 							</div>
 						</div>
-						<img
-							className="darkIcon selectorDarkIcon"
-							alt="vaihda dark themeen"
-							onClick={toggle}
-							src="icons8-moon-symbol.svg"
-						/>
+						<ThemeToggle>
+							<img
+								className="darkIcon selectorDarkIcon"
+								alt="vaihda dark themeen"
+								src="icons8-moon-symbol.svg"
+							/>
+						</ThemeToggle>
 					</div>
 					<button
 						id="infoLink"
 						onClick={() => {
-							changePage("/info", true);
+							changePage("/Info", true);
 						}}>
 						Mikä on Lomalaskuri?
 					</button>

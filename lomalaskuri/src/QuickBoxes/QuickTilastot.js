@@ -17,7 +17,6 @@ export default class QuickTilastot extends React.Component {
 			Math.random() *
 				(this.props.tiedot.positive.length + this.props.tiedot.negative.length)
 		);
-		console.log(random);
 		if (random >= this.props.tiedot.positive.length) {
 			let kysymys =
 				this.props.tiedot.negative[random - this.props.tiedot.positive.length];

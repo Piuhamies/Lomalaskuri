@@ -15,7 +15,7 @@ export default function Side3() {
 				<p>
 					Ota yhteyttä{" "}
 					<a href="mailto:severi.lybeck@gmail.com">severi.lybeck@gmail.com</a>,{" "}
-					jos jokin ei toimi mobiililaitteella kuten pitäisi!
+					jos jokin ei toimi kuten pitäisi!
 				</p>
 				<p>
 					Lähdekoodi: <span className="highlight">Tulossa pian </span>

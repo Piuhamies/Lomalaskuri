@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "../../ThemeContext";
 import oldLoma from "../../Kuvat/2019 laskuri.webp";
 import lomaLight from "../../Kuvat/2020 laskuri light.webp";
 import lomaDark from "../../Kuvat/2020 laskuri dark.webp";
 
 export default function Side2(props) {
     const [oldImg, setOldImg] = useState(lomaLight);
+	const theme = useContext(ThemeContext)
     useEffect(() => {
-		//Handles changing a picture of Lomalaskuri to the one corresponding to the current theme.
-		let changeImg = (event) => {
-			setOldImg(event.detail.getTheme() ? lomaDark : lomaLight);
-		};
-		document.addEventListener("themeChange", changeImg);
-		props.toggleTheme(props.themes.login, true); //Updates the theme to get the 'themeChange' event fired
-		return () => {
-			//Similar to componentWillUnmount()
-			document.removeEventListener("themeChange", changeImg);
-		};
-	}, [props]);
+		setOldImg(theme.themeName === "dark" ? lomaDark : lomaLight);
+	}, [ThemeContext]);
 	return (
 		<div className="infoContent infoGrid">
 			<h1>

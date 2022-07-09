@@ -1,16 +1,19 @@
 import React, { Suspense } from "react";
 import "../App.css";
 import Cookie from "js-cookie";
-import { DefaultMenu } from "../Components/defaultMenu.js";
+import { DefaultMenu } from "../Components/defaultMenu";
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Redirect,
+	useHistory,
+	useParams,
 } from "react-router-dom";
 import { NewSchoolSelector } from "../Components/NewSchoolSelector";
 import { Info } from "../Components/Info/Info";
 import { Helmet } from "react-helmet";
+import { ThemeHandler } from "../Components/ThemeHandler";
 
 class PageNotFound extends React.Component {
 	constructor(props) {
@@ -56,7 +59,6 @@ export class CookieNotification extends React.Component {
 		}
 	}
 	render() {
-		console.log(this.props.visible);
 		if (this.props.visible === "false") {
 			return (
 				<div className="cookie">
@@ -75,35 +77,17 @@ export class CookieNotification extends React.Component {
 		}
 	}
 }
-export class FrontPage extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { curSchool: null, redirect: null };
-		this.toHome = this.toHome.bind(this);
-	}
-	componentDidMount() {
-		if (
-			(window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-			Cookie.get("dark") === "true"
-		) {
-			this.props.darkFunction(this.props.themes.login, false, true);
-		} else {
-			this.props.darkFunction(this.props.themes.login, false, false);
-		}
-	}
-	toHome() {
-		this.setState({ redirect: <Redirect to="Etusivu" /> }, () =>
-			this.setState({ redirect: null })
-		);
-		console.log(this.state.redirect);
-	}
-	routes() {
+export function FrontPage(props) {
+	let history = useHistory();
+	const toHome = () => {
+		history.push("Etusivu");
+	};
+	const routes = () => {
 		let routeArray = [];
-		for (let i = 0; i < this.props.schools.length; i++) {
+		for (let i = 0; i < props.schools.length; i++) {
 			routeArray.push(
-				this.props.schools[i].menuItems.map((x) => (
-					<Route exact path={`/${this.props.schools[i].href}/${x.nimi}`}>
+				props.schools[i].menuItems.map((x) => (
+					<Route exact path={`/${props.schools[i].href}/${x.nimi}`}>
 						<>
 							<Helmet>
 								<title>Lomalaskuri | {x.nimi} </title>
@@ -124,78 +108,40 @@ export class FrontPage extends React.Component {
 			);
 		}
 		return routeArray;
-	}
-	render() {
-		return (
-			<Router>
+	};
+	return (
+		<Router>
+			<ThemeHandler>
 				<Switch>
 					<Route exact path="/">
 						<Helmet>
 							<title>Lomalaskuri | Kouluvalitsin</title>
 						</Helmet>
-						<NewSchoolSelector
-							toggleTheme={this.props.darkFunction}
-							themes={this.props.themes}
-							schools={this.props.schools}>
-							{" "}
-						</NewSchoolSelector>
+						<NewSchoolSelector schools={props.schools}> </NewSchoolSelector>
 					</Route>
-					<Route exact path="/info">
-						<Info
-							toggleTheme={this.props.darkFunction}
-							themes={this.props.themes}
-						/>
+					<Route exact path="/Info">
+						<Info />
 					</Route>
-					{this.props.schools.map((x) => (
-						<Route key={x.href + "key"} path={`/${x.href}`}>
-							{" "}
-							{/*Mapataan jokainen koulu Routerille, eli jos url on määritellyt koulun älä avaa kouluvalintaa*/}
+					{props.schools.map((school) => (
+						<Route key={school.href + "key"} path={`/${school.href}`}>
 							<div id="menuContainer">
-								<Switch>
-									{this.props.schools.map((x, index) => {
-										return (
-											<Route
-												key={index + "key"}
-												exact
-												path={`/${x.href}/${x.menuItems[0].nimi}`}>
-												{" "}
-												<div id="menu">
-													<h1 id="logo">Lomalaskuri</h1>
-												</div>
-											</Route>
-										);
-									})}
-									<Route>
-										<div id="menu">
-											{this.state.redirect}
-											<div onClick={this.toHome} className="menuBtn">
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 24 24">
-													<path d="M0 0h24v24H0z" fill="none" />
-													<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-												</svg>
-											</div>
-											<h1 className="offCenter" id="logo">
-												Lomalaskuri
-											</h1>
-										</div>
-									</Route>
-								</Switch>
-
-								<div id="places">
-									<DefaultMenu
-										updateDarkMode={this.props.darkFunction}
-										schools={this.props.schools}
-									/>
+								<div id="menu">
+									<div onClick={toHome} className="menuBtn">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+											<path d="M0 0h24v24H0z" fill="none" />
+											<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+										</svg>
+									</div>
+									<h1 id="logo">Lomalaskuri</h1>
 								</div>
+								<DefaultMenu school={school} />
 							</div>
 							<div id="content">
 								<Switch>
 									<Route exact path="/">
-										{this.props.schools[0].menuItems[0].class}
+										{props.schools[0].menuItems[0].class}
 									</Route>
-									{this.routes()}
+									{routes()}
 									<Route>
 										<PageNotFound />
 									</Route>
@@ -205,7 +151,7 @@ export class FrontPage extends React.Component {
 						</Route>
 					))}
 				</Switch>
-			</Router>
-		);
-	}
+			</ThemeHandler>
+		</Router>
+	);
 }

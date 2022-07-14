@@ -32,9 +32,7 @@ export default class QuickFront extends React.Component {
 	render() {
 		return (
 			<div className="quickContainerContainer">
-				<div className="quickContainer">
-					<Suspense>{this.props.quickItems}</Suspense>
-				</div>
+				<div className="quickContainer">{this.props.quickItems} </div>
 			</div>
 		);
 	}

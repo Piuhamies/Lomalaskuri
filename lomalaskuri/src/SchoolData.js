@@ -1,4 +1,4 @@
-import {lazy} from "react";
+import { lazy } from "react";
 const QuickFront = lazy(() => import("./QuickFront"));
 const QuickLaskuri = lazy(() => import("./QuickBoxes/QuickLaskuri"));
 const QuickRuokalista = lazy(() => import("./QuickBoxes/QuickRuokalista"));
@@ -21,7 +21,7 @@ export const SchoolData = [
 		href: "NoykkionKoulu",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -56,31 +56,29 @@ export const SchoolData = [
 									negative: ["Onko nöykkiön koulu korjattu"],
 								}}
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
-			//{ nimi: "Chat", 'class': <Chat />},
+			{ name: "Laskuri", class: <TimerClass /> },
+			//{ name: "Chat", 'class': <Chat />},
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
 			{
-				nimi: "Kysely",
+				name: "Kysely",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true" />
 				),
 			},
-			{ nimi: "Galleria", class: <Galleria /> },
-			// { nimi: "Pelit", 'class': <Pelit /> },
+			{ name: "Galleria", class: <Galleria /> },
+			// { name: "Pelit", 'class': <Pelit /> },
 			{
-				nimi: "Tilastot",
+				name: "Tilastot",
 				class: (
 					<Tilastot
 						tiedot={{
@@ -95,7 +93,7 @@ export const SchoolData = [
 				),
 			},
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -107,7 +105,7 @@ export const SchoolData = [
 		href: "HaukilahdenKoulu",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -141,30 +139,28 @@ export const SchoolData = [
 									],
 								}}
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Kysely",
+				name: "Kysely",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true" />
 				),
 			},
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			//{ nimi: "Chat", 'class': <Chat />},
-			//{ nimi: "Pelit", 'class': <Pelit />  },
+			//{ name: "Chat", 'class': <Chat />},
+			//{ name: "Pelit", 'class': <Pelit />  },
 			{
-				nimi: "Tilastot",
+				name: "Tilastot",
 				class: (
 					<Tilastot
 						tiedot={{
@@ -179,7 +175,7 @@ export const SchoolData = [
 				),
 			},
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -191,7 +187,7 @@ export const SchoolData = [
 		href: "LaurinlahdenKoulu",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -207,24 +203,22 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			// nimi: "Chat", 'class': <Chat />},
-			//{ nimi: "Pelit", 'class': <Pelit />  },
+			// name: "Chat", 'class': <Chat />},
+			//{ name: "Pelit", 'class': <Pelit />  },
 			{
-				nimi: "Tilastot",
+				name: "Tilastot",
 				class: (
 					<Tilastot
 						tiedot={{ positive: [], negative: ["Keksinkö mitään tilastoja"] }}
@@ -232,7 +226,7 @@ export const SchoolData = [
 				),
 			},
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -245,7 +239,7 @@ export const SchoolData = [
 		href: "VanttilanKoulu",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -261,24 +255,22 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			// { nimi: "Chat", 'class': <Chat />},
-			// { nimi: "Pelit", 'class':  <Pelit /> },
+			// { name: "Chat", 'class': <Chat />},
+			// { name: "Pelit", 'class':  <Pelit /> },
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -290,7 +282,7 @@ export const SchoolData = [
 		href: "OtaniemenLukio",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -306,22 +298,20 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/otaniemiData" />
 				),
 			},
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -333,7 +323,7 @@ export const SchoolData = [
 		href: "JuvanPuisto",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -366,31 +356,29 @@ export const SchoolData = [
 									negative: ["Onko Kahvila avattu"],
 								}}
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
-			//{ nimi: "Chat", 'class': <Chat />},
+			{ name: "Laskuri", class: <TimerClass /> },
+			//{ name: "Chat", 'class': <Chat />},
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
 			{
-				nimi: "Kysely",
+				name: "Kysely",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLSfj_JGrXaJ2qEMmXcaLw7ymbE9SO2-gqT9I5vSC-mN4KC5Hdw/viewform?embedded=true" />
 				),
 			},
-			//{ nimi: "Galleria", 'class': <Galleria /> },
-			// { nimi: "Pelit", 'class': <Pelit /> },
+			//{ name: "Galleria", 'class': <Galleria /> },
+			// { name: "Pelit", 'class': <Pelit /> },
 			{
-				nimi: "Tilastot",
+				name: "Tilastot",
 				class: (
 					<Tilastot
 						tiedot={{
@@ -401,7 +389,7 @@ export const SchoolData = [
 				),
 			},
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -413,7 +401,7 @@ export const SchoolData = [
 		href: "ViherlaaksonLukio",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -429,24 +417,22 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			//{ nimi: "Chat", 'class': <Chat />},
-			//{ nimi: "Pelit", 'class': <Pelit /> },
+			//{ name: "Chat", 'class': <Chat />},
+			//{ name: "Pelit", 'class': <Pelit /> },
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -458,7 +444,7 @@ export const SchoolData = [
 		href: "TapiolanLukio",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -474,24 +460,22 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			//{ nimi: "Chat", 'class': <Chat />},
-			//{ nimi: "Pelit", 'class': <Pelit /> },
+			//{ name: "Chat", 'class': <Chat />},
+			//{ name: "Pelit", 'class': <Pelit /> },
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),
@@ -503,7 +487,7 @@ export const SchoolData = [
 		href: "None",
 		menuItems: [
 			{
-				nimi: "Etusivu",
+				name: "Etusivu",
 				class: (
 					<QuickFront
 						quickItems={[
@@ -519,24 +503,22 @@ export const SchoolData = [
 								teksti="Mitä pidit Espoon lomalaskurista?"
 								href="Palaute"
 							/>,
-							<QuickSettings
-								key="QuickSettings"
-							/>,
+							<QuickSettings key="QuickSettings" />,
 						]}
 					/>
 				),
 			},
-			{ nimi: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerClass /> },
 			{
-				nimi: "Ruokalista",
+				name: "Ruokalista",
 				class: (
 					<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/aromidata" />
 				),
 			},
-			//{ nimi: "Chat", 'class': <Chat />},
-			//{ nimi: "Pelit", 'class': <Pelit /> },
+			//{ name: "Chat", 'class': <Chat />},
+			//{ name: "Pelit", 'class': <Pelit /> },
 			{
-				nimi: "Palaute",
+				name: "Palaute",
 				class: (
 					<Kysely src="https://docs.google.com/forms/d/e/1FAIpQLScDKaDx8NfuXFqhVJYBhdimrqr2AoAbsCFEroy8W0EcFD8ABQ/viewform?embedded=true" />
 				),

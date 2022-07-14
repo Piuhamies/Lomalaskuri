@@ -40,7 +40,7 @@ export function NewSchoolSelector(props) {
 										key={"kouluValinta" + index}
 										className="schoolSelection"
 										onClick={() => {
-											changePage(x.href + "/" + x.menuItems[0].nimi, false);
+											changePage(x.href + "/" + x.menuItems[0].name, false);
 										}}>
 										{x.schoolName}
 									</button>

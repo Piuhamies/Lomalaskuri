@@ -43,6 +43,32 @@ html {
 		opacity: 1 !important;
 	}
 }
+#ErrorContainer {
+	display: flex;
+	width: 100vw;
+	height: 100%;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 2em;
+
+}
+#ErrorHeader {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 40vmin;	
+	margin: 0;
+	position: relative;
+}
+#ErrorHeader::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: hue;
+	background-clip: text;
+	background-image: linear-gradient(to right, aliceblue, blue);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .loader {
 	padding: 1em;
 	height: auto !important;
@@ -1171,6 +1197,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 @media (max-width: 960px) {

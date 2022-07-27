@@ -53,7 +53,7 @@ html {
 
 }
 #ErrorHeader {
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 	font-size: 40vmin;	
 	margin: 0;
 	position: relative;
@@ -125,7 +125,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 	border: solid var(--seperator-color) 2px;
 	width: 60vmin;
 	height: 60vmin;
@@ -159,7 +159,7 @@ html {
 	grid-template-rows: auto 1fr 1fr;
 	grid-auto-flow: row;
 	padding: 1em;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 	font-size: 21%;
 }
 .infoGrid h1 {
@@ -345,7 +345,7 @@ html {
 	color: white;
 }
 .square-spin > div::after {
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 	content: "L";
 	font-size: 2.5em;
 }
@@ -1049,7 +1049,7 @@ html {
 	height: 100vh;
 	width: 40vw;
 	min-height: 100vh;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 }
 .lomaEsittely > div {
 	margin-left: 2vw;
@@ -1091,7 +1091,7 @@ html {
 	justify-content: center;
 	background: var(--login-bg) left repeat-y;
 	background-size: 100% auto;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 }
 .login > h2 {
 	color: var(--header-color);
@@ -1150,7 +1150,7 @@ html {
 	background: transparent;
 	border: none;
 	text-decoration: underline;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 	cursor: pointer;
 }
 #infoLink {
@@ -1175,10 +1175,10 @@ html {
 	background: var(--quick-color);
 }
 #logo {
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: 'Cabin Condensed', sans-serif;
 }
 #logo {
-	transform: scaleX(1.3);
+	transform: scaleX(1.6);
 	margin-top: 0;
 	margin-bottom: 0;
 	margin: auto;

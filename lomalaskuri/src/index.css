@@ -665,6 +665,8 @@ html {
 
 .arrow {
 	display: inline-block;
+	background: none;
+	border: none;
 }
 
 #peli {
@@ -1176,6 +1178,7 @@ html {
 }
 #logo {
 	font-family: 'Cabin Condensed', sans-serif;
+	pointer-events: none;
 }
 #logo {
 	transform: scaleX(1.6);

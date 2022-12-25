@@ -1,2 +1,0 @@
-cd lomalaskuri
-npm install

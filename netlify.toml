@@ -1,7 +1,7 @@
 [build]
   command = "CI= npm run build"
-  publish="lomalaskuri/build"
-  base = "/lomalaskuri"
+  publish="/build"
+  base = "/"
 
 [[redirects]]
   from = "/*"

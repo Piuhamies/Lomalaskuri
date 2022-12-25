@@ -1,2 +1,0 @@
-cd lomalaskuri
-yarn install

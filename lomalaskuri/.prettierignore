@@ -1,6 +1,0 @@
-# Do NOT format builds & node modules, they won't be edited therefore don't need to be wasted time on while formatting
-build
-node_modules
-
-# public/* fuluihin ei tarvi koskea, prettier ei tykkää React ja HTML sekasi
-public/*

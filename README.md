@@ -23,13 +23,9 @@ Asentaaksesi riippuvuudet aja seuraavat komennot "lomalaskuri" -kansiossa ("src"
 
 `yarn install`
 
-Voit myös asentaa riippuvuudet käyttäen automaattista scriptiä
-
-Aja **install.sh**(Mac & Linux) tai **install.cmd**(Windows) -tiedosto, jonka löydät samasta kansiosta jossa tämänhetkinen README -tiedosto on. Muista tarkistaa käyttäväsi oikeaa tiedostoa package managerisi mukaan (install-**npm** tai install-**yarn**).
-
 <br>
 
-Nyt voit käynnistää kehitysympäristön ajamalla lomalaskuri -kansiossa seuraavan komennon.
+Nyt voit käynnistää kehitysympäristön ajamalla seuraavan komennon:
 
 `npm start`
 
@@ -40,5 +36,3 @@ Kehitysympäristön pitäisi olla saatavilla osoitteessa http://localhost:3000
 ## In English
 
 This project is made using the [React.JS](https://reactjs.org/) JavaScript framework
-
-Installation guide coming soon...

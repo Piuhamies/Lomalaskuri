@@ -11,7 +11,7 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 
 ReactDOM.render(
-	<FrontPage schools={SchoolData} />,
+	<FrontPage schools={SchoolData()} />,
 	document.getElementById("site")
 );
 // If you want your app to work offline and load faster, you can change

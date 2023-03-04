@@ -1,7 +1,7 @@
 import React from "react";
 
 export function Counter({ time, units }, props) {
-	//this React component formats time and returns it as a jsx div.
+	//this React component sorts time to smaller Time Units and returns an counter component
 	const unitDefinitions = [
 		{ name: "weeks", short: "wk", divider: 1000 * 60 * 60 * 24 * 7 },
 		{ name: "days", short: "d", divider: 1000 * 60 * 60 * 24 },
@@ -15,7 +15,7 @@ export function Counter({ time, units }, props) {
 		return {
 			value:
 				index !== 0
-					? (time % (units[index - 1].divider - curUnitDef.divider)) /
+					? ((time) % (unitDefinitions[units[index - 1]].divider)) /
 					  curUnitDef.divider
 					: time / curUnitDef.divider,
 			name: curUnitDef.name,
@@ -23,11 +23,11 @@ export function Counter({ time, units }, props) {
 		};
 	});
 	return (
-		<div key={props.key}>
-			<h2 className="timerTitle">{this.props.children}</h2>
+		<div>
+			<h2 className="timerTitle">{props.name}</h2>
 			<div className="timerTimes">
 				{timeObjects.map((x) => (
-					<p key={x} className={x.name}></p>
+					<p key={x.name} className={x.name}>{Math.floor(x.value)}{x.short}</p>
 				))}
 			</div>
 		</div>

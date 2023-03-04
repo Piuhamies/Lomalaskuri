@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { TimerPage } from "./Pages/TimerPage";
 const QuickFront = lazy(() => import("./QuickFront"));
 const QuickLaskuri = lazy(() => import("./QuickBoxes/QuickLaskuri"));
 const QuickRuokalista = lazy(() => import("./QuickBoxes/QuickRuokalista"));
@@ -61,7 +62,7 @@ export const SchoolData = [
 					/>
 				),
 			},
-			{ name: "Laskuri", class: <TimerClass /> },
+			{ name: "Laskuri", class: <TimerPage /> },
 			//{ name: "Chat", 'class': <Chat />},
 			{
 				name: "Ruokalista",

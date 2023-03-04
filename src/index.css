@@ -561,7 +561,7 @@ html {
 	grid-row: 1;
 }
 
-.quickBoxLeft .alaotsikot {
+.quickBoxLeft .timerTitle {
 	font-size: calc(10px + 2.5vw);
 	color: var(--text-color);
 	text-shadow: none;
@@ -1271,7 +1271,7 @@ html {
 	.quickTitle {
 		font-size: calc(10px + 3vw);
 	}
-	.quickBoxLeft .alaotsikot {
+	.quickBoxLeft .timerTitle {
 		font-size: calc(10px + 2.5vw);
 		color: var(--text-color);
 		text-shadow: none;
@@ -1461,7 +1461,7 @@ html {
 	background-color: rgba(255, 0, 0, 0.3) !important;
 }
 
-.alaotsikot {
+.timerTitle {
 	font-family: oswald;
 	font-display: swap;
 	display: flex;
@@ -1502,10 +1502,10 @@ html {
 	.quickContent {
 		height: 15em;
 	}
-	.quickBoxLeft .alaotsikot.corona {
+	.quickBoxLeft .timerTitle.corona {
 		font-size: 2.25em;
 	}
-	.quickBoxLeft .alaotsikot {
+	.quickBoxLeft .timerTitle {
 		font-size: 3em;
 		color: var(--text-color);
 		text-shadow: none;
@@ -1516,7 +1516,7 @@ html {
 	#foodList {
 		width: 50vw;
 	}
-	.quickBoxLeft .ajat {
+	.quickBoxLeft .timerTimes {
 		font-size: 3rem;
 	}
 	.chatModal-content {
@@ -1595,7 +1595,7 @@ html {
 		font-display: swap;
 	}
 
-	.ajat {
+	.timerTimes {
 		font-size: 5em;
 		font-family: "Roboto Mono", monospace;
 		letter-spacing: 0;
@@ -1605,7 +1605,7 @@ html {
 	.noShake {
 		width: 3em;
 	}
-	.ajat > p {
+	.timerTimes > p {
 		margin: 2%;
 	}
 	#dynaaminenNappi {

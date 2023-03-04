@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Aikaa kesälomaan",
+        "start": "2023-06-03T09:00:00.000Z",
+        "end": "2023-08-10T07:00:00.000Z"
+    },
+    {
+        "name": "Aikaa syyslomaan",
+        "start": "2023-10-16T21:00:00.000Z",
+        "end": "2023-10-20T21:00:00.000Z"
+    },
+    {
+        "name": "Aikaa jouloulomaan",
+        "start": "2023-12-23T21:00:00.000Z",
+        "end": "2024-1-7T21:00:00.000Z"
+    },
+    {
+        "name": "Aikaa talvilomaan",
+        "start": "2023-2-20T21:00:00.000Z",
+        "end": "2023-2-24T21:00:00.000Z"
+    }
+]

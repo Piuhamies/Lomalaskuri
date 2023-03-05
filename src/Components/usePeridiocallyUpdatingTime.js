@@ -15,6 +15,6 @@ export function usePeridiocallyUpdatingTime(frequency) {
     useEffect(() => { //Initialize counter animation 
         requestRef.current = requestAnimationFrame(animate);
         return () => { cancelAnimationFrame(requestRef.current); if (timerRef.current !== undefined) { clearTimeout(timerRef.current); } };
-    }, []);
+    }, [frequency]);
     return curTime;
 }

@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import "../App.css";
 import Cookie from "js-cookie";
 import { DefaultMenu } from "../Components/defaultMenu";
 import { ErrorPage } from "../Pages/ErrorPage";

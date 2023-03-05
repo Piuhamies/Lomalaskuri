@@ -498,10 +498,6 @@ html {
 	box-shadow: inset red 0 8px 0px 0px;
 }
 
-.corona.ajat {
-	background-color: rgba(95, 0, 0, 0.514) !important;
-}
-
 .quickBox.active {
 	animation: disappearLeft 1s;
 	opacity: 0;
@@ -567,13 +563,6 @@ html {
 	text-shadow: none;
 }
 
-.quickBoxLeft .ajat {
-	background-color: var(--quick-invert-color);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Roboto-monospace", monospace;
-}
 
 .quickBoxRight {
 	height: 100%;
@@ -1173,28 +1162,23 @@ html {
 #infoLink:hover {
 	color: var(--text-color);
 }
-#menuContainer {
-	background: var(--quick-color);
-}
 #logo {
 	font-family: 'Cabin Condensed', sans-serif;
 	pointer-events: none;
 }
 #logo {
 	transform: scaleX(1.6);
-	margin-top: 0;
-	margin-bottom: 0;
-	margin: auto;
+	margin:0;
+	width: calc( 100vw / 1.6 );
+	text-align: center;
 	font-size: 8vw;
+	background-color: var(--background-color);
 	color: var(--header-color);
 }
 .loginOptions > h2,
 .loginOptions > p,
 .loginOptions > button {
 	color: var(--text-color);
-}
-.ajat p {
-	font-family: "Roboto Mono", monospace;
 }
 #menu {
 	display: flex;
@@ -1276,9 +1260,6 @@ html {
 		color: var(--text-color);
 		text-shadow: none;
 	}
-	.quickBoxLeft .ajat {
-		font-size: calc(10px + 6vw);
-	}
 	.quickContainer {
 		grid-template-columns: 100%;
 	}
@@ -1353,17 +1334,8 @@ html {
 	#the-canvas {
 		width: 100vw;
 	}
-	.ajat {
-		font-size: 6vw;
-		letter-spacing: 0;
-		display: flex;
-		justify-content: center;
-	}
 	.noShake {
 		width: 3em;
-	}
-	.ajat > p {
-		margin: 2%;
 	}
 	#menuContainer {
 		position: fixed;
@@ -1445,32 +1417,43 @@ html {
 	align-content: space-between;
 	flex-wrap: wrap;
 }
-
-.ajat > p {
-	text-shadow: black 3px 3px 2px;
-	color: white;
+#timerArea {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
-
-.ajat {
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.3);
+.timerBox {
+	max-width: 2000px;
+	background-color: var(--quick-color);
+	width: 70%;
+	margin: 2em 0;
+	color: var(--text-color);
+	border-radius: 15px;
+	box-shadow: 0px 0px 20px var(--shadow-color);
+	overflow: hidden;
 }
-
-.theEnd > .ajat {
-	background-color: rgb(255, 0, 0) !important;
-	background-color: rgba(255, 0, 0, 0.3) !important;
-}
-
 .timerTitle {
 	font-family: oswald;
 	font-display: swap;
 	display: flex;
 	justify-content: center;
-	font-size: 4vw;
-	margin-top: 0;
+	font-size: 6rem;
+	padding: 2rem;
+	margin: 0;
 	color: white;
+	border-bottom: 1px solid var(--seperator-color)
 }
-
+.timerTimes {
+	font-size: 4em;
+	font-family: "Roboto Mono", monospace;
+	letter-spacing: 0;
+	padding: 2rem 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: var(--quick-invert-color);
+	
+}
 #menu > a:hover {
 	color: blue;
 }
@@ -1586,6 +1569,11 @@ html {
 	#places {
 		display: flex !important;
 		justify-content: center;
+		margin: 20px 5%;
+		padding: 1em;
+		box-shadow: black 0px 0px 5px 2px inset;
+		background-color: var(--quick-color);
+		border-radius: 1em;
 	}
 	#places > a {
 		text-decoration: none;
@@ -1595,13 +1583,6 @@ html {
 		font-display: swap;
 	}
 
-	.timerTimes {
-		font-size: 5em;
-		font-family: "Roboto Mono", monospace;
-		letter-spacing: 0;
-		display: flex;
-		justify-content: center;
-	}
 	.noShake {
 		width: 3em;
 	}

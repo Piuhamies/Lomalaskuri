@@ -3,25 +3,24 @@ import { Counter } from "../Components/Counter";
 import { usePeridiocallyUpdatingTime } from "../Components/usePeridiocallyUpdatingTime";
 export function TimerPage(props) {
     const unitDefinitions = [
-        { name: "weeks", short: "wk", divider: 1000 * 60 * 60 * 24 * 7 },
-        { name: "days", short: "d", divider: 1000 * 60 * 60 * 24 },
-        { name: "hours", short: "h", divider: 1000 * 60 * 60 },
-        { name: "minutes", short: "min", divider: 1000 * 60 },
-        { name: "seconds", short: "s", divider: 1000 },
-        { name: "milliseconds", short: "ms", divider: 1 },
+        { name: "Viikot", short: "wk", divider: 1000 * 60 * 60 * 24 * 7 },
+        { name: "Päivät", short: "d", divider: 1000 * 60 * 60 * 24 },
+        { name: "Tunnit", short: "h", divider: 1000 * 60 * 60 },
+        { name: "Minuutit", short: "min", divider: 1000 * 60 },
+        { name: "Sekuntit", short: "s", divider: 1000 },
+        { name: "Millisekuntit", short: "ms", divider: 1 },
     ];
     let [units, setUnits] = useState(unitDefinitions.slice(0, 5));
     let [updateFrequency, setUpdateFrequency] = useState(1000);
     let [amountOfUnits, setAmountOfUnits] = useState(5);
     let time = usePeridiocallyUpdatingTime(updateFrequency);
     const unitChange = (unitIndex, value) => {
-        if (amountOfUnits === 1 && !value.target.checked) {
-            console.log(amountOfUnits);
-            value.target.checked = true;
-            return;
-        }
         let newUnits = Array.from(units);
         if (!value.target.checked) {
+            if (amountOfUnits === 1) {
+                value.target.checked = true;
+                return;
+            }
             newUnits.splice(unitIndex, 1, null);
             setAmountOfUnits(amountOfUnits - 1);
         }
@@ -43,9 +42,10 @@ export function TimerPage(props) {
         <Counter time={holiday.start - time} units={units} key={holiday.name} timerName={holiday.name}></Counter>
     ));
     return ((
-        <div id="timerArea" className={units[5] !== null ? "millis" : "" }>
+        <div id="timerArea" className={units[5] !== null ? "millis" : ""}>
             <div id="checkboxes">
                 {unitCheckboxes}
+                {/* To be done <button> Palauta </button> -->*/}
             </div>
             {timerComponents}</div>)
     );

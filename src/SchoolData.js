@@ -13,8 +13,6 @@ const RuokalistaSivu = lazy(() => import("./Pages/RuokalistaSivu"));
 const Kysely = lazy(() => import("./Components/Kysely"));
 const Galleria = lazy(() => import("./Pages/Galleria"));
 const Tilastot = lazy(() => import("./Components/Tilastot"));
-const TimerClass = lazy(() => import("./Components/timerClass"));
-
 export function SchoolData() {
 	const espooHolidays = getHolidays("Espoo");
 	return [
@@ -146,7 +144,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Kysely",
 					class: (
@@ -210,7 +208,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (
@@ -262,7 +260,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (
@@ -305,7 +303,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (
@@ -363,7 +361,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				//{ name: "Chat", 'class': <Chat />},
 				{
 					name: "Ruokalista",
@@ -424,7 +422,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (
@@ -467,7 +465,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (
@@ -510,7 +508,7 @@ export function SchoolData() {
 						/>
 					),
 				},
-				{ name: "Laskuri", class: <TimerClass holidays={espooHolidays}/> },
+				{ name: "Laskuri", class: <TimerPage holidays={espooHolidays}/> },
 				{
 					name: "Ruokalista",
 					class: (

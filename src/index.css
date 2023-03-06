@@ -36,7 +36,6 @@ html {
 }
 h1,
 h2,
-p,
 #logo,
 #salainen,
 .linkLookALike {
@@ -423,9 +422,6 @@ p,
 	background: var(--chat-primary);
 }
 
-.linkLookALike {
-	color: white;
-}
 
 #tekstiAlue {
 	position: absolute;
@@ -699,13 +695,6 @@ p,
 	font-display: swap;
 }
 
-.menuBtn {
-	filter: invert(var(--invert-amount));
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
 .quickContainerContainer {
 	display: flex;
 	justify-content: center;
@@ -758,6 +747,9 @@ p,
 	top: 0;
 }
 
+.checkbox {
+	margin: 0 0.5em;
+}
 .checkbox input[type="checkbox"] {
 	opacity: 0;
 }
@@ -765,7 +757,7 @@ p,
 .checkbox label {
 	position: relative;
 	display: inline-block;
-	padding-left: 22px;
+	padding-left: 1.5em;
 }
 
 .checkbox label::before,
@@ -776,9 +768,9 @@ p,
 }
 
 .checkbox label::before {
-	height: 16px;
-	width: 16px;
-	background-color: var(--text-color);
+	height: 1em;
+	width: 1em;
+	background-color: white;
 	transition: 0.2s ease-in-out;
 	border: 1px solid;
 	left: 0;
@@ -817,20 +809,25 @@ p,
 	align-content: space-between;
 	flex-wrap: wrap;
 	color: var(--text-color);
+	background-color: var(--quick-color);
+	padding: 1.5rem 2rem;
+	border-radius: 15px;
 	font-family: "Oswald", sans-serif;
 	font-size: 1.1rem;
+	box-shadow: 0px 0px 20px var(--shadow-color);
 }
 #timerArea {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	font-size: 3rem;
 }
 .timerBox {
 	max-width: 2000px;
 	min-width: 900px;
 	background-color: var(--quick-color);
 	width: 70%;
-	margin: 2em 0;
+	margin: 0.5em 0;
 	color: var(--text-color);
 	border-radius: 15px;
 	box-shadow: 0px 0px 20px var(--shadow-color);
@@ -844,7 +841,7 @@ p,
 	font-size: 4rem;
 	padding: 2rem;
 	margin: 0;
-	color: white;
+	color: var(--text-color);
 	border-bottom: 1px solid var(--seperator-color)
 }
 .timerTimes {
@@ -858,6 +855,7 @@ p,
 	justify-content: center;
 	align-content: center;
 	background: var(--quick-invert-color);	
+	color: white ;
 }
 .timerTimes > p {
 	margin: 2%;
@@ -1219,15 +1217,13 @@ html {
 #logo {
 	font-family: 'Cabin Condensed', sans-serif;
 	pointer-events: none;
-}
-#logo {
 	transform: scaleX(1.6);
 	margin:0;
 	width: calc( 100vw / 1.6 );
 	text-align: center;
 	font-size: 8vw;
-	background-color: var(--background-color);
 	color: var(--header-color);
+	justify-content: center;
 }
 .loginOptions > h2,
 .loginOptions > p,
@@ -1239,6 +1235,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	background: var(--background-color);
 }
 
 @media (max-width: 960px) {
@@ -1281,11 +1278,17 @@ html {
 	.btn {
 		font-size: 3vw;
 	}
-	.menuBtn {
-		display: flex;
+	.backLink {
+		height: 100%;
+		padding: 1% 1%;
+		box-sizing: border-box;
+		position: absolute;
+		left: 0px;
+		top:0px;
 	}
-	.menuBtn > svg {
-		height: 7vw;
+	.menuBtn {
+		height: 100%;
+		filter: invert(var(--invert-amount));
 	}
 	.quickText {
 		font-size: 3vw;
@@ -1401,18 +1404,12 @@ html {
 		margin-top: 12vw;
 	}
 	#menu {
-		display: flex;
 		border-bottom: solid 1px;
 		border-color: var(--seperator-color);
-		align-items: center;
-		justify-content: center;
 		flex-direction: row;
-		height: 10vw;
-		width: 100%;
-		text-align: center;
+		height: 12.5vw;
 	}
 	#logo {
-		display: flex;
 		font-size: 8vw;
 		transition: 0.2s;
 		transition-property: margin;
@@ -1424,12 +1421,21 @@ html {
 	#places {
 		display: none;
 	}
+	.timerArea {
+		font-size: 6vw;
+	}
 	.timerBox {
 		width: 90%;
 		min-width: 0 ;
 	}
+	.timerTitle {
+		font-size: 6vw; 
+		padding: 0.5em;
+	}
 	.timerTimes {
-		font-size: 5vw;
+		font-size: 6vw;
+		padding: 6vw 0;
+		height: 12vw;
 	}
 	#timerArea.millis .timerTimes {
 		font-size: 4vw;

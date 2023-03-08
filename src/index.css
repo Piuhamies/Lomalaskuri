@@ -16,8 +16,6 @@ That is why it contains a lot of unclean and unneccessary code */
 	--login-gradient-white: url("./Backgrounds/Gradient_light.webp");
 	--login-bg: var(--login-gradient);
 	--invert-amount: 0%;
-	--chat-primary: #223142;
-	--chat-secondary: #31465f;
 	--background-color: #0f0f0f;
 	--shadow-color: rgba(0, 0, 0, 1);
 }
@@ -368,28 +366,6 @@ h2,
 	}
 }
 
-.chatContainer {
-	width: 60em;
-	height: 40em;
-	background-color: var(--chat-primary);
-	position: relative;
-}
-
-.chatModal {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.9);
-	z-index: 2;
-}
-
-.chatModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	display: flex;
-	justify-content: center;
-}
 
 #typingDiv {
 	display: flex;
@@ -405,80 +381,6 @@ h2,
 	padding: 0em 1em 0em 1em;
 }
 
-#StatDiv {
-	width: 100%;
-	position: relative;
-	background: linear-gradient(
-		to bottom,
-		var(--chat-primary),
-		var(--chat-secondary)
-	);
-	padding-bottom: 3px;
-	z-index: 1;
-}
-
-#typingDiv {
-	height: 3em;
-	background: var(--chat-primary);
-}
-
-
-#tekstiAlue {
-	position: absolute;
-	bottom: 0;
-	display: flex;
-	width: 100%;
-	height: 3em;
-}
-
-#tekstiAlue > input {
-	width: 100%;
-	border-radius: 10px 0px 0px 0px;
-}
-
-#tekstiAlue button {
-	height: 100%;
-	width: 6em;
-	background-color: var(--chat-secondary);
-	color: white;
-	font-weight: bold;
-	border-radius: 0px 10px 0px 0px;
-}
-
-#chatArea {
-	width: 100%;
-	height: 100%;
-}
-
-#messages {
-	height: calc(100% - 2em - 3em);
-	position: absolute;
-	bottom: 2em;
-	width: 100%;
-	overflow: auto;
-}
-
-#messages li {
-	padding: 5px 10px;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	color: whitesmoke;
-	word-wrap: break-word;
-	max-width: 100%;
-}
-
-#messages li:nth-child(2n) {
-	background-color: var(--chat-secondary);
-}
-
-#messages li:last-of-type {
-	padding-bottom: 1em;
-}
-
-#show {
-	width: 100%;
-}
 
 #foodListPos {
 	width: 100vw;
@@ -505,6 +407,12 @@ h2,
 .quickBox.active {
 	animation: disappearLeft 1s;
 	opacity: 0;
+}
+.quickContent h2 {
+	text-align: center;
+	align-self: center;
+	font-size: 250%;
+	margin:0;
 }
 
 @keyframes appearLeft {
@@ -596,9 +504,8 @@ h2,
 
 .quickText {
 	background-color: var(--quick-invert-color);
-	width: calc(
-		100% - 0.5em
-	); /* we have to do some calculations to avoid the div overflowing from the padding */
+	width: 100%;
+	box-sizing: border-box;
 	margin-bottom: 0;
 	color: white;
 	grid-row: 2;
@@ -616,62 +523,12 @@ h2,
 	align-items: center;
 }
 
-.quickChat {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.miniChat {
-	height: 100%;
-	width: 100%;
-	background-color: var(--chat-secondary);
-	display: flex;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	overflow: auto;
-}
-
-.miniChat > h3 {
-	margin: 0;
-	padding: 0.25em 0 0.25em 0;
-	width: 100%;
-	text-align: center;
-	border-bottom: 1px solid;
-}
-
-.miniChat > p {
-	margin: 0.5em 0 0 0;
-	word-break: break-all;
-}
-
-.quickChat > div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Roboto-monospace", monospace;
-}
-
-.quickChat img {
-	height: 0.5em;
-}
-
 .arrow {
 	display: inline-block;
 	background: none;
 	border: none;
 }
 
-#peli {
-	border: 0;
-	display: block;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100vw;
-	height: calc(80vw - (80vw - 70vh));
-	top: 0;
-}
 
 #foodList {
 	width: 50vw;
@@ -1242,22 +1099,6 @@ html {
 	.schoolSelection {
 		min-height: 2.5em;
 	}
-	.chatModal-content {
-		top: 50%;
-		left: 50%;
-		width: 100% !important;
-		transform: translate(-50%, -50%);
-		max-width: 600px;
-	}
-	.chatModal-content input {
-		width: 80%;
-	}
-	.chatContainer {
-		height: 85vh;
-	}
-	.chatModal-content {
-		padding: 1em !important;
-	}
 	.Stat {
 		font-size: 3vw;
 		margin: 0.1em;
@@ -1266,14 +1107,6 @@ html {
 	}
 	#typingDiv > p {
 		font-size: calc(4px + 2vw);
-	}
-	.chatModal-content > h1 {
-		font-size: 5vw;
-	}
-	.chatModal-content > form {
-		max-width: 93%;
-		display: inline-block;
-		font-size: 2vw;
 	}
 	.btn {
 		font-size: 3vw;
@@ -1293,15 +1126,9 @@ html {
 	.quickText {
 		font-size: 3vw;
 	}
-	.miniChat {
-		font-size: 3vw !important;
-	}
 	.quickBox {
 		margin-left: 1em;
 		margin-right: 1em;
-	}
-	.quickChat > div {
-		font-size: 13vw;
 	}
 	.quickContent {
 		height: 10em;
@@ -1486,9 +1313,6 @@ html {
 	.quickText {
 		font-size: 1.5em;
 	}
-	.miniChat {
-		font-size: 1em !important;
-	}
 	.quickBox:nth-child(odd) {
 		margin-left: 1em;
 		margin-right: 1em;
@@ -1496,9 +1320,6 @@ html {
 	.quickBox:nth-child(even) {
 		margin-left: 0em;
 		margin-right: 1em;
-	}
-	.quickChat > div {
-		font-size: 5em;
 	}
 	.quickContent {
 		height: 15em;
@@ -1522,12 +1343,6 @@ html {
 	}
 	#timerArea.millis .timerTimes {
 		font-size: 3rem;
-	}
-	.chatModal-content {
-		top: 50%;
-		left: 50%;
-		width: 40% !important;
-		transform: translate(-50%, -50%);
 	}
 	.Stat {
 		font-size: 1.5em;

@@ -28,7 +28,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays} />,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -66,7 +66,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				{
@@ -112,7 +112,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -154,7 +154,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -194,7 +194,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -212,7 +212,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				// name: "Chat", 'class': <Chat />},
@@ -246,7 +246,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -264,7 +264,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				// { name: "Chat", 'class': <Chat />},
@@ -289,7 +289,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/otaniemiData"
+									url="https://lomalaskuri.tk/.netlify/functions/otaniemiData"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -307,7 +307,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuribackend.herokuapp.com/otaniemiData" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/otaniemiData" />
 					),
 				},
 				{
@@ -330,7 +330,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -366,7 +366,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				{
@@ -408,7 +408,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -426,7 +426,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -451,7 +451,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -469,7 +469,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -494,7 +494,7 @@ export function SchoolData() {
 								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickRuokalista
 									key="QuickRuoka"
-									url="https://lomalaskuri.tk/aromidata"
+									url="https://lomalaskuri.tk/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -512,7 +512,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="https://lomalaskuri.tk/aromidata" />
+						<RuokalistaSivu url="https://lomalaskuri.tk/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},

@@ -1353,7 +1353,7 @@ h2,
 		display: none;
 	}
 
-	#timer.timerBox {
+	#timerArea .timerBox {
 		width: 90%;
 		min-width: 0;
 	}
@@ -1371,6 +1371,15 @@ h2,
 
 	#timerArea.millis .timerTimes {
 		font-size: 4vw;
+	}
+	.quickBox .timerBox {
+		height: 10em;
+	}
+	.quickBox .timerTimes {
+		font-size: 6vw;
+	}
+	.quickContent h2 {
+		font-size: 5vw;
 	}
 }
 

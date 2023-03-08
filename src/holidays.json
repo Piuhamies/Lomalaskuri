@@ -1,22 +1,26 @@
 {
     "Espoo": [
         {
-            "name": "Aikaa kesälomaan",
+            "startName": "Aikaa kesälomaan",
+            "endName": "Aikaa kesäloman loppuun",
             "start": "2023-06-03T09:00:00.000Z",
             "end": "2023-08-10T07:00:00.000Z"
         },
         {
-            "name": "Aikaa syyslomaan",
+            "startName": "Aikaa syyslomaan",
+            "endName": "Aikaa syysloman loppuun",
             "start": "2023-10-16T21:00:00.000Z",
             "end": "2023-10-20T21:00:00.000Z"
         },
         {
-            "name": "Aikaa jouloulomaan",
+            "startName": "Aikaa jouloulomaan",
+            "endName":"Aikaa joululoman loppuun",
             "start": "2023-12-23T21:00:00.000Z",
-            "end": "2024-1-7T21:00:00.000Z"
+            "end": "2024-01-07T21:00:00.000Z"
         },
         {
-            "name": "Aikaa talvilomaan",
+            "startName": "Aikaa talvilomaan",
+            "endName": "Aikaa talviloman loppuun",
             "start": "2023-02-20T21:00:00.000Z",
             "end": "2023-02-24T21:00:00.000Z"
         }

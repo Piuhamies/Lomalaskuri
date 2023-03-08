@@ -1,7 +1,7 @@
 import holidayData from "../holidays.json";
 
 const formatDate = (dateString) => {
-    let date = new Date(dateString);
+    const date = new Date(dateString);
     while (date.getTime() < Date.now()) {
         date.setFullYear(date.getFullYear() + 1);
     }
@@ -9,9 +9,11 @@ const formatDate = (dateString) => {
 };
 
 export default function formatHolidays(datasetName) {
-    return (holidayData[datasetName].map(data => {
+    let formattedDates = holidayData[datasetName].map(data => {
         data.start = formatDate(data.start);
         data.end = formatDate(data.end);
         return data;
-    }));
+    })
+    formattedDates.sort((a, b) => a.end - b.end);
+    return formattedDates;
 }

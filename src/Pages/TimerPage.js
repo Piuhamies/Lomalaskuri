@@ -10,10 +10,10 @@ export function TimerPage(props) {
         { name: "Sekuntit", short: "s", divider: 1000 },
         { name: "Millisekuntit", short: "ms", divider: 1 },
     ];
-    let [units, setUnits] = useState(unitDefinitions.slice(0, 5));
-    let [updateFrequency, setUpdateFrequency] = useState(1000);
-    let [amountOfUnits, setAmountOfUnits] = useState(5);
-    let time = usePeridiocallyUpdatingTime(updateFrequency);
+    const [units, setUnits] = useState(unitDefinitions.slice(0, 5));
+    const [updateFrequency, setUpdateFrequency] = useState(1000);
+    const [amountOfUnits, setAmountOfUnits] = useState(5);
+    const time = usePeridiocallyUpdatingTime(updateFrequency);
     const unitChange = (unitIndex, value) => {
         let newUnits = Array.from(units);
         if (!value.target.checked) {
@@ -29,7 +29,6 @@ export function TimerPage(props) {
             setAmountOfUnits(amountOfUnits + 1);
         }
         setUpdateFrequency(newUnits[5] === null ? 1000 : 1);
-        console.log(amountOfUnits);
         setUnits(newUnits);
     }
     const unitCheckboxes = unitDefinitions.map((definition, unitIndex) => (
@@ -39,13 +38,16 @@ export function TimerPage(props) {
         </div>)
     ));
     const timerComponents = props.holidays.map((holiday) => (
-        <Counter time={holiday.start - time} units={units} key={holiday.name} timerName={holiday.name}></Counter>
+        <Counter time={time} units={units} key={holiday.name} holidayObject={holiday}></Counter>
     ));
     return ((
         <div id="timerArea" className={units[5] !== null ? "millis" : ""}>
-            <div id="checkboxes">
-                {unitCheckboxes}
-                {/* To be done <button> Palauta </button> -->*/}
+            <div id="timerSettings">
+                <h3>Näytettävät yksiköt:</h3>
+                <div id="checkboxes">
+                    {unitCheckboxes}
+                </div>
+                 {/* To be done <button> Palauta </button> */}
             </div>
             {timerComponents}</div>)
     );

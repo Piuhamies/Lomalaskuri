@@ -1,35 +1,28 @@
 import React from "react";
-
-export function QuickLaskuri() {
-  redirect = redirect.bind(this);
-  function redirect() {
-    this.setState({ redirect: true });
-  }
+import { Link } from "react-router-dom";
+import { usePeridiocallyUpdatingTime } from "../Components/usePeridiocallyUpdatingTime";
+import { Counter } from "../Components/Counter";
+export default function QuickLaskuri({ href, holidays }) {
+  const time = usePeridiocallyUpdatingTime(1000);
+  const unitDefinitions = [
+    { name: "Viikot", short: "wk", divider: 1000 * 60 * 60 * 24 * 7 },
+    { name: "Päivät", short: "d", divider: 1000 * 60 * 60 * 24 },
+    { name: "Tunnit", short: "h", divider: 1000 * 60 * 60 },
+    { name: "Minuutit", short: "min", divider: 1000 * 60 },
+    { name: "Sekuntit", short: "s", divider: 1000 },
+    { name: "Millisekuntit", short: "ms", divider: 1 },
+  ];
+  const holiday = holidays[0];
+  const units = unitDefinitions.slice(0, 4);
   return (
     <div className="quickBox anim active">
       <div className="quickBoxLeft">
         <h1 className="quickTitle">Laskuri:</h1>
         <div className="quickContent">
-          {this.state.ready ? (
-            <>
-              {this.state.otsikko}
-              <div className="ajat quickText">
-                {this.state.weeks}
-                {this.state.days}
-                {this.state.hours}
-                {this.state.minutes}
-              </div>
-            </>
-          ) : (
-            <div id="Loading" className="loader quickLoader">
-              <div className="loader-inner square-spin">
-                <div></div>
-              </div>
-            </div>
-          )}
+          <Counter time={time} units={units} holidayObject={holiday} key={holiday.startName}></Counter>
         </div>
       </div>
-      <div onClick={redirect} className="quickBoxRight">
+      <Link to={href} className="quickBoxRight">
         <div className="quickWhite arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +38,7 @@ export function QuickLaskuri() {
             <path fill="none" d="M0 0h24v24H0z" />
           </svg>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

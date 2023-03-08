@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import { TimerPage } from "./Pages/TimerPage";
 import getHolidays from "./Components/getHolidays";
+import QuickLaskuri from "./QuickBoxes/QuickLaskuri.js";
 const QuickFront = lazy(() => import("./QuickFront"));
-const QuickLaskuri = lazy(() => import("./QuickBoxes/QuickLaskuri"));
 const QuickRuokalista = lazy(() => import("./QuickBoxes/QuickRuokalista"));
 const QuickForm = lazy(() => import("./QuickBoxes/QuickForm"));
 const QuickGallery = lazy(() => import("./QuickBoxes/QuickGallery"));

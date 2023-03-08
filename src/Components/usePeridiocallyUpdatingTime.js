@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 export function usePeridiocallyUpdatingTime(frequency) {
-    let [curTime, setCurtime] = useState(0);
-    let requestRef = useRef();
-    let timerRef = useRef();
+    const [curTime, setCurtime] = useState(0);
+    const requestRef = useRef();
+    const timerRef = useRef();
     const animate = () => {
         setCurtime(Date.now());
         if (frequency < 1000) {

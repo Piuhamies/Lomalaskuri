@@ -1,7 +1,7 @@
 import React from "react";
 import Cookie from "js-cookie";
 import { Redirect, Link } from "react-router-dom";
-import { ThemeToggle } from "../Components/ThemeToggle";
+import { ThemeToggle } from "./Components/ThemeToggle";
 
 export default class QuickSettings extends React.Component {
 	constructor(props) {

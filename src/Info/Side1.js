@@ -6,7 +6,7 @@ export default function Side1() {
     <div>
         <h1>L</h1>
         <h2>Lomalaskuri</h2>
-        <p>2022</p>
+        <p>2023</p>
     </div>
     </div>
     );

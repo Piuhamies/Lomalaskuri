@@ -1,18 +1,18 @@
 import { lazy } from "react";
 import { TimerPage } from "./Pages/TimerPage";
 import getHolidays from "./Components/getHolidays";
-import QuickLaskuri from "./QuickBoxes/QuickLaskuri.js";
+import QuickLaskuri from "./Timer/QuickLaskuri.js";
 const QuickFront = lazy(() => import("./QuickFront"));
-const QuickRuokalista = lazy(() => import("./QuickBoxes/QuickRuokalista"));
-const QuickForm = lazy(() => import("./QuickBoxes/QuickForm"));
-const QuickGallery = lazy(() => import("./QuickBoxes/QuickGallery"));
-const QuickTilastot = lazy(() => import("./QuickBoxes/QuickTilastot"));
-const QuickSettings = lazy(() => import("./QuickBoxes/QuickSettings"));
+const QuickRuokalista = lazy(() => import("./LunchMenu/QuickRuokalista"));
+const QuickForm = lazy(() => import("./Form/QuickForm"));
+const QuickGallery = lazy(() => import("./Gallery/QuickGallery"));
+const QuickTilastot = lazy(() => import("./Statistics/QuickTilastot"));
+const QuickSettings = lazy(() => import("./QuickSettings"));
 
-const RuokalistaSivu = lazy(() => import("./Pages/RuokalistaSivu"));
-const Kysely = lazy(() => import("./Components/Kysely"));
-const Galleria = lazy(() => import("./Pages/Galleria"));
-const Tilastot = lazy(() => import("./Components/Tilastot"));
+const RuokalistaSivu = lazy(() => import("./LunchMenu/RuokalistaSivu"));
+const Kysely = lazy(() => import("./Form/Kysely"));
+const Galleria = lazy(() => import("./Gallery/Gallery"));
+const Tilastot = lazy(() => import("./Statistics/Tilastot"));
 export function SchoolData() {
 	const espooHolidays = getHolidays("Espoo");
 	return [

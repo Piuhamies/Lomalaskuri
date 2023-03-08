@@ -5,10 +5,10 @@ import React, {
 	useCallback,
 	useMemo,
 } from "react";
-import arrow from "../../Icons/arrow_forward_ios-24px.svg";
+import arrow from "../Icons/arrow_forward_ios-24px.svg";
 import { useHistory } from "react-router-dom";
 import { useRotateDetector } from "./RotateDetector";
-import { ThemeToggle } from '../ThemeToggle'
+import { ThemeToggle } from '../Components/ThemeToggle'
 
 import Side1 from "./Side1";
 import Side2 from "./Side2";

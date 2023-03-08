@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "../Components/ThemeToggle";
 
-export function NewSchoolSelector(props) {
+export function SchoolSelector(props) {
 	let history = useHistory();
 	const [additionalClass, setAdditionalClass] = useState("");
 	async function changePage(url, animate = true) {

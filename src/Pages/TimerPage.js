@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Counter } from "../Components/Counter";
-import { usePeridiocallyUpdatingTime } from "../Components/usePeridiocallyUpdatingTime";
+import { Counter } from "../Timer/Counter";
+import { usePeridiocallyUpdatingTime } from "../Timer/usePeridiocallyUpdatingTime";
 export function TimerPage(props) {
     const unitDefinitions = [
         { name: "Viikot", short: "wk", divider: 1000 * 60 * 60 * 24 * 7 },

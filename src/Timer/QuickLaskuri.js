@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { usePeridiocallyUpdatingTime } from "../Components/usePeridiocallyUpdatingTime";
-import { Counter } from "../Components/Counter";
+import { usePeridiocallyUpdatingTime } from "./usePeridiocallyUpdatingTime";
+import { Counter } from "./Counter";
 export default function QuickLaskuri({ href, holidays }) {
   const time = usePeridiocallyUpdatingTime(1000);
   const unitDefinitions = [

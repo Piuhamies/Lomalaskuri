@@ -1,19 +1,19 @@
 import React from "react";
 
-import nokaKuva1 from "../Kuvat/1.jpg";
-import nokaKuva2 from "../Kuvat/2.jpg";
-import nokaKuva3 from "../Kuvat/3.jpg";
-import nokaKuva4 from "../Kuvat/4.jpg";
-import nokaKuva5 from "../Kuvat/5.jpg";
-import nokaKuva6 from "../Kuvat/6.jpg";
-import nokaKuva1Res from "../Kuvat/1_HighRes.jpg";
-import nokaKuva2Res from "../Kuvat/2_HighRes.JPG";
-import nokaKuva3Res from "../Kuvat/3_HighRes.JPG";
-import nokaKuva4Res from "../Kuvat/4_HighRes.JPG";
-import nokaKuva5Res from "../Kuvat/5_HighRes.jpg";
-import nokaKuva6Res from "../Kuvat/6_HighRes.jpg";
+import nokaKuva1 from "../Images/1.jpg";
+import nokaKuva2 from "../Images/2.jpg";
+import nokaKuva3 from "../Images/3.jpg";
+import nokaKuva4 from "../Images/4.jpg";
+import nokaKuva5 from "../Images/5.jpg";
+import nokaKuva6 from "../Images/6.jpg";
+import nokaKuva1Res from "../Images/1_HighRes.jpg";
+import nokaKuva2Res from "../Images/2_HighRes.JPG";
+import nokaKuva3Res from "../Images/3_HighRes.JPG";
+import nokaKuva4Res from "../Images/4_HighRes.JPG";
+import nokaKuva5Res from "../Images/5_HighRes.jpg";
+import nokaKuva6Res from "../Images/6_HighRes.jpg";
 
-export default class Galleria extends React.Component {
+export default class Gallery extends React.Component {
 	image(elem) {
 		var modalElem = document.querySelector(".modal.image");
 		var modalContentElem = document.querySelector(".modal-content img");

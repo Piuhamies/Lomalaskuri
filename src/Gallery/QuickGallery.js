@@ -1,10 +1,10 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import nokaKuva2 from "../Kuvat/2.webp";
-import nokaKuva3 from "../Kuvat/3.webp";
-import nokaKuva4 from "../Kuvat/4.webp";
-import nokaKuva5 from "../Kuvat/5.webp";
-import nokaKuva6 from "../Kuvat/6.webp";
+import nokaKuva2 from "../Images/2.webp";
+import nokaKuva3 from "../Images/3.webp";
+import nokaKuva4 from "../Images/4.webp";
+import nokaKuva5 from "../Images/5.webp";
+import nokaKuva6 from "../Images/6.webp";
 
 export default class QuickGallery extends React.Component {
 	constructor(props) {

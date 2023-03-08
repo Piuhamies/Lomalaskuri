@@ -1080,7 +1080,7 @@ h2,
 }
 
 .loginBox {
-	box-shadow: 0px 0px 20px black;
+	box-shadow: 0px 0px 20px var(--shadow-color);
 	background-color: var(--mobile-menu-color);
 	border-radius: 15px;
 	display: flex;
@@ -1531,7 +1531,7 @@ h2,
 		justify-content: center;
 		margin: 20px 5%;
 		padding: 1em;
-		box-shadow: black 0px 0px 5px 2px inset;
+		box-shadow: var(--shadow-color) 0px 0px 5px 2px inset;
 		background-color: var(--quick-color);
 		border-radius: 1em;
 	}

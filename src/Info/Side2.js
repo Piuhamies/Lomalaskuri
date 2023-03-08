@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-import { ThemeContext } from "../../ThemeContext";
-import oldLoma from "../../Kuvat/2019 laskuri.webp";
-import lomaLight from "../../Kuvat/2020 laskuri light.webp";
-import lomaDark from "../../Kuvat/2020 laskuri dark.webp";
+import { ThemeContext } from "../ThemeContext";
+import oldLoma from "../Images/2019 laskuri.webp";
+import lomaLight from "../Images/2020 laskuri light.webp";
+import lomaDark from "../Images/2020 laskuri dark.webp";
 
 export default function Side2(props) {
-    const [oldImg, setOldImg] = useState(lomaLight);
+	const [oldImg, setOldImg] = useState(lomaLight);
 	const theme = useContext(ThemeContext)
-    useEffect(() => {
+	useEffect(() => {
 		setOldImg(theme.themeName === "dark" ? lomaDark : lomaLight);
 	}, [ThemeContext]);
 	return (
@@ -18,10 +18,9 @@ export default function Side2(props) {
 			</h1>
 			<div className="infoText half">
 				<p>
-					{" "}
 					Lomalaskuri on monipuolinen työkalu jokaiselle espoolaiselle
 					oppilaalle ja opiskelijalle. Sivu luotiin alunperin vuonna 2019 ja
-					siitä lähtien sitä on paranneltu tasaiseen tahtiin.{" "}
+					siitä lähtien sitä on paranneltu tasaiseen tahtiin.
 				</p>
 				<p>
 					Luonut / Kehittäjä: <span className="highlight">Severi Lybeck</span>

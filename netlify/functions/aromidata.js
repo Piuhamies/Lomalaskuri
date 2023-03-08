@@ -1,5 +1,5 @@
-const request = require('request');
-const fetch = require('node-fetch');
+import request from request;
+import fetch from node-fetch;
 var aromiData = [
     { day: "Maanantai", food: "", veganFood: "" },
     { day: "Tiistai", food: "", veganFood: "" },

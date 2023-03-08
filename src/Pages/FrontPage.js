@@ -1,11 +1,10 @@
 import React, { Suspense } from "react";
-import "../App.css";
 import Cookie from "js-cookie";
 import { DefaultMenu } from "../Components/defaultMenu";
 import { ErrorPage } from "../Pages/ErrorPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { NewSchoolSelector } from "../Components/NewSchoolSelector";
-import { Info } from "../Components/Info/Info";
+import { SchoolSelector } from "./SchoolSelector";
+import { Info } from "../Info/Info";
 import { Helmet } from "react-helmet";
 import { ThemeHandler } from "../Components/ThemeHandler";
 
@@ -46,7 +45,7 @@ export function FrontPage(props) {
 						<Helmet>
 							<title>Lomalaskuri | Kouluvalitsin</title>
 						</Helmet>
-						<NewSchoolSelector schools={props.schools}> </NewSchoolSelector>
+						<SchoolSelector schools={props.schools}> </SchoolSelector>
 					</Route>
 					<Route exact path="/Info">
 						<Info />

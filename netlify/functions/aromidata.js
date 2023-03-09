@@ -27,8 +27,8 @@ var aromiData = [
         const menuResponse = await fetch(menuUrl);
         const menuData = await menuResponse.json();
         menuData.Days.forEach((item, index) => {
-            aromiData[index].food = item.Meals[0].Name;
-            aromiData[index].veganFood = item.Meals[1].Name;
+            aromiData[index].food = item.Meals[1].Name;
+            aromiData[index].veganFood = item.Meals[0].Name;
         });
 
         return {

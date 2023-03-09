@@ -132,3 +132,5 @@ dist
 # Editor & IDE Configs
 .vscode
 .editorconfig
+# Local Netlify folder
+.netlify

@@ -604,6 +604,7 @@ h2,
 #show {
 	font-family: "Oswald", sans-serif;
 	text-align: center;
+	color: var(--text-color);
 }
 
 #foodList {

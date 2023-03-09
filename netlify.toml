@@ -2,7 +2,8 @@
   command = "CI= npm run build"
   publish="/build"
   base = "/"
-
+[functions]
+  node_bundler = "esbuild"
 [[redirects]]
   from = "/*"
   to = "/index.html"

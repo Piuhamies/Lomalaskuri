@@ -134,3 +134,6 @@ dist
 .editorconfig
 # Local Netlify folder
 .netlify
+
+#Production builds
+build/

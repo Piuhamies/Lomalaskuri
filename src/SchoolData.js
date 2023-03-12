@@ -112,7 +112,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -154,7 +154,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -194,7 +194,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -212,7 +212,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				// name: "Chat", 'class': <Chat />},
@@ -246,7 +246,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -264,7 +264,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				// { name: "Chat", 'class': <Chat />},
@@ -330,7 +330,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -366,7 +366,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				{
@@ -408,7 +408,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -426,7 +426,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -451,7 +451,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -469,7 +469,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -494,7 +494,7 @@ export function SchoolData() {
 								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
 								<QuickLunch
 									key="QuickRuoka"
-									url="./netlify/functions/aromidata"
+									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
 								/>,
 								<QuickForm
@@ -512,7 +512,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<LunchPage url="./netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},

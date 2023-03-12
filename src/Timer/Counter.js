@@ -3,7 +3,6 @@ import React from "react";
 export function Counter({ time, units, holidayObject }) {
 	//this React component sorts time to smaller Time Units and returns an counter component
 	const filteredUnits = units.filter((x) => x !== null);
-	console.log(holidayObject);
 	const isEndTimer = (time - holidayObject.start) > 0;
 	const holidayTime = isEndTimer ? holidayObject.end - time : holidayObject.start - time;
 	const timeObjects = filteredUnits.map((x, index) => {

@@ -1,15 +1,15 @@
 import { lazy } from "react";
-import { TimerPage } from "./Pages/TimerPage";
+import { TimerPage } from "./Timer/TimerPage";
 import getHolidays from "./Components/getHolidays";
-import QuickLaskuri from "./Timer/QuickLaskuri.js";
+import QuickTimer from "./Timer/QuickTimer.js";
 const QuickFront = lazy(() => import("./QuickFront"));
-const QuickRuokalista = lazy(() => import("./LunchMenu/QuickRuokalista"));
+const QuickLunch = lazy(() => import("./LunchMenu/QuickLunch"));
 const QuickForm = lazy(() => import("./Form/QuickForm"));
 const QuickGallery = lazy(() => import("./Gallery/QuickGallery"));
 const QuickTilastot = lazy(() => import("./Statistics/QuickTilastot"));
 const QuickSettings = lazy(() => import("./QuickSettings"));
 
-const RuokalistaSivu = lazy(() => import("./LunchMenu/RuokalistaSivu"));
+const LunchPage = lazy(() => import("./LunchMenu/LunchPage"));
 const Kysely = lazy(() => import("./Form/Kysely"));
 const Galleria = lazy(() => import("./Gallery/Gallery"));
 const Tilastot = lazy(() => import("./Statistics/Tilastot"));
@@ -25,8 +25,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays} />,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays} />,
+								<QuickLunch
 									key="QuickRuoka"
 									url="/.netlify/functions/aromidata"
 									href="Ruokalista"
@@ -66,7 +66,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="/.netlify/functions/aromidata" />
+						<LunchPage url="/.netlify/functions/aromidata" />
 					),
 				},
 				{
@@ -109,8 +109,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -154,7 +154,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -191,8 +191,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -212,7 +212,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				// name: "Chat", 'class': <Chat />},
@@ -243,8 +243,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -264,7 +264,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				// { name: "Chat", 'class': <Chat />},
@@ -286,8 +286,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="/.netlify/functions/otaniemiData"
 									href="Ruokalista"
@@ -307,7 +307,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="/.netlify/functions/otaniemiData" />
+						<LunchPage url="/.netlify/functions/otaniemiData" />
 					),
 				},
 				{
@@ -327,8 +327,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -366,7 +366,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				{
@@ -405,8 +405,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -426,7 +426,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -448,8 +448,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -469,7 +469,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},
@@ -491,8 +491,8 @@ export function SchoolData() {
 					class: (
 						<QuickFront
 							quickItems={[
-								<QuickLaskuri key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
-								<QuickRuokalista
+								<QuickTimer key="QuickLaskuri" href="Laskuri" holidays={espooHolidays}/>,
+								<QuickLunch
 									key="QuickRuoka"
 									url="./netlify/functions/aromidata"
 									href="Ruokalista"
@@ -512,7 +512,7 @@ export function SchoolData() {
 				{
 					name: "Ruokalista",
 					class: (
-						<RuokalistaSivu url="./netlify/functions/aromidata" />
+						<LunchPage url="./netlify/functions/aromidata" />
 					),
 				},
 				//{ name: "Chat", 'class': <Chat />},

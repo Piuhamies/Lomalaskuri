@@ -61,11 +61,10 @@ h2,
 	justify-content: center;
 	align-items: flex-start;
 	padding-top: 2em;
-
 }
 
 #ErrorHeader {
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 	font-size: 40vmin;
 	margin: 0;
 	position: relative;
@@ -84,6 +83,7 @@ h2,
 }
 
 .loader {
+	font-size: 1rem;
 	padding: 1em;
 	height: auto !important;
 	justify-content: flex-start;
@@ -142,12 +142,12 @@ h2,
 	align-items: center;
 }
 
-.infoContent1>div {
+.infoContent1 > div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 	border: solid var(--seperator-color) 2px;
 	width: 60vmin;
 	height: 60vmin;
@@ -186,7 +186,7 @@ h2,
 	grid-template-rows: auto 1fr 1fr;
 	grid-auto-flow: row;
 	padding: 1em;
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 	font-size: 21%;
 }
 
@@ -220,7 +220,7 @@ h2,
 	flex-direction: column;
 }
 
-.pageIndicator>div {
+.pageIndicator > div {
 	background-color: var(--lomalaskuri-color);
 	border-radius: 50%;
 	width: 1em;
@@ -230,11 +230,11 @@ h2,
 	transition: transform 0.1s;
 }
 
-.pageIndicator>div:hover {
+.pageIndicator > div:hover {
 	transform: scale(1.2);
 }
 
-.pageIndicator>div::after {
+.pageIndicator > div::after {
 	opacity: 0%;
 	position: absolute;
 	left: 50%;
@@ -249,15 +249,15 @@ h2,
 	content: "";
 }
 
-.pageIndicator.onSide1>div:nth-of-type(1)::after {
+.pageIndicator.onSide1 > div:nth-of-type(1)::after {
 	opacity: 100%;
 }
 
-.pageIndicator.onSide2>div:nth-of-type(2)::after {
+.pageIndicator.onSide2 > div:nth-of-type(2)::after {
 	opacity: 100%;
 }
 
-.pageIndicator.onSide3>div:nth-of-type(3)::after {
+.pageIndicator.onSide3 > div:nth-of-type(3)::after {
 	opacity: 100%;
 }
 
@@ -308,6 +308,9 @@ h2,
 .highlight {
 	color: var(--seperator-color);
 }
+.quickRuokalista .highlight, .food .highlight {
+	color: rgb(214, 214, 255);
+}
 
 @keyframes suggest {
 	0% {
@@ -330,7 +333,6 @@ h2,
 }
 
 @media (orientation: portrait) and (max-width: 960px) {
-
 	/*when used on a mobile device, convert the cube to a rectangle. That way it can ocupy more of the screen. */
 	.cube {
 		height: 80vh;
@@ -339,7 +341,7 @@ h2,
 		transform: translateZ(-80vh);
 	}
 
-	.infoContent1>div {
+	.infoContent1 > div {
 		width: 75vw;
 		height: 75vw;
 	}
@@ -398,7 +400,7 @@ h2,
 	}
 }
 
-.square-spin>div {
+.square-spin > div {
 	background: var(--seperator-color) !important;
 	border: solid 1px var(--text-color) !important;
 	height: 3em !important;
@@ -410,8 +412,8 @@ h2,
 	color: white;
 }
 
-.square-spin>div::after {
-	font-family: 'Cabin Condensed', sans-serif;
+.square-spin > div::after {
+	font-family: "Cabin Condensed", sans-serif;
 	content: "L";
 	font-size: 2.5em;
 }
@@ -430,7 +432,6 @@ h2,
 	}
 }
 
-
 #typingDiv {
 	display: flex;
 	justify-content: space-between;
@@ -444,7 +445,6 @@ h2,
 	margin: 0.1em;
 	padding: 0em 1em 0em 1em;
 }
-
 
 #foodListPos {
 	width: 100vw;
@@ -545,7 +545,6 @@ h2,
 	text-shadow: none;
 }
 
-
 .quickBoxRight {
 	height: 100%;
 	border-left: 1px solid var(--seperator-color);
@@ -560,7 +559,7 @@ h2,
 	background-color: var(--quick-invert-color);
 }
 
-.quickBoxRight:hover .arrow>svg {
+.quickBoxRight:hover .arrow > svg {
 	filter: drop-shadow(0px 0px 15px var(--seperator-color));
 }
 
@@ -608,11 +607,13 @@ h2,
 }
 
 #foodList {
-	width: 50vw;
 	background-color: var(--mobile-menu-color);
 	padding: 2em;
 	text-align: left;
-	display: none;
+}
+.food p {
+	margin:0;
+	margin-left: 1em;
 }
 
 .SettingBtn {
@@ -661,14 +662,14 @@ h2,
 	align-items: center;
 }
 
-.quickImage>img {
+.quickImage > img {
 	height: 100%;
 	position: absolute;
 	transition: 0.2s;
 	transition-property: opacity;
 }
 
-#places>a {
+#places > a {
 	color: var(--text-color) !important;
 }
 
@@ -704,7 +705,7 @@ h2,
 	border-radius: 30%;
 }
 
-.checkbox input[type="checkbox"]:checked+label::before {
+.checkbox input[type="checkbox"]:checked + label::before {
 	background: var(--seperator-color);
 }
 
@@ -718,19 +719,19 @@ h2,
 	top: 7px;
 }
 
-.checkbox input[type="checkbox"]+label::after {
+.checkbox input[type="checkbox"] + label::after {
 	content: none;
 }
 
-.checkbox input[type="checkbox"]:checked+label::after {
+.checkbox input[type="checkbox"]:checked + label::after {
 	content: "";
 }
 
-.checkbox input[type="checkbox"]:hover+label::before {
+.checkbox input[type="checkbox"]:hover + label::before {
 	outline: rgb(59, 153, 252) auto 5px;
 }
 
-#timerSettings {
+.contentBox {
 	text-align: center;
 	font-family: "Oswald", sans-serif;
 	font-size: 1.1rem;
@@ -739,8 +740,10 @@ h2,
 	box-shadow: 0px 0px 20px var(--shadow-color);
 	background-color: var(--quick-color);
 	color: var(--text-color);
+	max-width: 90%;
+	box-sizing: border-box;
 }
-#timerSettings h3 {
+.contentBox h3 {
 	margin-top: 0;
 	font-size: 150%;
 }
@@ -751,14 +754,15 @@ h2,
 	flex-wrap: wrap;
 }
 
-#timerArea {
+main {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	font-size: 3rem;
+	padding-bottom: 1em;
 }
 
-#timerArea .timerBox {
+main .timerBox {
 	max-width: 2000px;
 	min-width: 900px;
 	background-color: var(--quick-color);
@@ -770,7 +774,7 @@ h2,
 	overflow: hidden;
 }
 
-#timerArea .timerTitle {
+main .timerTitle {
 	font-family: "Oswald", sans-serif;
 	font-display: swap;
 	display: flex;
@@ -779,7 +783,7 @@ h2,
 	padding: 2rem;
 	margin: 0;
 	color: var(--text-color);
-	border-bottom: 1px solid var(--seperator-color)
+	border-bottom: 1px solid var(--seperator-color);
 }
 
 .timerTimes {
@@ -796,7 +800,7 @@ h2,
 	color: white;
 }
 
-.timerTimes>p {
+.timerTimes > p {
 	margin: 2%;
 	align-self: center;
 }
@@ -816,7 +820,7 @@ h2,
 	height: auto;
 }
 
-#menu>a:hover {
+#menu > a:hover {
 	color: blue;
 }
 
@@ -882,16 +886,16 @@ h2,
 	/* Could be more or less, depending on screen size */
 }
 
-.modal-content>h1 {
+.modal-content > h1 {
 	color: black !important;
 }
 
-.modal-content>a {
+.modal-content > a {
 	text-decoration: none;
 	color: black;
 }
 
-.modal-content>a:hover {
+.modal-content > a:hover {
 	cursor: pointer;
 	text-decoration: none;
 	color: lightblue;
@@ -937,7 +941,7 @@ h2,
 	width: 80%;
 }
 
-.modal-content.image>img {
+.modal-content.image > img {
 	border: solid 2px var(--seperator-color);
 }
 
@@ -959,8 +963,6 @@ h2,
 	border: solid 5px transparent;
 }
 
-
-
 .bottom {
 	grid-row: 2;
 }
@@ -968,7 +970,6 @@ h2,
 .bottom1 {
 	grid-row: 3;
 }
-
 
 @keyframes fadein {
 	from {
@@ -1007,10 +1008,10 @@ h2,
 	height: 100vh;
 	width: 40vw;
 	min-height: 100vh;
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 }
 
-.lomaEsittely>div {
+.lomaEsittely > div {
 	margin-left: 2vw;
 	margin-bottom: 15vh;
 }
@@ -1058,10 +1059,10 @@ h2,
 	justify-content: center;
 	background: var(--login-bg) left repeat-y;
 	background-size: 100% auto;
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 }
 
-.login>h2 {
+.login > h2 {
 	color: var(--header-color);
 }
 
@@ -1121,7 +1122,7 @@ h2,
 	background: transparent;
 	border: none;
 	text-decoration: underline;
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 	cursor: pointer;
 }
 
@@ -1146,7 +1147,7 @@ h2,
 }
 
 #logo {
-	font-family: 'Cabin Condensed', sans-serif;
+	font-family: "Cabin Condensed", sans-serif;
 	pointer-events: none;
 	transform: scaleX(1.6);
 	margin: 0;
@@ -1157,9 +1158,9 @@ h2,
 	justify-content: center;
 }
 
-.loginOptions>h2,
-.loginOptions>p,
-.loginOptions>button {
+.loginOptions > h2,
+.loginOptions > p,
+.loginOptions > button {
 	color: var(--text-color);
 }
 
@@ -1183,7 +1184,7 @@ h2,
 		font-family: "Roboto-mono", monospace;
 	}
 
-	#typingDiv>p {
+	#typingDiv > p {
 		font-size: calc(4px + 2vw);
 	}
 
@@ -1218,7 +1219,7 @@ h2,
 		height: 10em;
 	}
 
-	.arrow>svg {
+	.arrow > svg {
 		width: 6vw;
 	}
 
@@ -1236,9 +1237,6 @@ h2,
 		grid-template-columns: 100%;
 	}
 
-	#foodList {
-		width: 100vw;
-	}
 
 	#menu {
 		transition: 2s;
@@ -1309,7 +1307,7 @@ h2,
 		padding: 0.5em 1em;
 	}
 
-	.loginOptions>button:hover {
+	.loginOptions > button:hover {
 		color: grey;
 	}
 
@@ -1354,23 +1352,23 @@ h2,
 		display: none;
 	}
 
-	#timerArea .timerBox {
+	main .timerBox {
 		width: 90%;
 		min-width: 0;
 	}
 
-	#timerArea .timerTitle {
+	main .timerTitle {
 		font-size: 6vw;
 		padding: 0.5em;
 	}
 
-	#timerArea .timerTimes {
+	main .timerTimes {
 		font-size: 6vw;
 		padding: 6vw 0;
 		height: 12vw;
 	}
 
-	#timerArea.millis .timerTimes {
+	main.millis .timerTimes {
 		font-size: 4vw;
 	}
 	.quickBox .timerBox {
@@ -1417,7 +1415,6 @@ h2,
 	bottom: 0;
 }
 
-
 @media (min-width: 960px) {
 	.loginSite {
 		overflow: hidden;
@@ -1460,14 +1457,16 @@ h2,
 	}
 
 	#foodList {
-		width: 50vw;
+		min-width: 900px;
+		max-width: 2000px;
+		width:70%;	
 	}
 
 	.quickBoxLeft .timerTimes {
 		font-size: 3rem;
 	}
 
-	#timerArea.millis .timerTimes {
+	main.millis .timerTimes {
 		font-size: 3rem;
 	}
 
@@ -1524,7 +1523,7 @@ h2,
 		max-height: 45vh;
 	}
 
-	.loginOptions>button:hover {
+	.loginOptions > button:hover {
 		color: grey;
 	}
 
@@ -1546,7 +1545,7 @@ h2,
 		border-radius: 1em;
 	}
 
-	#places>a {
+	#places > a {
 		text-decoration: none;
 		margin: 0 1em 0 1em;
 		font-size: 20px;

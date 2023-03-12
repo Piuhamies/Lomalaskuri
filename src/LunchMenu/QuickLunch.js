@@ -9,7 +9,7 @@ export default function QuickLunch({ url, href }) {
 			const response = await fetch(url);
 			const data = await response.json();
 			//Javascript considers sunday as the first day of the week, we need to do a quick math operation to get it to match our backend.
-			const curDay = (new Date().getDay() + 6) % 7;
+			const curDay = 2;
 			if (curDay < 5) {
 				const food = data[curDay].food;
 				const veganFood = data[curDay].veganFood;

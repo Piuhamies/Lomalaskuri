@@ -4,6 +4,8 @@ That is why it contains a lot of unclean and unneccessary code */
 
 :root {
 	--seperator-color: #4389f9;
+	--mild-highlight-color:#d6d6ff;
+	--invert-mild-higlight-color: #4389f9; 
 	--menu-color: transparent;
 	--header-color: rgb(223, 239, 255);
 	--mobile-menu-color: #0f0f0f;
@@ -308,10 +310,12 @@ h2,
 .highlight {
 	color: var(--seperator-color);
 }
-.quickRuokalista .highlight, .food .highlight {
-	color: rgb(214, 214, 255);
+.quickRuokalista .highlight {
+	color: var(--mild-highlight-color)
 }
-
+.foodList .highlight{
+	color: var(--invert-mild-higlight-color);
+}
 @keyframes suggest {
 	0% {
 		transform: rotate(90deg) translateX(-10px);

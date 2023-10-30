@@ -18,7 +18,7 @@ export default function Side3() {
 					jos jokin ei toimi kuten pitäisi!
 				</p>
 				<p>
-					Lähdekoodi: <span className="highlight">Tulossa pian </span>
+					Lähdekoodi: <a href="https://github.com/Piuhamies/Lomalaskuri">Github</a>
 				</p>
 			</div>
 		</div>
